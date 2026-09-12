@@ -1,0 +1,337 @@
+# Changelog
+
+Plain-language record of what changed, file by file, so you (or another
+assistant) can review it later without re-deriving it from the diff. Covers the
+private-server item-database overhaul and the Intellect→Spell Power rule done in
+this session (2026-09-11 / 2026-09-12). A second section at the bottom lists
+files that were **already modified before this session started** (an earlier,
+separate session's talent-tree work) — those are listed for completeness but not
+narrated in detail, since I don't have that session's history.
+
+The full ruleset this session implements is also written up on its own in
+[private-server-item-rules.md](private-server-item-rules.md) — read that for the
+*rules*; read this file for *what changed where*.
+
+> **2026-09-12 addendum:** the 8 pipeline Python scripts named throughout Part A
+> below (`serverdata.py`, `gen_include.py`, `gen_phases.py`, `gen_sources.py`,
+> `remap_presets.py`, `parse_vplus.py`, and the retired `gen_add_items.py` /
+> `gen_removed_items.py`) were moved from `tools/` to `docs/` afterward, at the
+> user's request, to keep the actively-run private-server pipeline together with
+> its spec doc and separate from `tools/`'s other (unrelated, prior-session)
+> scripts. The Go side (`tools/database/gen_db/`) was **not** moved. Every
+> `tools/whatever.py` path below is where that file lived *at the time this
+> entry was written* — read it as `docs/whatever.py` for the current location.
+> Run commands are current in [private-server-item-rules.md](private-server-item-rules.md).
+
+> **2026-09-12 addendum #2 — determinism fix:** rebuilds weren't byte-identical
+> run to run. Two causes, both fixed (see "Determinism" in
+> [private-server-item-rules.md](private-server-item-rules.md) for the full
+> writeup): `docs/gen_sources.py` picked an item's AtlasLoot table from an
+> unsorted Python `set` with an incomplete tie-break; `tools/database/database.go`
+> sorted the enchant list with a non-stable sort and a key that wasn't always
+> unique. Verified with the full pipeline run twice back-to-back → byte-identical
+> `db.json`/`db.bin`.
+
+---
+
+## Part A — This session
+
+### New files
+
+| File | What it does |
+|---|---|
+| `tools/serverdata.py` | Shared helper module the other tools import. Parses `CSV's/AtlasLoot/` (all 7 folders: Instances, Crafting, Factions, PvP, Sets, WorldBosses, WorldEvents) into `{item_id: set(table_name)}` plus a name index; resolves `Crafting/` spell-id rows to item ids via `AtlasLoot/Core/Spells.lua`; defines `IGNORED_TABLE` (regex for AQ20/AQ40/Naxxramas/Atiesh/Scourge Invasion/Alterac Valley table names — content the server doesn't have) and `table_bucket()` (AtlasLoot table prefix → one of the 6 phases). Also reads the pristine (pre-pipeline) sim DB from git and the dump (`VPlusItemDB.lua`). |
+| `tools/gen_include.py` | Decides which items exist on the server. Writes `assets/db_inputs/included_items.json` (the allowlist) and `assets/db_inputs/add_items.json` (items missing from the sim DB entirely that need to be injected). Rule: keep an item if it's in a non-ignored AtlasLoot table, **or** it's an equippable Rare+ item in the dump that AtlasLoot doesn't tag as AQ/Naxx/AV and that isn't raid-zone-sourced. Also excludes the frost-resist crafted sets (Icebane/Glacial/Polar/Icy Scale — not craftable yet), old sub-60 Scarlet Monastery gear, and Alterac Valley items (rep-sourced from faction 729/730, or the untagged exalted weapons 19105–19109). Force-keeps anything referenced by a built-in gear preset (covers random-suffix world greens AtlasLoot never lists). |
+| `tools/gen_phases.py` | Rewritten from scratch (old version is git history only, the file itself was always untracked). Assigns each item one of 6 phases from the earliest AtlasLoot table it appears in: 1 Pre-raid, 2 World Bosses, 3 ZG (+ Zandalar rep), 4 MC/Onyxia (+ all tier sets forced here), 5 BWL, 6 SM (level-60 only). Writes `assets/db_inputs/item_phases.json`. |
+| `tools/gen_sources.py` | Sets the "Source" (drop location) shown in the item picker from the server's own AtlasLoot fork instead of the generic upstream retail data. Scope: dungeon/raid instances + world bosses only (not Crafting/Factions/PvP). Matches the AtlasLoot boss-table name against the sim DB's existing NPC list by normalized name; **never invents an NPC id** — no confident match means the item's existing source is left alone. World bosses get a minted "World Boss" display zone (id `900001`, not a real WoW zone) plus a small hand-verified name map. Writes `assets/db_inputs/item_sources.json`. |
+| `tools/remap_presets.py` | Rewrites `ui/*/gear_sets/*.gear.json` through `renumber.json` (server ID remap) and blanks any slot whose item no longer exists in the built DB. Run after every `gen_db` build. |
+| `docs/private-server-item-rules.md` | The full ruleset spec (inclusion, stats, phases, ID renumbering, loot sources) — the reference doc for the whole pipeline. |
+| `assets/db_inputs/renumber.json` | Generated by `parse_vplus.py`. `{old sim item id: new server item id}`, ~172 entries — every class tier-set piece, PvP set piece, and reworked dungeon item the server assigned a new ID to. |
+| `assets/db_inputs/included_items.json` | Generated by `gen_include.py`. The full allowlist of server item ids (~4,060) — `gen_db` deletes anything not in this list. |
+| `assets/db_inputs/add_items.json` | Generated by `gen_include.py`. Items not in the sim DB at all that `parse_vplus.py` needs to create from scratch. |
+| `assets/db_inputs/item_phases.json` | Generated by `gen_phases.py`. `{server item id: phase 1-6}`. |
+| `assets/db_inputs/item_sources.json` | Generated by `gen_sources.py`. `{server item id: {zoneId, npcId?, otherName?}}`, ~1,387 entries. |
+| `assets/db_inputs/custom_items.json` | Generated by `parse_vplus.py`. Full stat/weapon-damage overrides + tooltips for every item matched against `VPlusItemDB.lua`, emitted under the server's item id. |
+
+### Retired (left on disk, no longer run)
+
+| File | Why |
+|---|---|
+| `tools/gen_add_items.py` | Superseded by `gen_include.py`. Kept for reference. |
+| `tools/gen_removed_items.py` | Superseded by `gen_include.py`'s allowlist (an allowlist made the old denylist approach redundant). Kept for reference. |
+| `assets/db_inputs/removed_items.json` | Emptied to `[]`. `gen_db` still reads it (no-op) rather than removing the code path, so a future denylist need doesn't require touching `gen_db`. |
+
+### `tools/parse_vplus.py` (heavily modified)
+
+- Added a `renumber` dict and an `emit_renumbered()` helper: when a sim item is
+  matched to a dump entry under a *different* id (the server's 4 matching passes —
+  by name, set+slot, shape, PvP rank), the override is now emitted under the
+  **dump's id**, and the mapping is recorded, instead of silently keeping the
+  sim's old id.
+- Pass 1 (direct id match) now skips an id if the dump also has a higher
+  (≥24000) id for the same item name — that's the server's renumbered version,
+  and pass 2 should produce the rename instead of pass 1 keeping the stale id.
+- Pass 3 (brand-new items) now skips any id that's a renumber *target*, so a
+  freshly-renumbered item isn't also re-added as a second "new" copy.
+- Writes `assets/db_inputs/renumber.json` at the end.
+- Comment updated: phases are no longer decided here (delegated to
+  `gen_phases.py`).
+
+### `tools/database/gen_db/main.go` (modified)
+
+Four additions, all inserted into the existing item-processing pipeline:
+
+1. **Renumber pass** (right after the AtlasLoot-db merge, before `ItemOverrides`):
+   reads `renumber.json`, and for each `old→new` pair renames the base-DB item's
+   `Id` field in place (or drops the old one if the new id already exists).
+2. **Allowlist filter** (right after the existing `removed_items.json` delete):
+   reads `included_items.json`; if it has more than 2,000 entries (a sanity
+   floor so a bad/empty file can't nuke the whole database), deletes every item
+   not on the list.
+3. **SM quality force** (in the per-item phase-assignment loop): if an item's
+   final phase is 6 and its quality is below Epic, bumps it to Epic.
+4. **Loot-source override** (same loop, after the phase overrides): reads
+   `item_sources.json` and, for matching items, **replaces** `item.Sources`
+   entirely with a single drop source built from the file (proto merge only
+   appends repeated fields, so this has to be a direct assignment, same pattern
+   as the phase override). Also registers the synthetic zone id `900001` ("World
+   Boss") via `db.MergeZone` when the sources file is present.
+
+### `ui/core/components/other_inputs.ts`
+
+`makePhaseSelector` — the 6 phase-dropdown entries relabeled to match the new
+scheme: `Phase 6 - SM`, `Phase 5 - BWL`, `Phase 4 - MC/Onyxia`, `Phase 3 - ZG`,
+`Phase 2 - World Bosses`, `Phase 1 - Pre-raid` (previously a retail-flavoured
+`Phase 6 - Naxx / Phase 5 - AQ / Phase 4 - ZG/AB / Phase 3 - BWL/R14 / Phase 2 -
+DM/WSG/AV / Phase 1 - MC/Ony` list).
+
+### `ui/core/constants/other.ts`
+
+`CURRENT_PHASE` changed `Phase.Phase2` → `Phase.Phase6` (the client now defaults
+to showing the latest content phase, SM, instead of an early one).
+
+### Gear presets (`ui/*/gear_sets/*.gear.json`)
+
+- IDs remapped through `renumber.json` (e.g. a druid Cenarion-set piece that was
+  `16834` is now `25095`) in every preset that referenced a renumbered item.
+- Any slot whose item was removed entirely (AQ/Naxx/AV content, or an item
+  neither AtlasLoot nor the dump could justify) was blanked (`{}`), most
+  visibly `Don Julio's Band` / `Therazane's Touch` dropping out of 7-8 presets
+  (rogue combat p2.bis/prebis, feral druid p2.bis, warrior/ele-shaman phase_2,
+  enhancement shaman phase_2) when Alterac Valley was cut.
+- **Deleted** 5 gear files that were entirely AQ40/Naxx-era BiS and not
+  referenced by any `presets.ts` import anyway:
+  `ui/warrior/gear_sets/phase_5.gear.json`, `phase_6.gear.json`,
+  `ui/elemental_shaman/gear_sets/phase_5.gear.json`, `phase_6.gear.json`,
+  `ui/enhancement_shaman/gear_sets/phase_5.gear.json`.
+
+### Sim engine — Intellect grants Spell Power
+
+- `sim/core/base_stats.go`: added `const SpellPowerPerIntellect = 1.0 / 3.0`
+  (server rule: 3 Intellect = 1 Spell Power), placed next to the other
+  class-scaling constant tables.
+- `sim/priest/priest.go`, `sim/mage/mage.go`, `sim/warlock/warlock.go`,
+  `sim/shaman/shaman.go`, `sim/druid/druid.go`, `sim/paladin/paladin.go`,
+  `sim/hunter/hunter.go`: each got one new line,
+  `X.AddStatDependency(stats.Intellect, stats.SpellPower, core.SpellPowerPerIntellect)`,
+  right next to that class's existing `Intellect → SpellCrit` dependency. This
+  stacks additively with existing Int→SpellPower talent bonuses (Mage Mind
+  Mastery, Druid Moonkin Form, Paladin Crusade) via the stat-dependency
+  manager's normal summation — no other code needed to change.
+- Warrior and rogue were **not** touched — they never had an Intellect
+  dependency to begin with, consistent with Int doing nothing for melee-only
+  classes.
+
+### Database + build artifacts (regenerated, not hand-edited)
+
+- `assets/database/db.bin` / `db.json` / `leftover_db.bin` / `leftover_db.json` —
+  rebuilt by `gen_db`. Net result after all rule changes: **3,913 items**
+  (`Phase 1: 3296, Phase 2: 78, Phase 3: 140, Phase 4: 270, Phase 5: 78, Phase 6: 51`,
+  the 51 Phase-6 items all Epic quality).
+- `assets/lib.wasm` and the `dist/classic/` bundle — rebuilt (`GOOS=js GOARCH=wasm
+  go build`, `npx vite build -m development`) and `assets/database/*` copied into
+  `dist/classic/assets/database/` so the locally-served client matches.
+- `sim/**/*.results` (every spec's expected-value files) — regenerated via
+  `go test ./sim/... ` → promote `*.results.tmp` → verify green. Values moved
+  for two independent reasons this session: (1) the item-database rewrite
+  changed available gear/stats/phases, and (2) the Intellect→Spell Power rule
+  raised every caster's effective spell power. Also worth knowing: the
+  **pre-session** committed `.results` for at least shadow priest were already
+  stale (predate an earlier, separate session's priest-talent commit
+  `4ac248dd7` that was never followed by a results update) — so some of the
+  diff in these files is *not* from this session's changes, it's this session
+  finally reconciling a gap that already existed.
+
+---
+
+## Part A2 — Follow-on session, 2026-09-12
+
+Continuation of Part A in a later conversation. Same pipeline, four more rounds
+of fixes on top of it.
+
+### SM (Phase 6) item level
+
+- `tools/database/gen_db/main.go` — new `smBaseIlvl`/`smBossIlvl`/`smBossItemIds`
+  constants, applied right after the existing Phase-6 epic-quality force. Every
+  Phase-6 (SM) item's `Ilvl` is now forced to **78** (the AQ40 average — 111
+  pristine-db items sourced from zone 3428, range 71-88 — chosen because SM is
+  the tier that comes after BWL on this server; BWL/MC/ZG/Ony averages were computed
+  the same way from pristine-db `sources.drop.zoneId` and land almost exactly on
+  real vanilla numbers, which is what grounds the 78 choice). The 8 items dropped
+  by the Cathedral wing's two final bosses are pinned to **80** instead: Aegis of
+  the Scarlet Commander (26302), Scarlet Leggings (26345), Scarlet Chestpiece
+  (26346), Helm of Zeal (26384), Reliquary of Light (26428) from Mograine;
+  Scorching Judgement (26286), Whitemane's Chapeau (26391), Purge (26395) from
+  Whitemane. Before this, SM items carried stale pre-rework ilvl (often <40) or
+  no ilvl at all for brand-new items.
+- `docs/private-server-item-rules.md` — documented under the existing Phase-6
+  epic-quality note.
+
+### Naxxramas Tier-3 leak
+
+Found via manual browser inspection (searching "Circlet of Faith" in the gear
+picker) that all 9 class Tier-3 sets (Dreadnaught's Battlegear, Redemption
+Armor, Cryptstalker Armor, "The Earthshatterer", Bonescythe Armor, Dreamwalker
+Raiment, Frostfire Regalia, Plagueheart Raiment, Vestments of Faith — 8 pieces +
+ring each) plus all 4 class variants of Atiesh, Greatstaff of the Guardian had
+leaked into the DB at Phase 1 despite the "AQ/Naxx items excluded" rule — 85
+items at ilvl 86-92. Root cause not fully diagnosed (should have been caught by
+Rule 1's AQ/Naxx-table exclusion; `gen_include.py`'s exact miss wasn't tracked
+down). Fixed by hand: removed all 85 ids from `assets/db_inputs/included_items.json`
+and `assets/db_inputs/item_phases.json` directly, so they won't resurface on
+a `gen_include.py` re-run even though the root cause is still open.
+
+### Recipe items (Plans/Pattern/Schematic/Formula/Recipe/Design/Manual)
+
+Found 154 non-equippable recipe/pattern items in the live DB (65 `Plans:` +
+89 `Pattern:`/`Schematic:`/`Formula:`) — AtlasLoot `Crafting/` tables list the
+recipe *drop* as loot, and Rule 1(a) was including it as if it were gear,
+alongside the actual crafted item it teaches. A later pass caught a 7th prefix,
+`Manual:` (first-aid bandage recipes), that hadn't leaked into the DB but was
+still an inclusion-rule gap.
+- `docs/gen_include.py` — new `RECIPE_PREFIXES` tuple (`Plans:`, `Pattern:`,
+  `Schematic:`, `Formula:`, `Recipe:`, `Design:`, `Manual:`) + `_is_recipe()`
+  helper, checked in both the pristine-item and dump-only-item inclusion loops
+  plus the gear-preset force-keep loop.
+- `docs/private-server-item-rules.md` — new bullet under "Exceptions to
+  inclusion" documenting the rule and the 154-item count.
+
+### Custom enchants (VPlusItemDB.lua-only, no real Blizzard spell)
+
+`tools/database/enchant_overrides.go` gained 11 new rows, all with synthetic
+`EffectId`/`SpellId` minted in a `900xxx` range (no `ItemId` — see "ItemId
+panic" below) since these have no real Wowhead-scraped spell/item to key off:
+
+- **3 from the general VPlus dump** (found by diffing every `Formula:`/`Recipe:`
+  item name in the dump against `enchant_overrides.go`'s existing `Name`s):
+  Enchant Gloves - Nature Power (+20 Nature spell dmg, ids 900101/26020),
+  Enchant 2H Weapon - Savagery (ignore 250 armor, 900102/26069), Enchant Weapon
+  - Spellblasting (+1% spell crit, 900103/26072). (Two other apparent gaps,
+  "Enchant Weapon - Unholy" and "Enchant Bracer - Healing", turned out to
+  already exist under fuller names — false positives from the diff.)
+- **8 from the "Crimson Ring" reputation vendor** (`Sigil of ...` items, ids
+  26255-26275, a full 21-item enchant faction with zero prior coverage) — only
+  the flat-stat ones: Sigil of Sturdiness: Belt (+5 Stam, **Waist** — this
+  slot had *no* enchants at all before, retail or custom), Sigil of Power:
+  Gloves/Bracer/Chest each in an Attack-Power and a Spell-Damage/Healing
+  variant (900204-900209).
+- **3 from the "Shen'dralar" reputation vendor** (Dire Maul Library faction,
+  ids 26073-26075): Greater Arcanum of Accuracy (+1% melee+spell hit),
+  Greater Arcanum of Avoidance (+1% dodge), Greater Arcanum of Concentration
+  (+10 MP5 only — it also grants 10 health/5s, not modeled, see below).
+
+**Deferred to a background task** (`task_745333cc`, not yet run) — 14 enchants
+that grant procs/debuffs/resistances with no flat-stat equivalent in this
+engine's `Stat` enum, so they need real spell/aura Go code, not a table row:
+13 more Crimson Ring Sigils (health regen ×2, hit-chance-reduction ×2,
+mana-cost-reduction ×2, CC-resistances ×3, disarm immunity, an AoE
+enemy-slow, movement speed ×2), the health-regen half of Greater Arcanum of
+Concentration, and "Enchant Weapon - Unholy Weapon" (EffectId 1899/SpellId
+20033, already in the table from before this session but with an empty
+`Stats{}` — a real Blizzard proc, curse-on-hit, never implemented).
+
+**ItemId panic, found and fixed mid-pipeline-run:** the first `gen_db` run
+after adding these panicked (`No item tooltip with id 26272`) because several
+of the new rows had `ItemId` set to the VPlus item id (matching the existing
+`Arcanum`-style entries, which do carry a real scraped `ItemId`) — but these
+26xxx ids were never scraped from Wowhead, and `AddItemIcon` (unlike
+`AddSpellIcon`) panics hard on an unknown id instead of warning. Fixed by
+removing `ItemId` from all 11 new rows.
+
+### Pipeline run
+
+Go wasn't installed in the session; installed via `winget install GoLang.Go`
+(1.27.0). Ran `go run ./tools/database/gen_db -outDir=./assets -gen=db`
+(succeeded after the ItemId fix above) → `assets/database/db.json`/`db.bin`/
+`leftover_db.json`/`leftover_db.bin` regenerated, then copied into
+`dist/classic/assets/database/` to match. `go build ./...` and
+`go test ./sim/...` both clean; promoted the 18 `.results.tmp` files that
+came out different from the committed baseline (druid balance/feral, hunter,
+mage, paladin protection/retribution×3, priest shadow, rogue×2, shaman
+elemental/enhancement/warden, warlock×2, warrior dps/tank) — expected, since
+ilvl/item/enchant changes shift every spec's sim numbers. A second full test
+run confirmed the freshly-promoted baselines are stable (no further diff).
+
+Verified throughout via the already-running `http://localhost:8080/classic/`
+server (reads `dist/classic/assets/database/db.json` with `READ_JSON=true`) —
+Helm of Zeal / Scarlet Gauntlets ilvl, Naxx T3 removal, recipe-item removal,
+and every new enchant were each checked live in the gear picker.
+
+### Repo
+
+Forked `TheBackstabi/wowsims_classic` (the repo this local clone's `origin`
+pointed at, not owned by the user) to `lokiy999/wowsims_classic_vanillaplus`
+via `gh repo fork`. Local `origin` now points at the fork; the original is
+kept as `upstream` for pulling future updates from it.
+
+---
+
+## Part B — Already modified before this session (a separate, earlier session)
+
+These files were dirty in `git status` at the start of this session. They're
+listed here for completeness only — I did not author them in this conversation
+and don't have that session's narrative, so no per-change detail is given. Ask
+me to look into any of these specifically if you need the detail; I can read the
+diffs on request.
+
+- **Talent tree rework across every class** (large diffs, ~9,000 lines total):
+  `sim/*/talents.go` for druid, hunter, mage, paladin, priest, rogue, shaman,
+  warlock, warrior, plus the matching `ui/core/talents/trees/*.json` files and
+  `ui/core/talents/talents_picker.tsx`.
+- **Per-spell/aura tweaks** scattered across most classes (small 1-4 line diffs
+  in files like `sim/rogue/rupture.go`, `sim/warlock/succubus.go`,
+  `sim/shaman/stormstrike.go`, `sim/warrior/shield_slam.go`, etc.) — look like
+  fallout from the talent rework (spell coefficients/values depending on
+  talent points).
+- **Local item-tooltip plumbing**: `ui/core/player.ts`,
+  `ui/core/proto_utils/action_id.ts`, `ui/core/proto_utils/database.ts`,
+  `proto/ui.proto` (added the `tooltip` field to `UIItem`) — lets the client
+  show the server's own tooltip instead of fetching from Wowhead when one is
+  available locally.
+- `sim/core/item_effects.go`, `sim/core/item_sets.go` — changed to skip
+  silently instead of panicking when a referenced item/set is missing from the
+  DB (so removed content doesn't crash every sim run).
+- `sim/core/buffs.go`, `sim/core/debuffs.go` — not yet reviewed in detail.
+- Other `proto/*.proto` files (druid/hunter/mage/paladin/priest/rogue/shaman/
+  warlock/warrior) — likely talent-proto field additions matching the tree
+  rework above.
+- `package-lock.json` — dependency changes, not reviewed.
+- `Dockerfile` — base image bumped `golang:1.21` → `golang:1.23` (this session,
+  2026-09-09). The unpinned `go get -u google.golang.org/protobuf` /
+  `go install .../protoc-gen-go@latest` lines had started pulling
+  protobuf v1.36.12, which requires Go ≥1.23; `docker build` failed against the
+  old 1.21 base with `requires go >= 1.23 (running go 1.21.13)`. The repo's own
+  `go.mod` still only needs v1.33.0, so this is purely an image-version fix, not
+  a dependency bump.
+- Every `sim/**/*_test.go` with a small diff (test case list changes) and the
+  matching `.results` files — follow from the talent rework.
+
+### Untracked scratch files (present, not created or touched by me)
+
+`_add_candidates.json`, `_missing_vplus_items.txt`, `_olddb.json`,
+`_pvp_obsolete.json`, `_removelist.json`, `_removelist_aqnaxx.json`,
+`"Start Server.bat"`, `tools/dbc_to_talents.py`, `tools/gen_custom_spell_tooltips.py`,
+`tools/custom_talent_spell_ids.txt` — leftovers from earlier work sessions, at
+the repo root or in `tools/`. Not referenced by anything I built this session;
+safe to delete if you don't need them, or ask and I'll check what each one is
+for before removing anything.

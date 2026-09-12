@@ -70,6 +70,11 @@ var EnchantOverrides = []*proto.UIEnchant{
 	{EffectId: 2717, ItemId: 23548, SpellId: 29483, Name: "Might of the Scourge", Quality: proto.ItemQuality_ItemQualityEpic, Stats: stats.Stats{stats.AttackPower: 26, stats.MeleeCrit: 1 * core.CritRatingPerCritChance}.ToFloatArray(), Type: proto.ItemType_ItemTypeShoulder, Phase: 6},
 	{EffectId: 2716, ItemId: 23549, SpellId: 29480, Name: "Fortitude of the Scourge", Quality: proto.ItemQuality_ItemQualityEpic, Stats: stats.Stats{stats.Stamina: 16, stats.BonusArmor: 100}.ToFloatArray(), Type: proto.ItemType_ItemTypeShoulder, Phase: 6},
 	{EffectId: 2721, ItemId: 23545, SpellId: 29467, Name: "Power of the Scourge", Quality: proto.ItemQuality_ItemQualityEpic, Stats: stats.Stats{stats.SpellPower: 15, stats.SpellCrit: 1 * core.SpellCritRatingPerCritChance}.ToFloatArray(), Type: proto.ItemType_ItemTypeShoulder, Phase: 6},
+	// Shen'dralar reputation vendor (private-server custom, VPlusItemDB.lua ids
+	// 26073-26075, per user 2026-09-12).
+	{EffectId: 900210, SpellId: 900210, Name: "Greater Arcanum of Accuracy", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.MeleeHit: 1 * core.MeleeHitRatingPerHitChance, stats.SpellHit: 1 * core.SpellHitRatingPerHitChance}.ToFloatArray(), Type: proto.ItemType_ItemTypeShoulder},
+	{EffectId: 900211, SpellId: 900211, Name: "Greater Arcanum of Concentration", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.MP5: 10}.ToFloatArray(), Type: proto.ItemType_ItemTypeShoulder}, // Also grants 10 health/5s -- no HP-regen stat in this engine; see TODO.
+	{EffectId: 900212, SpellId: 900212, Name: "Greater Arcanum of Avoidance", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.Dodge: 1 * core.DodgeRatingPerDodgeChance}.ToFloatArray(), Type: proto.ItemType_ItemTypeShoulder},
 
 	// Back
 	{EffectId: 2, SpellId: 7454, Name: "Enchant Cloak - Minor Resistance", Quality: proto.ItemQuality_ItemQualityCommon, Stats: stats.Stats{stats.ArcaneResistance: 1, stats.FrostResistance: 1, stats.FireResistance: 1, stats.NatureResistance: 1, stats.ShadowResistance: 1}.ToFloatArray(), Type: proto.ItemType_ItemTypeBack},
@@ -113,6 +118,10 @@ var EnchantOverrides = []*proto.UIEnchant{
 	{EffectId: 1892, SpellId: 20026, Name: "Enchant Chest - Major Health", Quality: proto.ItemQuality_ItemQualityCommon, Stats: stats.Stats{stats.Health: 100}.ToFloatArray(), Type: proto.ItemType_ItemTypeChest},
 	{EffectId: 1893, SpellId: 20028, Name: "Enchant Chest - Major Mana", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{stats.Mana: 100}.ToFloatArray(), Type: proto.ItemType_ItemTypeChest},
 	{EffectId: 1891, SpellId: 20025, Name: "Enchant Chest - Greater Stats", Quality: proto.ItemQuality_ItemQualityCommon, Stats: stats.Stats{stats.Stamina: 4, stats.Agility: 4, stats.Strength: 4, stats.Intellect: 4, stats.Spirit: 4}.ToFloatArray(), Type: proto.ItemType_ItemTypeChest},
+	// Crimson Ring reputation vendor (private-server custom, VPlusItemDB.lua ids
+	// 26272/26273, per user 2026-09-12).
+	{EffectId: 900208, SpellId: 900208, Name: "Sigil of Power: Chest (Attack Power)", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.AttackPower: 30}.ToFloatArray(), Type: proto.ItemType_ItemTypeChest},
+	{EffectId: 900209, SpellId: 900209, Name: "Sigil of Power: Chest (Spell Damage)", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.SpellDamage: 18, stats.HealingPower: 18}.ToFloatArray(), Type: proto.ItemType_ItemTypeChest},
 
 	// Wrist
 	{EffectId: 66, SpellId: 7457, Name: "Enchant Bracer - Minor Stamina", Quality: proto.ItemQuality_ItemQualityCommon, Stats: stats.Stats{stats.Stamina: 1}.ToFloatArray(), Type: proto.ItemType_ItemTypeWrist},
@@ -140,6 +149,10 @@ var EnchantOverrides = []*proto.UIEnchant{
 	{EffectId: 1885, SpellId: 20010, Name: "Enchant Bracer - Superior Strength", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{stats.Strength: 9}.ToFloatArray(), Type: proto.ItemType_ItemTypeWrist},
 	{EffectId: 2566, SpellId: 23802, Name: "Enchant Bracer - Healing Power", Quality: proto.ItemQuality_ItemQualityCommon, Stats: stats.Stats{stats.HealingPower: 24}.ToFloatArray(), Type: proto.ItemType_ItemTypeWrist},
 	{EffectId: 1886, SpellId: 20011, Name: "Enchant Bracer - Superior Stamina", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{stats.Stamina: 9}.ToFloatArray(), Type: proto.ItemType_ItemTypeWrist},
+	// Crimson Ring reputation vendor (private-server custom, VPlusItemDB.lua ids
+	// 26264/26265, per user 2026-09-12).
+	{EffectId: 900206, SpellId: 900206, Name: "Sigil of Power: Bracer (Attack Power)", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{stats.AttackPower: 20}.ToFloatArray(), Type: proto.ItemType_ItemTypeWrist},
+	{EffectId: 900207, SpellId: 900207, Name: "Sigil of Power: Bracer (Spell Damage)", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{stats.SpellDamage: 12, stats.HealingPower: 12}.ToFloatArray(), Type: proto.ItemType_ItemTypeWrist},
 
 	// Hands
 	{EffectId: 846, SpellId: 13620, Name: "Enchant Gloves - Fishing", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{}.ToFloatArray(), Type: proto.ItemType_ItemTypeHands},
@@ -161,6 +174,21 @@ var EnchantOverrides = []*proto.UIEnchant{
 	{EffectId: 2614, SpellId: 25073, Name: "Enchant Gloves - Shadow Power", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.ShadowPower: 20}.ToFloatArray(), Type: proto.ItemType_ItemTypeHands, Phase: 5},
 	{EffectId: 2564, SpellId: 25080, Name: "Enchant Gloves - Superior Agility", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.Agility: 15}.ToFloatArray(), Type: proto.ItemType_ItemTypeHands, Phase: 5},
 	{EffectId: 2613, SpellId: 25072, Name: "Enchant Gloves - Threat", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{}.ToFloatArray(), Type: proto.ItemType_ItemTypeHands, Phase: 5},
+	// Private-server custom (VPlusItemDB.lua item 26020, not a real Blizzard spell --
+	// EffectId/SpellId minted in the 900xxx synthetic range, per user 2026-09-12).
+	// (No ItemId: the formula item, VPlus id 26020, is a recipe and excluded from the item DB.)
+	{EffectId: 900101, SpellId: 900101, Name: "Enchant Gloves - Nature Power", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.NaturePower: 20}.ToFloatArray(), Type: proto.ItemType_ItemTypeHands},
+	// Crimson Ring reputation vendor (private-server custom, VPlusItemDB.lua ids
+	// 26255-26275, per user 2026-09-12). Only the flat-stat sigils are wired up here;
+	// the proc/debuff/resist sigils (health-regen, hit/mana-cost reduction, CC-resist,
+	// disarm immunity, AoE slow) need real spell/aura logic and are NOT included.
+	{EffectId: 900204, SpellId: 900204, Name: "Sigil of Power: Gloves (Attack Power)", Quality: proto.ItemQuality_ItemQualityCommon, Stats: stats.Stats{stats.AttackPower: 20}.ToFloatArray(), Type: proto.ItemType_ItemTypeHands},
+	{EffectId: 900205, SpellId: 900205, Name: "Sigil of Power: Gloves (Spell Damage)", Quality: proto.ItemQuality_ItemQualityCommon, Stats: stats.Stats{stats.SpellDamage: 12, stats.HealingPower: 12}.ToFloatArray(), Type: proto.ItemType_ItemTypeHands},
+
+	// Waist (no retail Classic waist enchants exist -- this slot was previously empty
+	// in this table. Crimson Ring reputation vendor, private-server custom,
+	// VPlusItemDB.lua id 26262, per user 2026-09-12.)
+	{EffectId: 900202, SpellId: 900202, Name: "Sigil of Sturdiness: Belt", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{stats.Stamina: 5}.ToFloatArray(), Type: proto.ItemType_ItemTypeWaist},
 
 	// Feet
 	{EffectId: 247, SpellId: 7867, Name: "Enchant Boots - Minor Agility", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{stats.Agility: 1}.ToFloatArray(), Type: proto.ItemType_ItemTypeFeet},
@@ -199,6 +227,10 @@ var EnchantOverrides = []*proto.UIEnchant{
 	{EffectId: 2567, SpellId: 23803, Name: "Enchant Weapon - Mighty Spirit", Quality: proto.ItemQuality_ItemQualityCommon, Stats: stats.Stats{stats.Spirit: 20}.ToFloatArray(), Type: proto.ItemType_ItemTypeWeapon},
 	{EffectId: 2504, SpellId: 22749, Name: "Enchant Weapon - Spell Power", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.SpellDamage: 30}.ToFloatArray(), Type: proto.ItemType_ItemTypeWeapon},
 	{EffectId: 1897, SpellId: 20031, Name: "Enchant Weapon - Superior Striking", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{}.ToFloatArray(), Type: proto.ItemType_ItemTypeWeapon},
+	// Private-server custom (VPlusItemDB.lua item 26072, not a real Blizzard spell --
+	// EffectId/SpellId minted in the 900xxx synthetic range, per user 2026-09-12).
+	// (No ItemId: the formula item, VPlus id 26072, is a recipe and excluded from the item DB.)
+	{EffectId: 900103, SpellId: 900103, Name: "Enchant Weapon - Spellblasting", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.SpellCrit: 1 * core.SpellCritRatingPerCritChance}.ToFloatArray(), Type: proto.ItemType_ItemTypeWeapon},
 
 	// 2H Weapon
 	{EffectId: 34, SpellId: 7218, Name: "Iron Counterweight", Quality: proto.ItemQuality_ItemQualityCommon, Stats: stats.Stats{stats.MeleeHaste: 3}.ToFloatArray(), Type: proto.ItemType_ItemTypeWeapon, EnchantType: proto.EnchantType_EnchantTypeTwoHand},
@@ -212,6 +244,10 @@ var EnchantOverrides = []*proto.UIEnchant{
 	{EffectId: 1896, SpellId: 20030, Name: "Enchant 2H Weapon - Superior Impact", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{}.ToFloatArray(), Type: proto.ItemType_ItemTypeWeapon, EnchantType: proto.EnchantType_EnchantTypeTwoHand},
 	{EffectId: 1904, SpellId: 20036, Name: "Enchant 2H Weapon - Major Intellect", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{stats.Intellect: 9}.ToFloatArray(), Type: proto.ItemType_ItemTypeWeapon, EnchantType: proto.EnchantType_EnchantTypeTwoHand},
 	{EffectId: 1903, SpellId: 20035, Name: "Enchant 2H Weapon - Major Spirit", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{stats.Spirit: 9}.ToFloatArray(), Type: proto.ItemType_ItemTypeWeapon, EnchantType: proto.EnchantType_EnchantTypeTwoHand},
+	// Private-server custom (VPlusItemDB.lua item 26069, not a real Blizzard spell --
+	// EffectId/SpellId minted in the 900xxx synthetic range, per user 2026-09-12).
+	// (No ItemId: the formula item, VPlus id 26069, is a recipe and excluded from the item DB.)
+	{EffectId: 900102, SpellId: 900102, Name: "Enchant 2H Weapon - Savagery", Quality: proto.ItemQuality_ItemQualityRare, Stats: stats.Stats{stats.ArmorPenetration: 250}.ToFloatArray(), Type: proto.ItemType_ItemTypeWeapon, EnchantType: proto.EnchantType_EnchantTypeTwoHand},
 
 	// Shields
 	{EffectId: 848, ItemId: 11081, SpellId: 13464, Name: "Enchant Shield - Lesser Protection", Quality: proto.ItemQuality_ItemQualityUncommon, Stats: stats.Stats{stats.Armor: 30}.ToFloatArray(), Type: proto.ItemType_ItemTypeWeapon, EnchantType: proto.EnchantType_EnchantTypeShield},
