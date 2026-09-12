@@ -284,12 +284,51 @@ pointed at, not owned by the user) to `lokiy999/wowsims_classic_vanillaplus`
 via `gh repo fork`. Local `origin` now points at the fork; the original is
 kept as `upstream` for pulling future updates from it.
 
+## Part A3 — Committing everything, 2026-09-12
+
+Three commits, all pushed to `origin` (the fork):
+
+1. **`15ec562fe`** — the 29 files this session (Part A2 above) actually
+   touched: `gen_db/main.go`, `enchant_overrides.go`, `gen_include.py`,
+   `private-server-item-rules.md`, `CHANGES.md`, the regenerated
+   `db.json`/`db.bin`/`leftover_db.*`, `included_items.json`,
+   `item_phases.json`, and the 18 promoted `.results` files.
+2. **`6406a9fa4`** — everything else that was dirty/untracked going into this
+   conversation (the Part B list below, plus the item-pipeline source scripts
+   that hadn't been committed yet: `serverdata.py`, `parse_vplus.py`,
+   `gen_phases.py`, `gen_sources.py`, `remap_presets.py`, their generated
+   `assets/db_inputs/*.json` intermediates, the raw `CSV's/` AtlasLoot/
+   VPlusItemDB data, `assets/lib.wasm`, and assorted workflow scratch files)
+   — done per explicit user instruction ("anything changed since the fork can
+   be staged and committed, it's been done in a different chat of ours").
+   442 files, ~706k insertions.
+3. **`a96980e6d`** — untracked `CSV's/` again (`git rm -r --cached`, kept on
+   disk) and added a blanket `*.csv`/`*.xlsx` `.gitignore` rule, per user
+   request ("ignore anything in the CSV's file for now, .csv/.xlsx can always
+   be ignored"). Doesn't affect the already-tracked
+   `assets/db_inputs/wowhead_*.csv`/`wago_db2_items.csv` — those stay tracked
+   since they're load-bearing pipeline input caches, not scratch data;
+   `.gitignore` only blocks *new* untracked files from being swept in, it
+   doesn't untrack existing ones.
+
+**Post-commit verification** (per user request, "check if it all still
+works" — untracking is a git-index-only operation so nothing functional
+should have changed, confirmed): `go build ./...` and `go test ./sim/...`
+both clean; the freshly-generated `.results.tmp` output is byte-identical to
+the committed baselines (no drift); `CSV's/VPlusItemDB.lua` still present on
+disk; the running `localhost:8080` app still loads and an actual sim run
+(Retribution Paladin, Sulfuras only) completed successfully at 405.78 DPS.
+
 ---
 
-## Part B — Already modified before this session (a separate, earlier session)
+## Part B — Already modified before the 2026-09-11/12 session
 
-These files were dirty in `git status` at the start of this session. They're
-listed here for completeness only — I did not author them in this conversation
+*(These are now committed — see Part A3 above, commit `6406a9fa4`. Left
+as-is below since it's still an accurate description of what the changes
+are, just no longer describes an uncommitted state.)*
+
+These files were dirty in `git status` at the start of that session. They're
+listed here for completeness only — I did not author them in that conversation
 and don't have that session's narrative, so no per-change detail is given. Ask
 me to look into any of these specifically if you need the detail; I can read the
 diffs on request.
