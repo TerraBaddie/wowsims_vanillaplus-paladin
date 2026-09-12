@@ -25,6 +25,15 @@ _As of 2026-09-12._
   them (`sim/*/item_sets_pve.go` has bonuses for every retail tier set except
   these five). If the server's tooltips promise a 2pc/4pc/6pc/8pc effect for
   any of these, the sim currently ignores it.
+- **All PvP sets need their bonuses done — priority.** Same gap as above but
+  for the PvP sets (`sim/*/item_sets_pvp.go`): confirm each class's PvP set is
+  present with correct pieces and write the actual 2pc/4pc/etc. bonus effects
+  against this server's tooltips, not just retail defaults. User flagged this
+  as the thing to tackle first (2026-09-12).
+- **Really, every set needs a full pass.** Not just the five custom sets and
+  PvP — audit all sets (tier, dungeon, crafted) against this server's actual
+  tooltips/effects rather than assuming the retail-derived bonus code is
+  correct, and fill in anything missing.
 - **T3-looking sets (Dreadnaught, Cryptstalker, etc.) aren't pinned to a
   phase.** They fall through the normal location rule, which puts them at
   Phase 1 since they have no AtlasLoot raid-instance source on this server.
