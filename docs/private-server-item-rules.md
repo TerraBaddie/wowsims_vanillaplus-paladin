@@ -203,29 +203,55 @@ tooltip/icon as-is is when it happens to already match the server's actual toolt
 text unchanged; there is no reason to prefer Wowhead's copy once a mismatch is known.
 This mirrors Rule 2 (`VPlusItemDB.lua` wins for stats) but for display text/icons.
 
-#### Known limitation: reused real spell/item ids still show Wowhead's live tooltip
+#### Fixed: reused real spell/item ids now show our local tooltip, not Wowhead's live one
 
-A `SpellIconoverrides` entry only changes the enchant's **name and icon** in the
+A `SpellIconoverrides` entry only ever changed the enchant's **name and icon** in the
 gear-picker list (those come from our own `db.json`/`db.bin`). The **hover tooltip
-popup** is a different code path: the site loads Wowhead's own tooltip widget
-(`wow.zamimg.com/js/tooltips.js`), which live-queries `nether.wowhead.com/tooltip/...`
-by the enchant's real spell or item id and renders whatever Wowhead's server
-currently says — completely bypassing our local override. Confirmed 2026-09-12 with
-`Lesser Arcanum of Tenacity` (reuses real item id 11643 / spell id 15391): even after
-verifying the corrected text all the way through `db.json` → `db.bin` → `lib.wasm`,
-and a hard-reloaded dev server, the hover popup still shows Wowhead's real (wrong,
-for our purposes) "125 armor" text, because the widget's live AJAX call always wins.
+popup** for an enchant with a real `ItemId` set (all the Arcanum reagents have one)
+went through a completely different path: `ActionId.fromItemId()` — never
+`fromSpellId()` — and until this fix that path always called `setWowheadHref`, which
+points the browser's Wowhead tooltip widget (`wow.zamimg.com/js/tooltips.js`) at a
+**live** `nether.wowhead.com/tooltip/item/<id>` query. That widget renders whatever
+Wowhead's real server says for that id — for a repurposed real item id (e.g.
+`Lesser Arcanum of Tenacity` = real item 11643 / spell 15391) that's the *original*
+unmodified Blizzard tooltip, completely bypassing any local override. Confirmed
+2026-09-12: even with the corrected text verified all the way through `db.json` →
+`db.bin` → `lib.wasm` and a hard-reloaded dev server, the popup kept showing
+Wowhead's real "125 armor" text.
 
-This means our "our data outranks Wowhead" policy (above) is currently only
-enforceable for the **hover tooltip** when the enchant's id is fully custom
-(the `900xxx` range, or any id with no real Wowhead entry) — there the widget has
-nothing to live-query and should fall back to our local data. For any enchant that
-**reuses a real Blizzard spell/item id**, the tooltip popup will keep showing
-Wowhead's live text regardless of `SpellIconoverrides`, until the frontend's
-Wowhead-widget integration itself is changed (e.g. skip the live query for ids known
-to be locally overridden, or point the widget at a non-existent id) — that's a
-frontend code change, not a data change, and is not yet done. Investigation into
-that frontend fix is in progress as of 2026-09-12.
+Root cause traced to two gaps, both fixed 2026-09-12:
+
+- `AddItemIcon` (`tools/database/database.go`) built its `IconData` without ever
+  copying the scraped tooltip HTML into it — the field existed on the struct but was
+  never populated for items, only for spells. Fixed, and added `MergeItemIcons`/
+  `MergeItemIcon` mirroring the existing spell-icon merge path, plus a new
+  `ItemIconoverrides` list (`tools/database/overrides.go`) — the item-id-keyed
+  counterpart to `SpellIconoverrides` — now holding the 10 corrected Arcanum
+  reagent tooltips.
+- Client-side, `ui/core/components/gear_picker/item_list.tsx` rendered every
+  enchant/item row by calling `ActionId.setWowheadHref()` directly, skipping the
+  `trySetLocalTooltip()` check that a different render path (`fillAndSet`) already
+  had. Fixed to try the local tooltip first, same as that other path. Also had to
+  extend `Database.hasLocalItemTooltip`/`localItemTooltip`
+  (`ui/core/proto_utils/database.ts`) to fall back to the (new) synchronous
+  `itemIconsSync` map, since enchant-reagent items like these Arcanums are excluded
+  from the main equippable-gear `items` list by the Rule 1 allowlist and so were never
+  reachable through the existing item-tooltip lookup at all.
+
+Verified live in-browser: hovering `Lesser Arcanum of Tenacity` now shows our
+"1% Crit suppression" text with **zero** network call to `nether.wowhead.com` —
+confirmed via `element._tippy.props.content` and the network log. Same confirmed for
+Focus (+10 SP), Rapidity (2% haste), and Rumination (200 mana). A full sim run also
+completed successfully afterward, confirming the wasm/gear-picker changes didn't
+regress anything else.
+
+This means the "our data outranks Wowhead" tooltip policy above is now actually
+enforceable for **any** enchant, real-id or fully custom — add an entry to
+`SpellIconoverrides` (no `ItemId` set) or `ItemIconoverrides` (has an `ItemId`,
+which is the common case) as appropriate, matching whichever id the enchant carries.
+Any enchant not yet in one of those two lists will still show Wowhead's live text if
+it reuses a real id — this is now purely a matter of adding entries as mismatches are
+found, not a structural limitation.
 
 ## Rule 3 — Phase (when does it become available?)
 
