@@ -176,6 +176,57 @@ Phase 1.**
 only fills a gap when the dump has nothing. wowsims base data is used for nothing
 except items the dump also confirms unchanged.
 
+### Tooltip/icon text (spell-id lookups)
+
+Item/enchant **tooltip text and icons** are a separate pipeline from stats: they're
+fetched live from Wowhead by spell id (`AddSpellIcon` in `tools/database/database.go`),
+not sourced from `VPlusItemDB.lua`. This is a weaker guarantee than Rule 2 gives the
+stats themselves, for two reasons:
+
+- **Reused spell ids show the wrong tooltip.** The server sometimes repurposes a real
+  Blizzard spell id for a different, custom effect (e.g. `Lesser Arcanum of Tenacity`
+  reuses spell id 15391, which on live Wowhead is the unrelated "Lesser Arcane
+  Amalgamation" and shows *that* spell's tooltip/name — silently, no error, because a
+  spell with that id does genuinely exist upstream). The item's actual `Stats` in
+  `tools/database/enchant_overrides.go` can be completely correct while the hover
+  tooltip still lies.
+- **Fully custom spell ids (the `900xxx` range) have no Wowhead entry at all**, so the
+  lookup fails outright (`No spell tooltip with id N` at gen_db time) and the item
+  shows a blank/placeholder icon with no tooltip text.
+
+**Policy: our data (`VPlusItemDB.lua` / VanillaPlus) outranks Wowhead here exactly like
+it does for stats.** Any tooltip/icon currently sourced live from Wowhead should be
+replaced with a local override — via the (currently empty) `SpellIconoverrides` list in
+`tools/database/overrides.go`, merged in `gen_db/main.go` after the normal Wowhead
+lookup — **whenever the two disagree**. The only reason to leave a Wowhead-sourced
+tooltip/icon as-is is when it happens to already match the server's actual tooltip
+text unchanged; there is no reason to prefer Wowhead's copy once a mismatch is known.
+This mirrors Rule 2 (`VPlusItemDB.lua` wins for stats) but for display text/icons.
+
+#### Known limitation: reused real spell/item ids still show Wowhead's live tooltip
+
+A `SpellIconoverrides` entry only changes the enchant's **name and icon** in the
+gear-picker list (those come from our own `db.json`/`db.bin`). The **hover tooltip
+popup** is a different code path: the site loads Wowhead's own tooltip widget
+(`wow.zamimg.com/js/tooltips.js`), which live-queries `nether.wowhead.com/tooltip/...`
+by the enchant's real spell or item id and renders whatever Wowhead's server
+currently says — completely bypassing our local override. Confirmed 2026-09-12 with
+`Lesser Arcanum of Tenacity` (reuses real item id 11643 / spell id 15391): even after
+verifying the corrected text all the way through `db.json` → `db.bin` → `lib.wasm`,
+and a hard-reloaded dev server, the hover popup still shows Wowhead's real (wrong,
+for our purposes) "125 armor" text, because the widget's live AJAX call always wins.
+
+This means our "our data outranks Wowhead" policy (above) is currently only
+enforceable for the **hover tooltip** when the enchant's id is fully custom
+(the `900xxx` range, or any id with no real Wowhead entry) — there the widget has
+nothing to live-query and should fall back to our local data. For any enchant that
+**reuses a real Blizzard spell/item id**, the tooltip popup will keep showing
+Wowhead's live text regardless of `SpellIconoverrides`, until the frontend's
+Wowhead-widget integration itself is changed (e.g. skip the live query for ids known
+to be locally overridden, or point the widget at a non-existent id) — that's a
+frontend code change, not a data change, and is not yet done. Investigation into
+that frontend fix is in progress as of 2026-09-12.
+
 ## Rule 3 — Phase (when does it become available?)
 
 Six phases. An item's phase is the **earliest** (lowest-numbered) bucket any of its
