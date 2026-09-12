@@ -162,12 +162,27 @@ func (db *WowDatabase) AddItemIcon(id int32, tooltips map[int32]WowheadItemRespo
 			return
 		}
 		db.ItemIcons[id] = &proto.IconData{
-			Id:   id,
-			Name: tooltip.GetName(),
-			Icon: tooltip.GetIcon(),
+			Id:      id,
+			Name:    tooltip.GetName(),
+			Icon:    tooltip.GetIcon(),
+			Tooltip: tooltip.Tooltip,
 		}
 	} else if id != 0 {
 		panic(fmt.Sprintf("No item tooltip with id %d", id))
+	}
+}
+
+func (db *WowDatabase) MergeItemIcons(arr []*proto.IconData) {
+	for _, item := range arr {
+		db.MergeItemIcon(item)
+	}
+}
+func (db *WowDatabase) MergeItemIcon(src *proto.IconData) {
+	if dst, ok := db.ItemIcons[src.Id]; ok {
+		// googleproto.Merge concatenates lists, but we want replacement, so do them manually.
+		googleProto.Merge(dst, src)
+	} else {
+		db.ItemIcons[src.Id] = src
 	}
 }
 

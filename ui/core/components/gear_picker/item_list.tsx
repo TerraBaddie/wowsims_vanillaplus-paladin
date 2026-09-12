@@ -562,8 +562,10 @@ export default class ItemList<T extends ItemListType> {
 			this.onItemClick(itemData);
 		});
 
-		itemData.actionId.fill().then(filledId => {
-			filledId.setWowheadHref(anchorElem.value!);
+		itemData.actionId.fill().then(async filledId => {
+			if (!(await filledId.trySetLocalTooltip(anchorElem.value!))) {
+				filledId.setWowheadHref(anchorElem.value!);
+			}
 			iconElem.value!.src = filledId.iconUrl;
 		});
 

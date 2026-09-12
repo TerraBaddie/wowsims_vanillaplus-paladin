@@ -399,6 +399,7 @@ func main() {
 	}
 
 	db.MergeSpellIcons(database.SpellIconoverrides)
+	db.MergeItemIcons(database.ItemIconoverrides)
 
 	atlasDBProto := atlaslootDB.ToUIProto()
 	db.MergeZones(atlasDBProto.Zones)
