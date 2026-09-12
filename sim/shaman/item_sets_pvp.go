@@ -8,13 +8,10 @@ import (
 var ItemSetChampionsEarthshaker = core.NewItemSet(core.ItemSet{
 	Name: "Champion's Earthshaker",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +40 Attack Power.
+		// +15 Stamina.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStats(stats.Stats{
-				stats.AttackPower:       40,
-				stats.RangedAttackPower: 40,
-			})
+			c.AddStat(stats.Stamina, 15)
 		},
 		// Improves your chance to get a critical strike with all Shock spells by 2%.
 		4: func(agent core.Agent) {
@@ -31,10 +28,13 @@ var ItemSetChampionsEarthshaker = core.NewItemSet(core.ItemSet{
 				},
 			})
 		},
-		// +15 Stamina.
+		// +40 Attack Power.
 		6: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStat(stats.Stamina, 15)
+			c.AddStats(stats.Stats{
+				stats.AttackPower:       40,
+				stats.RangedAttackPower: 40,
+			})
 		},
 	},
 })
@@ -42,13 +42,10 @@ var ItemSetChampionsEarthshaker = core.NewItemSet(core.ItemSet{
 var ItemSetChampionsStormcaller = core.NewItemSet(core.ItemSet{
 	Name: "Champion's Stormcaller",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +40 Attack Power.
+		// +20 Stamina.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStats(stats.Stats{
-				stats.AttackPower:       40,
-				stats.RangedAttackPower: 40,
-			})
+			c.AddStat(stats.Stamina, 20)
 		},
 		// Improves your chance to get a critical strike with all Shock spells by 2%.
 		4: func(agent core.Agent) {
@@ -65,10 +62,13 @@ var ItemSetChampionsStormcaller = core.NewItemSet(core.ItemSet{
 				},
 			})
 		},
-		// +20 Stamina.
+		// +40 Attack Power.
 		6: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStat(stats.Stamina, 20)
+			c.AddStats(stats.Stats{
+				stats.AttackPower:       40,
+				stats.RangedAttackPower: 40,
+			})
 		},
 	},
 })
@@ -76,13 +76,16 @@ var ItemSetChampionsStormcaller = core.NewItemSet(core.ItemSet{
 var ItemSetWarlordsEarthshaker = core.NewItemSet(core.ItemSet{
 	Name: "Warlord's Earthshaker",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +20 Stamina.
+		// +40 Attack Power.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStat(stats.Stamina, 20)
+			c.AddStats(stats.Stats{
+				stats.AttackPower:       40,
+				stats.RangedAttackPower: 40,
+			})
 		},
 		// Improves your chance to get a critical strike with all Shock spells by 2%.
-		4: func(agent core.Agent) {
+		3: func(agent core.Agent) {
 			shaman := agent.(ShamanAgent).GetShaman()
 			shaman.GetOrRegisterAura(core.Aura{
 				Label:    "Shaman Shock Crit Bonus",
@@ -96,13 +99,10 @@ var ItemSetWarlordsEarthshaker = core.NewItemSet(core.ItemSet{
 				},
 			})
 		},
-		// +40 Attack Power.
+		// +20 Stamina.
 		6: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStats(stats.Stats{
-				stats.AttackPower:       40,
-				stats.RangedAttackPower: 40,
-			})
+			c.AddStat(stats.Stamina, 20)
 		},
 	},
 })
