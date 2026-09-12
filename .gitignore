@@ -21,6 +21,8 @@ google-chrome*
 
 # temporary files
 *.results.tmp
+__pycache__/
+*.pyc
 
 #.dockerignore
 /classic/

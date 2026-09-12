@@ -34,7 +34,7 @@ func TestP1Hunter(t *testing.T) {
 	}))
 }
 
-var P1Talents = "-05451002503051-33400023023"
+var P1Talents = ""
 
 var P1Consumes = core.ConsumesCombo{
 	Label: "P1-Consumes",

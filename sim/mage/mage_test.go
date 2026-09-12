@@ -34,7 +34,7 @@ func TestP1Mage(t *testing.T) {
 	}))
 }
 
-var P1Talents = "-0550320003021-2035020310035105"
+var P1Talents = ""
 
 var PlayerOptions = &proto.Player_Mage{
 	Mage: &proto.Mage{

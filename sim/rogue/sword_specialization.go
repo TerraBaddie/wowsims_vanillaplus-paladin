@@ -8,7 +8,7 @@ import (
 )
 
 func (rogue *Rogue) registerSwordSpecialization(mask core.ProcMask) {
-	if rogue.Talents.SwordSpecialization == 0 || rogue.GetProcMaskForTypes(proto.WeaponType_WeaponTypeSword) == core.ProcMaskUnknown {
+	if rogue.Talents.WeaponExpertise == 0 || rogue.GetProcMaskForTypes(proto.WeaponType_WeaponTypeSword) == core.ProcMaskUnknown {
 		return
 	}
 
@@ -16,7 +16,7 @@ func (rogue *Rogue) registerSwordSpecialization(mask core.ProcMask) {
 		Timer:    rogue.NewTimer(),
 		Duration: time.Millisecond * 200,
 	}
-	procChance := 0.01 * float64(rogue.Talents.SwordSpecialization)
+	procChance := 0.01 * float64(rogue.Talents.WeaponExpertise)
 
 	rogue.RegisterAura(core.Aura{
 		Label:    "Sword Specialization",

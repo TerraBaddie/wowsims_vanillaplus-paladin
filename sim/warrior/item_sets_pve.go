@@ -261,7 +261,7 @@ var ItemSetDreadnaughtsBattlegear = core.NewItemSet(core.ItemSet{
 					warrior.SunderArmor.BonusHitRating += 5
 					warrior.HeroicStrike.BonusHitRating += 5
 					warrior.Revenge.BonusHitRating += 5
-					if warrior.Talents.ShieldSlam {
+					if warrior.ShieldSlam != nil {
 						warrior.ShieldSlam.BonusHitRating += 5
 					}
 				},
@@ -269,7 +269,7 @@ var ItemSetDreadnaughtsBattlegear = core.NewItemSet(core.ItemSet{
 					warrior.SunderArmor.BonusHitRating -= 5
 					warrior.HeroicStrike.BonusHitRating -= 5
 					warrior.Revenge.BonusHitRating -= 5
-					if warrior.Talents.ShieldSlam {
+					if warrior.ShieldSlam != nil {
 						warrior.ShieldSlam.BonusHitRating -= 5
 					}
 				},
@@ -610,7 +610,7 @@ var ItemSetVindicatorsBattlegear = core.NewItemSet(core.ItemSet{
 		// Reduces the cooldown on your Shield Slam ability by 2 sec.
 		3: func(agent core.Agent) {
 			warrior := agent.(WarriorAgent).GetWarrior()
-			if !warrior.Talents.ShieldSlam {
+			if warrior.ShieldSlam == nil {
 				return
 			}
 
@@ -728,7 +728,7 @@ var ItemSetConquerorsBulwark = core.NewItemSet(core.ItemSet{
 		// Your Shield Slam deals 100% increased threat and its cooldown is reset if it is Dodged, Parried, or Blocked.
 		4: func(agent core.Agent) {
 			warrior := agent.(WarriorAgent).GetWarrior()
-			if !warrior.Talents.ShieldSlam {
+			if warrior.ShieldSlam == nil {
 				return
 			}
 

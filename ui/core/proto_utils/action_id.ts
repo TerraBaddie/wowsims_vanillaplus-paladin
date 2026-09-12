@@ -1,3 +1,5 @@
+import tippy from 'tippy.js';
+
 import { getWowheadLanguagePrefix } from '../constants/lang';
 import { MAX_CHARACTER_LEVEL } from '../constants/mechanics';
 import { ResourceType } from '../proto/api';
@@ -195,6 +197,8 @@ export class ActionId {
 
 	setWowheadHref(elem: HTMLAnchorElement) {
 		if (this.itemId) {
+			// Item has private-server values baked into the local DB -> use a local tooltip, no Wowhead link.
+			if (Database.hasLocalItemTooltip(this.itemId)) return;
 			elem.href = ActionId.makeItemUrl(this.itemId, this.randomSuffixId);
 		} else if (this.spellId) {
 			elem.href = ActionId.makeSpellUrl(this.spellIdTooltipOverride || this.spellId);
@@ -215,13 +219,55 @@ export class ActionId {
 		this.setWowheadHref(elem);
 	}
 
+	// If the local DB has a tooltip for this spell (e.g. a custom/rebalanced value),
+	// render it in a local tippy tooltip instead of the Wowhead-powered one.
+	// Returns true if a local tooltip was attached.
+	async trySetLocalTooltip(elem: HTMLElement): Promise<boolean> {
+		if (this.itemId) {
+			const tooltip = Database.localItemTooltip(this.itemId);
+			if (!tooltip) return false;
+			this.attachLocalTippy(elem, tooltip);
+			return true;
+		}
+		if (!this.spellId) return false;
+		let data: IconData;
+		try {
+			data = await Database.getSpellIconData(this.spellIdTooltipOverride || this.spellId);
+		} catch {
+			return false;
+		}
+		if (!data.tooltip) return false;
+		this.attachLocalTippy(elem, data.tooltip);
+		return true;
+	}
+
+	private attachLocalTippy(elem: HTMLElement, content: string) {
+		elem.removeAttribute('href');
+		elem.removeAttribute('data-wowhead');
+		elem.dataset.disableWowheadTouchTooltip = 'true';
+		const existing = (elem as unknown as { _tippy?: { setContent: (c: string) => void } })._tippy;
+		if (existing) {
+			existing.setContent(content);
+		} else {
+			tippy(elem, {
+				allowHTML: true,
+				content,
+				theme: 'wowhead-local',
+				placement: 'right',
+				maxWidth: 360,
+			});
+		}
+	}
+
 	async fillAndSet(elem: HTMLAnchorElement, setHref: boolean, setBackground: boolean): Promise<ActionId> {
 		const filled = await this.fill();
-		if (setHref) {
-			filled.setWowheadHref(elem);
-		}
 		if (setBackground) {
 			filled.setBackground(elem);
+		}
+		if (setHref) {
+			if (!(await filled.trySetLocalTooltip(elem))) {
+				filled.setWowheadHref(elem);
+			}
 		}
 		return filled;
 	}

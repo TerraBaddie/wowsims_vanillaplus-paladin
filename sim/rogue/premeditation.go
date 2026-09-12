@@ -7,7 +7,7 @@ import (
 )
 
 func (rogue *Rogue) registerPremeditation() {
-	if !rogue.Talents.Premeditation {
+	if true { // TODO: Premeditation removed from custom tree
 		return
 	}
 

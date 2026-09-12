@@ -38,8 +38,8 @@ func (mage *Mage) newBlizzardSpellConfig(rank int) core.SpellConfig {
 	spellCoeff := .042
 
 	var improvedBlizzardProcApplication *core.Spell
-	if mage.Talents.ImprovedBlizzard > 0 {
-		impId := []int32{0, 11185, 12487, 12488}[mage.Talents.ImprovedBlizzard]
+	if int32(0) /*removed*/ > 0 {
+		impId := []int32{0, 11185, 12487, 12488}[int32(0) /*removed*/]
 		auras := mage.NewEnemyAuraArray(func(unit *core.Unit) *core.Aura {
 			return unit.GetOrRegisterAura(core.Aura{
 				ActionID: core.ActionID{SpellID: impId},

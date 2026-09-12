@@ -34,6 +34,8 @@ func (warlock *Warlock) ApplyTalents() {
 	warlock.applyDevastation()
 	warlock.applyRuin()
 	warlock.applyEmberstorm()
+	warlock.applyShadowstorm()
+	warlock.applyDestructionCrit()
 }
 
 func (warlock *Warlock) applyWeaponImbue() {
@@ -65,7 +67,7 @@ func (warlock *Warlock) applyFirestone() {
 	// TODO: Test PPM
 	ppm := warlock.AutoAttacks.NewPPMManager(8, core.ProcMaskMelee)
 
-	firestoneMulti := 1.0 + float64(warlock.Talents.ImprovedFirestone)*0.15
+	firestoneMulti := 1.0 + float64(int32(0) /*removed*/)*0.15
 
 	if level >= 56 {
 		warlock.AddStat(stats.FirePower, 21*firestoneMulti)
@@ -585,7 +587,7 @@ func (warlock *Warlock) applyCataclysm() {
 
 	warlock.OnSpellRegistered(func(spell *core.Spell) {
 		if spell.Flags.Matches(WarlockFlagDestruction) && spell.Cost != nil {
-			spell.Cost.Multiplier -= warlock.Talents.Cataclysm
+			spell.Cost.Multiplier -= 5 * warlock.Talents.Cataclysm // DBC: 5%/rank
 		}
 	})
 }
@@ -619,16 +621,17 @@ func (warlock *Warlock) applyDevastation() {
 }
 
 func (warlock *Warlock) improvedImmolateBonus() float64 {
-	return 0.05 * float64(warlock.Talents.ImprovedImmolate)
+	return 0.05 * core.TernaryFloat64(warlock.Talents.ImprovedImmolate, 1, 0)
 }
 
 func (warlock *Warlock) applyRuin() {
-	if !warlock.Talents.Ruin {
+	if warlock.Talents.Ruin == 0 {
 		return
 	}
+	ruinBonus := 0.20 * float64(warlock.Talents.Ruin) // DBC: 20%/rank
 	warlock.OnSpellRegistered(func(spell *core.Spell) {
 		if spell.Flags.Matches(WarlockFlagDestruction) {
-			spell.CritDamageBonus += 1
+			spell.CritDamageBonus += ruinBonus
 		}
 	})
 }
@@ -641,7 +644,35 @@ func (warlock *Warlock) applyEmberstorm() {
 	points := float64(warlock.Talents.Emberstorm)
 	warlock.OnSpellRegistered(func(spell *core.Spell) {
 		if spell.SpellSchool.Matches(core.SpellSchoolFire) && isWarlockSpell(spell) {
-			spell.DamageMultiplierAdditive += 0.02 * points
+			spell.DamageMultiplierAdditive += 0.03 * points // DBC: 3%/rank
+		}
+	})
+}
+
+// Shadowstorm (DBC): +3%/rank Shadow damage.
+func (warlock *Warlock) applyShadowstorm() {
+	if warlock.Talents.Shadowstorm == 0 {
+		return
+	}
+	points := float64(warlock.Talents.Shadowstorm)
+	warlock.OnSpellRegistered(func(spell *core.Spell) {
+		if spell.SpellSchool.Matches(core.SpellSchoolShadow) && isWarlockSpell(spell) {
+			spell.DamageMultiplierAdditive += 0.03 * points
+		}
+	})
+}
+
+// Bring the Pain (DBC): +crit for Searing Pain, Conflagrate, Shadowburn and Shadow Bolt.
+func (warlock *Warlock) applyDestructionCrit() {
+	if warlock.Talents.BringThePain == 0 {
+		return
+	}
+	// r1 3% per rank (m3)
+	bonusCrit := 3 * float64(warlock.Talents.BringThePain) * core.SpellCritRatingPerCritChance
+	warlock.OnSpellRegistered(func(spell *core.Spell) {
+		if spell.SpellCode == SpellCode_WarlockSearingPain || spell.SpellCode == SpellCode_WarlockConflagrate ||
+			spell.SpellCode == SpellCode_WarlockShadowburn || spell.SpellCode == SpellCode_WarlockShadowBolt {
+			spell.BonusCritRating += bonusCrit
 		}
 	})
 }

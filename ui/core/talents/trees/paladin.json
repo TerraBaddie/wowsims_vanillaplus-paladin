@@ -4,6 +4,24 @@
     "backgroundUrl": "https://wow.zamimg.com/images/wow/talents/backgrounds/classic/382.jpg",
     "talents": [
       {
+        "fieldName": "improvedSealOfRighteousness",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 0
+        },
+        "spellIds": [
+          20224,
+          20225,
+          20330
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases the damage done by your Seal of Righteousness and Judgement of Righteousness by 5%.",
+          "Increases the damage done by your Seal of Righteousness and Judgement of Righteousness by 10%.",
+          "Increases the damage done by your Seal of Righteousness and Judgement of Righteousness by 15%."
+        ]
+      },
+      {
         "fieldName": "divineStrength",
         "location": {
           "rowIdx": 0,
@@ -16,7 +34,14 @@
           20265,
           20266
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases your Strength by 3%.",
+          "Increases your Strength by 6%.",
+          "Increases your Strength by 9%.",
+          "Increases your Strength by 12%.",
+          "Increases your Strength by 15%."
+        ]
       },
       {
         "fieldName": "divineIntellect",
@@ -31,7 +56,46 @@
           20260,
           20261
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases your total Intellect by 3%.",
+          "Increases your total Intellect by 6%.",
+          "Increases your total Intellect by 9%.",
+          "Increases your total Intellect by 12%.",
+          "Increases your total Intellect by 15%."
+        ]
+      },
+      {
+        "fieldName": "improvedLayOnHands",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 3
+        },
+        "spellIds": [
+          20234,
+          20235
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Gives the target of your Lay on Hands spell a 30% bonus to their resistance and armor value from items for 1 min. In addition, the cooldown for your Lay on Hands spell is reduced by 15 min.",
+          "Gives the target of your Lay on Hands spell a 30% bonus to their resistance and armor value from items for 2 min. In addition, the cooldown for your Lay on Hands spell is reduced by 30 min."
+        ]
+      },
+      {
+        "fieldName": "auraMastery",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 0
+        },
+        "spellIds": [
+          33440,
+          33441
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the radius of a Paladin's auras by 5 yards.",
+          "Increases the radius of a Paladin's auras by 10 yards."
+        ]
       },
       {
         "fieldName": "spiritualFocus",
@@ -42,134 +106,19 @@
         "spellIds": [
           20205,
           20206,
-          20207,
-          20208,
-          20209
+          20207
         ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "improvedSealOfRighteousness",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 2
-        },
-        "spellIds": [
-          20224,
-          20225,
-          20330,
-          20331,
-          20332
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "healingLight",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 0
-        },
-        "spellIds": [
-          20237,
-          20238,
-          20239
-        ],
-        "maxPoints": 3
-      },
-      {
-        "fieldName": "consecration",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 1
-        },
-        "spellIds": [
-          26573
-        ],
-        "maxPoints": 1
-      },
-      {
-        "fieldName": "improvedLayOnHands",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 2
-        },
-        "spellIds": [
-          20234,
-          20235
-        ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "unyieldingFaith",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 3
-        },
-        "spellIds": [
-          9453,
-          25836
-        ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "illumination",
-        "location": {
-          "rowIdx": 3,
-          "colIdx": 1
-        },
-        "spellIds": [
-          20210,
-          20212,
-          20213,
-          20214,
-          20215
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "improvedBlessingOfWisdom",
-        "location": {
-          "rowIdx": 3,
-          "colIdx": 2
-        },
-        "spellIds": [
-          20244,
-          20245
-        ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "divineFavor",
-        "location": {
-          "rowIdx": 4,
-          "colIdx": 1
-        },
-        "spellIds": [
-          20216
-        ],
-        "maxPoints": 1,
-        "prereqLocation": {
-          "rowIdx": 3,
-          "colIdx": 1
-        }
-      },
-      {
-        "fieldName": "lastingJudgement",
-        "location": {
-          "rowIdx": 4,
-          "colIdx": 2
-        },
-        "spellIds": [
-          20359,
-          20360,
-          20361
-        ],
-        "maxPoints": 3
+        "maxPoints": 3,
+        "descriptions": [
+          "Gives your spells a 20% chance to not lose casting time when you take damage.",
+          "Gives your spells a 40% chance to not lose casting time when you take damage.",
+          "Gives your spells a 60% chance to not lose casting time when you take damage."
+        ]
       },
       {
         "fieldName": "holyPower",
         "location": {
-          "rowIdx": 5,
+          "rowIdx": 1,
           "colIdx": 2
         },
         "spellIds": [
@@ -179,22 +128,258 @@
           5926,
           25829
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the critical effect chance of your Holy spells by 2%.",
+          "Increases the critical effect chance of your Holy spells by 4%.",
+          "Increases the critical effect chance of your Holy spells by 6%.",
+          "Increases the critical effect chance of your Holy spells by 8%.",
+          "Increases the critical effect chance of your Holy spells by 10%."
+        ]
+      },
+      {
+        "fieldName": "shieldOfFaith",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 3
+        },
+        "spellIds": [
+          33442,
+          33443,
+          33444
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Reduces all spell damage taken by 5%.",
+          "Reduces all spell damage taken by 10%.",
+          "Reduces all spell damage taken by 15%."
+        ]
+      },
+      {
+        "fieldName": "divineConcentration",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 0
+        },
+        "spellIds": [
+          34830,
+          34831,
+          34832
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Regenerates 1% of your total Mana every 15 seconds.",
+          "Regenerates 1% of your total Mana every 10 seconds.",
+          "Regenerates 1% of your total Mana every 5 seconds."
+        ]
+      },
+      {
+        "fieldName": "innerLight",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33461
+        ],
+        "maxPoints": 1,
+        "descriptions": [
+          "You emit a flash of inner light, blinding nearby enemies for 4 sec. Targets must be facing you. Any damage caused will remove the effect."
+        ]
+      },
+      {
+        "fieldName": "divineGrace",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 0
+        },
+        "spellIds": [
+          20244,
+          20245
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effect of your Seal and Judgement of Light, your Seal and Judgement of Wisdom, your Blessing of Wisdom, and your Blessing of Light by 10%. In addition, reduces the cost of your Blessing of Wisdom and Blessing of Light by 50%.",
+          "Increases the effect of your Seal and Judgement of Light, your Seal and Judgement of Wisdom, your Blessing of Wisdom, and your Blessing of Light by 20%. In addition, reduces the cost of your Blessing of Wisdom and Blessing of Light by 100%."
+        ]
+      },
+      {
+        "fieldName": "holyGrasp",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 1
+        },
+        "spellIds": [
+          20359,
+          20360,
+          20361
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases the range of your Judgements, Exorcism and Hammer of Wrath spells by 2 yards, increases the radius of your Holy Wrath by 3 yards, and reduces the cast time of your Holy Wrath and Hammer of Wrath spells by 0.5 sec.",
+          "Increases the range of your Judgements, Exorcism and Hammer of Wrath spells by 4 yards, increases the radius of your Holy Wrath by 6 yards, and reduces the cast time of your Holy Wrath and Hammer of Wrath spells by 1 sec.",
+          "Increases the range of your Judgements, Exorcism and Hammer of Wrath spells by 6 yards, increases the radius of your Holy Wrath by 9 yards, and reduces the cast time of your Holy Wrath and Hammer of Wrath spells by 1.5 sec."
+        ]
+      },
+      {
+        "fieldName": "illumination",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 2
+        },
+        "spellIds": [
+          20210,
+          20212,
+          20213,
+          20214,
+          20215
+        ],
+        "maxPoints": 5,
+        "prereqLocation": {
+          "rowIdx": 1,
+          "colIdx": 2
+        },
+        "descriptions": [
+          "Whenever one of your Flash of Light, Holy Light, Holy Shock, Exorcism, Holy Wrath, or Hammer of Wrath spells critically hits, you gain Mana equal to 20% of its base Mana cost.",
+          "After getting a critical effect from your Flash of Light, Holy Light, Holy Shock, Exorcism, Holy Wrath or Hammer of Wrath spells, gives you a 100% chance to gain Mana equal to 50% of the base cost of the spell.",
+          "After getting a critical effect from your Flash of Light, Holy Light, Holy Shock, Exorcism, Holy Wrath or Hammer of Wrath spells, gives you a 100% chance to gain Mana equal to 50% of the base cost of the spell.",
+          "After getting a critical effect from your Flash of Light, Holy Light, Holy Shock, Exorcism, Holy Wrath or Hammer of Wrath spells, gives you a 100% chance to gain Mana equal to 50% of the base cost of the spell.",
+          "After getting a critical effect from your Flash of Light, Holy Light, Holy Shock, Exorcism, Holy Wrath or Hammer of Wrath spells, gives you a 100% chance to gain Mana equal to 50% of the base cost of the spell."
+        ]
+      },
+      {
+        "fieldName": "unyieldingFaith",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 3
+        },
+        "spellIds": [
+          9453,
+          25836,
+          34278
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases your chance to resist Fear and Disorient effects by an additional 10%.",
+          "Increases your chance to resist Fear and Disorient effects by an additional 20%.",
+          "Increases your chance to resist Fear and Disorient effects by an additional 30%."
+        ]
+      },
+      {
+        "fieldName": "lightsMercy",
+        "location": {
+          "rowIdx": 4,
+          "colIdx": 0
+        },
+        "spellIds": [
+          20237,
+          20238,
+          20239,
+          35738,
+          35739
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Gives your Flash of Light spells a 20% chance to apply the Spark of Light effect. Spark of Light reduces the cast time of your next Holy Light by 20%. The effect stacks up to 5 times.",
+          "Gives your Flash of Light spells a 40% chance to apply the Spark of Light effect. Spark of Light reduces the cast time of your next Holy Light by 20%. The effect stacks up to 5 times.",
+          "Gives your Flash of Light spells a 60% chance to apply the Spark of Light effect. Spark of Light reduces the cast time of your next Holy Light by 20%. The effect stacks up to 5 times.",
+          "Gives your Flash of Light spells a 80% chance to apply the Spark of Light effect. Spark of Light reduces the cast time of your next Holy Light by 20%. The effect stacks up to 5 times.",
+          "Gives your Flash of Light spells a 100% chance to apply the Spark of Light effect. Spark of Light reduces the cast time of your next Holy Light by 20%. The effect stacks up to 5 times."
+        ]
+      },
+      {
+        "fieldName": "improvedPurifying",
+        "location": {
+          "rowIdx": 4,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33445,
+          33446,
+          33447
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Reduces the Mana cost of your Cleanse, Purify, Consecration, Exorcism, Holy Wrath and Hammer of Wrath spells by 15% and increases the critical strike chance of your Exorcism, Holy Wrath and Hammer of Wrath spells by 15%.",
+          "Reduces the Mana cost of your Cleanse, Purify, Consecration, Exorcism, Holy Wrath and Hammer of Wrath spells by 30% and increases the critical strike chance of your Exorcism, Holy Wrath and Hammer of Wrath spells by 30%.",
+          "Reduces the Mana cost of your Cleanse, Purify, Consecration, Exorcism, Holy Wrath and Hammer of Wrath spells by 45% and increases the critical strike chance of your Exorcism, Holy Wrath and Hammer of Wrath spells by 45%."
+        ]
       },
       {
         "fieldName": "holyShock",
         "location": {
-          "rowIdx": 6,
-          "colIdx": 1
+          "rowIdx": 4,
+          "colIdx": 2
         },
         "spellIds": [
           20473
         ],
         "maxPoints": 1,
+        "descriptions": [
+          "Blasts the target with Holy energy, causing 134 Holy damage to an enemy, or 134 healing to an ally. Heals twice amount on targets that have 20% or less health."
+        ]
+      },
+      {
+        "fieldName": "healingLight",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 0
+        },
+        "spellIds": [
+          33451,
+          33452,
+          33453,
+          33454,
+          33455
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases your healing done by 4% but reduces your Holy damage by 4%.",
+          "Increases your healing done by 8% but reduces your Holy damage by 8%.",
+          "Increases your healing done by 12% but reduces your Holy damage by 12%.",
+          "Increases your healing done by 16% but reduces your Holy damage by 16%.",
+          "Increases your healing done by 20% but reduces your Holy damage by 20%."
+        ]
+      },
+      {
+        "fieldName": "searingLight",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 2
+        },
+        "spellIds": [
+          33456,
+          33457,
+          33458,
+          33459,
+          33460
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases your Holy damage by 4% but reduces your healing done by 4%.",
+          "Increases your Holy damage by 8% but reduces your healing done by 8%.",
+          "Increases your Holy damage by 12% but reduces your healing done by 12%.",
+          "Increases your Holy damage by 16% but reduces your healing done by 16%.",
+          "Increases your Holy damage by 20% but reduces your healing done by 20%."
+        ]
+      },
+      {
+        "fieldName": "holyPurge",
+        "location": {
+          "rowIdx": 6,
+          "colIdx": 1
+        },
+        "spellIds": [
+          35748
+        ],
+        "maxPoints": 1,
         "prereqLocation": {
           "rowIdx": 4,
           "colIdx": 1
-        }
+        },
+        "descriptions": [
+          "For each effect you dispel, you heal allies or deal Holy damage to enemies equal to 5% of your current Mana. Also, your Holy damage has a 10% chance to dispel one magic effect from an enemy target."
+        ]
       }
     ]
   },
@@ -203,47 +388,78 @@
     "backgroundUrl": "https://wow.zamimg.com/images/wow/talents/backgrounds/classic/383.jpg",
     "talents": [
       {
-        "fieldName": "improvedDevotionAura",
+        "fieldName": "improvedHammerOfJustice",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 0
+        },
+        "spellIds": [
+          20487,
+          20488,
+          20489
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases the duration of your Hammer of Justice spell by 0.5 sec and reduces its cooldown by 10%.",
+          "Increases the duration of your Hammer of Justice spell by 1 sec and reduces its cooldown by 20%.",
+          "Increases the duration of your Hammer of Justice spell by 1.5 sec and reduces its cooldown by 30%."
+        ]
+      },
+      {
+        "fieldName": "toughness",
         "location": {
           "rowIdx": 0,
           "colIdx": 1
         },
         "spellIds": [
-          20138,
-          20139,
-          20140,
-          20141,
-          20142
+          20143,
+          20144,
+          20145,
+          20146,
+          20147
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases your resistance and armor value from items by 2%.",
+          "Increases your resistance and armor value from items by 4%.",
+          "Increases your resistance and armor value from items by 6%.",
+          "Increases your resistance and armor value from items by 8%.",
+          "Increases your resistance and armor value from items by 10%."
+        ]
       },
       {
-        "fieldName": "redoubt",
+        "fieldName": "shieldSpecialization",
         "location": {
           "rowIdx": 0,
           "colIdx": 2
         },
         "spellIds": [
-          20127,
-          20130,
-          20135,
-          20136,
-          20137
+          20148,
+          20149
         ],
-        "maxPoints": 5
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the amount of damage absorbed by your shield by 15%.",
+          "Increases the amount of damage absorbed by your shield by 30%."
+        ]
       },
       {
-        "fieldName": "precision",
+        "fieldName": "vindication",
         "location": {
           "rowIdx": 1,
           "colIdx": 0
         },
         "spellIds": [
-          20189,
-          20192,
-          20193
+          9452,
+          26016,
+          26021
         ],
-        "maxPoints": 3
+        "maxPoints": 3,
+        "descriptions": [
+          "Gives the Paladin's damaging melee attacks a chance to reduce the target's stats by 10% for 10 sec.",
+          "Gives the Paladin's damaging melee attacks a chance to reduce the target's stats by 10% for 20 sec.",
+          "Gives the Paladin's damaging melee attacks a chance to reduce the target's stats by 10% for 30 sec."
+        ]
       },
       {
         "fieldName": "guardiansFavor",
@@ -255,96 +471,100 @@
           20174,
           20175
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effect of your Blessing of Salvation and Blessing of Sanctuary by 10%. Also reduces the mana cost of your Blessings of Freedom, Protection, Sacrifice, Salvation and Sanctuary by 50%.",
+          "Increases the effect of your Blessing of Salvation and Blessing of Sanctuary by 20%. Also reduces the mana cost of your Blessings of Freedom, Protection, Sacrifice, Salvation and Sanctuary by 100%."
+        ]
       },
       {
-        "fieldName": "toughness",
+        "fieldName": "redoubt",
         "location": {
           "rowIdx": 1,
-          "colIdx": 3
-        },
-        "spellIds": [
-          20143,
-          20144,
-          20145,
-          20146,
-          20147
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "blessingOfKings",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 0
-        },
-        "spellIds": [
-          20217
-        ],
-        "maxPoints": 1
-      },
-      {
-        "fieldName": "improvedRighteousFury",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 1
-        },
-        "spellIds": [
-          20468,
-          20469,
-          20470
-        ],
-        "maxPoints": 3
-      },
-      {
-        "fieldName": "shieldSpecialization",
-        "location": {
-          "rowIdx": 2,
           "colIdx": 2
         },
         "spellIds": [
-          20148,
-          20149,
-          20150
+          20127,
+          20130,
+          20135
         ],
         "maxPoints": 3,
         "prereqLocation": {
           "rowIdx": 0,
           "colIdx": 2
-        }
+        },
+        "descriptions": [
+          "When struck in combat has a 20% chance to gain bonus 10% chance to block attacks for 15 sec seconds or X blocks. Critical hits grant this effect five times more often.",
+          "When struck in combat has a 20% chance to gain bonus 20% chance to block attacks for 15 sec seconds or X blocks. Critical hits grant this effect five times more often.",
+          "When struck in combat has a 20% chance to gain bonus 30% chance to block attacks for 15 sec seconds or X blocks. Critical hits grant this effect five times more often."
+        ]
       },
       {
-        "fieldName": "anticipation",
+        "fieldName": "precision",
         "location": {
-          "rowIdx": 2,
+          "rowIdx": 1,
           "colIdx": 3
         },
         "spellIds": [
-          20096,
-          20097,
-          20098,
-          20099,
-          20100
+          20189,
+          20192,
+          20193,
+          34720,
+          34721
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases your chance to hit with melee attacks and spells by 1%.",
+          "Increases your chance to hit with melee attacks and spells by 2%.",
+          "Increases your chance to hit with melee attacks and spells by 3%.",
+          "Increases your chance to hit with melee attacks and spells by 4%.",
+          "Increases your chance to hit with melee attacks and spells by 5%."
+        ]
       },
       {
-        "fieldName": "improvedHammerOfJustice",
+        "fieldName": "dominance",
         "location": {
-          "rowIdx": 3,
+          "rowIdx": 2,
+          "colIdx": 0
+        },
+        "spellIds": [
+          34369
+        ],
+        "maxPoints": 1,
+        "prereqLocation": {
+          "rowIdx": 1,
+          "colIdx": 0
+        },
+        "descriptions": [
+          "Degenerates the movement and attack capabilities of nearby opponents by 15%."
+        ]
+      },
+      {
+        "fieldName": "secondWind",
+        "location": {
+          "rowIdx": 2,
           "colIdx": 1
         },
         "spellIds": [
-          20487,
-          20488,
-          20489
+          34032,
+          34033,
+          34034,
+          34035,
+          34036
         ],
-        "maxPoints": 3
+        "maxPoints": 5,
+        "descriptions": [
+          "Restores mana equal to 4% of healing received.",
+          "Restores mana equal to 8% of healing received.",
+          "Restores mana equal to 12% of healing received.",
+          "Restores mana equal to 16% of healing received.",
+          "Restores mana equal to 20% of healing received."
+        ]
       },
       {
         "fieldName": "improvedConcentrationAura",
         "location": {
-          "rowIdx": 3,
+          "rowIdx": 2,
           "colIdx": 2
         },
         "spellIds": [
@@ -352,38 +572,65 @@
           20255,
           20256
         ],
-        "maxPoints": 3
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases the effect of your Concentration Aura by an additional 5% and gives all group members affected by the aura an additional 5% chance to resist Silence and Interrupt effects.",
+          "Increases the effect of your Concentration Aura by an additional 10% and gives all group members affected by the aura an additional 10% chance to resist Silence and Interrupt effects.",
+          "Increases the effect of your Concentration Aura by an additional 15% and gives all group members affected by the aura an additional 15% chance to resist Silence and Interrupt effects."
+        ]
       },
       {
-        "fieldName": "blessingOfSanctuary",
+        "fieldName": "sealOfFury",
         "location": {
-          "rowIdx": 4,
+          "rowIdx": 2,
+          "colIdx": 3
+        },
+        "spellIds": [
+          20423
+        ],
+        "maxPoints": 1,
+        "descriptions": [
+          "Fills the Paladin with divine fury for 2 min, causing melee attacks to deal additional physical damage equal to 30% of normal weapon damage to X enemies in front of the Paladin. Only one Seal can be active on the Paladin at any one time. Unleashing this Seal's energy will judge an enemy for 2 sec, forcing it to attack you."
+        ]
+      },
+      {
+        "fieldName": "improvedDefensiveAuras",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 0
+        },
+        "spellIds": [
+          20138,
+          20139
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the armor and resistance bonus of your Devotion and Resistance auras by 25%.",
+          "Increases the armor and resistance bonus of your Devotion and Resistance auras by 50%."
+        ]
+      },
+      {
+        "fieldName": "unbreakability",
+        "location": {
+          "rowIdx": 3,
           "colIdx": 1
         },
         "spellIds": [
-          20911
+          20096,
+          20097,
+          20098
         ],
-        "maxPoints": 1
-      },
-      {
-        "fieldName": "reckoning",
-        "location": {
-          "rowIdx": 4,
-          "colIdx": 2
-        },
-        "spellIds": [
-          20177,
-          20179,
-          20180,
-          20181,
-          20182
-        ],
-        "maxPoints": 5
+        "maxPoints": 3,
+        "descriptions": [
+          "Decreases damage taken by 5%.",
+          "Decreases damage taken by 10%.",
+          "Decreases damage taken by 15%."
+        ]
       },
       {
         "fieldName": "oneHandedWeaponSpecialization",
         "location": {
-          "rowIdx": 5,
+          "rowIdx": 3,
           "colIdx": 2
         },
         "spellIds": [
@@ -393,22 +640,126 @@
           20199,
           20200
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the damage you deal with one-handed melee weapons by 2%.",
+          "Increases the damage you deal with one-handed melee weapons by 4%.",
+          "Increases the damage you deal with one-handed melee weapons by 6%.",
+          "Increases the damage you deal with one-handed melee weapons by 8%.",
+          "Increases the damage you deal with one-handed melee weapons by 10%."
+        ]
+      },
+      {
+        "fieldName": "divineProtection",
+        "location": {
+          "rowIdx": 4,
+          "colIdx": 0
+        },
+        "spellIds": [
+          498
+        ],
+        "maxPoints": 1,
+        "descriptions": [
+          "Reduces all damage taken by 50%, but reduced damage caused by 30%. Lasts 10 sec."
+        ]
       },
       {
         "fieldName": "holyShield",
         "location": {
-          "rowIdx": 6,
+          "rowIdx": 4,
           "colIdx": 1
         },
         "spellIds": [
           20925
         ],
         "maxPoints": 1,
-        "prereqLocation": {
+        "descriptions": [
+          "Increases chance to block by 30% for 15 sec, and deals 45 Holy damage for each attack blocked while active. Damage caused by Holy Shield causes twice extra threat. Each block expends a charge. X charges."
+        ]
+      },
+      {
+        "fieldName": "improvedRighteousFury",
+        "location": {
           "rowIdx": 4,
+          "colIdx": 3
+        },
+        "spellIds": [
+          20468,
+          20469,
+          20470
+        ],
+        "maxPoints": 3,
+        "prereqLocation": {
+          "rowIdx": 2,
+          "colIdx": 3
+        },
+        "descriptions": [
+          "While Righteous Fury is active, your attack speed and threat generated are increased by an additional 10%.",
+          "While Righteous Fury is active, your attack speed and threat generated are increased by an additional 20%.",
+          "While Righteous Fury is active, your attack speed and threat generated are increased by an additional 30%."
+        ]
+      },
+      {
+        "fieldName": "morale",
+        "location": {
+          "rowIdx": 5,
           "colIdx": 1
-        }
+        },
+        "spellIds": [
+          33462,
+          33463,
+          33464,
+          33465,
+          33466
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Protects you agaist the next Fear effect once every 90 sec. In addition, your melee attacks have a 4% chance to restore 125 Mana.",
+          "Protects you agaist the next Fear effect once every 75 sec. In addition, your melee attacks have a 8% chance to restore 125 Mana.",
+          "Protects you agaist the next Fear effect once every 1 min. In addition, your melee attacks have a 12% chance to restore 125 Mana.",
+          "Protects you agaist the next Fear effect once every 50 sec. In addition, your melee attacks have a 16% chance to restore 125 Mana.",
+          "Protects you agaist the next Fear effect once every 40 sec. In addition, your melee attacks have a 20% chance to restore 125 Mana."
+        ]
+      },
+      {
+        "fieldName": "reckoning",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 2
+        },
+        "spellIds": [
+          20177,
+          20179,
+          20181,
+          20180,
+          20182
+        ],
+        "maxPoints": 5,
+        "prereqLocation": {
+          "rowIdx": 3,
+          "colIdx": 2
+        },
+        "descriptions": [
+          "Gives you a 4% chance to gain an extra attack after being hit by attack or spell. The critical attack have 5 times higher chance to grant extra attack.",
+          "Gives you a 8% chance to gain an extra attack after being hit by attack or spell. The critical attack have 5 times higher chance to grant extra attack.",
+          "Gives you a 12% chance to gain an extra attack after being hit by attack or spell. The critical attack have 5 times higher chance to grant extra attack.",
+          "Gives you a 16% chance to gain an extra attack after being hit by attack or spell. The critical attack have 5 times higher chance to grant extra attack.",
+          "Gives you a 20% chance to gain an extra attack after being hit by attack or spell. The critical attack have 5 times higher chance to grant extra attack."
+        ]
+      },
+      {
+        "fieldName": "stoicism",
+        "location": {
+          "rowIdx": 6,
+          "colIdx": 1
+        },
+        "spellIds": [
+          35741
+        ],
+        "maxPoints": 1,
+        "descriptions": [
+          "Delays your death by deferring all damage and healing for 3 sec after a killing blow."
+        ]
       }
     ]
   },
@@ -417,92 +768,27 @@
     "backgroundUrl": "https://wow.zamimg.com/images/wow/talents/backgrounds/classic/381.jpg",
     "talents": [
       {
-        "fieldName": "improvedBlessingOfMight",
-        "location": {
-          "rowIdx": 0,
-          "colIdx": 1
-        },
-        "spellIds": [
-          20042,
-          20045,
-          20046,
-          20047,
-          20048
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "benediction",
-        "location": {
-          "rowIdx": 0,
-          "colIdx": 2
-        },
-        "spellIds": [
-          20101,
-          20102,
-          20103,
-          20104,
-          20105
-        ],
-        "maxPoints": 5
-      },
-      {
         "fieldName": "improvedJudgement",
         "location": {
-          "rowIdx": 1,
+          "rowIdx": 0,
           "colIdx": 0
         },
         "spellIds": [
           25956,
-          25957
+          25957,
+          33991
         ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "improvedSealOfTheCrusader",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 1
-        },
-        "spellIds": [
-          20335,
-          20336,
-          20337
-        ],
-        "maxPoints": 3
-      },
-      {
-        "fieldName": "deflection",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 2
-        },
-        "spellIds": [
-          20060,
-          20061,
-          20062,
-          20063,
-          20064
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "vindication",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 0
-        },
-        "spellIds": [
-          9452,
-          26016,
-          26021
-        ],
-        "maxPoints": 3
+        "maxPoints": 3,
+        "descriptions": [
+          "Decreases the cooldown of your Judgement spell by 1 sec.",
+          "Decreases the cooldown of your Judgement spell by 2 sec.",
+          "Decreases the cooldown of your Judgement spell by 3 sec."
+        ]
       },
       {
         "fieldName": "conviction",
         "location": {
-          "rowIdx": 2,
+          "rowIdx": 0,
           "colIdx": 1
         },
         "spellIds": [
@@ -512,7 +798,130 @@
           20120,
           20121
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases your chance to get a critical strike with attacks and offensive spells by 1%.",
+          "Increases your chance to get a critical strike with attacks and offensive spells by 2%.",
+          "Increases your chance to get a critical strike with attacks and offensive spells by 3%.",
+          "Increases your chance to get a critical strike with attacks and offensive spells by 4%.",
+          "Increases your chance to get a critical strike with attacks and offensive spells by 5%."
+        ]
+      },
+      {
+        "fieldName": "improvedSealOfTheCrusader",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 2
+        },
+        "spellIds": [
+          20335,
+          20336,
+          20337
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases the holy damage and melee attack power bonuses of your Seal of the Crusader and the Holy damage increase of your Judgement of the Crusader by 5%.",
+          "Increases the holy damage and melee attack power bonuses of your Seal of the Crusader and the Holy damage increase of your Judgement of the Crusader by 10%.",
+          "Increases the holy damage and melee attack power bonuses of your Seal of the Crusader and the Holy damage increase of your Judgement of the Crusader by 15%."
+        ]
+      },
+      {
+        "fieldName": "deflection",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 0
+        },
+        "spellIds": [
+          20060,
+          20061,
+          20062
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases your Parry chance by 2%.",
+          "Increases your Parry chance by 4%.",
+          "Increases your Parry chance by 6%."
+        ]
+      },
+      {
+        "fieldName": "pursuitOfJustice",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 2
+        },
+        "spellIds": [
+          26022,
+          26023
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases movement and mounted movement speed by 5%. This does not stack with other movement speed increasing effects.",
+          "Increases movement and mounted movement speed by 10%. This does not stack with other movement speed increasing effects."
+        ]
+      },
+      {
+        "fieldName": "divineMight",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 3
+        },
+        "spellIds": [
+          20042,
+          20045
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effect of your Blessing of Might and Blessing of Kings by 10%. Also reduces their mana cost by 50%.",
+          "Increases the effect of your Blessing of Might and Blessing of Kings by 20%. Also reduces their mana cost by 100%."
+        ]
+      },
+      {
+        "fieldName": "theRevenant",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 0
+        },
+        "spellIds": [
+          33469,
+          33470,
+          33471
+        ],
+        "maxPoints": 3,
+        "prereqLocation": {
+          "rowIdx": 1,
+          "colIdx": 0
+        },
+        "descriptions": [
+          "Reduces the chance you are critically hit by 2%.",
+          "Reduces the chance you are critically hit by 4%.",
+          "Reduces the chance you are critically hit by 6%."
+        ]
+      },
+      {
+        "fieldName": "crusade",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33477,
+          33478,
+          33479,
+          33480,
+          33481
+        ],
+        "maxPoints": 5,
+        "prereqLocation": {
+          "rowIdx": 0,
+          "colIdx": 1
+        },
+        "descriptions": [
+          "Increases spell damage and healing by up to 6% of your total Strength.",
+          "Increases spell damage and healing by up to 12% of your total Strength.",
+          "Increases spell damage and healing by up to 18% of your total Strength.",
+          "Increases spell damage and healing by up to 24% of your total Strength.",
+          "Increases spell damage and healing by up to 30% of your total Strength."
+        ]
       },
       {
         "fieldName": "sealOfCommand",
@@ -523,73 +932,122 @@
         "spellIds": [
           20375
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "descriptions": [
+          "Gives the Paladin a chance to deal additional Holy damage equal to 50% of normal weapon damage. Only one Seal can be active on the Paladin at any one time. Lasts 2 min. Unleashing this Seal's energy will judge an enemy, instantly causing $/2;20467s1 Holy damage, 143 if the target is stunned, incapacitated or disoriented."
+        ]
       },
       {
-        "fieldName": "pursuitOfJustice",
+        "fieldName": "eyeForAnEye",
         "location": {
           "rowIdx": 2,
           "colIdx": 3
         },
         "spellIds": [
-          26022,
-          26023
-        ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "eyeForAnEye",
-        "location": {
-          "rowIdx": 3,
-          "colIdx": 0
-        },
-        "spellIds": [
           9799,
           25988
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "All spell hits against you cause 5% of the damage taken to the caster as well.",
+          "All spell hits against you cause 10% of the damage taken to the caster as well."
+        ]
       },
       {
         "fieldName": "improvedRetributionAura",
         "location": {
           "rowIdx": 3,
-          "colIdx": 2
+          "colIdx": 0
         },
         "spellIds": [
           20091,
           20092
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Your Retribution Aura deals additional damage equal to 5% of damage you take.",
+          "Your Retribution Aura deals additional damage equal to 10% of damage you take."
+        ]
+      },
+      {
+        "fieldName": "benediction",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 1
+        },
+        "spellIds": [
+          20101,
+          20102,
+          20103
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Reduces the cost of your Judgement and Seal spells by 10%.",
+          "Reduces the cost of your Judgement and Seal spells by 20%.",
+          "Reduces the cost of your Judgement and Seal spells by 30%."
+        ]
       },
       {
         "fieldName": "twoHandedWeaponSpecialization",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 2
+        },
+        "spellIds": [
+          20111,
+          20112,
+          20113,
+          36339,
+          36340
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the damage you deal with two-handed melee weapons by 2%.",
+          "Increases the damage you deal with two-handed melee weapons by 4%.",
+          "Increases the damage you deal with two-handed melee weapons by 6%.",
+          "Increases the damage you deal with two-handed melee weapons by 8%.",
+          "Increases the damage you deal with two-handed melee weapons by 10%."
+        ]
+      },
+      {
+        "fieldName": "improvedSanctityAura",
         "location": {
           "rowIdx": 4,
           "colIdx": 0
         },
         "spellIds": [
-          20111,
-          20112,
-          20113
+          33489,
+          33490
         ],
-        "maxPoints": 3
+        "maxPoints": 2,
+        "prereqLocation": {
+          "rowIdx": 4,
+          "colIdx": 1
+        },
+        "descriptions": [
+          "Increases the effect of your Sanctity Aura by 3% and gives all group members affected by the aura an additional 3% bonus to healing done.",
+          "Increases the effect of your Sanctity Aura by 5% and gives all group members affected by the aura an additional 5% bonus to healing done."
+        ]
       },
       {
         "fieldName": "sanctityAura",
         "location": {
           "rowIdx": 4,
-          "colIdx": 2
+          "colIdx": 1
         },
         "spellIds": [
           20218
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "descriptions": [
+          "Increases Holy damage done by party members within X yards by 10%. Players may only have one Aura on them per Paladin at any one time."
+        ]
       },
       {
         "fieldName": "vengeance",
         "location": {
-          "rowIdx": 5,
-          "colIdx": 1
+          "rowIdx": 4,
+          "colIdx": 2
         },
         "spellIds": [
           20049,
@@ -599,21 +1057,85 @@
           20059
         ],
         "maxPoints": 5,
-        "prereqLocation": {
-          "rowIdx": 2,
-          "colIdx": 1
-        }
+        "descriptions": [
+          "Gives your critical strikes a 20% chance to increase damage you deal by 2% for 15 sec. Stacks up to 10 times.",
+          "Gives your critical strikes a 40% chance to increase damage you deal by 2% for 15 sec. Stacks up to 10 times.",
+          "Gives your critical strikes a 60% chance to increase damage you deal by 2% for 15 sec. Stacks up to 10 times.",
+          "Gives your critical strikes a 80% chance to increase damage you deal by 2% for 15 sec. Stacks up to 10 times.",
+          "Gives your critical strikes a 100% chance to increase damage you deal by 2% for 15 sec. Stacks up to 10 times."
+        ]
       },
       {
         "fieldName": "repentance",
+        "location": {
+          "rowIdx": 4,
+          "colIdx": 3
+        },
+        "spellIds": [
+          20066
+        ],
+        "maxPoints": 1,
+        "descriptions": [
+          "Puts the enemy target in a state of meditation, incapacitating them and increasing their Mana regeneration. Lasts up to 1 min. Any damage caused will awaken the target. Only works against Humanoids."
+        ]
+      },
+      {
+        "fieldName": "blessedStrikes",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33472,
+          33473,
+          33474,
+          33475,
+          33476
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Causes your attacks to ignore up to 180 of your target's Armor. The amount of Armor reduced scales with your level. Also, reduces threat caused by all actions by 4% except when under the effects of Righteous Fury.",
+          "Causes your attacks to ignore up to 360 of your target's Armor. The amount of Armor reduced scales with your level. Also, reduces threat caused by all actions by 8% except when under the effects of Righteous Fury.",
+          "Causes your attacks to ignore up to 540 of your target's Armor. The amount of Armor reduced scales with your level. Also, reduces threat caused by all actions by 12% except when under the effects of Righteous Fury.",
+          "Causes your attacks to ignore up to 720 of your target's Armor. The amount of Armor reduced scales with your level. Also, reduces threat caused by all actions by 16% except when under the effects of Righteous Fury.",
+          "Causes your attacks to ignore up to 900 of your target's Armor. The amount of Armor reduced scales with your level. Also, reduces threat caused by all actions by 20% except when under the effects of Righteous Fury."
+        ]
+      },
+      {
+        "fieldName": "codexOfTheSilverHand",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 2
+        },
+        "spellIds": [
+          33482,
+          33483,
+          33484,
+          33485,
+          33486
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Allow 20% of your Mana regeneration to continue during and for 5 sec after casting. In addition, reduces the Mana cost of your Holy Light spell by 10%, but increases its casting time by 0.3 sec.",
+          "Allow 40% of your Mana regeneration to continue during and for 5 sec after casting. In addition, reduces the Mana cost of your Holy Light spell by 20%, but increases its casting time by 0.6 sec.",
+          "Allow 60% of your Mana regeneration to continue during and for 5 sec after casting. In addition, reduces the Mana cost of your Holy Light spell by 30%, but increases its casting time by 0.9 sec.",
+          "Allow 80% of your Mana regeneration to continue during and for 5 sec after casting. In addition, reduces the Mana cost of your Holy Light spell by 40%, but increases its casting time by 1.2 sec.",
+          "Allow 100% of your Mana regeneration to continue during and for 5 sec after casting. In addition, reduces the Mana cost of your Holy Light spell by 50%, but increases its casting time by 1.5 sec."
+        ]
+      },
+      {
+        "fieldName": "inevitableJustice",
         "location": {
           "rowIdx": 6,
           "colIdx": 1
         },
         "spellIds": [
-          20066
+          33448
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "descriptions": [
+          "Increases the critical strike chance of all Judgements by 50% and makes your Seals and Judgements undispellable."
+        ]
       }
     ]
   }

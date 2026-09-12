@@ -23,7 +23,7 @@ func (druid *Druid) registerFaerieFireSpell() {
 		return core.FaerieFireAura(target)
 	})
 
-	if druid.InForm(Cat|Bear) && druid.Talents.FaerieFireFeral {
+	if druid.InForm(Cat|Bear) && druid.Talents.ImprovedFaerieFire > 0 {
 		spellCode = SpellCode_DruidFaerieFireFeral
 		actionID = core.ActionID{SpellID: 17392}
 		manaCostOptions = core.ManaCostOptions{}

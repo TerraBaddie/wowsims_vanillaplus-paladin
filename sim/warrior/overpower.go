@@ -55,7 +55,7 @@ func (warrior *Warrior) registerOverpowerSpell(cdTimer *core.Timer) {
 			return warrior.OverpowerAura.IsActive()
 		},
 
-		BonusCritRating: 25 * core.CritRatingPerCritChance * float64(warrior.Talents.ImprovedOverpower),
+		BonusCritRating: 25 * core.CritRatingPerCritChance * float64(warrior.Talents.Duelist), // Duelist: +25%/rank Overpower/Revenge crit
 
 		CritDamageBonus: warrior.impale(),
 

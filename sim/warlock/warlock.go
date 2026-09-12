@@ -7,7 +7,7 @@ import (
 	"github.com/wowsims/classic/sim/core/stats"
 )
 
-var TalentTreeSizes = [3]int{17, 17, 16}
+var TalentTreeSizes = [3]int{20, 20, 20}
 
 const (
 	WarlockFlagAffliction  = core.SpellFlagAgentReserved1
@@ -171,6 +171,7 @@ func NewWarlock(character *core.Character, options *proto.Player, warlockOptions
 	warlock.AddStatDependency(stats.Agility, stats.MeleeCrit, core.CritPerAgiAtLevel[warlock.Class]*core.CritRatingPerCritChance)
 	warlock.AddStatDependency(stats.Agility, stats.Dodge, core.DodgePerAgiAtLevel[character.Class]*core.DodgeRatingPerDodgeChance)
 	warlock.AddStatDependency(stats.Intellect, stats.SpellCrit, core.CritPerIntAtLevel[warlock.Class]*core.SpellCritRatingPerCritChance)
+	warlock.AddStatDependency(stats.Intellect, stats.SpellPower, core.SpellPowerPerIntellect)
 	warlock.AddStatDependency(stats.BonusArmor, stats.Armor, 1)
 
 	switch warlock.Options.Armor {

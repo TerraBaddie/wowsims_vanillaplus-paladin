@@ -43,7 +43,7 @@ func (rogue *Rogue) registerSinisterStrikeSpell() {
 
 		CritDamageBonus: rogue.lethality(),
 
-		DamageMultiplier: []float64{1, 1.02, 1.04, 1.06}[rogue.Talents.Aggression],
+		DamageMultiplier: []float64{1, 1.05, 1.10, 1.15, 1.20, 1.25}[rogue.Talents.Aggression], // DBC: 5%/rank
 		ThreatMultiplier: 1,
 		BonusCoefficient: 1,
 

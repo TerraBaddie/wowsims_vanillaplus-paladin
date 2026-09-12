@@ -52,7 +52,9 @@ func HasEnchantEffect(id int32) bool {
 func NewItemEffect(id int32, itemEffect ApplyEffect) {
 	if WITH_DB {
 		if _, hasItem := ItemsByID[id]; !hasItem {
-			panic(fmt.Sprintf("No item with ID: %d", id))
+			// Item was removed from the DB (e.g. private-server content that
+			// doesn't exist). Skip its effect rather than crashing every sim.
+			return
 		}
 	}
 

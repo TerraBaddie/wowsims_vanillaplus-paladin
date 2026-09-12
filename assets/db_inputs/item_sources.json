@@ -1,0 +1,5654 @@
+{
+"1076": {
+"zoneId": 717,
+"otherName": "Trash"
+},
+"1155": {
+"zoneId": 719,
+"npcId": 4832
+},
+"1156": {
+"zoneId": 1581,
+"npcId": 1763
+},
+"1177": {
+"zoneId": 1337,
+"npcId": 6908
+},
+"1292": {
+"zoneId": 209,
+"npcId": 3886
+},
+"1318": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"1454": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"1470": {
+"zoneId": 719,
+"npcId": 204921
+},
+"1481": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"1482": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"1483": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"1484": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"1486": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"1488": {
+"zoneId": 491,
+"otherName": "Trash"
+},
+"1489": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"1491": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"1727": {
+"zoneId": 491,
+"otherName": "Trash"
+},
+"1935": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"1937": {
+"zoneId": 1581,
+"npcId": 642
+},
+"1974": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"1975": {
+"zoneId": 491,
+"otherName": "Trash"
+},
+"1976": {
+"zoneId": 491,
+"otherName": "Trash"
+},
+"1978": {
+"zoneId": 491,
+"otherName": "Trash"
+},
+"1992": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"2039": {
+"zoneId": 491,
+"otherName": "Trash"
+},
+"2040": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"2169": {
+"zoneId": 1581,
+"npcId": 642
+},
+"2205": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"2262": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"2264": {
+"zoneId": 491,
+"otherName": "Trash"
+},
+"2271": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"2280": {
+"zoneId": 717,
+"npcId": 1666
+},
+"2292": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"2549": {
+"zoneId": 491,
+"otherName": "Trash"
+},
+"2567": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"2662": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"2663": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"2807": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"2816": {
+"zoneId": 491,
+"npcId": 4428
+},
+"2874": {
+"zoneId": 1581,
+"npcId": 639
+},
+"2941": {
+"zoneId": 717,
+"npcId": 1720
+},
+"2942": {
+"zoneId": 717,
+"npcId": 1720
+},
+"3078": {
+"zoneId": 719,
+"npcId": 204068
+},
+"3191": {
+"zoneId": 209,
+"npcId": 4278
+},
+"3194": {
+"zoneId": 209,
+"otherName": "Trash"
+},
+"3228": {
+"zoneId": 717,
+"npcId": 1720
+},
+"3230": {
+"zoneId": 209,
+"npcId": 4274
+},
+"3413": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"3414": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"3415": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"3416": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"3417": {
+"zoneId": 719,
+"otherName": "Trash"
+},
+"3748": {
+"zoneId": 209,
+"npcId": 3927
+},
+"4411": {
+"zoneId": 721,
+"npcId": 218537
+},
+"4413": {
+"zoneId": 721,
+"npcId": 218537
+},
+"4415": {
+"zoneId": 721,
+"npcId": 218537
+},
+"4438": {
+"zoneId": 491,
+"otherName": "Trash"
+},
+"5187": {
+"zoneId": 1581,
+"npcId": 644
+},
+"5191": {
+"zoneId": 1581,
+"npcId": 639
+},
+"5192": {
+"zoneId": 1581,
+"npcId": 646
+},
+"5193": {
+"zoneId": 1581,
+"npcId": 639
+},
+"5194": {
+"zoneId": 1581,
+"npcId": 643
+},
+"5195": {
+"zoneId": 1581,
+"npcId": 643
+},
+"5196": {
+"zoneId": 1581,
+"npcId": 646
+},
+"5197": {
+"zoneId": 1581,
+"npcId": 645
+},
+"5198": {
+"zoneId": 1581,
+"npcId": 645
+},
+"5199": {
+"zoneId": 1581,
+"npcId": 1763
+},
+"5200": {
+"zoneId": 1581,
+"npcId": 647
+},
+"5201": {
+"zoneId": 1581,
+"npcId": 647
+},
+"5202": {
+"zoneId": 1581,
+"npcId": 639
+},
+"5243": {
+"zoneId": 718,
+"npcId": 5912
+},
+"5254": {
+"zoneId": 209,
+"npcId": 3914
+},
+"5404": {
+"zoneId": 718,
+"npcId": 3671
+},
+"5443": {
+"zoneId": 1581,
+"npcId": 3586
+},
+"5444": {
+"zoneId": 1581,
+"npcId": 3586
+},
+"5616": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"5756": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"5943": {
+"zoneId": 209,
+"npcId": 4627
+},
+"5970": {
+"zoneId": 718,
+"npcId": 3673
+},
+"6220": {
+"zoneId": 209,
+"npcId": 4275
+},
+"6226": {
+"zoneId": 209,
+"npcId": 3886
+},
+"6314": {
+"zoneId": 209,
+"npcId": 3927
+},
+"6318": {
+"zoneId": 209,
+"npcId": 4279
+},
+"6319": {
+"zoneId": 209,
+"npcId": 4279
+},
+"6320": {
+"zoneId": 209,
+"npcId": 4278
+},
+"6321": {
+"zoneId": 209,
+"npcId": 3887
+},
+"6323": {
+"zoneId": 209,
+"npcId": 3887
+},
+"6324": {
+"zoneId": 209,
+"npcId": 4275
+},
+"6340": {
+"zoneId": 209,
+"npcId": 4274
+},
+"6392": {
+"zoneId": 209,
+"npcId": 4275
+},
+"6440": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"6446": {
+"zoneId": 718,
+"npcId": 3671
+},
+"6447": {
+"zoneId": 718,
+"npcId": 3653
+},
+"6448": {
+"zoneId": 718,
+"npcId": 3674
+},
+"6449": {
+"zoneId": 718,
+"npcId": 3674
+},
+"6459": {
+"zoneId": 718,
+"npcId": 3673
+},
+"6460": {
+"zoneId": 718,
+"npcId": 3669
+},
+"6465": {
+"zoneId": 718,
+"npcId": 3669
+},
+"6469": {
+"zoneId": 718,
+"npcId": 3673
+},
+"6472": {
+"zoneId": 718,
+"npcId": 3670
+},
+"6632": {
+"zoneId": 718,
+"npcId": 5912
+},
+"6633": {
+"zoneId": 209,
+"npcId": 3886
+},
+"6641": {
+"zoneId": 209,
+"npcId": 3872
+},
+"6642": {
+"zoneId": 209,
+"npcId": 3872
+},
+"6679": {
+"zoneId": 491,
+"npcId": 4438
+},
+"6682": {
+"zoneId": 491,
+"npcId": 4428
+},
+"6685": {
+"zoneId": 491,
+"npcId": 4428
+},
+"6686": {
+"zoneId": 491,
+"npcId": 4420
+},
+"6687": {
+"zoneId": 491,
+"npcId": 4420
+},
+"6688": {
+"zoneId": 491,
+"npcId": 4842
+},
+"6689": {
+"zoneId": 491,
+"npcId": 4842
+},
+"6690": {
+"zoneId": 491,
+"npcId": 4422
+},
+"6691": {
+"zoneId": 491,
+"npcId": 4422
+},
+"6692": {
+"zoneId": 491,
+"npcId": 4421
+},
+"6693": {
+"zoneId": 491,
+"npcId": 4421
+},
+"6694": {
+"zoneId": 491,
+"npcId": 4421
+},
+"6695": {
+"zoneId": 491,
+"npcId": 4425
+},
+"6696": {
+"zoneId": 491,
+"npcId": 4425
+},
+"6697": {
+"zoneId": 491,
+"npcId": 4425
+},
+"6893": {
+"zoneId": 721,
+"npcId": 220072
+},
+"6903": {
+"zoneId": 719,
+"npcId": 4832
+},
+"6905": {
+"zoneId": 719,
+"npcId": 204921
+},
+"6906": {
+"zoneId": 719,
+"npcId": 204921
+},
+"6907": {
+"zoneId": 719,
+"npcId": 201722
+},
+"6908": {
+"zoneId": 719,
+"npcId": 201722
+},
+"6909": {
+"zoneId": 719,
+"npcId": 213334
+},
+"6910": {
+"zoneId": 719,
+"npcId": 213334
+},
+"6911": {
+"zoneId": 719,
+"npcId": 213334
+},
+"7191": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"7230": {
+"zoneId": 1581,
+"npcId": 646
+},
+"7666": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"7673": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"7684": {
+"zoneId": 796,
+"npcId": 4543
+},
+"7685": {
+"zoneId": 796,
+"npcId": 4543
+},
+"7686": {
+"zoneId": 796,
+"npcId": 6489
+},
+"7687": {
+"zoneId": 796,
+"npcId": 6489
+},
+"7688": {
+"zoneId": 796,
+"npcId": 6489
+},
+"7689": {
+"zoneId": 796,
+"npcId": 6488
+},
+"7690": {
+"zoneId": 796,
+"npcId": 6488
+},
+"7691": {
+"zoneId": 796,
+"npcId": 6488
+},
+"7727": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7728": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7729": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7730": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7736": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7740": {
+"zoneId": 1337,
+"npcId": 6906
+},
+"7741": {
+"zoneId": 1337,
+"npcId": 6910
+},
+"7742": {
+"zoneId": 721,
+"npcId": 218537
+},
+"7752": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7753": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7754": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7755": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7757": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7758": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7759": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7760": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7761": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7786": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"7787": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"8225": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"8226": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"8490": {
+"zoneId": 1581,
+"npcId": 645
+},
+"8492": {
+"zoneId": 1581,
+"otherName": "Trash"
+},
+"8548": {
+"zoneId": 1176,
+"npcId": 7604
+},
+"9214": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"9234": {
+"zoneId": 1176,
+"npcId": 7795
+},
+"9243": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"9260": {
+"zoneId": 2557,
+"npcId": 14322
+},
+"9279": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9280": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9281": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9282": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9308": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9316": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9326": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9327": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9372": {
+"zoneId": 1176,
+"npcId": 8127
+},
+"9379": {
+"zoneId": 1176,
+"npcId": 8127
+},
+"9381": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9383": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9384": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9386": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9387": {
+"zoneId": 1337,
+"npcId": 6910
+},
+"9388": {
+"zoneId": 1337,
+"npcId": 6910
+},
+"9389": {
+"zoneId": 1337,
+"npcId": 6910
+},
+"9390": {
+"zoneId": 1337,
+"npcId": 6910
+},
+"9391": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9392": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9393": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9396": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9397": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9399": {
+"zoneId": 1337,
+"npcId": 6906
+},
+"9400": {
+"zoneId": 1337,
+"npcId": 6906
+},
+"9401": {
+"zoneId": 1337,
+"npcId": 6906
+},
+"9403": {
+"zoneId": 1337,
+"npcId": 6908
+},
+"9404": {
+"zoneId": 1337,
+"npcId": 6908
+},
+"9406": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9407": {
+"zoneId": 1337,
+"npcId": 7228
+},
+"9408": {
+"zoneId": 1337,
+"npcId": 7228
+},
+"9409": {
+"zoneId": 1337,
+"npcId": 7228
+},
+"9410": {
+"zoneId": 1337,
+"npcId": 7206
+},
+"9411": {
+"zoneId": 1337,
+"npcId": 7206
+},
+"9412": {
+"zoneId": 1337,
+"npcId": 7291
+},
+"9413": {
+"zoneId": 1337,
+"npcId": 2748
+},
+"9414": {
+"zoneId": 1337,
+"npcId": 4854
+},
+"9415": {
+"zoneId": 1337,
+"npcId": 4854
+},
+"9416": {
+"zoneId": 1337,
+"npcId": 4854
+},
+"9417": {
+"zoneId": 1337,
+"npcId": 2748
+},
+"9418": {
+"zoneId": 1337,
+"npcId": 2748
+},
+"9419": {
+"zoneId": 1337,
+"npcId": 7291
+},
+"9420": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9422": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9423": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9424": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9425": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9426": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9427": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9428": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9429": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9430": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9431": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9432": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9445": {
+"zoneId": 721,
+"npcId": 217280
+},
+"9446": {
+"zoneId": 721,
+"npcId": 220072
+},
+"9447": {
+"zoneId": 721,
+"npcId": 220072
+},
+"9448": {
+"zoneId": 721,
+"npcId": 220072
+},
+"9449": {
+"zoneId": 721,
+"npcId": 215728
+},
+"9450": {
+"zoneId": 721,
+"npcId": 215728
+},
+"9452": {
+"zoneId": 721,
+"npcId": 220007
+},
+"9453": {
+"zoneId": 721,
+"npcId": 220007
+},
+"9454": {
+"zoneId": 721,
+"npcId": 220007
+},
+"9455": {
+"zoneId": 1584,
+"npcId": 9156
+},
+"9456": {
+"zoneId": 1584,
+"npcId": 9156
+},
+"9457": {
+"zoneId": 1584,
+"npcId": 9156
+},
+"9458": {
+"zoneId": 721,
+"npcId": 218537
+},
+"9459": {
+"zoneId": 721,
+"npcId": 218537
+},
+"9461": {
+"zoneId": 721,
+"npcId": 218537
+},
+"9465": {
+"zoneId": 1337,
+"otherName": "Trash"
+},
+"9467": {
+"zoneId": 1176,
+"npcId": 7273
+},
+"9469": {
+"zoneId": 1176,
+"npcId": 7273
+},
+"9471": {
+"zoneId": 1176,
+"npcId": 7796
+},
+"9476": {
+"zoneId": 1176,
+"npcId": 7267
+},
+"9477": {
+"zoneId": 1176,
+"npcId": 7267
+},
+"9478": {
+"zoneId": 1176,
+"npcId": 7267
+},
+"9479": {
+"zoneId": 1176,
+"npcId": 7267
+},
+"9480": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"9481": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"9482": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"9483": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"9484": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"9485": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9486": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9487": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9488": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9490": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9491": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9492": {
+"zoneId": 721,
+"npcId": 218537
+},
+"9508": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9509": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9510": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9511": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"9512": {
+"zoneId": 1176,
+"otherName": "Trash"
+},
+"9588": {
+"zoneId": 721,
+"otherName": "Trash"
+},
+"9639": {
+"zoneId": 1176,
+"npcId": 8127
+},
+"9640": {
+"zoneId": 1176,
+"npcId": 8127
+},
+"9641": {
+"zoneId": 1176,
+"npcId": 8127
+},
+"10454": {
+"zoneId": 1477,
+"npcId": 218571
+},
+"10455": {
+"zoneId": 1477,
+"npcId": 218571
+},
+"10567": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10570": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10571": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10572": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10573": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10574": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10578": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10581": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10582": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10583": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10584": {
+"zoneId": 722,
+"otherName": "Trash"
+},
+"10623": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10624": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10625": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10626": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10627": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10628": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10629": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10630": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10631": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10632": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10633": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10634": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10660": {
+"zoneId": 1176,
+"npcId": 7272
+},
+"10661": {
+"zoneId": 1176,
+"npcId": 7795
+},
+"10758": {
+"zoneId": 722,
+"npcId": 7354
+},
+"10767": {
+"zoneId": 722,
+"npcId": 7354
+},
+"10768": {
+"zoneId": 722,
+"npcId": 7354
+},
+"10769": {
+"zoneId": 722,
+"npcId": 7357
+},
+"10770": {
+"zoneId": 722,
+"npcId": 7357
+},
+"10771": {
+"zoneId": 722,
+"npcId": 7357
+},
+"10772": {
+"zoneId": 722,
+"npcId": 8567
+},
+"10774": {
+"zoneId": 722,
+"npcId": 8567
+},
+"10775": {
+"zoneId": 722,
+"npcId": 7355
+},
+"10776": {
+"zoneId": 722,
+"npcId": 7355
+},
+"10777": {
+"zoneId": 722,
+"npcId": 7355
+},
+"10780": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10781": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10782": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"10795": {
+"zoneId": 1477,
+"npcId": 220833
+},
+"10796": {
+"zoneId": 1477,
+"npcId": 220833
+},
+"10797": {
+"zoneId": 1477,
+"npcId": 220833
+},
+"10798": {
+"zoneId": 1477,
+"npcId": 218624
+},
+"10799": {
+"zoneId": 1477,
+"npcId": 218624
+},
+"10800": {
+"zoneId": 1477,
+"npcId": 218624
+},
+"10806": {
+"zoneId": 1477,
+"npcId": 218721
+},
+"10807": {
+"zoneId": 1477,
+"npcId": 218721
+},
+"10808": {
+"zoneId": 1477,
+"npcId": 218721
+},
+"10828": {
+"zoneId": 1477,
+"npcId": 218571
+},
+"10829": {
+"zoneId": 1477,
+"npcId": 218571
+},
+"10833": {
+"zoneId": 1477,
+"npcId": 218571
+},
+"10835": {
+"zoneId": 1477,
+"npcId": 218571
+},
+"10836": {
+"zoneId": 1477,
+"npcId": 218571
+},
+"10837": {
+"zoneId": 1477,
+"npcId": 218571
+},
+"10838": {
+"zoneId": 1477,
+"npcId": 221394
+},
+"10842": {
+"zoneId": 1477,
+"npcId": 221394
+},
+"10843": {
+"zoneId": 1477,
+"npcId": 221394
+},
+"10844": {
+"zoneId": 1477,
+"npcId": 221394
+},
+"10845": {
+"zoneId": 1477,
+"npcId": 221394
+},
+"10846": {
+"zoneId": 1477,
+"npcId": 221394
+},
+"10847": {
+"zoneId": 1477,
+"npcId": 218571
+},
+"11086": {
+"zoneId": 1176,
+"npcId": 7267
+},
+"11118": {
+"zoneId": 1337,
+"npcId": 2748
+},
+"11121": {
+"zoneId": 719,
+"npcId": 204068
+},
+"11140": {
+"zoneId": 1584,
+"npcId": 9018
+},
+"11207": {
+"zoneId": 1584,
+"npcId": 9024
+},
+"11310": {
+"zoneId": 1337,
+"npcId": 7291
+},
+"11311": {
+"zoneId": 1337,
+"npcId": 7291
+},
+"11325": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"11446": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"11602": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"11608": {
+"zoneId": 1584,
+"npcId": 9028
+},
+"11610": {
+"zoneId": 1584,
+"npcId": 9028
+},
+"11611": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"11612": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"11614": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"11615": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"11623": {
+"zoneId": 1584,
+"npcId": 9319
+},
+"11624": {
+"zoneId": 1584,
+"npcId": 9018
+},
+"11625": {
+"zoneId": 1584,
+"npcId": 9018
+},
+"11626": {
+"zoneId": 1584,
+"npcId": 9018
+},
+"11627": {
+"zoneId": 1584,
+"npcId": 9319
+},
+"11628": {
+"zoneId": 1584,
+"npcId": 9319
+},
+"11629": {
+"zoneId": 1584,
+"npcId": 9319
+},
+"11630": {
+"zoneId": 1584,
+"npcId": 9025
+},
+"11631": {
+"zoneId": 1584,
+"npcId": 9025
+},
+"11632": {
+"zoneId": 1584,
+"npcId": 9025
+},
+"11669": {
+"zoneId": 1584,
+"npcId": 8983
+},
+"11675": {
+"zoneId": 1584,
+"npcId": 9031
+},
+"11677": {
+"zoneId": 1584,
+"npcId": 9031
+},
+"11678": {
+"zoneId": 1584,
+"npcId": 9031
+},
+"11679": {
+"zoneId": 1584,
+"npcId": 9029
+},
+"11684": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"11685": {
+"zoneId": 1584,
+"npcId": 9029
+},
+"11686": {
+"zoneId": 1584,
+"npcId": 9029
+},
+"11702": {
+"zoneId": 1584,
+"npcId": 9028
+},
+"11703": {
+"zoneId": 1584,
+"npcId": 9028
+},
+"11722": {
+"zoneId": 1584,
+"npcId": 9028
+},
+"11735": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"11742": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"11744": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"11745": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"11746": {
+"zoneId": 1584,
+"npcId": 9938
+},
+"11747": {
+"zoneId": 1584,
+"npcId": 9024
+},
+"11748": {
+"zoneId": 1584,
+"npcId": 9024
+},
+"11749": {
+"zoneId": 1584,
+"npcId": 9024
+},
+"11750": {
+"zoneId": 1584,
+"npcId": 9024
+},
+"11764": {
+"zoneId": 1584,
+"npcId": 9017
+},
+"11765": {
+"zoneId": 1584,
+"npcId": 9017
+},
+"11766": {
+"zoneId": 1584,
+"npcId": 9017
+},
+"11767": {
+"zoneId": 1584,
+"npcId": 9017
+},
+"11768": {
+"zoneId": 1584,
+"npcId": 9017
+},
+"11782": {
+"zoneId": 1584,
+"npcId": 9041
+},
+"11783": {
+"zoneId": 1584,
+"npcId": 9041
+},
+"11784": {
+"zoneId": 1584,
+"npcId": 9041
+},
+"11802": {
+"zoneId": 1584,
+"npcId": 9016
+},
+"11803": {
+"zoneId": 1584,
+"npcId": 9016
+},
+"11805": {
+"zoneId": 1584,
+"npcId": 9016
+},
+"11807": {
+"zoneId": 1584,
+"npcId": 9016
+},
+"11810": {
+"zoneId": 1584,
+"npcId": 9033
+},
+"11811": {
+"zoneId": 1584,
+"npcId": 9025
+},
+"11813": {
+"zoneId": 1584,
+"npcId": 9025
+},
+"11815": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"11816": {
+"zoneId": 1584,
+"npcId": 9033
+},
+"11817": {
+"zoneId": 1584,
+"npcId": 9033
+},
+"11819": {
+"zoneId": 1584,
+"npcId": 8983
+},
+"11820": {
+"zoneId": 1584,
+"npcId": 9033
+},
+"11821": {
+"zoneId": 1584,
+"npcId": 9033
+},
+"11822": {
+"zoneId": 1584,
+"npcId": 8983
+},
+"11823": {
+"zoneId": 1584,
+"npcId": 8983
+},
+"11839": {
+"zoneId": 1584,
+"npcId": 9056
+},
+"11840": {
+"zoneId": 1584,
+"npcId": 9056
+},
+"11841": {
+"zoneId": 1584,
+"npcId": 9056
+},
+"11842": {
+"zoneId": 1584,
+"npcId": 9056
+},
+"11924": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"11928": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"11930": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"11931": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"11932": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"11933": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"11934": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"11935": {
+"zoneId": 1584,
+"npcId": 9938
+},
+"12033": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"12103": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"12219": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"12243": {
+"zoneId": 1477,
+"npcId": 220833
+},
+"12337": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"12382": {
+"zoneId": 2017,
+"npcId": 10435
+},
+"12462": {
+"zoneId": 1477,
+"npcId": 221394
+},
+"12463": {
+"zoneId": 1477,
+"npcId": 220833
+},
+"12464": {
+"zoneId": 1477,
+"npcId": 220833
+},
+"12465": {
+"zoneId": 1477,
+"npcId": 220833
+},
+"12466": {
+"zoneId": 1477,
+"npcId": 220833
+},
+"12470": {
+"zoneId": 1176,
+"npcId": 10082
+},
+"12471": {
+"zoneId": 1176,
+"npcId": 10081
+},
+"12527": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12528": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12531": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12532": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12535": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12542": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12546": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12547": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12549": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12550": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12551": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12552": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12555": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"12586": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"12592": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"12602": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"12604": {
+"zoneId": 1583,
+"npcId": 10509
+},
+"12605": {
+"zoneId": 1583,
+"npcId": 10509
+},
+"12608": {
+"zoneId": 1583,
+"npcId": 9219
+},
+"12621": {
+"zoneId": 1583,
+"npcId": 9596
+},
+"12634": {
+"zoneId": 1583,
+"npcId": 9596
+},
+"12637": {
+"zoneId": 1583,
+"npcId": 9596
+},
+"12696": {
+"zoneId": 1583,
+"npcId": 10899
+},
+"12725": {
+"zoneId": 1583,
+"npcId": 10584
+},
+"12726": {
+"zoneId": 2057,
+"npcId": 11622
+},
+"12727": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"12735": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"12753": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"12777": {
+"zoneId": 2017,
+"npcId": 11121
+},
+"12780": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"12783": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"12791": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"12793": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"12806": {
+"zoneId": 1583,
+"npcId": 10899
+},
+"12811": {
+"zoneId": 2017,
+"npcId": 10811
+},
+"12824": {
+"zoneId": 2017,
+"npcId": 11120
+},
+"12825": {
+"zoneId": 2017,
+"npcId": 11121
+},
+"12833": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"12834": {
+"zoneId": 1583,
+"npcId": 10899
+},
+"12837": {
+"zoneId": 1583,
+"npcId": 10899
+},
+"12838": {
+"zoneId": 1583,
+"npcId": 9596
+},
+"12839": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"12840": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"12841": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"12843": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"12871": {
+"zoneId": 1583,
+"npcId": 10339
+},
+"12905": {
+"zoneId": 1583,
+"npcId": 9816
+},
+"12926": {
+"zoneId": 1583,
+"npcId": 9816
+},
+"12927": {
+"zoneId": 1583,
+"npcId": 9816
+},
+"12929": {
+"zoneId": 1583,
+"npcId": 9816
+},
+"12930": {
+"zoneId": 1583,
+"npcId": 10509
+},
+"12952": {
+"zoneId": 1583,
+"npcId": 10339
+},
+"12953": {
+"zoneId": 1583,
+"npcId": 10339
+},
+"12960": {
+"zoneId": 1583,
+"npcId": 10339
+},
+"13098": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"13141": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"13142": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"13143": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"13148": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"13161": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"13162": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"13163": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"13164": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"13178": {
+"zoneId": 1583,
+"npcId": 10584
+},
+"13181": {
+"zoneId": 1583,
+"npcId": 10263
+},
+"13182": {
+"zoneId": 1583,
+"npcId": 10263
+},
+"13183": {
+"zoneId": 1583,
+"npcId": 10596
+},
+"13184": {
+"zoneId": 1583,
+"npcId": 10376
+},
+"13185": {
+"zoneId": 1583,
+"npcId": 10376
+},
+"13198": {
+"zoneId": 1583,
+"npcId": 9718
+},
+"13203": {
+"zoneId": 1583,
+"npcId": 9718
+},
+"13204": {
+"zoneId": 1583,
+"npcId": 9718
+},
+"13210": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"13211": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"13212": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"13213": {
+"zoneId": 1583,
+"npcId": 10596
+},
+"13218": {
+"zoneId": 1583,
+"npcId": 10376
+},
+"13244": {
+"zoneId": 1583,
+"npcId": 10596
+},
+"13245": {
+"zoneId": 718,
+"npcId": 3653
+},
+"13250": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"13258": {
+"zoneId": 1583,
+"npcId": 10584
+},
+"13259": {
+"zoneId": 1583,
+"npcId": 10584
+},
+"13260": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"13261": {
+"zoneId": 1583,
+"npcId": 9217
+},
+"13282": {
+"zoneId": 1583,
+"npcId": 9217
+},
+"13283": {
+"zoneId": 1583,
+"npcId": 9217
+},
+"13284": {
+"zoneId": 1583,
+"npcId": 9218
+},
+"13285": {
+"zoneId": 1583,
+"npcId": 9218
+},
+"13286": {
+"zoneId": 1583,
+"npcId": 9219
+},
+"13314": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"13340": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"13344": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"13345": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"13346": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"13348": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"13349": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"13353": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"13358": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"13359": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"13360": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"13361": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"13368": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"13369": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"13372": {
+"zoneId": 2017,
+"npcId": 10439
+},
+"13373": {
+"zoneId": 2017,
+"npcId": 10439
+},
+"13374": {
+"zoneId": 2017,
+"npcId": 10439
+},
+"13375": {
+"zoneId": 2017,
+"npcId": 10439
+},
+"13376": {
+"zoneId": 2017,
+"npcId": 10435
+},
+"13377": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"13378": {
+"zoneId": 2017,
+"npcId": 10558
+},
+"13379": {
+"zoneId": 2017,
+"npcId": 10558
+},
+"13380": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"13381": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"13382": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"13383": {
+"zoneId": 2017,
+"npcId": 10558
+},
+"13384": {
+"zoneId": 2017,
+"npcId": 10558
+},
+"13385": {
+"zoneId": 2017,
+"npcId": 10811
+},
+"13386": {
+"zoneId": 2017,
+"npcId": 10811
+},
+"13387": {
+"zoneId": 2017,
+"npcId": 10811
+},
+"13388": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"13389": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"13390": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"13391": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"13392": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"13393": {
+"zoneId": 2017,
+"npcId": 11143
+},
+"13397": {
+"zoneId": 2017,
+"npcId": 10809
+},
+"13398": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"13399": {
+"zoneId": 2017,
+"npcId": 10809
+},
+"13400": {
+"zoneId": 2017,
+"npcId": 10808
+},
+"13401": {
+"zoneId": 2017,
+"npcId": 10808
+},
+"13402": {
+"zoneId": 2017,
+"npcId": 10808
+},
+"13403": {
+"zoneId": 2017,
+"npcId": 10808
+},
+"13404": {
+"zoneId": 2017,
+"npcId": 10516
+},
+"13405": {
+"zoneId": 2017,
+"npcId": 10516
+},
+"13408": {
+"zoneId": 2017,
+"npcId": 10516
+},
+"13409": {
+"zoneId": 2017,
+"npcId": 10516
+},
+"13483": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"13494": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"13498": {
+"zoneId": 1583,
+"npcId": 10899
+},
+"13501": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"13502": {
+"zoneId": 1583,
+"npcId": 10899
+},
+"13505": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"13508": {
+"zoneId": 2017,
+"npcId": 10437
+},
+"13509": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"13514": {
+"zoneId": 2017,
+"npcId": 10436
+},
+"13515": {
+"zoneId": 2017,
+"npcId": 10439
+},
+"13516": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"13519": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"13520": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"13521": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"13522": {
+"zoneId": 1583,
+"npcId": 10339
+},
+"13524": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"13525": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"13526": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"13527": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"13528": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"13529": {
+"zoneId": 2017,
+"npcId": 10437
+},
+"13530": {
+"zoneId": 2017,
+"npcId": 10437
+},
+"13531": {
+"zoneId": 2017,
+"npcId": 10437
+},
+"13532": {
+"zoneId": 2017,
+"npcId": 10437
+},
+"13533": {
+"zoneId": 2017,
+"npcId": 10437
+},
+"13534": {
+"zoneId": 2017,
+"npcId": 10436
+},
+"13535": {
+"zoneId": 2017,
+"npcId": 10436
+},
+"13537": {
+"zoneId": 2017,
+"npcId": 10436
+},
+"13538": {
+"zoneId": 2017,
+"npcId": 10436
+},
+"13539": {
+"zoneId": 2017,
+"npcId": 10436
+},
+"13873": {
+"zoneId": 2057,
+"npcId": 11622
+},
+"13920": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"13937": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"13938": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"13944": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"13950": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"13951": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"13952": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"13953": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"13954": {
+"zoneId": 2017,
+"npcId": 10809
+},
+"13955": {
+"zoneId": 2057,
+"npcId": 10506
+},
+"13956": {
+"zoneId": 2057,
+"npcId": 10506
+},
+"13957": {
+"zoneId": 2057,
+"npcId": 10506
+},
+"13960": {
+"zoneId": 2057,
+"npcId": 10506
+},
+"13964": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"13965": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"13966": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"13967": {
+"zoneId": 2057,
+"npcId": 10506
+},
+"13968": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"13969": {
+"zoneId": 2057,
+"npcId": 10506
+},
+"13983": {
+"zoneId": 2057,
+"npcId": 10506
+},
+"14024": {
+"zoneId": 2057,
+"npcId": 10506
+},
+"14153": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"14154": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"14340": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"14487": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"14495": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"14502": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"14503": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"14512": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"14513": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"14514": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"14522": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"14525": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"14528": {
+"zoneId": 2057,
+"npcId": 11622
+},
+"14531": {
+"zoneId": 2057,
+"npcId": 11622
+},
+"14536": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"14537": {
+"zoneId": 2057,
+"npcId": 11622
+},
+"14538": {
+"zoneId": 2057,
+"npcId": 11622
+},
+"14539": {
+"zoneId": 2057,
+"npcId": 11622
+},
+"14541": {
+"zoneId": 2057,
+"npcId": 10503
+},
+"14543": {
+"zoneId": 2057,
+"npcId": 10503
+},
+"14545": {
+"zoneId": 2057,
+"npcId": 10503
+},
+"14548": {
+"zoneId": 2057,
+"npcId": 10503
+},
+"14577": {
+"zoneId": 2057,
+"npcId": 10432
+},
+"14611": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14612": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14614": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14615": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14616": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14617": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14620": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14621": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14622": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14623": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14624": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14626": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14629": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14631": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14632": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14633": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14636": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14637": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14638": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14640": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"14641": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"15410": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"15730": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"15733": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"15749": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"15759": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"15768": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"15770": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"15773": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"15775": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"15776": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"15777": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"15781": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"16048": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"16049": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"16052": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"16053": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"16216": {
+"zoneId": 1477,
+"otherName": "Trash"
+},
+"16244": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"16247": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"16248": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"16249": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"16250": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"16254": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"16255": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"16667": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"16670": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16672": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16673": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"16675": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16676": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16677": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"16680": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"16682": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16684": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16685": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"16686": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"16691": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16692": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16693": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"16696": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"16698": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"16702": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"16704": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16705": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16707": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"16711": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16712": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16713": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"16715": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16716": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"16717": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16720": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"16723": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"16724": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16725": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16727": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"16731": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"16734": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16736": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"16737": {
+"zoneId": 1583,
+"npcId": 10220
+},
+"16782": {
+"zoneId": 719,
+"npcId": 202699
+},
+"16886": {
+"zoneId": 719,
+"npcId": 202699
+},
+"16887": {
+"zoneId": 719,
+"npcId": 202699
+},
+"17008": {
+"zoneId": 491,
+"npcId": 4421
+},
+"17039": {
+"zoneId": 491,
+"npcId": 4421
+},
+"17042": {
+"zoneId": 491,
+"npcId": 4421
+},
+"17043": {
+"zoneId": 491,
+"npcId": 4421
+},
+"17061": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"17063": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"17065": {
+"zoneId": 2717,
+"npcId": 11982
+},
+"17066": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"17067": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"17068": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"17069": {
+"zoneId": 2717,
+"npcId": 11982
+},
+"17070": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"17071": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"17073": {
+"zoneId": 2717,
+"npcId": 11982
+},
+"17075": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"17076": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"17077": {
+"zoneId": 2717,
+"npcId": 12259
+},
+"17078": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"17102": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"17104": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"17105": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"17106": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"17107": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"17109": {
+"zoneId": 2717,
+"npcId": 12118
+},
+"17110": {
+"zoneId": 2717,
+"npcId": 12056
+},
+"17111": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"17112": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"17113": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"17193": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"17707": {
+"zoneId": 2100,
+"npcId": 12201
+},
+"17710": {
+"zoneId": 2100,
+"npcId": 12201
+},
+"17711": {
+"zoneId": 2100,
+"npcId": 12201
+},
+"17713": {
+"zoneId": 2100,
+"npcId": 12201
+},
+"17714": {
+"zoneId": 2100,
+"npcId": 12201
+},
+"17715": {
+"zoneId": 2100,
+"npcId": 12201
+},
+"17717": {
+"zoneId": 2100,
+"npcId": 13601
+},
+"17718": {
+"zoneId": 2100,
+"npcId": 13601
+},
+"17719": {
+"zoneId": 2100,
+"npcId": 13601
+},
+"17728": {
+"zoneId": 2100,
+"npcId": 13596
+},
+"17730": {
+"zoneId": 2100,
+"npcId": 13596
+},
+"17732": {
+"zoneId": 2100,
+"npcId": 13596
+},
+"17734": {
+"zoneId": 2100,
+"npcId": 12203
+},
+"17736": {
+"zoneId": 2100,
+"npcId": 12203
+},
+"17737": {
+"zoneId": 2100,
+"npcId": 12203
+},
+"17744": {
+"zoneId": 2100,
+"npcId": 13282
+},
+"17745": {
+"zoneId": 2100,
+"npcId": 13282
+},
+"17746": {
+"zoneId": 2100,
+"npcId": 13282
+},
+"17748": {
+"zoneId": 2100,
+"npcId": 12258
+},
+"17749": {
+"zoneId": 2100,
+"npcId": 12258
+},
+"17750": {
+"zoneId": 2100,
+"npcId": 12258
+},
+"17751": {
+"zoneId": 2100,
+"npcId": 12258
+},
+"17752": {
+"zoneId": 2100,
+"npcId": 12236
+},
+"17754": {
+"zoneId": 2100,
+"npcId": 12236
+},
+"17755": {
+"zoneId": 2100,
+"npcId": 12236
+},
+"17761": {
+"zoneId": 2100,
+"npcId": 13742
+},
+"17762": {
+"zoneId": 2100,
+"npcId": 13741
+},
+"17763": {
+"zoneId": 2100,
+"npcId": 13740
+},
+"17766": {
+"zoneId": 2100,
+"npcId": 12201
+},
+"17780": {
+"zoneId": 2100,
+"npcId": 12201
+},
+"17943": {
+"zoneId": 2100,
+"npcId": 12203
+},
+"17962": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"17966": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"17982": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"18043": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"18044": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"18047": {
+"zoneId": 1583,
+"npcId": 10899
+},
+"18048": {
+"zoneId": 1583,
+"npcId": 10899
+},
+"18082": {
+"zoneId": 1176,
+"npcId": 7271
+},
+"18083": {
+"zoneId": 1176,
+"npcId": 7271
+},
+"18208": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"18240": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18249": {
+"zoneId": 2557,
+"npcId": 14354
+},
+"18250": {
+"zoneId": 2557,
+"npcId": 14321
+},
+"18252": {
+"zoneId": 2717,
+"otherName": "Trash"
+},
+"18255": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"18257": {
+"zoneId": 2717,
+"otherName": "Trash"
+},
+"18258": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18259": {
+"zoneId": 2717,
+"otherName": "Trash"
+},
+"18260": {
+"zoneId": 2717,
+"otherName": "Trash"
+},
+"18264": {
+"zoneId": 2717,
+"otherName": "Trash"
+},
+"18265": {
+"zoneId": 2717,
+"otherName": "Trash"
+},
+"18266": {
+"zoneId": 2557,
+"npcId": 14321
+},
+"18267": {
+"zoneId": 2557,
+"npcId": 14354
+},
+"18268": {
+"zoneId": 2557,
+"npcId": 14326
+},
+"18269": {
+"zoneId": 2557,
+"npcId": 14322
+},
+"18284": {
+"zoneId": 2557,
+"npcId": 14322
+},
+"18287": {
+"zoneId": 2557,
+"npcId": 14322
+},
+"18288": {
+"zoneId": 2557,
+"npcId": 14322
+},
+"18289": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"18290": {
+"zoneId": 2717,
+"otherName": "Trash"
+},
+"18291": {
+"zoneId": 2717,
+"otherName": "Trash"
+},
+"18292": {
+"zoneId": 2717,
+"otherName": "Trash"
+},
+"18295": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"18296": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"18297": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"18298": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"18301": {
+"zoneId": 2557,
+"npcId": 14327
+},
+"18302": {
+"zoneId": 2557,
+"npcId": 14327
+},
+"18306": {
+"zoneId": 2557,
+"npcId": 11490
+},
+"18308": {
+"zoneId": 2557,
+"npcId": 11490
+},
+"18311": {
+"zoneId": 2557,
+"npcId": 14327
+},
+"18313": {
+"zoneId": 2557,
+"npcId": 11490
+},
+"18319": {
+"zoneId": 2557,
+"npcId": 11490
+},
+"18323": {
+"zoneId": 2557,
+"npcId": 11490
+},
+"18325": {
+"zoneId": 2557,
+"npcId": 14327
+},
+"18338": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"18340": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"18344": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"18345": {
+"zoneId": 2557,
+"npcId": 11467
+},
+"18346": {
+"zoneId": 2557,
+"npcId": 11467
+},
+"18347": {
+"zoneId": 2557,
+"npcId": 11488
+},
+"18349": {
+"zoneId": 2557,
+"npcId": 11488
+},
+"18350": {
+"zoneId": 2557,
+"npcId": 11487
+},
+"18351": {
+"zoneId": 2557,
+"npcId": 11487
+},
+"18352": {
+"zoneId": 2557,
+"npcId": 11489
+},
+"18353": {
+"zoneId": 2557,
+"npcId": 11489
+},
+"18370": {
+"zoneId": 2557,
+"npcId": 11496
+},
+"18371": {
+"zoneId": 2557,
+"npcId": 11487
+},
+"18372": {
+"zoneId": 2557,
+"npcId": 11496
+},
+"18373": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"18374": {
+"zoneId": 2557,
+"npcId": 11487
+},
+"18375": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"18376": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"18377": {
+"zoneId": 2557,
+"npcId": 11496
+},
+"18378": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"18379": {
+"zoneId": 2557,
+"npcId": 11496
+},
+"18380": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"18381": {
+"zoneId": 2557,
+"npcId": 11496
+},
+"18382": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"18383": {
+"zoneId": 2557,
+"npcId": 11488
+},
+"18384": {
+"zoneId": 2557,
+"npcId": 11496
+},
+"18385": {
+"zoneId": 2557,
+"npcId": 11496
+},
+"18386": {
+"zoneId": 2557,
+"npcId": 11488
+},
+"18387": {
+"zoneId": 2557,
+"npcId": 11467
+},
+"18388": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"18389": {
+"zoneId": 2557,
+"npcId": 11496
+},
+"18390": {
+"zoneId": 2557,
+"npcId": 11489
+},
+"18391": {
+"zoneId": 2557,
+"npcId": 11496
+},
+"18392": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"18393": {
+"zoneId": 2557,
+"npcId": 11489
+},
+"18394": {
+"zoneId": 2557,
+"npcId": 11496
+},
+"18395": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"18396": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"18397": {
+"zoneId": 2557,
+"npcId": 11487
+},
+"18403": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"18404": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"18405": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18406": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"18407": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18408": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18409": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18413": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18414": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18415": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18416": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18417": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18418": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18423": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"18425": {
+"zoneId": 2557,
+"npcId": 14322
+},
+"18450": {
+"zoneId": 2557,
+"npcId": 14321
+},
+"18451": {
+"zoneId": 2557,
+"npcId": 14321
+},
+"18458": {
+"zoneId": 2557,
+"npcId": 14321
+},
+"18459": {
+"zoneId": 2557,
+"npcId": 14321
+},
+"18460": {
+"zoneId": 2557,
+"npcId": 14321
+},
+"18462": {
+"zoneId": 2557,
+"npcId": 14321
+},
+"18463": {
+"zoneId": 2557,
+"npcId": 14321
+},
+"18464": {
+"zoneId": 2557,
+"npcId": 14321
+},
+"18475": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18476": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18477": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18478": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18479": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18480": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18481": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18482": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18493": {
+"zoneId": 2557,
+"npcId": 14326
+},
+"18494": {
+"zoneId": 2557,
+"npcId": 14326
+},
+"18495": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18496": {
+"zoneId": 2557,
+"npcId": 14326
+},
+"18497": {
+"zoneId": 2557,
+"npcId": 14326
+},
+"18498": {
+"zoneId": 2557,
+"npcId": 14326
+},
+"18499": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18500": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18502": {
+"zoneId": 2557,
+"npcId": 14325
+},
+"18503": {
+"zoneId": 2557,
+"npcId": 14325
+},
+"18504": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18505": {
+"zoneId": 2557,
+"npcId": 14325
+},
+"18506": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18507": {
+"zoneId": 2557,
+"npcId": 14325
+},
+"18508": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18509": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18510": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18511": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18514": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18515": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18516": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18517": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18518": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18519": {
+"zoneId": 2557,
+"npcId": 14338
+},
+"18520": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"18521": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"18522": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"18523": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"18524": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"18525": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"18526": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"18527": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"18528": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18529": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18530": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18531": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18532": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18533": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18534": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18537": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18538": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18541": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"18542": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"18543": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"18544": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"18545": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"18546": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"18547": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"18592": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"18608": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"18609": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"18637": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18640": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"18646": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18653": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"18654": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"18655": {
+"zoneId": 2557,
+"npcId": 14324
+},
+"18658": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"18661": {
+"zoneId": 1584,
+"otherName": "Trash"
+},
+"18665": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"18680": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"18681": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"18682": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"18683": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"18684": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"18686": {
+"zoneId": 2057,
+"npcId": 11622
+},
+"18689": {
+"zoneId": 2057,
+"npcId": 10503
+},
+"18690": {
+"zoneId": 2057,
+"npcId": 10503
+},
+"18691": {
+"zoneId": 2057,
+"npcId": 10432
+},
+"18693": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"18694": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"18695": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"18696": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"18697": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"18698": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"18699": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"18700": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"18701": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"18702": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"18703": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18704": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"18705": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"18713": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18714": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"18715": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18716": {
+"zoneId": 2017,
+"npcId": 10811
+},
+"18717": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"18718": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"18720": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"18721": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"18722": {
+"zoneId": 2017,
+"npcId": 10435
+},
+"18723": {
+"zoneId": 2017,
+"npcId": 10439
+},
+"18725": {
+"zoneId": 2017,
+"npcId": 10435
+},
+"18726": {
+"zoneId": 2017,
+"npcId": 10435
+},
+"18727": {
+"zoneId": 2017,
+"npcId": 10435
+},
+"18728": {
+"zoneId": 2017,
+"npcId": 10436
+},
+"18729": {
+"zoneId": 2017,
+"npcId": 10436
+},
+"18730": {
+"zoneId": 2017,
+"npcId": 10436
+},
+"18734": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"18735": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"18736": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"18737": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"18738": {
+"zoneId": 2017,
+"npcId": 10437
+},
+"18739": {
+"zoneId": 2017,
+"npcId": 10437
+},
+"18740": {
+"zoneId": 2017,
+"npcId": 10437
+},
+"18741": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"18742": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"18743": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"18744": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"18745": {
+"zoneId": 2017,
+"otherName": "Trash"
+},
+"18754": {
+"zoneId": 2557,
+"npcId": 14506
+},
+"18755": {
+"zoneId": 2557,
+"npcId": 14506
+},
+"18756": {
+"zoneId": 2557,
+"npcId": 14506
+},
+"18757": {
+"zoneId": 2557,
+"npcId": 14506
+},
+"18758": {
+"zoneId": 2057,
+"npcId": 14516
+},
+"18759": {
+"zoneId": 2057,
+"npcId": 14516
+},
+"18760": {
+"zoneId": 2057,
+"npcId": 14516
+},
+"18761": {
+"zoneId": 2057,
+"npcId": 14516
+},
+"18779": {
+"zoneId": 1583,
+"npcId": 10899
+},
+"18780": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"18781": {
+"zoneId": 2017,
+"npcId": 11120
+},
+"18782": {
+"zoneId": 2057,
+"npcId": 11622
+},
+"18783": {
+"zoneId": 2017,
+"npcId": 11121
+},
+"18784": {
+"zoneId": 1583,
+"npcId": 10584
+},
+"18803": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18805": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18806": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18808": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18809": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18810": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18811": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18812": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"18813": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"18814": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"18815": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"18816": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"18817": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"18820": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"18821": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"18822": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"18824": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"18829": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"18832": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"18861": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"18870": {
+"zoneId": 2717,
+"npcId": 12259
+},
+"18872": {
+"zoneId": 2717,
+"npcId": 12259
+},
+"18875": {
+"zoneId": 2717,
+"npcId": 12259
+},
+"18878": {
+"zoneId": 2717,
+"npcId": 12259
+},
+"18879": {
+"zoneId": 2717,
+"npcId": 12259
+},
+"19003": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19017": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"19130": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"19131": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"19132": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"19133": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"19134": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"19135": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"19136": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"19137": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"19138": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"19139": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"19140": {
+"zoneId": 2717,
+"npcId": 12018
+},
+"19142": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"19143": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"19144": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"19145": {
+"zoneId": 2717,
+"npcId": 12259
+},
+"19146": {
+"zoneId": 2717,
+"npcId": 12259
+},
+"19147": {
+"zoneId": 2717,
+"npcId": 12259
+},
+"19258": {
+"zoneId": 2557,
+"npcId": 11501
+},
+"19268": {
+"zoneId": 1584,
+"npcId": 9017
+},
+"19276": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"19341": {
+"zoneId": 2677,
+"npcId": 12017
+},
+"19342": {
+"zoneId": 2677,
+"npcId": 12017
+},
+"19343": {
+"zoneId": 2677,
+"npcId": 11983
+},
+"19344": {
+"zoneId": 2677,
+"npcId": 11983
+},
+"19345": {
+"zoneId": 2677,
+"npcId": 11983
+},
+"19347": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19349": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19350": {
+"zoneId": 2677,
+"npcId": 12017
+},
+"19351": {
+"zoneId": 2677,
+"npcId": 12017
+},
+"19352": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19353": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19355": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19356": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19357": {
+"zoneId": 2677,
+"npcId": 11981
+},
+"19360": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19361": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19363": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19364": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19365": {
+"zoneId": 2677,
+"npcId": 11983
+},
+"19366": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19367": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19368": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19373": {
+"zoneId": 2677,
+"npcId": 12017
+},
+"19374": {
+"zoneId": 2677,
+"npcId": 12017
+},
+"19375": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19376": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19377": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19378": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19379": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19380": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19381": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19382": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19383": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19384": {
+"zoneId": 2677,
+"npcId": 11583
+},
+"19385": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19386": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19387": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19388": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19389": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19390": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19391": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19392": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19393": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"19394": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19395": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19396": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19397": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19398": {
+"zoneId": 2677,
+"npcId": 11983
+},
+"19399": {
+"zoneId": 2677,
+"npcId": 11983
+},
+"19400": {
+"zoneId": 2677,
+"npcId": 11983
+},
+"19401": {
+"zoneId": 2677,
+"npcId": 11983
+},
+"19402": {
+"zoneId": 2677,
+"npcId": 11983
+},
+"19403": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19405": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19406": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19407": {
+"zoneId": 2677,
+"npcId": 14601
+},
+"19430": {
+"zoneId": 2677,
+"npcId": 11981
+},
+"19431": {
+"zoneId": 2677,
+"npcId": 11981
+},
+"19432": {
+"zoneId": 2677,
+"npcId": 11981
+},
+"19433": {
+"zoneId": 2677,
+"npcId": 11981
+},
+"19621": {
+"zoneId": 491,
+"npcId": 4425
+},
+"19698": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19699": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19700": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19701": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19702": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19703": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19704": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19705": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19706": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19707": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19708": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19709": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19710": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19711": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19712": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19713": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19714": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19715": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19727": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19767": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19768": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19802": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19813": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19814": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19815": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19816": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19817": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19818": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19819": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19820": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19821": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19831": {
+"zoneId": 491,
+"npcId": 4425
+},
+"19832": {
+"zoneId": 491,
+"npcId": 4425
+},
+"19833": {
+"zoneId": 491,
+"npcId": 4425
+},
+"19852": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19853": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19854": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19855": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19856": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19857": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19859": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19861": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19862": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19864": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19876": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19908": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19921": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"19939": {
+"zoneId": 1977,
+"npcId": 15082
+},
+"19940": {
+"zoneId": 1977,
+"npcId": 15084
+},
+"19941": {
+"zoneId": 1977,
+"npcId": 15085
+},
+"19942": {
+"zoneId": 1977,
+"npcId": 15083
+},
+"19944": {
+"zoneId": 1977,
+"npcId": 15114
+},
+"19945": {
+"zoneId": 1977,
+"npcId": 15114
+},
+"19946": {
+"zoneId": 1977,
+"npcId": 15114
+},
+"19947": {
+"zoneId": 1977,
+"npcId": 15114
+},
+"19948": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19949": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19950": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"19953": {
+"zoneId": 491,
+"npcId": 4425
+},
+"19961": {
+"zoneId": 1977,
+"npcId": 15082
+},
+"19962": {
+"zoneId": 1977,
+"npcId": 15082
+},
+"19963": {
+"zoneId": 1977,
+"npcId": 15084
+},
+"19964": {
+"zoneId": 1977,
+"npcId": 15084
+},
+"19965": {
+"zoneId": 1977,
+"npcId": 15085
+},
+"19967": {
+"zoneId": 1977,
+"npcId": 15083
+},
+"19968": {
+"zoneId": 1977,
+"npcId": 15083
+},
+"19993": {
+"zoneId": 1977,
+"npcId": 15085
+},
+"20257": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"20258": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"20259": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"20261": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"20263": {
+"zoneId": 1977,
+"otherName": "Trash"
+},
+"20264": {
+"zoneId": 1977,
+"npcId": 14834
+},
+"20381": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20383": {
+"zoneId": 2677,
+"npcId": 12017
+},
+"20520": {
+"zoneId": 2057,
+"otherName": "Trash"
+},
+"20577": {
+"zoneId": 900001,
+"otherName": "Taerar"
+},
+"20578": {
+"zoneId": 900001,
+"otherName": "Ysondre"
+},
+"20579": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20580": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20581": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20582": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20599": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20600": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20615": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20616": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20617": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20618": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20619": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20621": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20622": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20623": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20624": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20625": {
+"zoneId": 900001,
+"otherName": "Lethon"
+},
+"20626": {
+"zoneId": 900001,
+"otherName": "Lethon"
+},
+"20627": {
+"zoneId": 900001,
+"otherName": "Lethon"
+},
+"20628": {
+"zoneId": 900001,
+"otherName": "Lethon"
+},
+"20629": {
+"zoneId": 900001,
+"otherName": "Lethon"
+},
+"20630": {
+"zoneId": 900001,
+"otherName": "Lethon"
+},
+"20631": {
+"zoneId": 900001,
+"otherName": "Taerar"
+},
+"20632": {
+"zoneId": 900001,
+"otherName": "Taerar"
+},
+"20633": {
+"zoneId": 900001,
+"otherName": "Taerar"
+},
+"20634": {
+"zoneId": 900001,
+"otherName": "Taerar"
+},
+"20635": {
+"zoneId": 900001,
+"otherName": "Ysondre"
+},
+"20636": {
+"zoneId": 900001,
+"otherName": "Ysondre"
+},
+"20637": {
+"zoneId": 900001,
+"otherName": "Ysondre"
+},
+"20638": {
+"zoneId": 900001,
+"otherName": "Ysondre"
+},
+"20639": {
+"zoneId": 900001,
+"otherName": "Ysondre"
+},
+"20644": {
+"zoneId": 900001,
+"otherName": "Emeriss"
+},
+"20949": {
+"zoneId": 900001,
+"otherName": "A Spirit A"
+},
+"21371": {
+"zoneId": 2717,
+"otherName": "Trash"
+},
+"21467": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21479": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21488": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21501": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21635": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21647": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21651": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21664": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21673": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21685": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21688": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"21891": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"22204": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"22207": {
+"zoneId": 1584,
+"npcId": 9019
+},
+"22208": {
+"zoneId": 1584,
+"npcId": 9938
+},
+"22212": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"22223": {
+"zoneId": 1584,
+"npcId": 9056
+},
+"22225": {
+"zoneId": 1583,
+"npcId": 10339
+},
+"22232": {
+"zoneId": 1583,
+"npcId": 10584
+},
+"22234": {
+"zoneId": 1584,
+"npcId": 9025
+},
+"22240": {
+"zoneId": 1584,
+"npcId": 9018
+},
+"22241": {
+"zoneId": 1584,
+"npcId": 9041
+},
+"22249": {
+"zoneId": 2557,
+"npcId": 11487
+},
+"22253": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"22267": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"22268": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"22269": {
+"zoneId": 1583,
+"npcId": 10363
+},
+"22270": {
+"zoneId": 1584,
+"npcId": 9028
+},
+"22275": {
+"zoneId": 1584,
+"npcId": 9537
+},
+"22304": {
+"zoneId": 2557,
+"npcId": 16097
+},
+"22305": {
+"zoneId": 1584,
+"npcId": 16059
+},
+"22309": {
+"zoneId": 2557,
+"npcId": 11487
+},
+"22314": {
+"zoneId": 2557,
+"npcId": 16097
+},
+"22315": {
+"zoneId": 2557,
+"npcId": 16097
+},
+"22317": {
+"zoneId": 1584,
+"npcId": 16059
+},
+"22318": {
+"zoneId": 1584,
+"npcId": 16059
+},
+"22319": {
+"zoneId": 1583,
+"npcId": 16080
+},
+"22321": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"22322": {
+"zoneId": 1583,
+"npcId": 16080
+},
+"22325": {
+"zoneId": 1583,
+"npcId": 16080
+},
+"22326": {
+"zoneId": 2057,
+"npcId": 16118
+},
+"22330": {
+"zoneId": 1584,
+"npcId": 16059
+},
+"22331": {
+"zoneId": 2057,
+"npcId": 16118
+},
+"22332": {
+"zoneId": 2057,
+"npcId": 16118
+},
+"22333": {
+"zoneId": 2057,
+"npcId": 16118
+},
+"22335": {
+"zoneId": 1583,
+"npcId": 16042
+},
+"22336": {
+"zoneId": 1583,
+"npcId": 16042
+},
+"22337": {
+"zoneId": 1583,
+"npcId": 16042
+},
+"22339": {
+"zoneId": 1583,
+"npcId": 16042
+},
+"22340": {
+"zoneId": 1583,
+"npcId": 16042
+},
+"22342": {
+"zoneId": 1583,
+"npcId": 16042
+},
+"22343": {
+"zoneId": 1583,
+"npcId": 16042
+},
+"22345": {
+"zoneId": 2557,
+"npcId": 16097
+},
+"22394": {
+"zoneId": 2057,
+"npcId": 10503
+},
+"22395": {
+"zoneId": 1584,
+"npcId": 9938
+},
+"22397": {
+"zoneId": 1584,
+"npcId": 9025
+},
+"22398": {
+"zoneId": 1583,
+"npcId": 16080
+},
+"22400": {
+"zoneId": 1584,
+"npcId": 9938
+},
+"22401": {
+"zoneId": 2557,
+"npcId": 16097
+},
+"22403": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"22404": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"22405": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"22406": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"22407": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"22408": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"22409": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"22410": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"22411": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"22412": {
+"zoneId": 2017,
+"npcId": 10440
+},
+"22433": {
+"zoneId": 2057,
+"npcId": 1853
+},
+"22472": {
+"zoneId": 2557,
+"npcId": 16097
+},
+"22739": {
+"zoneId": 1977,
+"npcId": 15114
+},
+"22897": {
+"zoneId": 2017,
+"npcId": 10811
+},
+"23127": {
+"zoneId": 2557,
+"npcId": 14690
+},
+"23128": {
+"zoneId": 2557,
+"npcId": 14690
+},
+"23129": {
+"zoneId": 2557,
+"npcId": 14690
+},
+"23132": {
+"zoneId": 2057,
+"npcId": 14695
+},
+"23139": {
+"zoneId": 2057,
+"npcId": 14695
+},
+"23156": {
+"zoneId": 2057,
+"npcId": 14695
+},
+"23168": {
+"zoneId": 796,
+"npcId": 14693
+},
+"23169": {
+"zoneId": 796,
+"npcId": 14693
+},
+"23170": {
+"zoneId": 796,
+"npcId": 14693
+},
+"23171": {
+"zoneId": 209,
+"npcId": 14682
+},
+"23173": {
+"zoneId": 209,
+"npcId": 14682
+},
+"23198": {
+"zoneId": 2017,
+"npcId": 10435
+},
+"23200": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"23201": {
+"zoneId": 2057,
+"npcId": 11261
+},
+"24102": {
+"zoneId": 1583,
+"otherName": "Trash"
+},
+"26000": {
+"zoneId": 2100,
+"npcId": 13601
+},
+"26001": {
+"zoneId": 1176,
+"npcId": 8127
+},
+"26002": {
+"zoneId": 1176,
+"npcId": 7273
+},
+"26003": {
+"zoneId": 2100,
+"npcId": 13596
+},
+"26004": {
+"zoneId": 1337,
+"npcId": 2748
+},
+"26005": {
+"zoneId": 1337,
+"npcId": 2748
+},
+"26008": {
+"zoneId": 722,
+"npcId": 8567
+},
+"26009": {
+"zoneId": 722,
+"npcId": 8567
+},
+"26010": {
+"zoneId": 721,
+"npcId": 218537
+},
+"26011": {
+"zoneId": 721,
+"npcId": 215728
+},
+"26012": {
+"zoneId": 721,
+"npcId": 217280
+},
+"26014": {
+"zoneId": 1337,
+"npcId": 2748
+},
+"26015": {
+"zoneId": 1337,
+"npcId": 4854
+},
+"26016": {
+"zoneId": 1176,
+"npcId": 7267
+},
+"26017": {
+"zoneId": 900001,
+"otherName": "Lord Kazzak"
+},
+"26018": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"26019": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"26021": {
+"zoneId": 900001,
+"otherName": "Azuregos"
+},
+"26022": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"26023": {
+"zoneId": 900001,
+"otherName": "Kurinnaxx"
+},
+"26024": {
+"zoneId": 1581,
+"npcId": 646
+},
+"26027": {
+"zoneId": 2017,
+"npcId": 10811
+},
+"26029": {
+"zoneId": 2017,
+"npcId": 10438
+},
+"26030": {
+"zoneId": 2057,
+"npcId": 10508
+},
+"26031": {
+"zoneId": 2017,
+"npcId": 10558
+},
+"26032": {
+"zoneId": 2057,
+"npcId": 10503
+},
+"26033": {
+"zoneId": 2017,
+"npcId": 10436
+},
+"26034": {
+"zoneId": 2017,
+"npcId": 10997
+},
+"26036": {
+"zoneId": 2057,
+"npcId": 11622
+},
+"26038": {
+"zoneId": 2017,
+"npcId": 10516
+},
+"26039": {
+"zoneId": 1583,
+"npcId": 10596
+},
+"26040": {
+"zoneId": 1583,
+"npcId": 9568
+},
+"26042": {
+"zoneId": 2017,
+"npcId": 10437
+},
+"26043": {
+"zoneId": 1583,
+"npcId": 10339
+},
+"26044": {
+"zoneId": 1583,
+"npcId": 9816
+},
+"26047": {
+"zoneId": 2017,
+"npcId": 10808
+},
+"26048": {
+"zoneId": 2017,
+"npcId": 10812
+},
+"26050": {
+"zoneId": 2017,
+"npcId": 10439
+},
+"26051": {
+"zoneId": 2057,
+"npcId": 10506
+},
+"26052": {
+"zoneId": 1583,
+"npcId": 10596
+},
+"26053": {
+"zoneId": 1583,
+"npcId": 10596
+},
+"26058": {
+"zoneId": 2717,
+"npcId": 12259
+},
+"26059": {
+"zoneId": 2717,
+"npcId": 12056
+},
+"26060": {
+"zoneId": 2717,
+"npcId": 12056
+},
+"26061": {
+"zoneId": 2717,
+"npcId": 12264
+},
+"26067": {
+"zoneId": 2557,
+"npcId": 14325
+},
+"26068": {
+"zoneId": 2557,
+"npcId": 14325
+},
+"26070": {
+"zoneId": 2557,
+"npcId": 11489
+},
+"26071": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"26072": {
+"zoneId": 2557,
+"npcId": 11486
+},
+"26105": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"26106": {
+"zoneId": 2717,
+"npcId": 11502
+},
+"26108": {
+"zoneId": 2677,
+"npcId": 12017
+},
+"26127": {
+"zoneId": 900001,
+"otherName": "Lady Hederine"
+},
+"26128": {
+"zoneId": 900001,
+"otherName": "Lady Hederine"
+},
+"26129": {
+"zoneId": 900001,
+"otherName": "Lady Hederine"
+},
+"26130": {
+"zoneId": 900001,
+"otherName": "Lady Hederine"
+},
+"26131": {
+"zoneId": 900001,
+"otherName": "Lady Hederine"
+},
+"26132": {
+"zoneId": 900001,
+"otherName": "Lady Hederine"
+},
+"26133": {
+"zoneId": 900001,
+"otherName": "Lady Hederine"
+},
+"26134": {
+"zoneId": 900001,
+"otherName": "Lady Hederine"
+},
+"26217": {
+"zoneId": 2677,
+"npcId": 12017
+},
+"26218": {
+"zoneId": 2677,
+"npcId": 14020
+},
+"26243": {
+"zoneId": 2159,
+"otherName": "Trash"
+},
+"26244": {
+"zoneId": 2717,
+"npcId": 12057
+},
+"26290": {
+"zoneId": 796,
+"npcId": 3974
+},
+"26295": {
+"zoneId": 796,
+"npcId": 3974
+},
+"26304": {
+"zoneId": 796,
+"npcId": 3974
+},
+"26305": {
+"zoneId": 796,
+"npcId": 3974
+},
+"26306": {
+"zoneId": 796,
+"npcId": 3974
+},
+"26308": {
+"zoneId": 796,
+"npcId": 3974
+},
+"26309": {
+"zoneId": 796,
+"npcId": 3974
+},
+"26312": {
+"zoneId": 796,
+"npcId": 3974
+},
+"26313": {
+"zoneId": 796,
+"npcId": 3974
+},
+"26336": {
+"zoneId": 796,
+"npcId": 3975
+},
+"26337": {
+"zoneId": 796,
+"npcId": 3975
+},
+"26339": {
+"zoneId": 796,
+"npcId": 3975
+},
+"26340": {
+"zoneId": 796,
+"npcId": 3975
+},
+"26341": {
+"zoneId": 796,
+"npcId": 3975
+},
+"26342": {
+"zoneId": 796,
+"npcId": 3975
+},
+"26343": {
+"zoneId": 796,
+"npcId": 3975
+},
+"26344": {
+"zoneId": 796,
+"npcId": 3975
+},
+"26346": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"26349": {
+"zoneId": 796,
+"otherName": "Trash"
+},
+"26421": {
+"zoneId": 796,
+"npcId": 3974
+},
+"26424": {
+"zoneId": 796,
+"npcId": 3975
+},
+"34400": {
+"zoneId": 2557,
+"otherName": "Trash"
+},
+"50020": {
+"zoneId": 1584,
+"npcId": 9016
+},
+"50021": {
+"zoneId": 1584,
+"npcId": 9019
+}
+}

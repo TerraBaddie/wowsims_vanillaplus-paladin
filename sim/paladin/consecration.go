@@ -8,9 +8,7 @@ import (
 )
 
 func (paladin *Paladin) registerConsecration() {
-	if !paladin.Talents.Consecration {
-		return
-	}
+	// Consecration is no longer talent-gated in the custom tree.
 
 	ranks := []struct {
 		level    int32

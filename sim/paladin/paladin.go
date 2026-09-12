@@ -7,7 +7,7 @@ import (
 	"github.com/wowsims/classic/sim/core/stats"
 )
 
-var TalentTreeSizes = [3]int{14, 15, 15}
+var TalentTreeSizes = [3]int{20, 20, 20}
 
 const (
 	SpellFlag_Forbearance = core.SpellFlagAgentReserved1
@@ -151,6 +151,7 @@ func NewPaladin(character *core.Character, options *proto.Player, paladinOptions
 	paladin.AddStatDependency(stats.Agility, stats.MeleeCrit, core.CritPerAgiAtLevel[character.Class]*core.CritRatingPerCritChance)
 	paladin.AddStatDependency(stats.Agility, stats.Dodge, core.CritPerAgiAtLevel[character.Class]*core.CritRatingPerCritChance)
 	paladin.AddStatDependency(stats.Intellect, stats.SpellCrit, core.CritPerIntAtLevel[character.Class]*core.SpellCritRatingPerCritChance)
+	paladin.AddStatDependency(stats.Intellect, stats.SpellPower, core.SpellPowerPerIntellect)
 
 	// Paladins get 1 block value per 20 str
 	paladin.PseudoStats.BlockValuePerStrength = 0.05

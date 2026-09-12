@@ -7,7 +7,7 @@ import (
 )
 
 func (shaman *Shaman) registerStormstrikeSpell() {
-	if !shaman.Talents.Stormstrike {
+	if true { // TODO: Stormstrike talent removed from custom tree
 		return
 	}
 

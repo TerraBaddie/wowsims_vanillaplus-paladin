@@ -40,7 +40,7 @@ func applyDebuffEffects(target *Unit, targetIdx int, debuffs *proto.Debuffs, rai
 		aura := ShadowWeavingAura(target, 5)
 		SchedulePeriodicDebuffApplication(aura, PeriodicActionOptions{
 			Period:          time.Millisecond * 1500,
-			NumTicks:        5,
+			NumTicks:        10, // ramp to the full 10 stacks
 			TickImmediately: true,
 			Priority:        ActionPriorityDOT, // High prio
 			OnAction: func(sim *Simulation) {
@@ -387,10 +387,11 @@ func ShadowWeavingAura(unit *Unit, rank int) *Aura {
 		Label:     "Shadow Weaving",
 		ActionID:  ActionID{SpellID: spellId},
 		Duration:  time.Second * 15,
-		MaxStacks: 5,
+		MaxStacks: 10, // DBC spell 15258 StackAmount = 10
 		OnStacksChange: func(aura *Aura, sim *Simulation, oldStacks int32, newStacks int32) {
-			aura.Unit.PseudoStats.SchoolDamageTakenMultiplier[stats.SchoolIndexShadow] /= 1.0 + 0.03*float64(oldStacks)
-			aura.Unit.PseudoStats.SchoolDamageTakenMultiplier[stats.SchoolIndexShadow] *= 1.0 + 0.03*float64(newStacks)
+			// DBC spell 15258: 2% Shadow damage taken per stack (20% at 10 stacks).
+			aura.Unit.PseudoStats.SchoolDamageTakenMultiplier[stats.SchoolIndexShadow] /= 1.0 + 0.02*float64(oldStacks)
+			aura.Unit.PseudoStats.SchoolDamageTakenMultiplier[stats.SchoolIndexShadow] *= 1.0 + 0.02*float64(newStacks)
 		},
 	})
 }

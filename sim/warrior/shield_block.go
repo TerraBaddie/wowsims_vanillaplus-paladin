@@ -14,8 +14,8 @@ func (warrior *Warrior) RegisterShieldBlockCD() {
 	warrior.ShieldBlockAura = warrior.RegisterAura(core.Aura{
 		Label:     "Shield Block",
 		ActionID:  actionID,
-		Duration:  time.Second * time.Duration(5+[]float64{0, 0.5, 1, 2}[warrior.Talents.ImprovedShieldBlock]),
-		MaxStacks: 1 + []int32{0, 1, 1, 1}[warrior.Talents.ImprovedShieldBlock],
+		Duration:  time.Second * time.Duration(5+[]float64{0, 0.5, 1, 2}[warrior.Talents.ShieldMastery]), // TODO: Shield Mastery effect differs
+		MaxStacks: 1 + []int32{0, 1, 1, 1}[warrior.Talents.ShieldMastery],
 
 		OnGain: func(aura *core.Aura, sim *core.Simulation) {
 			aura.SetStacks(sim, aura.MaxStacks)

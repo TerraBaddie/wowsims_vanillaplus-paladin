@@ -37,7 +37,7 @@ func TestP1DPSWarrior(t *testing.T) {
 	}))
 }
 
-var P1Talents = "30305001302-05050005525010051"
+var P1Talents = ""
 
 var P1Consumes = core.ConsumesCombo{
 	Label: "P1-Consumes",

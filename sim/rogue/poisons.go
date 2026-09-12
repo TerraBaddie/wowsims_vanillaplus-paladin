@@ -52,7 +52,7 @@ func (rogue *Rogue) improvedPoisons() float64 {
 }
 
 func (rogue *Rogue) getPoisonDamageMultiplier() float64 {
-	return []float64{1, 1.04, 1.08, 1.12, 1.16, 1.2}[rogue.Talents.VilePoisons]
+	return []float64{1, 1.04, 1.08, 1.12, 1.16, 1.2}[rogue.Talents.ImprovedPoisons]
 }
 
 ///////////////////////////////////////////////////////////////////////////

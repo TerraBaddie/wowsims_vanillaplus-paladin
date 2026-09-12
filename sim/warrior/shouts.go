@@ -49,7 +49,7 @@ func (warrior *Warrior) registerBattleShout() {
 	has3pcWrath := warrior.HasSetBonus(ItemSetBattleGearOfWrath, 3)
 
 	warrior.BattleShout = warrior.newShoutSpellConfig(core.ActionID{SpellID: actionId}, rank, warrior.NewPartyAuraArray(func(unit *core.Unit) *core.Aura {
-		return core.BattleShoutAura(unit, warrior.Talents.ImprovedBattleShout, warrior.Talents.BoomingVoice, has3pcWrath)
+		return core.BattleShoutAura(unit, warrior.Talents.ImprovedCombatShouts, warrior.Talents.BoomingVoice, has3pcWrath) // TODO: verify Improved Combat Shouts +5% Battle Shout
 	}))
 }
 

@@ -111,7 +111,7 @@ func (wp *WarlockPet) registerSuccubusLashOfPainSpell() {
 	}
 
 	spellCoeff := [7]float64{0, .429, .429, .429, .429, .429, .429}[rank]
-	baseDamage := [7]float64{0, 33, 44, 60, 73, 87, 99}[rank] * (1 + .10*float64(wp.owner.Talents.ImprovedSayaad))
+	baseDamage := [7]float64{0, 33, 44, 60, 73, 87, 99}[rank] * (1 + .10*float64(int32(0) /*removed*/))
 	spellId := [7]int32{0, 7814, 7815, 7816, 11778, 11779, 11780}[rank]
 	manaCost := [7]float64{0, 65, 80, 105, 125, 145, 160}[rank]
 	level := [7]int{0, 20, 28, 36, 44, 52, 60}[rank]
@@ -134,7 +134,7 @@ func (wp *WarlockPet) registerSuccubusLashOfPainSpell() {
 			IgnoreHaste: true,
 			CD: core.Cooldown{
 				Timer:    wp.NewTimer(),
-				Duration: time.Second * (12 - time.Duration(3*wp.owner.Talents.ImprovedLashOfPain)),
+				Duration: time.Second * (12 - time.Duration(3*int32(0) /*removed*/)),
 			},
 		},
 

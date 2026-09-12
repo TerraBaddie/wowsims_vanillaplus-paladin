@@ -24,12 +24,7 @@ import {
 import { ElementalShaman_Options as ElementalShamanOptions } from '../core/proto/shaman.js';
 import { SavedTalents } from '../core/proto/ui.js';
 import DefaultAPLJson from './apls/default.apl.json';
-import Phase1GearJSON from './gear_sets/phase_1.gear.json';
-import Phase2GearJSON from './gear_sets/phase_2.gear.json';
-import Phase3GearJSON from './gear_sets/phase_3.gear.json';
 import Phase4GearJSON from './gear_sets/phase_4.gear.json';
-import Phase5GearJSON from './gear_sets/phase_5.gear.json';
-import Phase6GearJSON from './gear_sets/phase_6.gear.json';
 
 // Preset options for this spec.
 // Eventually we will import these values for the raid sim too, so its good to
@@ -39,24 +34,19 @@ import Phase6GearJSON from './gear_sets/phase_6.gear.json';
 //                                 Gear Presets
 ///////////////////////////////////////////////////////////////////////////
 
-export const GearPhase1 = PresetUtils.makePresetGear('Phase 1', Phase1GearJSON);
-export const GearPhase2 = PresetUtils.makePresetGear('Phase 2', Phase2GearJSON);
-export const GearPhase3 = PresetUtils.makePresetGear('Phase 3', Phase3GearJSON);
 export const GearPhase4 = PresetUtils.makePresetGear('Phase 4', Phase4GearJSON);
-export const GearPhase5 = PresetUtils.makePresetGear('Phase 5', Phase5GearJSON);
-export const GearPhase6 = PresetUtils.makePresetGear('Phase 6', Phase6GearJSON);
 
 export const GearPresets = {
-	[Phase.Phase1]: [GearPhase1],
-	[Phase.Phase2]: [GearPhase2],
-	[Phase.Phase3]: [GearPhase3],
+	[Phase.Phase1]: [],
+	[Phase.Phase2]: [],
+	[Phase.Phase3]: [],
 	[Phase.Phase4]: [GearPhase4],
-	[Phase.Phase5]: [GearPhase5],
-	[Phase.Phase6]: [GearPhase6],
+	[Phase.Phase5]: [],
+	[Phase.Phase6]: [],
 
 };
 
-export const DefaultGear = GearPresets[Phase.Phase2][0];
+export const DefaultGear = GearPhase4;
 
 ///////////////////////////////////////////////////////////////////////////
 //                                 APL Presets
@@ -80,7 +70,7 @@ export const DefaultAPL = APLPresets[Phase.Phase1][0];
 //                                 Talent Presets
 ///////////////////////////////////////////////////////////////////////////
 
-export const TalentsLevel60 = PresetUtils.makePresetTalents('Level 60', SavedTalents.create({ talentsString: '55001150003-5025002105023051' }));
+export const TalentsLevel60 = PresetUtils.makePresetTalents('Level 60', SavedTalents.create({ talentsString: '' }));
 
 export const TalentPresets = {
 	[Phase.Phase1]: [TalentsLevel60],

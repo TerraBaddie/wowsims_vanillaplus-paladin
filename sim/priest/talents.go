@@ -15,18 +15,32 @@ func (priest *Priest) ApplyTalents() {
 	priest.applyForceOfWill()
 
 	if priest.Talents.SilentResolve > 0 {
-		priest.PseudoStats.ThreatMultiplier *= 1 - (.04 * float64(priest.Talents.SilentResolve))
+		// DBC: 10/20/30% threat reduction (all spells).
+		priest.PseudoStats.ThreatMultiplier *= 1 - (.10 * float64(priest.Talents.SilentResolve))
 	}
 
 	if priest.Talents.ImprovedPowerWordFortitude > 0 {
 		priest.MultiplyStat(stats.Stamina, 1.0+.15*float64(priest.Talents.ImprovedPowerWordFortitude))
 	}
 
-	priest.PseudoStats.SpiritRegenRateCasting = []float64{0.0, 0.17, 0.33, 0.5}[priest.Talents.Meditation]
+	// DBC: 10/20/30% of mana regen continues while casting.
+	priest.PseudoStats.SpiritRegenRateCasting = []float64{0.0, 0.10, 0.20, 0.30}[priest.Talents.Meditation]
 
 	if priest.Talents.MentalStrength > 0 {
-		priest.MultiplyStat(stats.Intellect, 1.0+0.02*float64(priest.Talents.MentalStrength))
+		// DBC: 3/6/9/12/15% Intellect.
+		priest.MultiplyStat(stats.Intellect, 1.0+0.03*float64(priest.Talents.MentalStrength))
 	}
+
+	if priest.Talents.ImprovedMemory > 0 {
+		// DBC: 5/10/15/20/25% casting speed (haste).
+		// NOTE: the fixed Shadow APL doesn't currently take advantage of extra
+		// haste (Mind Flay ticks aren't hasted and the rotation is timing-tuned),
+		// so this can look like a slight DPS loss until the rotation is retuned.
+		priest.MultiplyCastSpeed(1.0 + 0.05*float64(priest.Talents.ImprovedMemory))
+	}
+
+	priest.applyConcentration()
+	priest.applyTwinDisciplines()
 
 	// Holy
 	priest.applyInspiration()
@@ -36,7 +50,32 @@ func (priest *Priest) ApplyTalents() {
 	priest.PseudoStats.SchoolDamageTakenMultiplier.MultiplyMagicSchools(1 - 0.02*float64(priest.Talents.SpellWarding))
 
 	if priest.Talents.SpiritualGuidance > 0 {
-		priest.AddStatDependency(stats.Spirit, stats.SpellPower, 0.05*float64(priest.Talents.SpiritualGuidance))
+		// DBC: 10/20% of Spirit as spell power.
+		priest.AddStatDependency(stats.Spirit, stats.SpellPower, 0.10*float64(priest.Talents.SpiritualGuidance))
+	}
+
+	if priest.Talents.Faith > 0 {
+		// DBC: 6/12/18/24/30% Spirit.
+		priest.MultiplyStat(stats.Spirit, 1.0+0.06*float64(priest.Talents.Faith))
+	}
+
+	if priest.Talents.SpellFocus > 0 {
+		// DBC: +2%/rank spell hit (2 ranks).
+		bonusHit := 2 * float64(priest.Talents.SpellFocus) * core.SpellHitRatingPerHitChance
+		priest.OnSpellRegistered(func(spell *core.Spell) {
+			if spell.Flags.Matches(SpellFlagPriest) {
+				spell.BonusHitRating += bonusHit
+			}
+		})
+	}
+
+	if priest.Talents.PurifyingLight > 0 {
+		// DBC: +50%/rank crit strike damage bonus for Holy spells (2 ranks).
+		priest.OnSpellRegistered(func(spell *core.Spell) {
+			if spell.Flags.Matches(SpellFlagPriest) && spell.SpellSchool.Matches(core.SpellSchoolHoly) {
+				spell.CritDamageBonus += 0.5 * float64(priest.Talents.PurifyingLight)
+			}
+		})
 	}
 
 	// Shadow
@@ -46,6 +85,9 @@ func (priest *Priest) ApplyTalents() {
 	priest.applyShadowAffinity()
 	priest.applyShadowFocus()
 	priest.applyShadowWeaving()
+	priest.applyMindOverlord()
+	priest.applyImprovedMindFlay()
+	priest.applyBurntSoul()
 	priest.applyDarkness()
 }
 
@@ -55,8 +97,9 @@ func (priest *Priest) applyMentalAgility() {
 	}
 
 	priest.OnSpellRegistered(func(spell *core.Spell) {
-		if spell.Cost != nil && spell.Flags.Matches(SpellFlagPriest) && spell.DefaultCast.CastTime == 0 {
-			spell.Cost.Multiplier -= 2 * priest.Talents.MentalAgility
+		// DBC: 5/10/15% cost reduction on ALL priest spells (not just instants).
+		if spell.Cost != nil && spell.Flags.Matches(SpellFlagPriest) {
+			spell.Cost.Multiplier -= 5 * priest.Talents.MentalAgility
 		}
 	})
 }
@@ -68,7 +111,8 @@ func (priest *Priest) applyForceOfWill() {
 
 	priest.OnSpellRegistered(func(spell *core.Spell) {
 		if spell.Flags.Matches(SpellFlagPriest) {
-			spell.DamageMultiplierAdditive += 0.01 * float64(priest.Talents.ForceOfWill)
+			// DBC: +2% spell damage per rank, +1% spell crit per rank.
+			spell.DamageMultiplierAdditive += 0.02 * float64(priest.Talents.ForceOfWill)
 			spell.BonusCritRating += 1 * float64(priest.Talents.ForceOfWill) * core.CritRatingPerCritChance
 		}
 	})
@@ -120,7 +164,8 @@ func (priest *Priest) applySearingLight() {
 
 	priest.OnSpellRegistered(func(spell *core.Spell) {
 		if spell.SpellCode == SpellCode_PriestSmite || spell.SpellCode == SpellCode_PriestHolyFire {
-			spell.DamageMultiplierAdditive += 0.05 * float64(priest.Talents.SearingLight)
+			// DBC: +3% Smite/Holy Fire damage per rank.
+			spell.DamageMultiplierAdditive += 0.03 * float64(priest.Talents.SearingLight)
 		}
 	})
 }
@@ -129,6 +174,9 @@ func (priest *Priest) applySpiritTap() {
 	if priest.Talents.SpiritTap == 0 {
 		return
 	}
+
+	// DBC values match (100% Spirit, +50% casting regen, 15s).
+	// TODO: model the 50%/100% on-kill proc chance per rank instead of a flat aura.
 
 	spellID := []int32{0, 15270, 15335, 15336, 15337, 15338}[priest.Talents.SpiritTap]
 	statDep := priest.NewDynamicMultiplyStat(stats.Spirit, 2.0)
@@ -155,7 +203,8 @@ func (priest *Priest) applyShadowAffinity() {
 
 	priest.OnSpellRegistered(func(spell *core.Spell) {
 		if spell.Flags.Matches(SpellFlagPriest) || spell.SpellSchool.Matches(core.SpellSchoolShadow) {
-			spell.ThreatMultiplier *= 1 - 0.08*float64(priest.Talents.ShadowAffinity)
+			// DBC: 10/20/30% Shadow threat reduction.
+			spell.ThreatMultiplier *= 1 - 0.10*float64(priest.Talents.ShadowAffinity)
 		}
 	})
 }
@@ -272,8 +321,9 @@ func (priest *Priest) registerInnerFocus() {
 		OnGain: func(aura *core.Aura, sim *core.Simulation) {
 			for _, spell := range priest.Spellbook {
 				if spell.Flags.Matches(SpellFlagPriest) && spell.Cost != nil {
+					// DBC: next spell is free and gains +100% crit chance (guaranteed crit).
 					spell.Cost.Multiplier -= 100
-					spell.BonusCritRating += 25 * core.SpellCritRatingPerCritChance
+					spell.BonusCritRating += 100 * core.SpellCritRatingPerCritChance
 				}
 			}
 		},
@@ -281,7 +331,7 @@ func (priest *Priest) registerInnerFocus() {
 			for _, spell := range priest.Spellbook {
 				if spell.Flags.Matches(SpellFlagPriest) && spell.Cost != nil {
 					spell.Cost.Multiplier += 100
-					spell.BonusCritRating -= 25 * core.SpellCritRatingPerCritChance
+					spell.BonusCritRating -= 100 * core.SpellCritRatingPerCritChance
 				}
 			}
 		},
@@ -324,17 +374,18 @@ func (priest *Priest) registerShadowform() {
 
 	actionID := core.ActionID{SpellID: 15473}
 
-	//To Do: Add physical damage resistance
+	// TODO: DBC also grants -20% Shadow damage taken (effect 2) - add when a tank/healer priest sim needs it.
 
 	priest.ShadowformAura = priest.RegisterAura(core.Aura{
 		Label:    "Shadowform",
 		ActionID: actionID,
 		Duration: core.NeverExpires,
 		OnGain: func(aura *core.Aura, sim *core.Simulation) {
-			aura.Unit.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexShadow] *= 1.15
+			// DBC: +20% Shadow damage done.
+			aura.Unit.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexShadow] *= 1.20
 		},
 		OnExpire: func(aura *core.Aura, sim *core.Simulation) {
-			aura.Unit.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexShadow] /= 1.15
+			aura.Unit.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexShadow] /= 1.20
 		},
 		OnCastComplete: func(aura *core.Aura, sim *core.Simulation, spell *core.Spell) {
 			if spell.SpellSchool.Matches(core.SpellSchoolHoly) {
@@ -355,6 +406,165 @@ func (priest *Priest) registerShadowform() {
 
 		ApplyEffects: func(sim *core.Simulation, _ *core.Unit, _ *core.Spell) {
 			priest.ShadowformAura.Activate(sim)
+		},
+	})
+}
+
+// Concentration (DBC): 4/7/10% chance on a damage spell to enter Clearcasting,
+// making the next damage spell free (trigger spell 33807 = -100% mana cost).
+func (priest *Priest) applyConcentration() {
+	if priest.Talents.Concentration == 0 {
+		return
+	}
+
+	procChance := []float64{0, 0.04, 0.07, 0.10}[priest.Talents.Concentration]
+
+	clearcasting := priest.RegisterAura(core.Aura{
+		Label:    "Clearcasting",
+		ActionID: core.ActionID{SpellID: 33807},
+		Duration: time.Second * 15,
+		OnGain: func(aura *core.Aura, sim *core.Simulation) {
+			aura.Unit.PseudoStats.SchoolCostMultiplier.AddToMagicSchools(-100)
+		},
+		OnExpire: func(aura *core.Aura, sim *core.Simulation) {
+			aura.Unit.PseudoStats.SchoolCostMultiplier.AddToMagicSchools(100)
+		},
+		OnCastComplete: func(aura *core.Aura, sim *core.Simulation, spell *core.Spell) {
+			if aura.RemainingDuration(sim) == aura.Duration {
+				return
+			}
+			if spell.Flags.Matches(SpellFlagPriest) && spell.Cost != nil && spell.DefaultCast.Cost > 0 {
+				aura.Deactivate(sim)
+			}
+		},
+	})
+
+	priest.RegisterAura(core.Aura{
+		Label:    "Concentration Talent",
+		Duration: core.NeverExpires,
+		OnReset:  func(aura *core.Aura, sim *core.Simulation) { aura.Activate(sim) },
+		OnSpellHitDealt: func(aura *core.Aura, sim *core.Simulation, spell *core.Spell, result *core.SpellResult) {
+			if !result.Landed() || !spell.Flags.Matches(SpellFlagPriest) || !spell.ProcMask.Matches(core.ProcMaskSpellDamage) {
+				return
+			}
+			if sim.Proc(procChance, "Concentration") {
+				clearcasting.Activate(sim)
+			}
+		},
+	})
+}
+
+// Twin Disciplines (DBC): 10% chance after a Holy damage spell to make the next
+// Shadow damage spell free, and vice versa.
+func (priest *Priest) applyTwinDisciplines() {
+	if priest.Talents.TwinDisciplines == 0 {
+		return
+	}
+
+	const procChance = 0.10
+
+	makeFreeSpellAura := func(label string, school core.SpellSchool) *core.Aura {
+		schoolIdx := school.GetSchoolIndex()
+		return priest.RegisterAura(core.Aura{
+			Label:    label,
+			Duration: time.Second * 15,
+			OnGain: func(aura *core.Aura, sim *core.Simulation) {
+				aura.Unit.PseudoStats.SchoolCostMultiplier[schoolIdx] -= 100
+			},
+			OnExpire: func(aura *core.Aura, sim *core.Simulation) {
+				aura.Unit.PseudoStats.SchoolCostMultiplier[schoolIdx] += 100
+			},
+			OnCastComplete: func(aura *core.Aura, sim *core.Simulation, spell *core.Spell) {
+				if aura.RemainingDuration(sim) == aura.Duration {
+					return
+				}
+				if spell.Flags.Matches(SpellFlagPriest) && spell.SpellSchool.Matches(school) && spell.Cost != nil && spell.DefaultCast.Cost > 0 {
+					aura.Deactivate(sim)
+				}
+			},
+		})
+	}
+
+	freeShadow := makeFreeSpellAura("Twin Disciplines (Shadow)", core.SpellSchoolShadow)
+	freeHoly := makeFreeSpellAura("Twin Disciplines (Holy)", core.SpellSchoolHoly)
+
+	priest.RegisterAura(core.Aura{
+		Label:    "Twin Disciplines Talent",
+		Duration: core.NeverExpires,
+		OnReset:  func(aura *core.Aura, sim *core.Simulation) { aura.Activate(sim) },
+		OnSpellHitDealt: func(aura *core.Aura, sim *core.Simulation, spell *core.Spell, result *core.SpellResult) {
+			if !result.Landed() || !spell.Flags.Matches(SpellFlagPriest) || !spell.ProcMask.Matches(core.ProcMaskSpellDamage) {
+				return
+			}
+			if spell.SpellSchool.Matches(core.SpellSchoolHoly) && sim.Proc(procChance, "Twin Disciplines") {
+				freeShadow.Activate(sim)
+			} else if spell.SpellSchool.Matches(core.SpellSchoolShadow) && sim.Proc(procChance, "Twin Disciplines") {
+				freeHoly.Activate(sim)
+			}
+		},
+	})
+}
+
+// Mind Overlord (DBC): reduces the Mana cost of Mind Blast and Mind Flay by
+// 6/12/18/24/30% (also Mind Control / Mind Vision, which aren't simmed).
+func (priest *Priest) applyMindOverlord() {
+	if priest.Talents.MindOverlord == 0 {
+		return
+	}
+
+	reduction := 6 * priest.Talents.MindOverlord
+	priest.OnSpellRegistered(func(spell *core.Spell) {
+		if spell.Cost == nil {
+			return
+		}
+		if spell.SpellCode == SpellCode_PriestMindBlast || spell.SpellCode == SpellCode_PriestMindFlay {
+			spell.Cost.Multiplier -= reduction
+		}
+	})
+}
+
+// Improved Mind Flay (DBC): 30/60/90% chance to avoid pushback while channeling Mind Flay.
+func (priest *Priest) applyImprovedMindFlay() {
+	if priest.Talents.ImprovedMindFlay == 0 {
+		return
+	}
+
+	reduction := 0.30 * float64(priest.Talents.ImprovedMindFlay)
+	priest.OnSpellRegistered(func(spell *core.Spell) {
+		if spell.SpellCode == SpellCode_PriestMindFlay {
+			spell.PushbackReduction += reduction
+		}
+	})
+}
+
+// Burnt Soul (DBC): 10/20/30% chance on cast to regenerate 3% of max mana over 9s
+// (the DBC also costs 9% health, which is ignored here).
+func (priest *Priest) applyBurntSoul() {
+	if priest.Talents.BurntSoul == 0 {
+		return
+	}
+
+	procChance := 0.10 * float64(priest.Talents.BurntSoul)
+	manaMetrics := priest.NewManaMetrics(core.ActionID{SpellID: 33859})
+
+	priest.RegisterAura(core.Aura{
+		Label:    "Burnt Soul Talent",
+		Duration: core.NeverExpires,
+		OnReset:  func(aura *core.Aura, sim *core.Simulation) { aura.Activate(sim) },
+		OnCastComplete: func(aura *core.Aura, sim *core.Simulation, spell *core.Spell) {
+			if !spell.Flags.Matches(SpellFlagPriest) || !spell.ProcMask.Matches(core.ProcMaskSpellDamage) {
+				return
+			}
+			if sim.Proc(procChance, "Burnt Soul") {
+				manaPerTick := 0.01 * priest.MaxMana()
+				core.StartPeriodicAction(sim, core.PeriodicActionOptions{
+					Period:   time.Second * 3,
+					NumTicks: 3,
+					OnAction: func(sim *core.Simulation) {
+						priest.AddMana(sim, manaPerTick, manaMetrics)
+					},
+				})
+			}
 		},
 	})
 }

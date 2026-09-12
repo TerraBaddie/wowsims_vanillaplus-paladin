@@ -9,7 +9,7 @@ import (
 	"github.com/wowsims/classic/sim/core/stats"
 )
 
-var TalentTreeSizes = [3]int{16, 14, 16}
+var TalentTreeSizes = [3]int{20, 20, 20}
 
 const (
 	SpellFlagShot   = core.SpellFlagAgentReserved1
@@ -289,6 +289,7 @@ func NewHunter(character *core.Character, options *proto.Player) *Hunter {
 	hunter.AddStatDependency(stats.Agility, stats.RangedAttackPower, 2)
 	hunter.AddStatDependency(stats.Agility, stats.MeleeCrit, core.CritPerAgiAtLevel[character.Class]*core.CritRatingPerCritChance)
 	hunter.AddStatDependency(stats.Intellect, stats.SpellCrit, core.CritPerIntAtLevel[character.Class]*core.SpellCritRatingPerCritChance)
+	hunter.AddStatDependency(stats.Intellect, stats.SpellPower, core.SpellPowerPerIntellect)
 
 	guardians.ConstructGuardians(&hunter.Character)
 

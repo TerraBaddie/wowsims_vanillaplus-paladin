@@ -38,7 +38,7 @@ func TestP1Feral(t *testing.T) {
 	}))
 }
 
-var P1Talents = "500005301-5500020323202151-15"
+var P1Talents = ""
 
 var PlayerOptionsMonoCat = &proto.Player_FeralDruid{
 	FeralDruid: &proto.FeralDruid{

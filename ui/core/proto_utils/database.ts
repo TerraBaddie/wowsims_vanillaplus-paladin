@@ -73,8 +73,19 @@ export class Database {
 	private readonly spellIcons: Record<number, Promise<IconData>> = {};
 	private loadedLeftovers = false;
 
+	// Synchronous handle to the loaded DB, for cheap lookups (e.g. local tooltips).
+	private static instance: Database | null = null;
+
+	static hasLocalItemTooltip(itemId: number): boolean {
+		return !!Database.instance?.items.get(itemId)?.tooltip;
+	}
+	static localItemTooltip(itemId: number): string {
+		return Database.instance?.items.get(itemId)?.tooltip ?? '';
+	}
+
 	private constructor(db: UIDatabase) {
 		this.loadProto(db);
+		Database.instance = this;
 	}
 
 	// Add all data from the db proto into this database.
@@ -268,6 +279,7 @@ export class Database {
 				icon: json['icon'],
 				hasBuff: json['buff'] !== '',
 				rank: rank,
+				tooltip: json['tooltip'] ?? '',
 			});
 		} catch (e) {
 			console.error('Error while fetching url: ' + url + '\n\n' + e);

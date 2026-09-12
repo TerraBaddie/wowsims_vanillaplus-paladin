@@ -15,13 +15,13 @@ export const DefaultGear = PresetUtils.makePresetGear('Blank', BlankGear);
 export const TankHealingTalents = {
 	name: 'Tank Healing',
 	data: SavedTalents.create({
-		talentsString: '-30205033-05005331335010501122331251',
+		talentsString: '',
 	}),
 };
 export const RaidHealingTalents = {
 	name: 'Raid Healing',
 	data: SavedTalents.create({
-		talentsString: '-3020503-50005331335310501122331251',
+		talentsString: '',
 	}),
 };
 

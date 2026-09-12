@@ -36,9 +36,11 @@ func (hunter *Hunter) getArcaneShotConfig(rank int, timer *core.Timer) core.Spel
 			IgnoreHaste: true,
 			CD: core.Cooldown{
 				Timer:    timer,
-				Duration: time.Second*6 - time.Millisecond*200*time.Duration(hunter.Talents.ImprovedArcaneShot),
+				Duration: time.Second * 6,
 			},
 		},
+
+		BonusCritRating: 10 * float64(hunter.Talents.ImprovedArcaneShot) * core.CritRatingPerCritChance,
 		ExtraCastCondition: func(sim *core.Simulation, target *core.Unit) bool {
 			return hunter.DistanceFromTarget >= core.MinRangedAttackDistance
 		},

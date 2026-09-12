@@ -182,6 +182,10 @@ var CritPerIntAtLevel = map[proto.Class]float64{
 	proto.Class_ClassDruid:   0.0167,
 }
 
+// Private-server rule: Intellect grants Spell Power directly (3 Int = 1 Spell
+// Power), on top of the normal Int -> Spell Crit / Mana scaling.
+const SpellPowerPerIntellect = 1.0 / 3.0
+
 // Dodge agility scaling
 var DodgePerAgiAtLevel = map[proto.Class]float64{
 	proto.Class_ClassUnknown: 0.0,

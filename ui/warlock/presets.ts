@@ -31,7 +31,6 @@ import {
 import BasicRotation from './apls/rotation.apl.json';
 // gear
 import BlankGear from './gear_sets/blank.gear.json';
-import MCGear from './gear_sets/mc.gear.json';
 import PreBisGear from './gear_sets/prebis.gear.json';
 
 ///////////////////////////////////////////////////////////////////////////
@@ -40,12 +39,10 @@ import PreBisGear from './gear_sets/prebis.gear.json';
 
 export const GearBlank = PresetUtils.makePresetGear('Blank', BlankGear);
 export const GearPreBis = PresetUtils.makePresetGear('Pre-BIS', PreBisGear);
-export const GearMC = PresetUtils.makePresetGear('MC', MCGear);
 
 export const GearPresets = [
 	GearBlank,
 	GearPreBis,
-	GearMC,
 ];
 
 export const DefaultGear = GearPreBis;
@@ -70,12 +67,12 @@ export const DefaultAPL = RotationSB;
 
 export const TalentsSMRuid = {
 	name: 'SM/Ruin',
-	data: SavedTalents.create({ talentsString: '5502203112201105--52500051020001' }),
+	data: SavedTalents.create({ talentsString: '' }),
 };
 
 export const TalentsDSRuin = {
 	name: 'DS/Ruin',
-	data: SavedTalents.create({ talentsString: '25002-2050300152201-52500051020001' }),
+	data: SavedTalents.create({ talentsString: '' }),
 };
 
 export const TalentPresets = [TalentsSMRuid, TalentsDSRuin];

@@ -17,16 +17,46 @@ func (rogue *Rogue) ApplyTalents() {
 	rogue.applyWeaponExpertise()
 	rogue.applyInitiative()
 
-	rogue.AddStat(stats.Dodge, 1*float64(rogue.Talents.LightningReflexes))
+	rogue.AddStat(stats.Dodge, 1*float64(int32(0) /*removed*/))
 	rogue.AddStat(stats.Parry, 1*float64(rogue.Talents.Deflection))
 	rogue.AddStat(stats.MeleeCrit, 1*float64(rogue.Talents.Malice))
 	rogue.AddStat(stats.MeleeHit, 1*float64(rogue.Talents.Precision))
 	// TODO: Test the Armor reduction amount
-	rogue.AddStat(stats.ArmorPenetration, float64(5/3*rogue.Talents.SerratedBlades*rogue.Level))
+	rogue.AddStat(stats.ArmorPenetration, float64(5/3*int32(0) /*removed*/*rogue.Level))
 	rogue.AutoAttacks.OHConfig().DamageMultiplier *= rogue.dwsMultiplier()
 
 	if rogue.Talents.Deadliness > 0 {
-		rogue.MultiplyStat(stats.AttackPower, 1.0+0.02*float64(rogue.Talents.Deadliness))
+		rogue.MultiplyStat(stats.AttackPower, 1.0+0.04*float64(rogue.Talents.Deadliness)) // DBC: 4%/rank
+	}
+
+	// Combat Expertise (DBC): +3%/5% parry and attack speed.
+	if rogue.Talents.CombatExpertise > 0 {
+		bonus := []float64{0, 0.03, 0.05}[rogue.Talents.CombatExpertise]
+		rogue.PseudoStats.MeleeSpeedMultiplier *= 1 + bonus
+		rogue.AddStat(stats.Parry, 100*bonus)
+	}
+
+	// Cold Blooded (DBC): +3%/5% crit for Sinister Strike, Backstab, Ambush, Hemorrhage, Eviscerate, Gouge.
+	if rogue.Talents.ColdBlooded > 0 {
+		bonusCrit := []float64{0, 3, 5}[rogue.Talents.ColdBlooded] * core.CritRatingPerCritChance
+		rogue.OnSpellRegistered(func(spell *core.Spell) {
+			switch spell.SpellCode {
+			case SpellCode_RogueSinisterStrike, SpellCode_RogueBackstab, SpellCode_RogueAmbush, SpellCode_RogueHemorrhage, SpellCode_RogueEviscerate:
+				spell.BonusCritRating += bonusCrit
+			}
+		})
+	}
+
+	// TODO: Coup de Grace (DBC): +5%/rank damage vs targets below 20% health (execute range).
+
+	// Connivery (DBC): +2%/rank damage from all attacks from behind (assumed always true vs a raid boss).
+	if rogue.Talents.Connivery > 0 {
+		mult := 0.02 * float64(rogue.Talents.Connivery)
+		rogue.OnSpellRegistered(func(spell *core.Spell) {
+			if spell.ProcMask.Matches(core.ProcMaskMelee) {
+				spell.DamageMultiplierAdditive += mult
+			}
+		})
 	}
 
 	rogue.registerColdBloodCD()
@@ -40,7 +70,7 @@ func (rogue *Rogue) ApplyTalents() {
 
 // dwsMultiplier returns the offhand damage multiplier
 func (rogue *Rogue) dwsMultiplier() float64 {
-	return 1 + 0.1*float64(rogue.Talents.DualWieldSpecialization)
+	return 1 + 0.05*float64(rogue.Talents.DualWieldSpecialization) // DBC: 5%/rank offhand damage
 }
 
 func (rogue *Rogue) applyRuthlessness() {
@@ -48,7 +78,7 @@ func (rogue *Rogue) applyRuthlessness() {
 		return
 	}
 
-	procChance := 0.2 * float64(rogue.Talents.Ruthlessness)
+	procChance := 0.3 * float64(rogue.Talents.Ruthlessness) // DBC: 30%/rank
 	cpMetrics := rogue.NewComboPointMetrics(core.ActionID{SpellID: 14161})
 	rogue.OnComboPointsSpent(func(sim *core.Simulation, spell *core.Spell, comboPoints int32) {
 		if sim.Proc(procChance, "Ruthlessness") {
@@ -59,7 +89,7 @@ func (rogue *Rogue) applyRuthlessness() {
 
 // Murder talent
 func (rogue *Rogue) applyMurder() {
-	if rogue.Talents.Murder == 0 {
+	if int32(0) /*removed*/ == 0 {
 		return
 	}
 
@@ -68,7 +98,7 @@ func (rogue *Rogue) applyMurder() {
 		for _, t := range rogue.Env.Encounter.Targets {
 			switch t.MobType {
 			case proto.MobType_MobTypeHumanoid, proto.MobType_MobTypeGiant, proto.MobType_MobTypeBeast, proto.MobType_MobTypeDragonkin:
-				multiplier := []float64{1, 1.01, 1.02}[rogue.Talents.Murder]
+				multiplier := []float64{1, 1.01, 1.02}[int32(0) /*removed*/]
 				for _, at := range rogue.AttackTables[t.UnitIndex] {
 					at.DamageDealtMultiplier *= multiplier
 					at.CritMultiplier *= multiplier
@@ -86,7 +116,7 @@ func (rogue *Rogue) applyRelentlessStrikes() {
 	cpMetrics := rogue.NewEnergyMetrics(core.ActionID{SpellID: 14179})
 	rogue.OnComboPointsSpent(func(sim *core.Simulation, spell *core.Spell, comboPoints int32) {
 		if sim.Proc(0.2*float64(comboPoints), "RelentlessStrikes") {
-			rogue.AddEnergy(sim, 25, cpMetrics)
+			rogue.AddEnergy(sim, 35, cpMetrics) // DBC: 35 energy
 		}
 	})
 }
@@ -212,14 +242,14 @@ func (rogue *Rogue) applyInitiative() {
 // Rogue weapon specialization talents. Bonus is shown if the main hand is specialized, but not if off hand only
 func (rogue *Rogue) applyWeaponSpecializations() {
 	// Sword specialization. Implemented in 'sword_specialization.go'
-	if swordSpec := rogue.Talents.SwordSpecialization; swordSpec > 0 {
+	if swordSpec := int32(0) /*weapon spec reworked -> Weapon Expertise (TODO)*/; swordSpec > 0 {
 		if mask := rogue.GetProcMaskForTypes(proto.WeaponType_WeaponTypeSword); mask != core.ProcMaskUnknown {
 			rogue.registerSwordSpecialization(mask)
 		}
 	}
 
 	// Dagger Specialization
-	if daggerSpec := rogue.Talents.DaggerSpecialization; daggerSpec > 0 {
+	if daggerSpec := int32(0) /*removed*/; daggerSpec > 0 {
 		switch rogue.GetProcMaskForTypes(proto.WeaponType_WeaponTypeDagger) {
 		case core.ProcMaskMelee:
 			rogue.AddStat(stats.MeleeCrit, core.CritRatingPerCritChance*float64(daggerSpec))
@@ -241,7 +271,7 @@ func (rogue *Rogue) applyWeaponSpecializations() {
 	}
 
 	// Fist Weapon Specialization. Same as above but for fists
-	if fistSpec := rogue.Talents.FistWeaponSpecialization; fistSpec > 0 {
+	if fistSpec := int32(0) /*removed*/; fistSpec > 0 {
 		switch rogue.GetProcMaskForTypes(proto.WeaponType_WeaponTypeFist) {
 		case core.ProcMaskMelee:
 			rogue.AddStat(stats.MeleeCrit, core.CritRatingPerCritChance*float64(fistSpec))
@@ -263,7 +293,7 @@ func (rogue *Rogue) applyWeaponSpecializations() {
 	}
 
 	// Mace Specialization. Offers weapon skill for Maces and RNG stun (not implemented for being useless on boss)
-	if maceSpec := rogue.Talents.MaceSpecialization; maceSpec > 0 {
+	if maceSpec := int32(0) /*removed*/; maceSpec > 0 {
 		if mask := rogue.GetProcMaskForTypes(proto.WeaponType_WeaponTypeMace); mask != core.ProcMaskUnknown {
 			rogue.PseudoStats.MacesSkill += float64(maceSpec)
 		}

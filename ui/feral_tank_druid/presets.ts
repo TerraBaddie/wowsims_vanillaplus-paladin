@@ -65,7 +65,7 @@ export const APLPresets = {
 export const StandardTalents = {
 	name: 'Standard',
 	data: SavedTalents.create({
-		talentsString: '-503232132322010353120300313511-20350001',
+		talentsString: '',
 	}),
 };
 

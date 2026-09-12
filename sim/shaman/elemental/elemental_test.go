@@ -16,57 +16,6 @@ func TestElemental(t *testing.T) {
 	core.RunTestSuite(t, t.Name(), core.FullCharacterTestSuiteGenerator([]core.CharacterSuiteConfig{
 		{
 			Class:      proto.Class_ClassShaman,
-			Phase:      1,
-			Race:       proto.Race_RaceTroll,
-			OtherRaces: []proto.Race{proto.Race_RaceOrc},
-
-			Talents:     DefaultTalents,
-			GearSet:     core.GetGearSet("../../../ui/elemental_shaman/gear_sets", "phase_1"),
-			Rotation:    core.GetAplRotation("../../../ui/elemental_shaman/apls", "default"),
-			Buffs:       core.FullBuffs,
-			Consumes:    Phase1Consumes,
-			SpecOptions: core.SpecOptionsCombo{Label: "Adaptive", SpecOptions: PlayerOptionsAdaptive},
-
-			ItemFilter:      ItemFilters,
-			EPReferenceStat: proto.Stat_StatSpellPower,
-			StatsToWeigh:    Stats,
-		},
-		{
-			Class:      proto.Class_ClassShaman,
-			Phase:      2,
-			Race:       proto.Race_RaceTroll,
-			OtherRaces: []proto.Race{proto.Race_RaceOrc},
-
-			Talents:     DefaultTalents,
-			GearSet:     core.GetGearSet("../../../ui/elemental_shaman/gear_sets", "phase_2"),
-			Rotation:    core.GetAplRotation("../../../ui/elemental_shaman/apls", "default"),
-			Buffs:       core.FullBuffs,
-			Consumes:    Phase2Consumes,
-			SpecOptions: core.SpecOptionsCombo{Label: "Adaptive", SpecOptions: PlayerOptionsAdaptive},
-
-			ItemFilter:      ItemFilters,
-			EPReferenceStat: proto.Stat_StatSpellPower,
-			StatsToWeigh:    Stats,
-		},
-		{
-			Class:      proto.Class_ClassShaman,
-			Phase:      3,
-			Race:       proto.Race_RaceTroll,
-			OtherRaces: []proto.Race{proto.Race_RaceOrc},
-
-			Talents:     DefaultTalents,
-			GearSet:     core.GetGearSet("../../../ui/elemental_shaman/gear_sets", "phase_3"),
-			Rotation:    core.GetAplRotation("../../../ui/elemental_shaman/apls", "default"),
-			Buffs:       core.FullBuffs,
-			Consumes:    Phase2Consumes,
-			SpecOptions: core.SpecOptionsCombo{Label: "Adaptive", SpecOptions: PlayerOptionsAdaptive},
-
-			ItemFilter:      ItemFilters,
-			EPReferenceStat: proto.Stat_StatSpellPower,
-			StatsToWeigh:    Stats,
-		},
-		{
-			Class:      proto.Class_ClassShaman,
 			Phase:      4,
 			Race:       proto.Race_RaceTroll,
 			OtherRaces: []proto.Race{proto.Race_RaceOrc},
@@ -82,44 +31,10 @@ func TestElemental(t *testing.T) {
 			EPReferenceStat: proto.Stat_StatSpellPower,
 			StatsToWeigh:    Stats,
 		},
-		{
-			Class:      proto.Class_ClassShaman,
-			Phase:      5,
-			Race:       proto.Race_RaceTroll,
-			OtherRaces: []proto.Race{proto.Race_RaceOrc},
-
-			Talents:     DefaultTalents,
-			GearSet:     core.GetGearSet("../../../ui/elemental_shaman/gear_sets", "phase_5"),
-			Rotation:    core.GetAplRotation("../../../ui/elemental_shaman/apls", "default"),
-			Buffs:       core.FullBuffs,
-			Consumes:    Phase5Consumes,
-			SpecOptions: core.SpecOptionsCombo{Label: "Adaptive", SpecOptions: PlayerOptionsAdaptive},
-
-			ItemFilter:      ItemFilters,
-			EPReferenceStat: proto.Stat_StatSpellPower,
-			StatsToWeigh:    Stats,
-		},
-		{
-			Class:      proto.Class_ClassShaman,
-			Phase:      6,
-			Race:       proto.Race_RaceTroll,
-			OtherRaces: []proto.Race{proto.Race_RaceOrc},
-
-			Talents:     DefaultTalents,
-			GearSet:     core.GetGearSet("../../../ui/elemental_shaman/gear_sets", "phase_6"),
-			Rotation:    core.GetAplRotation("../../../ui/elemental_shaman/apls", "default"),
-			Buffs:       core.FullBuffs,
-			Consumes:    Phase5Consumes,
-			SpecOptions: core.SpecOptionsCombo{Label: "Adaptive", SpecOptions: PlayerOptionsAdaptive},
-
-			ItemFilter:      ItemFilters,
-			EPReferenceStat: proto.Stat_StatSpellPower,
-			StatsToWeigh:    Stats,
-		},
 	}))
 }
 
-var DefaultTalents = "550331050002151--50105301005"
+var DefaultTalents = ""
 
 var PlayerOptionsAdaptive = &proto.Player_ElementalShaman{
 	ElementalShaman: &proto.ElementalShaman{

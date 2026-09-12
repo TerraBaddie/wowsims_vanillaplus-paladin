@@ -1155,6 +1155,16 @@ export class Player<SpecType extends Spec> {
 	}
 
 	setWowheadData(equippedItem: EquippedItem, elem: HTMLElement) {
+		// If the item has private-server values baked into the local DB, render a
+		// local tooltip instead of fetching the (retail) Wowhead one.
+		if (Database.hasLocalItemTooltip(equippedItem.item.id)) {
+			elem.removeAttribute('data-wowhead');
+			elem.removeAttribute('href');
+			elem.dataset.whtticon = 'false';
+			ActionId.fromItem(equippedItem.item).trySetLocalTooltip(elem);
+			return;
+		}
+
 		const parts = [];
 
 		const lang = getLanguageCode();

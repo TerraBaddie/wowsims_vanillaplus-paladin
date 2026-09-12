@@ -71,14 +71,14 @@ export const DefaultAPL = APLPresets[Phase.Phase5][0];
 export const P4ProtTalents = {
 	name: 'P4 Prot',
 	data: SavedTalents.create({
-		talentsString: '-053020335001551-0500535',
+		talentsString: '',
 	}),
 };
 
 export const P5ProtTalents = {
 	name: 'P5 Prot',
 	data: SavedTalents.create({
-		talentsString: '-053020335001551-0520335',
+		talentsString: '',
 	}),
 };
 

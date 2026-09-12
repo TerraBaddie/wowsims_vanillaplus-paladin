@@ -360,7 +360,7 @@ const RAID_STATS_OPTIONS: RaidStatsOptions = {
 							actionId: ActionId.fromSpellId(20140),
 							playerData: playerClassAndTalent(
 								Class.ClassPaladin,
-								'improvedDevotionAura',
+								'improvedDefensiveAuras',
 								player => player.getSpecOptions().aura == PaladinAura.DevotionAura,
 							),
 						},
@@ -369,7 +369,7 @@ const RAID_STATS_OPTIONS: RaidStatsOptions = {
 							actionId: ActionId.fromSpellId(48942),
 							playerData: playerClassAndMissingTalent(
 								Class.ClassPaladin,
-								'improvedDevotionAura',
+								'improvedDefensiveAuras',
 								player => player.getSpecOptions().aura == PaladinAura.DevotionAura,
 							),
 						},
@@ -463,7 +463,7 @@ const RAID_STATS_OPTIONS: RaidStatsOptions = {
 							actionId: ActionId.fromSpellId(12861),
 							playerData: playerClassAndTalent(
 								Class.ClassWarrior,
-								'improvedBattleShout',
+								'improvedCombatShouts',
 								player => player.getSpecOptions().shout == WarriorShout.WarriorShoutBattle,
 							),
 						},
@@ -472,7 +472,7 @@ const RAID_STATS_OPTIONS: RaidStatsOptions = {
 							actionId: ActionId.fromSpellId(47436),
 							playerData: playerClassAndMissingTalent(
 								Class.ClassWarrior,
-								'improvedBattleShout',
+								'improvedCombatShouts',
 								player => player.getSpecOptions().shout == WarriorShout.WarriorShoutBattle,
 							),
 						},
@@ -504,12 +504,12 @@ const RAID_STATS_OPTIONS: RaidStatsOptions = {
 						{
 							label: 'Improved Blessing of Wisdom',
 							actionId: ActionId.fromSpellId(20245),
-							playerData: playerClassAndTalent(Class.ClassPaladin, 'improvedBlessingOfWisdom'),
+							playerData: playerClassAndTalent(Class.ClassPaladin, 'benediction'),
 						},
 						{
 							label: 'Blessing of Wisdom',
 							actionId: ActionId.fromSpellId(48938),
-							playerData: playerClassAndMissingTalent(Class.ClassPaladin, 'improvedBlessingOfWisdom'),
+							playerData: playerClassAndMissingTalent(Class.ClassPaladin, 'benediction'),
 						},
 					],
 				},
@@ -649,12 +649,12 @@ const RAID_STATS_OPTIONS: RaidStatsOptions = {
 						{
 							label: 'Improved Demoralizing Shout',
 							actionId: ActionId.fromSpellId(12879),
-							playerData: playerClassAndTalent(Class.ClassWarrior, 'improvedDemoralizingShout'),
+							playerData: playerClassAndTalent(Class.ClassWarrior, 'improvedCombatShouts'),
 						},
 						{
 							label: 'Demoralizing Shout',
 							actionId: ActionId.fromSpellId(11556),
-							playerData: playerClassAndMissingTalent(Class.ClassWarrior, 'improvedDemoralizingShout'),
+							playerData: playerClassAndMissingTalent(Class.ClassWarrior, 'improvedCombatShouts'),
 						},
 						{
 							label: 'Improved Demoralizing Roar',
@@ -712,7 +712,7 @@ const RAID_STATS_OPTIONS: RaidStatsOptions = {
 						{
 							label: 'Insect Swarm',
 							actionId: ActionId.fromSpellId(24977),
-							playerData: playerSpecAndTalent(Spec.SpecBalanceDruid, 'insectSwarm'),
+							playerData: playerSpecAndTalent(Spec.SpecBalanceDruid, 'improvedMoonfire'),
 						},
 						{
 							label: 'Scorpid Sting',

@@ -7,9 +7,7 @@ import (
 )
 
 func (paladin *Paladin) registerDivineFavor() {
-	if !paladin.Talents.DivineFavor {
-		return
-	}
+	// Divine Favor is no longer talent-gated in the custom tree.
 
 	var affectedSpells []*core.Spell
 	paladin.OnSpellRegistered(func(spell *core.Spell) {
