@@ -19,21 +19,30 @@ _As of 2026-09-12._
 
 ## Known gaps I flagged but didn't build
 
-- **Custom class sets have no set bonuses.** Talonclaw Regalia, Ursoc Armor
-  (druid), Cataclysm Armor, The Stonefury (shaman), Righteous Armor (paladin)
-  exist as items with correct stats, but nobody wrote the Go set-bonus code for
-  them (`sim/*/item_sets_pve.go` has bonuses for every retail tier set except
-  these five). If the server's tooltips promise a 2pc/4pc/6pc/8pc effect for
-  any of these, the sim currently ignores it.
-- **All PvP sets need their bonuses done — priority.** Same gap as above but
-  for the PvP sets (`sim/*/item_sets_pvp.go`): confirm each class's PvP set is
-  present with correct pieces and write the actual 2pc/4pc/etc. bonus effects
-  against this server's tooltips, not just retail defaults. User flagged this
-  as the thing to tackle first (2026-09-12).
-- **Really, every set needs a full pass.** Not just the five custom sets and
-  PvP — audit all sets (tier, dungeon, crafted) against this server's actual
-  tooltips/effects rather than assuming the retail-derived bonus code is
-  correct, and fill in anything missing.
+- ~~**Custom class sets have no set bonuses.**~~ Done 2026-09-13: Talonclaw
+  Regalia, Ursoc Armor (druid), Cataclysm Armor, The Stonefury (shaman),
+  Righteous Armor (paladin) all implemented (commit `d464da4b3`). See
+  [CHANGES.md](CHANGES.md) Part C for detail and reproduction steps.
+- ~~**All PvP sets need their bonuses done — priority.**~~ Done earlier in the
+  2026-09-13 session (commits `79cb702a3`, `590bfad43`) — every class's PvP
+  sets (both blue and epic tier) had a universal 2pc/6pc bonus-value swap bug,
+  fixed and verified against the server's real tooltips.
+- ~~**Really, every set needs a full pass.**~~ Done 2026-09-13 (commit
+  `bfcd64728`): audited every class's PvE tier/dungeon sets, one background
+  agent per class, three classes at a time. Found and fixed wrong
+  piece-count thresholds and/or wrong bonus values in the large majority of
+  already-"implemented" sets across all 9 classes — see CHANGES.md Part C for
+  the full list. Remaining known gap: **Cenarion Armor's root-cause data bug
+  was fixed, but the same underlying question — why did the generic
+  Wowhead-derived pipeline fail to tag `setName` for some items when
+  `custom_items.json` had no override for them — was never diagnosed**, only
+  patched item-by-item as it was found (Righteous Boots, the 8 Cenarion
+  Armor pieces, Striker's Garb, a handful of AQ40/Naxx sets that turned out
+  to be content gaps instead). Also, several sets fixed this pass have
+  bonuses left as documented no-ops because the underlying spell/mechanic
+  isn't simulated at all in this fork (e.g. Feral Tank abilities, Hibernate,
+  Life Tap's cooldown) — those are correctly *not* bugs, but would need
+  actual new sim features, not a set-bonus fix, if ever wanted.
 - **T3-looking sets (Dreadnaught, Cryptstalker, etc.) aren't pinned to a
   phase.** They fall through the normal location rule, which puts them at
   Phase 1 since they have no AtlasLoot raid-instance source on this server.

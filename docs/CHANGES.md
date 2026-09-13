@@ -655,6 +655,60 @@ then re-run to confirm green.
 
 ---
 
+## Part D — Spell tooltip values from the DBC dump, 2026-09-13
+
+Extends the item pipeline's "our data outranks Wowhead" policy (Rule 2 /
+"Tooltip/icon text" in [private-server-item-rules.md](private-server-item-rules.md))
+to **spell tooltip description text**. Full narrative, root causes, and
+reproduce/verify steps are written up there — this entry is just the file-by-file
+summary. One commit landed, one round of fixes is still uncommitted.
+
+**Committed — `da66eb4cd`:**
+
+- **New** `tools/gen_spell_value_overrides.py` — for every spell id the sim
+  actually references (talents excluded, those stay owned by
+  `tools/gen_custom_spell_tooltips.py`), resolves the description from
+  `CSV's/Spell.csv` and, when it differs from the Wowhead-cached text, rewrites
+  only the `<div class="q">...</div>` block in
+  `assets/db_inputs/wowhead_spell_tooltips.csv` — name/icon/mana/cast-time/etc.
+  untouched. Spells missing from Wowhead entirely get a minimal DBC-only row.
+  Skips anything with an unresolved `$` token, and skips `$o`-based mana-regen
+  text specifically (spot-checked wrong: DBC-implied 42 mana vs. Wowhead's
+  known-correct 151.2 for Drink — that formula doesn't hold for periodic-energize
+  effects).
+- **New** `tools/custom_all_spell_ids.txt` — sticky record of non-talent spell
+  ids with no Wowhead entry (DBC-only rows), so re-runs don't re-derive from
+  scratch.
+- 155 tooltips value-corrected, 5 DBC-only rows added.
+- `assets/database/db.json`/`db.bin` regenerated
+  (`go run ./tools/database/gen_db -outDir=./assets -gen=db`).
+
+**Uncommitted as of this writing** (working tree has these five files dirty —
+see private-server-item-rules.md's "Follow-up" subsection for the full story):
+
+- `tools/gen_spell_value_overrides.py` — new `find_go_spell_array_ids()`.
+  The original id-collection scan only caught literal `ActionID{SpellID: N}`
+  uses; ranked spells stored as a lookup array and indexed dynamically (e.g.
+  `sim/priest/mind_flay.go`'s `MindFlaySpellId[rank]`) were invisible to it.
+  Now also regex-scans for any `...Spell(Id|ID)... = [N]int32{...}` literal
+  and pulls every non-zero integer out.
+- `ui/core/components/individual_sim_ui/apl_helpers.tsx` — the
+  `APLActionIDPicker` (APL rotation editor's action picker) called
+  `setWowheadDataset()` unconditionally, same gap already fixed elsewhere for
+  `item_list.tsx`. Now tries `trySetLocalTooltip()` first.
+- `assets/db_inputs/wowhead_spell_tooltips.csv` — 113 more tooltips
+  value-corrected using the newly-found array ids (mostly "X to Y" ranged
+  values collapsing to the DBC's single resolved value, e.g. Lightning Bolt
+  rank 1 "13 to 15 Nature damage" → "13 Nature damage").
+- `assets/database/db.json`/`db.bin` — regenerated to match, not yet promoted/
+  committed.
+
+**To finish this round:** regenerate (`go run ./tools/database/gen_db
+-outDir=./assets -gen=db`) if the working-tree db.json/db.bin aren't already
+current, run `go build ./...`/`go test ./sim/...`, then commit.
+
+---
+
 ## Part B — Already modified before the 2026-09-11/12 session
 
 *(These are now committed — see Part A3 above, commit `6406a9fa4`. Left
