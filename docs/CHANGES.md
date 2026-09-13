@@ -321,6 +321,340 @@ disk; the running `localhost:8080` app still loads and an actual sim run
 
 ---
 
+## Part A4 — Arcanum tooltip/stat corrections, 2026-09-12
+
+Started from the user asking whether the Head-slot "Arcanum" enchants
+(`Lesser Arcanum of *`, `Arcanum of Focus/Protection/Rapidity`, the Shen'dralar
+"Greater Arcanum of *") were present in the data at all, then whether any had
+been rebalanced on the server compared to what the sim had. Ended up fixing
+four wrong stats, then chasing why the in-browser tooltip *still* showed the
+old numbers through three layers of caching and a real frontend bug.
+
+**Commit `1dfcd1c40`** — stat corrections + tooltip-text overrides + docs:
+
+- `tools/database/enchant_overrides.go`: checked every Arcanum's stat against
+  its real tooltip text in `CSV's/VPlusItemDB.lua` (the private-server dump)
+  and found four mismatches:
+  - `Lesser Arcanum of Rumination` (spell 15340/item 11622): `Mana: 150` →
+    **200** (dump says "adds 200 mana").
+  - `Lesser Arcanum of Tenacity` (spell 15391/item 11643): was
+    `BonusArmor: 125`, but the dump says *"1% Crit suppression"* — a
+    completely different effect, not armor. Remapped to
+    `Resilience: 1 * core.ResilienceRatingPerCritReductionChance` (the
+    engine's existing stat for reduced chance/damage from crits — the closest
+    match to "crit suppression").
+  - `Arcanum of Focus` (spell 22844/item 18330): `SpellPower: 8` → **10**
+    (dump says "+10 to your Healing and Damage from spells").
+  - `Arcanum of Rapidity` (spell 22840/item 18329): `MeleeHaste: 1` →
+    **`MeleeHaste: 2, SpellHaste: 2`** (dump says "2% haste"; added
+    `SpellHaste` too per user follow-up — the dump's generic wording covers
+    both casting and melee).
+  - `Arcanum of Protection` (1% dodge) and the eight `Lesser Arcanum of
+    Voracity`/`Constitution`/`Resilience` stat enchants already matched the
+    dump exactly — left untouched.
+- `tools/database/overrides.go`: added `SpellIconoverrides`, a list of local
+  `IconData` (name/icon/tooltip HTML) corrections merged in after the normal
+  Wowhead scrape, for the 10 enchants above whose *displayed* tooltip text
+  also needed fixing (see below for why this alone wasn't enough).
+- `docs/private-server-item-rules.md`: added a "Tooltip/icon text" subsection
+  under Rule 2, spelling out the policy the user asked for explicitly:
+  **our data (`VPlusItemDB.lua`) outranks a live Wowhead lookup for
+  tooltip/icon text whenever they disagree** — mirrors the existing stats
+  policy. Only reason to leave a Wowhead-sourced tooltip alone is if it
+  already matches unchanged.
+
+**Root-cause investigation** (why the fix above didn't show up in the running
+app, before the real fix in the next commit): traced through `db.json` →
+`db.bin` → `lib.wasm` → the vite JS bundle, ruling out browser HTTP cache,
+`localStorage`, `Cache Storage`, IndexedDB, and service workers one at a time
+(all cleared, all confirmed not the cause) before finding that the gear-picker
+modal's enchant list uses `ActionId.fromItemId()` (not `fromSpellId()`) for any
+enchant with an `ItemId` set — which all 10 of these enchants have — and that
+path renders its hover tooltip via a **live** Wowhead widget
+(`wow.zamimg.com/js/tooltips.js`) querying `nether.wowhead.com/tooltip/item/<id>`
+directly, completely bypassing `SpellIconoverrides`. Documented as a known
+limitation in `private-server-item-rules.md` at the time; fixed the same day,
+see below.
+
+**Commit `6a2d87966`** — the actual fix for the tooltip bypass, "option 2"
+(extend the existing item-icon path rather than fight the Rule 1 allowlist):
+
+- `tools/database/database.go`: `AddItemIcon` never copied the scraped
+  tooltip HTML into the `IconData` it builds (the field existed on the proto,
+  just wasn't wired up — only the spell-icon path did this). Fixed. Added
+  `MergeItemIcons`/`MergeItemIcon`, mirroring the existing
+  `MergeSpellIcons`/`MergeSpellIcon`.
+- `tools/database/overrides.go`: added `ItemIconoverrides` — the item-id-keyed
+  counterpart to `SpellIconoverrides` — with the same 10 corrected tooltips,
+  this time keyed by each enchant's real `ItemId` (11622, 11642-11649, 18329,
+  18330) since that's the id the gear picker actually looks up.
+- `tools/database/gen_db/main.go`: one line, `db.MergeItemIcons(database.ItemIconoverrides)`
+  alongside the existing `MergeSpellIcons` call.
+- `ui/core/proto_utils/database.ts`: `Database.hasLocalItemTooltip`/
+  `localItemTooltip` only ever checked the main `items` map — but these
+  Arcanum reagents are enchant-only materials excluded from that map by the
+  Rule 1 equippable-gear allowlist, so the check always failed for them.
+  Added a synchronous `itemIconsSync` map (populated alongside the existing
+  async `itemIcons` map in `loadProto`) as a fallback lookup.
+- `ui/core/components/gear_picker/item_list.tsx`: found the actual bypass —
+  the enchant/item list row renderer called `ActionId.setWowheadHref()`
+  directly and never checked `trySetLocalTooltip()` first (a *different*
+  render path, `ActionId.fillAndSet()`, already did this check correctly).
+  Fixed to try the local tooltip first, matching that other path.
+- Verified live in `localhost:8080`: hovering `Lesser Arcanum of Tenacity`
+  now shows *"1% Crit suppression"* with **zero** network calls to
+  `nether.wowhead.com` (confirmed via `element._tippy.props.content` and the
+  browser's network log) — same confirmed for Focus, Rapidity, and Rumination.
+  A full Mage sim run also completed successfully afterward.
+
+**Unrelated bug found and fixed while verifying the above** (this session's
+first from-scratch `npx vite build` on a native Windows checkout — normally
+built on Linux/WSL/CI, where this never surfaces): `vite.config.mts` built
+each per-spec page's JS entry-chunk name with `path.relative(__dirname, cur)`,
+which returns backslash-separated paths on Windows (`ui\mage\index.html`).
+That name gets embedded literally into the `<script src="...">` URL, and a
+literal backslash in a URL path is not a directory separator to a browser —
+every per-spec page 404'd on its own entry script. One-line fix: `.replace(/\\/g, '/')`
+on that path before using it as the chunk name.
+
+**Commit `d874f0f6e`** — updated the `private-server-item-rules.md` "known
+limitation" section (written mid-investigation, before the fix above landed)
+to instead describe what actually shipped, and reframed the remaining gap as
+"add an entry to `SpellIconoverrides`/`ItemIconoverrides` per mismatch found",
+not a structural limitation.
+
+### How to reproduce / verify this class of fix locally on Windows
+
+Regenerating the DB and confirming a stat or tooltip change actually reaches
+the browser needs **all** of these steps — skipping any one of them leaves a
+stale layer that looks like the fix didn't work:
+
+```
+go build ./...                                          # sanity: Go still compiles
+go run tools/database/gen_db/*.go -outDir=./assets -gen=db   # regenerate db.json/db.bin
+node node_modules/typescript/bin/tsc --noEmit            # sanity: TS still compiles
+GOOS=js GOARCH=wasm go build -o dist/classic/lib.wasm ./sim/wasm/   # rebuild wasm
+node node_modules/vite/bin/vite.js build -m development  # rebuild the JS bundle
+cp assets/database/*.json assets/database/*.bin dist/classic/assets/database/
+cp dist/classic/lib.wasm dist/classic/assets/lib.wasm
+```
+
+Notes from this session:
+- `npx <tool>` silently failed for both `tsc` and `vite` in the available
+  shell (resolved to unrelated globally-installed packages); invoking the
+  local `node_modules/.../bin/*.js` entry point directly with `node` worked.
+- A missing native optional dependency (`Cannot find module
+  @rollup/rollup-win32-x64-msvc`) blocked `vite build` the first time; fixed
+  with `npm install @rollup/rollup-win32-x64-msvc --no-save` (a known
+  npm/optional-deps bug, not specific to this repo).
+- In the browser, a plain reload is **not enough** — the dev server here sent
+  `Cache-Control: no-cache, no-store, must-revalidate` on `db.json`, so a
+  fetched-fresh check wasn't the issue, but the page's own script tag can
+  still point at an old bundle if the reload didn't actually happen (a
+  keyboard-shortcut `Ctrl+Shift+R` sent to an unfocused pane is a no-op that
+  looks identical to a successful hard reload from the outside). Use
+  `navigate()` to the same URL to force a real reload, then confirm via
+  `document.querySelectorAll('script[src]')` that the entry chunk hash
+  actually changed before concluding a fix didn't work.
+
+---
+
+## Part C — Item-set bonus audit and fixes, 2026-09-13
+
+A separate later session. Started from one user question ("does the sim
+account for custom set pieces and their bonuses?") and ended up auditing
+every class's item-set bonus code against this server's actual tooltip data.
+Three commits, all pushed to `origin/master`:
+
+1. **`3a9d9d193`** — Mark of the Veteran (priest trinket) + a silent
+   build-exclusion bug.
+2. **`d464da4b3`** — five missing custom T1-tier sets (paladin/shaman/druid)
+   + the Cenarion Armor name-mismatch bug.
+3. **`bfcd64728`** — full 9-class set-bonus audit.
+
+### Background you need to reproduce any of this
+
+Two independent ways a set bonus can be "implemented" in code but silently
+never fire for a real player, found repeatedly this session:
+
+- **Go build exclusion**: a file named `_something.go` (leading underscore) is
+  invisible to `go build` — the Go toolchain ignores it entirely, no error, no
+  warning. `sim/priest/_items.go` was like this; renamed to `items.go` to fix
+  (commit `3a9d9d193`). Check with:
+  `"/c/Program Files/Go/bin/go.exe" list -f '{{.GoFiles}}' ./sim/<class>/` — if
+  a file you can see on disk isn't in that list, it's being silently excluded.
+- **`Name` string mismatch**: `core.NewItemSet(core.ItemSet{Name: "X", ...})`
+  only applies its `Bonuses` to a piece of gear if that item's `setName` field
+  (in the generated `assets/database/db.json`) is *exactly* `"X"`. If a class's
+  Go code says `Name: "Cenarion Raiment"` but the real items' `setName` is
+  `"Cenarion Armor"`, the bonuses are registered but never match any equipped
+  item — no crash, because the DB-existence check in `sim/core/item_sets.go`'s
+  `NewItemSet` is gated behind `WITH_DB`, which is `false` in production
+  builds. Check with a `node -e` script against `assets/database/db.json`:
+  filter items where `setName === "<the Name field in the Go code>"` and see
+  if you get back the expected item count (usually 8, sometimes 5).
+- A third, narrower variant: the `setName` field is simply **missing** from
+  the item's entry in `assets/db_inputs/custom_items.json` (the
+  private-server-authoritative override file — see Part A above), so the item
+  falls back to a stale/wrong value from the generic Wowhead-derived pipeline.
+  Fix: add `"setName": "<Correct Name>"` to the item's entry in that file
+  (find it by `"id": <id>`), then regenerate:
+  `"/c/Program Files/Go/bin/go.exe" run tools/database/gen_db/*.go -outDir=./assets -gen=db`
+  (fully offline, uses cached dumps, well under a minute).
+  **Do not** `JSON.parse`/`JSON.stringify` the whole 300k+-line file back to
+  disk to make this edit — it silently reformats every numeric field in the
+  file (e.g. strips `.0` float suffixes some tooling relies on), producing a
+  huge spurious diff. Do a targeted textual insertion instead (find the line
+  `"id": <id>,` and insert a `"setName": "X",` line right after it).
+
+An item's own `tooltip` HTML field (also in `custom_items.json`/`db.json`) is
+server-authoritative for what a set's bonuses actually are at each threshold —
+it contains lines like `<div ...>SetName (0/8)</div>` (piece list) and
+`<div ...>(K) Set: <text></div>` per threshold. Always trust this over
+retail/Wowhead assumptions about what a set "should" do — this server
+rebalanced quite a few sets, sometimes at different piece-count thresholds
+than retail (e.g. 2/4/6/8 here vs. retail's 3/5/8), sometimes with completely
+different effects.
+
+### Mark of the Veteran + the `_items.go` bug (commit `3a9d9d193`)
+
+- `sim/priest/_items.go` → renamed to `sim/priest/items.go`. This one file
+  held two item effects, both dead until the rename: **Cassandra's Tome**
+  (pre-existing code, never compiled in) and the newly-added **Mark of the
+  Veteran** (item ids 26166/26175, two faction-reward copies of the same
+  trinket): +8% of Intellect as spell power, +15% of Spirit as healing power,
+  via `AddStatDependency(Intellect, SpellPower, 0.08)` /
+  `AddStatDependency(Spirit, HealingPower, 0.15)`.
+- Found by: bumping the item's effect to something obviously huge (`+9999
+  Stamina`) as a debug probe, rebuilding, equipping in-browser, and observing
+  the stat panel didn't move at all — then confirming via
+  `go list -f '{{.GoFiles}}'` that the file wasn't in the build.
+
+### Custom T1-tier sets + the Cenarion Armor bug (commit `d464da4b3`)
+
+This server adds one extra alternate T1-tier armor set for three classes,
+alongside their canon retail T1 set, all in the same item-level/quality
+bracket (ilvl 66, epic) — confirmed by cross-referencing
+`CSV's/AtlasLoot/Sets/sets.lua` (note: the file's own `T1`/`T2`/`T3` table
+names are just a UI-pagination artifact, *not* a reliable raid-tier label —
+verify actual tier via each item's own `ilvl`/`phase` field in `db.json`, not
+the AtlasLoot table it's grouped under) against the real item database:
+
+| Class | Canon T1 | Custom T1 alt(s) — had zero Go code before this session |
+|---|---|---|
+| Paladin | Lawbringer Armor | **Righteous Armor** |
+| Shaman | The Earthfury | **Cataclysm Armor**, **The Stonefury** |
+| Druid | Cenarion Armor | **Talonclaw Regalia**, **Ursoc Armor** |
+
+All five were implemented from scratch in
+`sim/{paladin,shaman,druid}/item_sets_pve.go`, with real mechanics where the
+underlying spell/system exists in this sim and documented `// Nothing to do`
+no-ops elsewhere (e.g. Righteous Armor's Retribution Aura self-damage bonus —
+this sim only models Retribution Aura as an external raid buff, nothing to
+hook a self-damage increase onto).
+
+**Data bug found along the way**: Paladin's Righteous Boots (item id 25027)
+had no override entry in `custom_items.json` at all, so it inherited a stale
+generic entry — green/uncommon, ilvl 51, no class restriction — instead of
+matching its 7 epic plate siblings. Added the override (`setName`, `quality:
+4`, `ilvl: 66`, `classAllowlist: [4]`) and regenerated.
+
+**Bug found in existing code, fixed in the same commit**: Druid's canon T1
+set was registered as `Name: "Cenarion Raiment"` in
+`sim/druid/item_sets_pve.go`, with bonus text lifted from retail's generic
+Cenarion Vestments tooltip (crit/Thorns/Tranquility-cooldown content). The
+real item's `setName` is `"Cenarion Armor"` and its real bonuses are
+Rebirth-adjacent no-ops (2pc), +4% crit on Claw/Rake/Ferocious Bite (4pc — Bear
+Form's Maul/Swipe aren't registered spells in this sim, so they're excluded
+from the hook), a 40-energy finisher-miss/dodge/block/parry refund (6pc,
+mirrors the existing `Symbols of Unending Life` pattern in the same file), and
+-20% energy-ability cost (8pc). Root cause of the silent break: the 8
+Cenarion pieces' `custom_items.json` entries had full stats/tooltip but no
+`setName` field at all — added it to all 8 and regenerated.
+
+**How to verify any of the above** (works for anything in this file): equip
+the item in-browser at `http://localhost:8080/classic/` (served by a
+long-running Docker container named `wowsims`, `docker ps` to confirm — repo
+is live-mounted, `http-server -c-1` so there's no cache; a rebuilt
+`dist/classic/lib.wasm`/copied `dist/classic/assets/database/db.json`,`db.bin`
+show up immediately on refresh, no container restart needed) and hover the
+item — the tooltip should show the full N-piece list and the real
+`(K) Set: ...` text. Rebuild the wasm after any Go change:
+`GOOS=js GOARCH=wasm "/c/Program Files/Go/bin/go.exe" build -o ./dist/classic/lib.wasm ./sim/wasm/`.
+
+### Full 9-class set-bonus audit (commit `bfcd64728`)
+
+Ran the same check (real `setName` match + real tooltip text at each
+threshold) across every class's `item_sets_pve.go` (`items_sets_pve.go` for
+rogue — note the extra "s"), using three batches of three parallel background
+agents (warrior/paladin/hunter, then rogue/priest/shaman, then
+mage/warlock/druid) so classes could be audited independently without
+clobbering each other's edits to the shared `custom_items.json`.
+
+The dominant bug pattern, found in the large majority of already-"implemented"
+sets across every class: **wrong piece-count thresholds** — code written
+against retail's 3/5/8-piece bonus layout when this server's real tooltip
+uses 2/4/6/8 (or vice versa), so the bonus that fires at, say, 4 pieces
+equipped is retail-generic content that has nothing to do with what the
+real item says at that threshold. A smaller number of sets also had correct
+thresholds but wrong bonus *values* (e.g. "+8 All Resistances" coded where
+the real tooltip says "+10 Resistances/+200 Armor").
+
+Sets fixed (wrong bonus code — thresholds, values, or both):
+
+- **Warrior**: Battlegear of Wrath, Vindicator's Battlegear, Battlegear of Heroism
+- **Paladin**: Lawbringer Armor, Judgement Armor, Freethinker's Armor
+- **Hunter**: Giantstalker Armor, Dragonstalker Armor, Beastmaster Armor
+- **Rogue**: Nightslayer Armor, Bloodfang Armor, Madcap's Outfit, Darkmantle Armor
+- **Priest**: Vestments of Prophecy, Vestments of Transcendence, Confessor's Raiment
+- **Shaman**: The Five Thunders, The Earthfury, The Ten Storms, The Earthshatterer
+- **Mage**: Arcanist Regalia, Netherwind Regalia, Illusionist's Attire, Sorcerer's Regalia
+- **Warlock**: Deathmist Raiment, Felheart Raiment, Nemesis Raiment, Demoniac's Threads
+- **Druid**: Feralheart Raiment, Wildheart Raiment, Stormrage Raiment
+
+Additional `setName` data-gap fix (same class of bug as Righteous
+Boots/Cenarion Armor above): Hunter's **Striker's Garb** pieces were missing
+`setName` in `custom_items.json`; added it. (Its items still don't appear in
+the built DB — see content gaps below — but the fix is in place for whenever
+that changes.)
+
+**Confirmed content gaps, not bugs** — items exist in `custom_items.json`
+with correct tooltips/`setName` (or were given one during this audit) but
+never appear in `assets/database/db.json` because their ids aren't on
+`assets/db_inputs/included_items.json` (the private-server allowlist from
+Part A) — this server simply doesn't have that raid content live yet
+(confirmed via absence of the relevant raid zone in `db.zones`). Left
+`included_items.json` untouched — none of these are code bugs:
+
+Avenger's Battlegear, Redemption Armor (paladin) · Cryptstalker Armor,
+Striker's Garb (hunter) · Deathdealer's Embrace, Bonescythe Armor (rogue) ·
+Garments of the Oracle, Vestments of Faith (priest) · Enigma Vestments,
+Frostfire Regalia (mage) · Doomcaller's Attire, Plagueheart Raiment
+(warlock) · Symbols of Unending Life (druid).
+
+**Verification**: `"/c/Program Files/Go/bin/go.exe" build ./...` and
+`"/c/Program Files/Go/bin/go.exe" test --tags=with_db ./sim/...` both clean
+across the whole repo except one pre-existing, unrelated failure
+(`sim/rogue/dps_rogue`'s `TestCombatSinisterStrike`/`TestCombatDaggers` —
+confirmed present on a clean checkout with none of this session's changes,
+via `git stash` + re-run). `--tags=with_db` matters here: without it, the
+`AllItems-<SetName>` per-set regression tests (which is what actually proves
+a set's `setName` wiring resolves to real items and exercises the bonus code
+in a full simulated fight) don't run at all — a plain `go test` will report
+green even for a set that's completely unwired, which is how several of
+these bugs went undetected for so long.
+
+If a bonus-value fix changes simulated DPS/TPS (expected — that's the point),
+the affected class's `.results` golden files need regenerating. Never run the
+repo-wide `make update-tests` mid-audit (it deletes *every* `.results` file,
+including other classes' work in progress); instead, after
+`go test --tags=with_db ./sim/<class>/...` produces `.results.tmp` files,
+promote only the ones that actually changed:
+`cp sim/<class>/<subpkg>/<TestName>.results.tmp sim/<class>/<subpkg>/<TestName>.results`,
+then re-run to confirm green.
+
+---
+
 ## Part B — Already modified before the 2026-09-11/12 session
 
 *(These are now committed — see Part A3 above, commit `6406a9fa4`. Left
