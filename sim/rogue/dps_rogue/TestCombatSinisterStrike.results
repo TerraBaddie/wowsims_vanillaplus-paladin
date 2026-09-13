@@ -99,8 +99,8 @@ stat_weights_results: {
 dps_results: {
  key: "TestCombatSinisterStrike-Phase5-AllItems-BloodfangArmor"
  value: {
-  dps: 679.71173
-  tps: 482.59533
+  dps: 690.97551
+  tps: 490.59261
  }
 }
 dps_results: {

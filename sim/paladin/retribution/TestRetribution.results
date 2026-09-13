@@ -106,22 +106,22 @@ dps_results: {
 dps_results: {
  key: "TestRetribution-Phase5-AllItems-Freethinker'sArmor"
  value: {
-  dps: 216.22964
-  tps: 244.39281
+  dps: 216.39056
+  tps: 244.56849
  }
 }
 dps_results: {
  key: "TestRetribution-Phase5-AllItems-JudgementArmor"
  value: {
-  dps: 273.75553
-  tps: 301.96787
+  dps: 271.0655
+  tps: 299.27784
  }
 }
 dps_results: {
  key: "TestRetribution-Phase5-AllItems-LawbringerArmor"
  value: {
-  dps: 218.54566
-  tps: 246.73342
+  dps: 226.5637
+  tps: 254.75146
  }
 }
 dps_results: {

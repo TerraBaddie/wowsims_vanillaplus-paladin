@@ -120,8 +120,8 @@ dps_results: {
 dps_results: {
  key: "TestElemental-Phase4-AllItems-TheFiveThunders"
  value: {
-  dps: 318.68987
-  tps: 328.33143
+  dps: 326.23185
+  tps: 335.46119
  }
 }
 dps_results: {

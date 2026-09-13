@@ -113,15 +113,15 @@ dps_results: {
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-Demoniac'sThreads"
  value: {
-  dps: 671.52152
-  tps: 573.76137
+  dps: 680.0034
+  tps: 582.38041
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-FelheartRaiment"
  value: {
-  dps: 689.41782
-  tps: 583.22977
+  dps: 737.97533
+  tps: 632.94559
  }
 }
 dps_results: {
@@ -155,8 +155,8 @@ dps_results: {
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-NemesisRaiment"
  value: {
-  dps: 709.55293
-  tps: 516.92349
+  dps: 726.68223
+  tps: 583.72039
  }
 }
 dps_results: {

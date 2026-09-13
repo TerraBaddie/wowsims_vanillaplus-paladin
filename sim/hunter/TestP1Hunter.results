@@ -100,7 +100,7 @@ dps_results: {
  key: "TestP1Hunter-Phase1-AllItems-BeastmasterArmor"
  value: {
   dps: 455.97485
-  tps: 309.1439
+  tps: 309.14547
  }
 }
 dps_results: {
@@ -134,8 +134,8 @@ dps_results: {
 dps_results: {
  key: "TestP1Hunter-Phase1-AllItems-DragonstalkerArmor"
  value: {
-  dps: 453.72522
-  tps: 307.59886
+  dps: 459.71919
+  tps: 313.59284
  }
 }
 dps_results: {

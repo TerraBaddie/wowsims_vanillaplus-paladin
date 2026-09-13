@@ -106,22 +106,22 @@ dps_results: {
 dps_results: {
  key: "TestShockadin-Phase5-AllItems-Freethinker'sArmor"
  value: {
-  dps: 447.37885
-  tps: 488.94127
+  dps: 446.17578
+  tps: 487.66205
  }
 }
 dps_results: {
  key: "TestShockadin-Phase5-AllItems-JudgementArmor"
  value: {
-  dps: 550.25298
-  tps: 592.08341
+  dps: 539.90422
+  tps: 581.73466
  }
 }
 dps_results: {
  key: "TestShockadin-Phase5-AllItems-LawbringerArmor"
  value: {
-  dps: 473.77782
-  tps: 515.21003
+  dps: 505.78147
+  tps: 547.21368
  }
 }
 dps_results: {

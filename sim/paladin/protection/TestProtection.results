@@ -107,21 +107,21 @@ dps_results: {
  key: "TestProtection-Phase4-AllItems-Freethinker'sArmor"
  value: {
   dps: 403.37679
-  tps: 575.02567
+  tps: 575.21659
  }
 }
 dps_results: {
  key: "TestProtection-Phase4-AllItems-JudgementArmor"
  value: {
-  dps: 505.2816
-  tps: 711.37122
+  dps: 495.19103
+  tps: 696.08717
  }
 }
 dps_results: {
  key: "TestProtection-Phase4-AllItems-LawbringerArmor"
  value: {
-  dps: 416.88084
-  tps: 595.20057
+  dps: 447.25729
+  tps: 641.16011
  }
 }
 dps_results: {

@@ -106,22 +106,22 @@ dps_results: {
 dps_results: {
  key: "TestExodin-Phase5-AllItems-Freethinker'sArmor"
  value: {
-  dps: 443.44952
-  tps: 485.33182
+  dps: 441.71054
+  tps: 483.57972
  }
 }
 dps_results: {
  key: "TestExodin-Phase5-AllItems-JudgementArmor"
  value: {
-  dps: 549.03233
-  tps: 591.15226
+  dps: 538.60069
+  tps: 580.72062
  }
 }
 dps_results: {
  key: "TestExodin-Phase5-AllItems-LawbringerArmor"
  value: {
-  dps: 472.80344
-  tps: 514.44265
+  dps: 505.24768
+  tps: 546.88689
  }
 }
 dps_results: {

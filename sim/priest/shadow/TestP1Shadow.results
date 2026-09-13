@@ -134,8 +134,8 @@ dps_results: {
 dps_results: {
  key: "TestP1Shadow-Phase1-AllItems-VestmentsofProphecy"
  value: {
-  dps: 264.42814
-  tps: 275.66815
+  dps: 278.42821
+  tps: 289.66822
  }
 }
 dps_results: {

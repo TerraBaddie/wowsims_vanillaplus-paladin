@@ -90,6 +90,10 @@ type Warlock struct {
 	ImprovedShadowBoltAuras core.AuraArray
 	SoulLinkAura            *core.Aura
 	MasterDemonologistAura  *core.Aura
+
+	// Multiplier applied to the mana restored by Life Tap (e.g. Nemesis Raiment 2pc). Defaults to 0,
+	// treated as 1 (no change) by registerLifeTapSpell.
+	LifeTapManaMultiplier float64
 }
 
 func (warlock *Warlock) GetCharacter() *core.Character {

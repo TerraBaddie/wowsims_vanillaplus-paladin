@@ -316,8 +316,8 @@ dps_results: {
 dps_results: {
  key: "TestEnhancement-Phase1-AllItems-TheFiveThunders"
  value: {
-  dps: 508.73155
-  tps: 515.18362
+  dps: 512.91945
+  tps: 518.34181
  }
 }
 dps_results: {
@@ -547,8 +547,8 @@ dps_results: {
 dps_results: {
  key: "TestEnhancement-Phase2-AllItems-TheFiveThunders"
  value: {
-  dps: 497.9625
-  tps: 504.41457
+  dps: 502.12486
+  tps: 507.54722
  }
 }
 dps_results: {
@@ -778,8 +778,8 @@ dps_results: {
 dps_results: {
  key: "TestEnhancement-Phase3-AllItems-TheFiveThunders"
  value: {
-  dps: 512.36308
-  tps: 518.81515
+  dps: 516.47437
+  tps: 521.89673
  }
 }
 dps_results: {

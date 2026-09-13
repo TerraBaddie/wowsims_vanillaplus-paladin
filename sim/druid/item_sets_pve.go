@@ -10,10 +10,11 @@ import (
 var ItemSetFeralheartRaiment = core.NewItemSet(core.ItemSet{
 	Name: "Feralheart Raiment",
 	Bonuses: map[int32]core.ApplyEffect{
-		// (2) Set : +8 All Resistances.
+		// (2) Set : +10 Resistances/+200 Armor.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddResistances(8)
+			c.AddResistances(10)
+			c.AddStat(stats.Armor, 200)
 		},
 		// (4) Set : When struck in combat has a chance of returning 300 mana, 10 rage, or 40 energy to the wearer. (Proc chance: 2%)
 		4: func(agent core.Agent) {
@@ -63,9 +64,10 @@ var ItemSetFeralheartRaiment = core.NewItemSet(core.ItemSet{
 			c.AddStat(stats.SpellPower, 15)
 			c.AddStat(stats.AttackPower, 26)
 		},
-		// (8) Set : +200 Armor.
+		// (8) Set : +10 Resistances/+200 Armor.
 		8: func(agent core.Agent) {
 			c := agent.GetCharacter()
+			c.AddResistances(10)
 			c.AddStat(stats.Armor, 200)
 		},
 	},
@@ -125,9 +127,10 @@ var ItemSetCenarionArmor = core.NewItemSet(core.ItemSet{
 var ItemSetWildheartRaiment = core.NewItemSet(core.ItemSet{
 	Name: "Wildheart Raiment",
 	Bonuses: map[int32]core.ApplyEffect{
-		// (2) Set : +200 Armor.
+		// (2) Set : +10 Resistances/+200 Armor.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
+			c.AddResistances(10)
 			c.AddStat(stats.Armor, 200)
 		},
 		// (4) Set : +26 Attack Power.
@@ -178,10 +181,11 @@ var ItemSetWildheartRaiment = core.NewItemSet(core.ItemSet{
 				},
 			})
 		},
-		// (8) Set : +8 All Resistances.
+		// (8) Set : +10 Resistances/+200 Armor.
 		8: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddResistances(8)
+			c.AddResistances(10)
+			c.AddStat(stats.Armor, 200)
 		},
 	},
 })
@@ -189,18 +193,28 @@ var ItemSetWildheartRaiment = core.NewItemSet(core.ItemSet{
 var ItemSetStormrageRaiment = core.NewItemSet(core.ItemSet{
 	Name: "Stormrage Raiment",
 	Bonuses: map[int32]core.ApplyEffect{
-		// (3) Set : Allows 15% of your Mana regeneration to continue while casting.
-		3: func(agent core.Agent) {
+		// (2) Set : Allows 15% of your Mana regeneration to continue while casting.
+		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
 			c.PseudoStats.SpiritRegenRateCasting += .15
 		},
-		// (5) Set : Reduces the casting time of your Regrowth spell by 0.2 sec.
-		5: func(agent core.Agent) {
-			// Nothing to do.
+		// (4) Set : Increases the duration of your Rejuvenation spell by 3 sec.
+		4: func(agent core.Agent) {
+			// Nothing to do: Rejuvenation is part of the Restoration healing kit, which is entirely
+			// unimplemented in this sim (sim/druid/_restoration is excluded from compilation via its
+			// leading underscore, and RegisterRejuvenationSpell doesn't exist), so there's no spell
+			// aura duration to extend.
 		},
-		// (8) Set : Increases the duration of your Rejuvenation spell by 3 sec.
+		// (6) Set : Your Healing Touch spell is 30% more effective on targets below 20% health.
+		6: func(agent core.Agent) {
+			// Nothing to do: Healing Touch is part of the Restoration healing kit, which is entirely
+			// unimplemented in this sim (see the (4) comment above), so there's no heal to modify.
+		},
+		// (8) Set : Reduces the cooldown of your Swiftmend and Nature's Swiftness spells by 25%.
 		8: func(agent core.Agent) {
-			// Nothing to do.
+			// Nothing to do: Swiftmend is part of the unimplemented Restoration kit (see above), and
+			// Nature's Swiftness is a talent whose cooldown handler is commented out in talents.go
+			// (registerNaturesSwiftnessCD), so there's no cooldown to reduce for either.
 		},
 	},
 })
