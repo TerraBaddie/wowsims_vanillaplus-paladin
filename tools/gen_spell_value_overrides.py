@@ -6,10 +6,12 @@ instead of Wowhead (see docs/private-server-item-rules.md). This script does the
 same thing for spell tooltips: for every spell id the sim actually references
 (talents + SharedSpellsIcons + every `ActionID{SpellID: N}` literal in sim/**/*.go),
 it resolves the description text from CSV's/Spell.csv and, when it differs from what
-is currently cached from Wowhead, rewrites ONLY the descriptive `<div class="q">...`
-block inside the cached tooltip HTML. The name and icon fields (and everything else
-in the row - mana cost, cast time, range, requirements) are left exactly as Wowhead
-scraped them.
+is currently cached from Wowhead, rewrites the descriptive `<div class="q">...` block
+inside the cached tooltip HTML, plus (only for spells whose raw DBC description ties
+a `$d` duration token to the same effect) the separate "Channeled (N sec cast)" line,
+which Wowhead scrapes independently and can disagree with the corrected duration.
+The name, icon, and everything else in the row (mana cost, range, requirements) are
+left exactly as Wowhead scraped them.
 
 Spell ids that don't exist on Wowhead at all are appended as minimal DBC-only rows,
 same as tools/gen_custom_spell_tooltips.py already does for talent-only spells - this
@@ -35,6 +37,7 @@ from gen_custom_spell_tooltips import (  # noqa: E402
 )
 
 DESC_DIV_RE = re.compile(r'(<div class=\\"q\\">)(.*?)(</div>)')
+CHANNELED_RE = re.compile(r"Channeled \(([0-9.]+) sec cast\)")
 TAG_RE = re.compile(r"<[^>]+>")
 
 
@@ -83,6 +86,27 @@ def find_go_action_spell_ids(repo):
     return ids
 
 
+def find_go_spell_array_ids(repo):
+    """Ranked spells are usually stored as `var FooSpellId = [N]int32{0, id1, id2, ...}`
+    and referenced dynamically (`ActionID{SpellID: FooSpellId[rank]}`), so the literal
+    `SpellID:` scan above never sees the actual ids - e.g. sim/priest/mind_flay.go's
+    `MindFlaySpellId` array. Pull every integer out of any `...Spell(Id|ID)... =
+    [...]int32{...}` literal instead. 0 is a placeholder for "no rank" and excluded."""
+    ids = set()
+    sim_dir = os.path.join(repo, "sim")
+    pat = re.compile(r"\w*Spell(?:Id|ID)s?\s*=\s*\[[^\]]*\]int32\{([^}]*)\}", re.S)
+    for root, _dirs, files in os.walk(sim_dir):
+        for fn in files:
+            if not fn.endswith(".go"):
+                continue
+            text = open(os.path.join(root, fn), encoding="utf-8", errors="ignore").read()
+            for block in pat.findall(text):
+                for n in re.findall(r"\d+", block):
+                    if n != "0":
+                        ids.add(int(n))
+    return ids
+
+
 def resolved_ok(desc):
     """desc_for() emits a bare 'X' where a $ token couldn't be resolved (missing/zero
     Spell.csv data for that context), and leaves the literal '$...' token in place when
@@ -122,6 +146,20 @@ def main():
             return ""
         return resolve_desc(raw, sid, spell_data, durations)
 
+    def channel_seconds_for(sid):
+        """Duration (in seconds) implied by the same DurationIndex used to resolve
+        $d/$o tokens above - used to correct the separate "Channeled (N sec cast)"
+        line, which Wowhead scrapes independently and can go stale relative to the
+        description (e.g. Mind Flay rank 6 said "426 damage over 3 sec" pre-fix but
+        "Channeled (3 sec cast)" - both wrong, should both be 5 sec per the DBC)."""
+        sp = spell_data.get(sid)
+        if not sp:
+            return None
+        dur = durations.get(sp["dur_idx"])
+        if not dur or not dur[0] or dur[0] <= 0:
+            return None
+        return dur[0] / 1000
+
     tooltip_path = os.path.join(repo, "assets/db_inputs/wowhead_spell_tooltips.csv")
     record_path = os.path.join(repo, "tools/custom_all_spell_ids.txt")
     talent_record_path = os.path.join(repo, "tools/custom_talent_spell_ids.txt")
@@ -134,7 +172,8 @@ def main():
             if line.isdigit():
                 already_custom_talent.add(int(line))
 
-    all_ids = find_go_action_spell_ids(repo) | find_shared_spell_icon_ids(repo) | talent_ids
+    all_ids = (find_go_action_spell_ids(repo) | find_go_spell_array_ids(repo)
+               | find_shared_spell_icon_ids(repo) | talent_ids)
     # Talents (including their already-missing-from-Wowhead ids) stay owned by
     # gen_custom_spell_tooltips.py, which also patches per-rank descriptions into the
     # talent tree JSON. Don't double-handle them here.
@@ -148,18 +187,22 @@ def main():
         if j > 0 and line[:j].isdigit():
             line_idx[int(line[:j])] = n
 
-    patched, added, skipped_unresolved, no_desc = [], [], [], []
+    patched, added, skipped_unresolved, no_desc, channel_fixed = [], [], [], [], []
     recorded = set(already_custom_talent)  # keep talent ids untouched, just don't re-add
     new_custom = set()
 
     for sid in target_ids:
+        raw_has_d_token = "$d" in raw_descs.get(sid, "")
         desc = desc_for(sid)
         if sid in have:
             n = line_idx[sid]
             line = lines[n]
             j = line.find(",")
             payload = line[j + 1:]
-            m = DESC_DIV_RE.search(payload)
+            working_payload = payload
+            desc_changed = False
+
+            m = DESC_DIV_RE.search(working_payload)
             if not m:
                 continue  # no description block to correct (e.g. a passive with no `q` div)
             current_text = TAG_RE.sub("", m.group(2)).strip()
@@ -169,19 +212,39 @@ def main():
             if not resolved_ok(desc):
                 skipped_unresolved.append(sid)
                 continue
-            if current_text == desc:
+            if current_text != desc:
+                working_payload = working_payload[:m.start()] + m.group(1) + desc + m.group(3) + working_payload[m.end():]
+                desc_changed = True
+
+            # The "Channeled (N sec cast)" line is scraped separately by Wowhead and
+            # can disagree with the (now-corrected) duration used in the description
+            # above - only touch it when the raw DBC text actually ties $d to this
+            # spell, so we don't relabel an unrelated spell's unrelated duration field.
+            channel_changed = False
+            if raw_has_d_token:
+                secs = channel_seconds_for(sid)
+                cm = CHANNELED_RE.search(working_payload)
+                if secs is not None and cm and float(cm.group(1)) != secs:
+                    secs_str = f"{secs:g}"
+                    working_payload = working_payload[:cm.start()] + f"Channeled ({secs_str} sec cast)" + working_payload[cm.end():]
+                    channel_changed = True
+
+            if not desc_changed and not channel_changed:
                 continue
-            new_payload = payload[:m.start()] + m.group(1) + desc + m.group(3) + payload[m.end():]
+
             # Sanity: must still be valid JSON with name/icon unchanged.
             try:
                 old_obj = json.loads(payload)
-                new_obj = json.loads(new_payload)
+                new_obj = json.loads(working_payload)
             except json.JSONDecodeError:
                 continue
             if new_obj.get("name") != old_obj.get("name") or new_obj.get("icon") != old_obj.get("icon"):
                 continue
-            lines[n] = f"{sid},{new_payload}"
-            patched.append(sid)
+            lines[n] = f"{sid},{working_payload}"
+            if desc_changed:
+                patched.append(sid)
+            if channel_changed:
+                channel_fixed.append(sid)
         else:
             # Not on Wowhead at all - same minimal-row fallback as the talent script.
             name = names.get(sid, "")
@@ -207,8 +270,9 @@ def main():
             if line_.isdigit():
                 recorded.add(int(line_))
 
-    print(f"{len(patched)} tooltip(s) value-corrected, {len(added)} new DBC-only row(s), "
-          f"{len(skipped_unresolved)} skipped (unresolved $ token), {len(no_desc)} with no usable desc.")
+    print(f"{len(patched)} tooltip(s) value-corrected, {len(channel_fixed)} channel-duration-corrected, "
+          f"{len(added)} new DBC-only row(s), {len(skipped_unresolved)} skipped (unresolved $ token), "
+          f"{len(no_desc)} with no usable desc.")
     if skipped_unresolved:
         print("  unresolved:", skipped_unresolved[:30], "..." if len(skipped_unresolved) > 30 else "")
 

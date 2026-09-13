@@ -253,6 +253,48 @@ Any enchant not yet in one of those two lists will still show Wowhead's live tex
 it reuses a real id — this is now purely a matter of adding entries as mismatches are
 found, not a structural limitation.
 
+#### Follow-up: ranked spell-array ids were invisible to the scanner, and the APL action picker never tried local tooltips
+
+`gen_spell_value_overrides.py` (the spell-side counterpart to the item tooltip work
+above; see commit `da66eb4cd`) decides which spell ids need a local DBC-sourced
+tooltip by scanning `sim/**/*.go` for literal `ActionID{SpellID: <id>}` uses. That
+scan missed one common pattern: ranked spells stored as a lookup array and indexed
+dynamically, e.g. `sim/priest/mind_flay.go`'s
+
+```go
+var MindFlaySpellId = [4]int32{0, 15407, 17311, 17312, ...}
+// ... ActionID{SpellID: MindFlaySpellId[rank]}
+```
+
+Because `MindFlaySpellId[rank]` isn't a literal `SpellID: <int>`, none of those rank
+ids were ever collected, so they silently kept showing Wowhead's live tooltip instead
+of the DBC-derived one.
+
+**Fixed** by adding `find_go_spell_array_ids()` to `tools/gen_spell_value_overrides.py`:
+it regex-scans for any `...Spell(Id|ID)... = [N]int32{...}` array literal and pulls
+every integer out of the braces (skipping `0`, which is used as a "no such rank"
+placeholder). Its result is now unioned into `all_ids` alongside the existing
+action-id and talent scans.
+
+Separately, `ui/core/components/individual_sim_ui/apl_helpers.tsx`'s
+`APLActionIDPicker` — the icon/name picker used when building an APL rotation by
+hand — called `actionId.setWowheadDataset(...)` unconditionally, the same gap
+already fixed for `item_list.tsx` above. Fixed the same way: try
+`actionId.trySetLocalTooltip(iconRef.value!)` first, and only fall back to the
+Wowhead dataset if no local tooltip exists.
+
+**Reproduce / verify:** re-run `python tools/gen_spell_value_overrides.py` after
+adding a new ranked-array spell file — the new ids should now appear in
+`assets/db_inputs/wowhead_spell_tooltips.csv`'s override set instead of being
+skipped. In-browser, open the APL rotation editor, add an action referencing a
+DBC-only or reused-id spell, and confirm the picker's tooltip matches the local
+text (no `nether.wowhead.com` network call), the same check used for the item
+tooltip fix above.
+
+_As of this writing these changes are uncommitted in the working tree
+(`tools/gen_spell_value_overrides.py`, `assets/db_inputs/wowhead_spell_tooltips.csv`,
+`ui/core/components/individual_sim_ui/apl_helpers.tsx`)._
+
 ## Rule 3 — Phase (when does it become available?)
 
 Six phases. An item's phase is the **earliest** (lowest-numbered) bucket any of its
