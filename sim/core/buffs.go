@@ -339,7 +339,7 @@ func applyBuffEffects(agent Agent, playerFaction proto.Faction, raidBuffs *proto
 	}
 
 	if raidBuffs.StoneskinTotem != proto.TristateEffect_TristateEffectMissing && isHorde {
-		MakePermanent(StoneskinTotemAura(&character.Unit, GetTristateValueInt32(raidBuffs.StoneskinTotem, 0, 2)))
+		MakePermanent(StoneskinTotemAura(&character.Unit, GetTristateValueInt32(raidBuffs.StoneskinTotem, 0, 2), 0))
 	}
 
 	if raidBuffs.RetributionAura != proto.TristateEffect_TristateEffectMissing && isAlliance {
@@ -557,9 +557,10 @@ func DevotionAuraAura(unit *Unit, points int32) *Aura {
 	})
 }
 
-func StoneskinTotemAura(unit *Unit, points int32) *Aura {
+func StoneskinTotemAura(unit *Unit, points int32, bonusMultiplier float64) *Aura {
 	meleeDamageReduction := -30.0
 	meleeDamageReduction *= 1 + .1*float64(points)
+	meleeDamageReduction *= 1 + bonusMultiplier
 	meleeDamageReduction = math.Floor(meleeDamageReduction)
 
 	return unit.GetOrRegisterAura(Aura{

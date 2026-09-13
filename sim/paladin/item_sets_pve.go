@@ -32,6 +32,62 @@ var ItemSetVestmentsOfProphecy = core.NewItemSet(core.ItemSet{
 	},
 })
 
+var ItemSetRighteousArmor = core.NewItemSet(core.ItemSet{
+	Name: "Righteous Armor",
+	Bonuses: map[int32]core.ApplyEffect{
+		// Improves your chance to hit with your Judgements by 5%.
+		2: func(agent core.Agent) {
+			paladin := agent.(PaladinAgent).GetPaladin()
+			bonusHit := 5 * float64(core.SpellHitRatingPerHitChance)
+
+			core.MakePermanent(paladin.RegisterAura(core.Aura{
+				Label: "Improved Judgement Hit - Righteous Armor 2P Bonus",
+				OnGain: func(aura *core.Aura, sim *core.Simulation) {
+					for _, spellsJoX := range paladin.allJudgeSpells {
+						for _, judgeSpell := range spellsJoX {
+							if judgeSpell != nil {
+								judgeSpell.BonusHitRating += bonusHit
+							}
+						}
+					}
+				},
+				OnExpire: func(aura *core.Aura, sim *core.Simulation) {
+					for _, spellsJoX := range paladin.allJudgeSpells {
+						for _, judgeSpell := range spellsJoX {
+							if judgeSpell != nil {
+								judgeSpell.BonusHitRating -= bonusHit
+							}
+						}
+					}
+				},
+			}))
+		},
+		// Increases the damage done by your Retribution Aura by 6.
+		4: func(agent core.Agent) {
+			// Nothing to do: Retribution Aura is only modeled in this sim as an
+			// externally-applied raid buff (core.RetributionAura in sim/core/buffs.go)
+			// granted to party/raid members. The Paladin's own personal aura selection
+			// (proto.PaladinAura_RetributionAura) is never wired up to a self-inflicted
+			// "damage attackers" mechanic anywhere in sim/paladin, so there is no
+			// simulated instance of this Paladin's own Retribution Aura to buff.
+		},
+		// Gives Paladin a chance on every melee hit to heal your party for 189 to 211.
+		6: func(agent core.Agent) {
+			// Nothing to do: matches the identical tooltip text on Lawbringer Armor's
+			// 8-piece bonus above, which is likewise a no-op in this codebase. A party
+			// heal proc has no effect on this Paladin's own simulated combat metrics,
+			// and no proc rate is specified anywhere in the tooltip data to model it.
+		},
+		// Reduces the mana cost of all your spells by 20% when your Mana drops below 20%.
+		8: func(agent core.Agent) {
+			// Nothing to do: spell costs in this sim (SpellCost.GetCurrentCost) are
+			// computed once at finalize() and cached as DefaultCast.Cost; there is no
+			// dynamic, resource-threshold-based cost recalculation mechanism anywhere
+			// in sim/core for a "while below X% mana" style conditional cost discount.
+		},
+	},
+})
+
 ///////////////////////////////////////////////////////////////////////////
 //                            Classic Phase 3 Item Sets - BWL
 ///////////////////////////////////////////////////////////////////////////

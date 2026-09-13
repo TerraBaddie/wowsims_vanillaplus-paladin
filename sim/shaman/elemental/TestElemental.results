@@ -97,6 +97,13 @@ stat_weights_results: {
  }
 }
 dps_results: {
+ key: "TestElemental-Phase4-AllItems-CataclysmArmor"
+ value: {
+  dps: 363.74172
+  tps: 380.32802
+ }
+}
+dps_results: {
  key: "TestElemental-Phase4-AllItems-Champion'sStormcaller"
  value: {
   dps: 345.9283
@@ -115,6 +122,13 @@ dps_results: {
  value: {
   dps: 318.68987
   tps: 328.33143
+ }
+}
+dps_results: {
+ key: "TestElemental-Phase4-AllItems-TheStonefury"
+ value: {
+  dps: 325.18958
+  tps: 348.148
  }
 }
 dps_results: {

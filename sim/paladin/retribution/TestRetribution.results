@@ -132,6 +132,13 @@ dps_results: {
  }
 }
 dps_results: {
+ key: "TestRetribution-Phase5-AllItems-RighteousArmor"
+ value: {
+  dps: 221.03733
+  tps: 249.16117
+ }
+}
+dps_results: {
  key: "TestRetribution-Phase5-AllItems-SanctifiedOrb-20512"
  value: {
   dps: 205.55804

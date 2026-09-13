@@ -76,7 +76,7 @@ func (shaman *Shaman) ApplyRockbiterImbueToItem(item *core.Item) {
 	rank := RockbiterWeaponRankByLevel[shaman.Level]
 	enchantId := RockbiterWeaponEnchantId[rank]
 
-	bonusAP := RockbiterWeaponBonusAP[rank] * []float64{1, 1.07, 1.14, 1.2}[shaman.Talents.ElementalWeapons]
+	bonusAP := RockbiterWeaponBonusAP[rank] * []float64{1, 1.07, 1.14, 1.2}[shaman.Talents.ElementalWeapons] * (1 + shaman.ElementalWeaponEnchantEffectivenessBonus)
 
 	newStats := stats.Stats{stats.AttackPower: bonusAP}
 

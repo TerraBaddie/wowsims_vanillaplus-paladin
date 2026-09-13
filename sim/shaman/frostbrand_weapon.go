@@ -35,7 +35,7 @@ func (shaman *Shaman) newFrostbrandImbueSpell() *core.Spell {
 		DefenseType: core.DefenseTypeMagic,
 		ProcMask:    core.ProcMaskSpellDamageProc,
 
-		DamageMultiplier: []float64{1, 1.05, 1.1, 1.15}[shaman.Talents.ElementalWeapons],
+		DamageMultiplier: []float64{1, 1.05, 1.1, 1.15}[shaman.Talents.ElementalWeapons] * (1 + shaman.ElementalWeaponEnchantEffectivenessBonus),
 		ThreatMultiplier: 1,
 		BonusCoefficient: 0.1,
 

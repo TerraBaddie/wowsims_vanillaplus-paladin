@@ -97,10 +97,10 @@ stat_weights_results: {
  }
 }
 dps_results: {
- key: "TestP1Balance-Phase1-AllItems-CenarionRaiment"
+ key: "TestP1Balance-Phase1-AllItems-CenarionArmor"
  value: {
-  dps: 113.54467
-  tps: 123.40384
+  dps: 112.7165
+  tps: 122.57566
  }
 }
 dps_results: {
@@ -136,6 +136,20 @@ dps_results: {
  value: {
   dps: 126.06622
   tps: 133.41415
+ }
+}
+dps_results: {
+ key: "TestP1Balance-Phase1-AllItems-TalonclawRegalia"
+ value: {
+  dps: 178.55171
+  tps: 187.98952
+ }
+}
+dps_results: {
+ key: "TestP1Balance-Phase1-AllItems-UrsocArmor"
+ value: {
+  dps: 110.05678
+  tps: 119.91595
  }
 }
 dps_results: {

@@ -97,10 +97,10 @@ stat_weights_results: {
  }
 }
 dps_results: {
- key: "TestP1Feral-Phase1-AllItems-CenarionRaiment"
+ key: "TestP1Feral-Phase1-AllItems-CenarionArmor"
  value: {
-  dps: 422.3581
-  tps: 299.87425
+  dps: 460.3674
+  tps: 326.86085
  }
 }
 dps_results: {
@@ -136,6 +136,20 @@ dps_results: {
  value: {
   dps: 322.76618
   tps: 229.16399
+ }
+}
+dps_results: {
+ key: "TestP1Feral-Phase1-AllItems-TalonclawRegalia"
+ value: {
+  dps: 330.20621
+  tps: 234.44641
+ }
+}
+dps_results: {
+ key: "TestP1Feral-Phase1-AllItems-UrsocArmor"
+ value: {
+  dps: 378.16686
+  tps: 268.49847
  }
 }
 dps_results: {

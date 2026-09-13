@@ -35,6 +35,7 @@ func (druid *Druid) newWrathSpellConfig(rank int) core.SpellConfig {
 	manaCost := WrathManaCost[rank]
 	castTime := WrathCastTime[rank]
 	level := WrathLevel[rank]
+	hasTalonclaw8pc := druid.HasSetBonus(ItemSetTalonclawRegalia, 8)
 
 	return core.SpellConfig{
 		ActionID:    core.ActionID{SpellID: spellId},
@@ -64,6 +65,9 @@ func (druid *Druid) newWrathSpellConfig(rank int) core.SpellConfig {
 
 		ApplyEffects: func(sim *core.Simulation, target *core.Unit, spell *core.Spell) {
 			baseDamage := sim.Roll(baseDamageLow, baseDamageHigh)
+			if hasTalonclaw8pc && druid.InsectSwarmAuras.Get(target).IsActive() {
+				baseDamage *= 1.05
+			}
 			result := spell.CalcDamage(sim, target, baseDamage, spell.OutcomeMagicHitAndCrit)
 
 			// NG procs when the cast finishes

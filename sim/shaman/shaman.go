@@ -136,6 +136,11 @@ type Shaman struct {
 	ActiveShieldAura *core.Aura
 
 	ChainLightningBounceCoefficient float64
+
+	// Item set bonus hooks (must be set before Initialize() registers spells/totems,
+	// since item set bonuses are applied before Initialize() during character setup).
+	TotemEffectivenessBonusMultiplier      float64 // Increases the effect of Strength of Earth / Stoneskin totems (e.g. 0.20 for +20%).
+	ElementalWeaponEnchantEffectivenessBonus float64 // Increases the effectiveness of elemental weapon enchants (e.g. 0.10 for +10%).
 }
 
 // Implemented by each Shaman spec.

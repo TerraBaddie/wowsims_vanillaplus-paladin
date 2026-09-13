@@ -132,6 +132,13 @@ dps_results: {
  }
 }
 dps_results: {
+ key: "TestExodin-Phase5-AllItems-RighteousArmor"
+ value: {
+  dps: 463.79396
+  tps: 505.77457
+ }
+}
+dps_results: {
  key: "TestExodin-Phase5-AllItems-SanctifiedOrb-20512"
  value: {
   dps: 402.80172

@@ -136,6 +136,86 @@ var ItemSetGiftOfTheGatheringStorm = core.NewItemSet(core.ItemSet{
 	},
 })
 
+var ItemSetCataclysmArmor = core.NewItemSet(core.ItemSet{
+	Name: "Cataclysm Armor",
+	Bonuses: map[int32]core.ApplyEffect{
+		// Increases the effect of your Strength of Earth, Stoneskin and Windwall totems by 20%.
+		2: func(agent core.Agent) {
+			shaman := agent.(ShamanAgent).GetShaman()
+			shaman.TotemEffectivenessBonusMultiplier += 0.20
+			// Windwall Totem currently has no simulated effect (it only affects ranged
+			// avoidance, which is not modeled), so there is nothing to boost for it.
+		},
+		// Increases the effectiveness of your elemental weapon enchants by 10%.
+		4: func(agent core.Agent) {
+			shaman := agent.(ShamanAgent).GetShaman()
+			shaman.ElementalWeaponEnchantEffectivenessBonus += 0.10
+		},
+		// Your Shock spells criticals will refund 150% of their base mana cost.
+		6: func(agent core.Agent) {
+			shaman := agent.(ShamanAgent).GetShaman()
+			manaMetrics := shaman.NewManaMetrics(core.ActionID{SpellID: 25046})
+
+			shaman.RegisterAura(core.Aura{
+				Label:    "Cataclysm Armor 6pc",
+				Duration: core.NeverExpires,
+				OnReset: func(aura *core.Aura, sim *core.Simulation) {
+					aura.Activate(sim)
+				},
+				OnSpellHitDealt: func(aura *core.Aura, sim *core.Simulation, spell *core.Spell, result *core.SpellResult) {
+					if !result.DidCrit() || spell.CurCast.Cost == 0 {
+						return
+					}
+					if spell.SpellCode == SpellCode_ShamanEarthShock || spell.SpellCode == SpellCode_ShamanFlameShock || spell.SpellCode == SpellCode_ShamanFrostShock {
+						shaman.AddMana(sim, spell.Cost.BaseCost*1.5, manaMetrics)
+					}
+				},
+			})
+		},
+		// Increases your spell damage and healing by 10% of your Attack Power.
+		8: func(agent core.Agent) {
+			c := agent.GetCharacter()
+			c.AddStatDependency(stats.AttackPower, stats.SpellPower, 0.10)
+		},
+	},
+})
+
+var ItemSetTheStonefury = core.NewItemSet(core.ItemSet{
+	Name: "The Stonefury",
+	Bonuses: map[int32]core.ApplyEffect{
+		// +20 Stamina.
+		2: func(agent core.Agent) {
+			c := agent.GetCharacter()
+			c.AddStat(stats.Stamina, 20)
+		},
+		// Reduces the chance that the opponent can resist your Shock spells by 5%.
+		4: func(agent core.Agent) {
+			shaman := agent.(ShamanAgent).GetShaman()
+			bonusHit := 5 * float64(core.SpellHitRatingPerHitChance)
+			shaman.OnSpellRegistered(func(spell *core.Spell) {
+				if spell.SpellCode == SpellCode_ShamanEarthShock || spell.SpellCode == SpellCode_ShamanFlameShock || spell.SpellCode == SpellCode_ShamanFrostShock {
+					spell.BonusHitRating += bonusHit
+				}
+			})
+		},
+		// Reduces the cooldown of Aftershock, Stormstrike and Upheaval by 25%.
+		6: func(agent core.Agent) {
+			// Nothing to do: Stormstrike is disabled in this sim's custom talent tree
+			// (see registerStormstrikeSpell), Aftershock is a passive talent with no
+			// cooldown to reduce, and Upheaval is not a spell implemented in this sim.
+		},
+		// Reduces the cost of your spells by 15%.
+		8: func(agent core.Agent) {
+			shaman := agent.(ShamanAgent).GetShaman()
+			shaman.OnSpellRegistered(func(spell *core.Spell) {
+				if spell.Flags.Matches(SpellFlagShaman) && spell.Cost != nil {
+					spell.Cost.Multiplier -= 15
+				}
+			})
+		},
+	},
+})
+
 var ItemSetTheEarthshatterer = core.NewItemSet(core.ItemSet{
 	Name: "The Earthshatterer",
 	Bonuses: map[int32]core.ApplyEffect{

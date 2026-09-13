@@ -23,7 +23,7 @@ var WindfuryWeaponRankByLevel = map[int32]int32{
 func (shaman *Shaman) newWindfuryImbueSpell(isMH bool) *core.Spell {
 	rank := WindfuryWeaponRankByLevel[shaman.Level]
 
-	ewMultiplier := []float64{1, 1.13, 1.27, 1.4}[shaman.Talents.ElementalWeapons]
+	ewMultiplier := []float64{1, 1.13, 1.27, 1.4}[shaman.Talents.ElementalWeapons] * (1 + shaman.ElementalWeaponEnchantEffectivenessBonus)
 	bonusAP := WindfuryWeaponBonusAP[rank]
 
 	actionID := core.ActionID{SpellID: WindfuryWeaponSpellId[rank]}.WithTag(core.TernaryInt32(isMH, 1, 2))

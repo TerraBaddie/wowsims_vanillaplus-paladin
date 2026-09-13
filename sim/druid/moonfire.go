@@ -18,6 +18,16 @@ var MoonfireDotTicks = [MoonfireRanks + 1]int32{0, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4}
 var MoonfireManaCost = [MoonfireRanks + 1]float64{0, 25, 50, 75, 105, 150, 190, 235, 280, 325, 375}
 var MoonfireLevel = [MoonfireRanks + 1]int{0, 4, 10, 16, 22, 28, 34, 40, 46, 52, 58}
 
+// TargetHasMoonfire returns true if the target currently has this druid's Moonfire dot active (any rank).
+func (druid *Druid) TargetHasMoonfire(target *core.Unit) bool {
+	for _, moonfireSpell := range druid.Moonfire {
+		if moonfireSpell != nil && moonfireSpell.Dot(target).IsActive() {
+			return true
+		}
+	}
+	return false
+}
+
 func (druid *Druid) registerMoonfireSpell() {
 	druid.Moonfire = make([]*DruidSpell, 0)
 

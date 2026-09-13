@@ -97,6 +97,13 @@ stat_weights_results: {
  }
 }
 dps_results: {
+ key: "TestWardenShaman-Phase1-AllItems-CataclysmArmor"
+ value: {
+  dps: 336.54661
+  tps: 453.72167
+ }
+}
+dps_results: {
  key: "TestWardenShaman-Phase1-AllItems-Champion'sStormcaller"
  value: {
   dps: 292.48673
@@ -115,6 +122,13 @@ dps_results: {
  value: {
   dps: 306.79789
   tps: 416.29737
+ }
+}
+dps_results: {
+ key: "TestWardenShaman-Phase1-AllItems-TheStonefury"
+ value: {
+  dps: 298.00111
+  tps: 410.66926
  }
 }
 dps_results: {
