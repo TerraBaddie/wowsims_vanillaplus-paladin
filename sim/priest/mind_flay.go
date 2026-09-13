@@ -8,11 +8,15 @@ import (
 )
 
 const MindFlayRanks = 6
-const MindFlayTicks = 3
+const MindFlayTicks = 5
 
 var MindFlaySpellId = [MindFlayRanks + 1]int32{0, 15407, 17311, 17312, 17313, 17314, 18807}
 var MindFlayTickSpellId = [MindFlayRanks + 1]int32{0, 16568, 7378, 17316, 17317, 17318, 18808}
-var MindFlayBaseDamage = [MindFlayRanks + 1]float64{0, 75, 126, 186, 261, 330, 426}
+
+// Private server extends Mind Flay to a 5-tick/5-sec channel (retail Classic is 3).
+// Confirmed via CSV's/Spell.csv: EffectAmplitude=1000ms, DurationIndex=7 (5000ms),
+// consistently across all 6 ranks. Total damage = (EffectBasePoints+1) * 5 ticks.
+var MindFlayBaseDamage = [MindFlayRanks + 1]float64{0, 160, 275, 400, 550, 700, 900}
 var MindFlayManaCost = [MindFlayRanks + 1]float64{0, 45, 70, 100, 135, 165, 205}
 var MindFlayLevel = [MindFlayRanks + 1]int{0, 20, 28, 36, 44, 52, 60}
 
@@ -41,7 +45,7 @@ func (priest *Priest) newMindFlaySpellConfig(rank int, tickIdx int32) core.Spell
 	ticks := tickIdx
 	flags := SpellFlagPriest | core.SpellFlagChanneled | core.SpellFlagBinary
 	if tickIdx == 0 {
-		ticks = 3
+		ticks = MindFlayTicks
 		flags |= core.SpellFlagAPL
 	}
 

@@ -115,17 +115,40 @@ pipeline is broken.
   scoped to values/tooltip text only.
 - **Mana cost, range, requirements** — untouched (only the description div and
   the `Channeled (N sec cast)` line are corrected).
-- **The Go sim's actual combat math** — `sim/<class>/*.go` hardcodes damage,
-  coefficients, tick counts, etc. as Go literals, independent of any tooltip.
-  A tooltip correction never changes simulated numbers. A one-off audit
-  (2026-09-13, not committed as code) cross-checked a handful of DoT/channeled
-  spells against `Spell.csv`:
+- **The Go sim's actual combat math, except Mind Flay** —
+  `sim/<class>/*.go` hardcodes damage, coefficients, tick counts, etc. as Go
+  literals, independent of any tooltip. A tooltip correction never changes
+  simulated numbers on its own. A one-off audit (2026-09-13, not committed as
+  code) cross-checked a handful of DoT/channeled spells against `Spell.csv`:
   - Shadow Word: Pain, Moonfire — Go values match the DBC exactly (high confidence).
-  - Rend (`sim/warrior/rend.go`) — Go per-tick damage is consistently ~25-30%
-    below the DBC-implied value across all 4 ranks (medium confidence; not
-    fixed, flagged for follow-up).
-  - Flame Shock — inconsistent audit result, likely a column-mapping issue in
-    the audit itself rather than a real Go bug (low confidence; not pursued).
+  - **Mind Flay — FIXED 2026-09-13** (`sim/priest/mind_flay.go`). The private
+    server extends Mind Flay to a 5-tick/5-sec channel (retail Classic is
+    3-tick/3-sec); confirmed via `Spell.csv`'s `EffectAmplitude`=1000ms,
+    `DurationIndex`=7 (5000ms), consistent across all 6 ranks — high
+    confidence. `MindFlayTicks` changed 3→5, `MindFlayBaseDamage` changed from
+    `{0, 75, 126, 186, 261, 330, 426}` to `{0, 160, 275, 400, 550, 700, 900}`
+    (= `(EffectBasePoints+1) * 5`, matching every rank's DBC-derived tooltip
+    total exactly), and the `tickIdx == 0` branch's hardcoded `ticks = 3`
+    changed to reference the `MindFlayTicks` const instead of duplicating the
+    literal. Verified end-to-end in a real sim run (not just the tooltip) —
+    Results tab shows Mind Flay ticking with the new damage/tick-count.
+    `go test ./sim/priest/...` produced a byte-identical `.results` (the
+    default P1 shadow preset doesn't spec Mind Flay, so there was no golden
+    to promote).
+  - **Rend** (`sim/warrior/rend.go`) — Go per-tick damage is consistently
+    ~25-30% below the DBC-implied value across all 4 ranks (medium
+    confidence). **NOT fixed** — flagged for follow-up, not yet touched.
+  - **Flame Shock** — inconsistent audit result, likely a column-mapping
+    issue in the audit itself rather than a real Go bug (low confidence).
+    **NOT fixed** — not pursued.
+  - **Every other spell in the sim** (the ~330 non-talent spell IDs this
+    pipeline touches for tooltip text, and the ~4600+ talent/rotation spells
+    overall) has **NOT** been audited against `Spell.csv` for Go-mechanics
+    correctness at all. A tooltip now showing a DBC-corrected value does
+    **not** imply the Go code computing that spell's actual damage was
+    checked or changed — Mind Flay is the only exception. Treat any other
+    spell's simulated damage/duration as unverified against the private
+    server's dump until it's explicitly audited.
   - No dice-sides/variance column has been reverse-engineered yet, so
     direct-damage spells with min-max ranges (Frostbolt, Fireball, Backstab,
     etc.) remain unauditable against Go with current tooling.
