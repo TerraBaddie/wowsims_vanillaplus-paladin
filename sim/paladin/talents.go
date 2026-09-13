@@ -146,11 +146,10 @@ func (paladin *Paladin) applyReckoning() {
 func (paladin *Paladin) getWeaponSpecializationModifier() float64 {
 	handType := paladin.MainHand().HandType
 	if handType == proto.HandType_HandTypeMainHand || handType == proto.HandType_HandTypeOneHand {
-		// VanillaPlus One-Handed Weapon Specialization: +2/4/6/8/10% damage.
 		return 1. + 0.02*float64(paladin.Talents.OneHandedWeaponSpecialization)
 	} else if handType == proto.HandType_HandTypeTwoHand {
-		// VanillaPlus Two-Handed Weapon Specialization is +4/7/10%, not +2% per rank.
-		return []float64{1.0, 1.04, 1.07, 1.10}[paladin.Talents.TwoHandedWeaponSpecialization]
+		// Current VanillaPlus value after the nerf: +2% damage per rank.
+		return 1. + 0.02*float64(paladin.Talents.TwoHandedWeaponSpecialization)
 	} else {
 		return 1.
 	}
