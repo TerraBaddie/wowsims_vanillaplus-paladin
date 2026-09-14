@@ -9,13 +9,13 @@ import (
 
 // VanillaPlus Seal of Command is a spell consisting of:
 // - A judgement that has a flat damage roll, and scales with spellpower.
-// - An on-hit proc that deals 50% weapon damage and scales with spellpower.
+// - A 12 PPM on-hit proc that deals 50% weapon damage and scales with spellpower.
 //
-// NOTE: VanillaPlus has increased Seal of Command's proc frequency relative to
-// stock Vanilla, and it was increased again in a later balance change. The exact
-// current server-side proc rate still needs to be locked from combat-log testing,
-// so the inherited stock 7 PPM value below remains TEMPORARY and is not treated
-// as verified VanillaPlus behavior.
+// VanillaPlus 12 PPM is combat-log verified from testing across three very
+// different weapon speeds:
+// - 3.8 speed: 375 procs / 500 landed swings (75.0%; 76.0% expected at 12 PPM)
+// - 1.6 speed: 156 procs / 500 landed swings (31.2%; 32.0% expected at 12 PPM)
+// - 4.0 speed: 12 procs / 15 landed swings (80.0%; 80.0% expected at 12 PPM)
 
 // Judgement of Command has some unusual behaviour in classic:
 // - The judgement operates via a dummy spell, that likely figures out whether to apply
@@ -55,8 +55,8 @@ func (paladin *Paladin) registerSealOfCommand() {
 		{level: 60, spellID: 20920, manaCost: 210, scaleLevel: 60, proc: proc{spellID: 20947}, judge: judge{spellID: 20966, minDamage: 339, maxDamage: 373, scale: 6.1}},
 	}
 
-	// TODO(V+): Replace stock 7 PPM with the current measured VanillaPlus rate.
-	ppmm := paladin.AutoAttacks.NewPPMManager(7, core.ProcMaskMelee)
+	// VanillaPlus: current Seal of Command proc rate is 12 PPM.
+	ppmm := paladin.AutoAttacks.NewPPMManager(12, core.ProcMaskMelee)
 
 	icd := core.Cooldown{
 		Timer:    paladin.NewTimer(),
