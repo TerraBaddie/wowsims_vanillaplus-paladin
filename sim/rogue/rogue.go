@@ -35,7 +35,7 @@ const (
 	SpellCode_RogueVanish
 )
 
-var TalentTreeSizes = [3]int{15, 19, 17}
+var TalentTreeSizes = [3]int{20, 20, 20}
 
 type Rogue struct {
 	core.Character

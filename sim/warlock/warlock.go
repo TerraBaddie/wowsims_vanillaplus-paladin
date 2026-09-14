@@ -7,7 +7,7 @@ import (
 	"github.com/wowsims/classic/sim/core/stats"
 )
 
-var TalentTreeSizes = [3]int{17, 17, 16}
+var TalentTreeSizes = [3]int{20, 20, 20}
 
 const (
 	WarlockFlagAffliction  = core.SpellFlagAgentReserved1
@@ -90,6 +90,10 @@ type Warlock struct {
 	ImprovedShadowBoltAuras core.AuraArray
 	SoulLinkAura            *core.Aura
 	MasterDemonologistAura  *core.Aura
+
+	// Multiplier applied to the mana restored by Life Tap (e.g. Nemesis Raiment 2pc). Defaults to 0,
+	// treated as 1 (no change) by registerLifeTapSpell.
+	LifeTapManaMultiplier float64
 }
 
 func (warlock *Warlock) GetCharacter() *core.Character {
@@ -171,6 +175,7 @@ func NewWarlock(character *core.Character, options *proto.Player, warlockOptions
 	warlock.AddStatDependency(stats.Agility, stats.MeleeCrit, core.CritPerAgiAtLevel[warlock.Class]*core.CritRatingPerCritChance)
 	warlock.AddStatDependency(stats.Agility, stats.Dodge, core.DodgePerAgiAtLevel[character.Class]*core.DodgeRatingPerDodgeChance)
 	warlock.AddStatDependency(stats.Intellect, stats.SpellCrit, core.CritPerIntAtLevel[warlock.Class]*core.SpellCritRatingPerCritChance)
+	warlock.AddStatDependency(stats.Intellect, stats.SpellPower, core.SpellPowerPerIntellect)
 	warlock.AddStatDependency(stats.BonusArmor, stats.Armor, 1)
 
 	switch warlock.Options.Armor {

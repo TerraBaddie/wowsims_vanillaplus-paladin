@@ -40,7 +40,7 @@ func (warlock *Warlock) getDarkPactConfig(rank int) core.SpellConfig {
 }
 
 func (warlock *Warlock) registerDarkPactSpell() {
-	if !warlock.Talents.DarkPact {
+	if true { // TODO: Dark Pact removed from custom tree
 		return
 	}
 

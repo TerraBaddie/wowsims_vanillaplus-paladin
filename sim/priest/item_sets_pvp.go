@@ -88,19 +88,19 @@ var ItemSetLieutenantCommandersInvestiture = core.NewItemSet(core.ItemSet{
 var ItemSetWarlordsRaiment = core.NewItemSet(core.ItemSet{
 	Name: "Warlord's Raiment",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +20 Stamina.
+		// Increases damage and healing done by magical spells and effects by up to 23.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStat(stats.Stamina, 20)
+			c.AddStat(stats.SpellPower, 23)
 		},
 		// Increases the duration of your Psychic Scream spell by 1 sec.
 		3: func(agent core.Agent) {
 			// Nothing to do
 		},
-		// Increases damage and healing done by magical spells and effects by up to 23.
+		// +20 Stamina.
 		6: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStat(stats.SpellPower, 23)
+			c.AddStat(stats.Stamina, 20)
 		},
 	},
 })
@@ -108,19 +108,19 @@ var ItemSetWarlordsRaiment = core.NewItemSet(core.ItemSet{
 var ItemSetFieldMarshalsRaiment = core.NewItemSet(core.ItemSet{
 	Name: "Field Marshal's Raiment",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +20 Stamina.
+		// Increases damage and healing done by magical spells and effects by up to 23.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStat(stats.Stamina, 20)
+			c.AddStat(stats.SpellPower, 23)
 		},
 		// Increases the duration of your Psychic Scream spell by 1 sec.
 		3: func(agent core.Agent) {
 			// Nothing to do
 		},
-		// Increases damage and healing done by magical spells and effects by up to 23.
+		// +20 Stamina.
 		6: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStat(stats.SpellPower, 23)
+			c.AddStat(stats.Stamina, 20)
 		},
 	},
 })

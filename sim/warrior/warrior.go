@@ -31,7 +31,7 @@ const (
 	SpellCode_WarriorWhirlwind
 )
 
-var TalentTreeSizes = [3]int{18, 17, 17}
+var TalentTreeSizes = [3]int{20, 20, 20}
 
 type WarriorInputs struct {
 	QueueDelay     int32

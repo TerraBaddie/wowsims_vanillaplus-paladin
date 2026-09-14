@@ -66,6 +66,8 @@ func (priest *Priest) getShadowWordPainConfig(rank int) core.SpellConfig {
 				Label: fmt.Sprintf("Shadow Word: Pain (Rank %d)", rank),
 			},
 
+			// DBC: Improved SW:Pain adds 1 tick per rank (+3s / +6s).
+			// TODO: it also reduces SW:Pain mana cost by 5%/10% - add later.
 			NumberOfTicks:    ticks + (priest.Talents.ImprovedShadowWordPain),
 			TickLength:       time.Second * 3,
 			BonusCoefficient: spellCoeff,

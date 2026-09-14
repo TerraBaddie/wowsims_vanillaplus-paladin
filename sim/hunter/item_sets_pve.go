@@ -3,6 +3,7 @@ package hunter
 import (
 	"time"
 	"github.com/wowsims/classic/sim/core"
+	"github.com/wowsims/classic/sim/core/proto"
 	"github.com/wowsims/classic/sim/core/stats"
 )
 
@@ -14,12 +15,12 @@ import (
 var ItemSetGiantStalkers = core.NewItemSet(core.ItemSet{
 	Name: "Giantstalker Armor",
 	Bonuses: map[int32]core.ApplyEffect{
-		// (3) Set: Increases the range of your Mend Pet spell by 50% and the effect by 10%. Also reduces the cost by 30%.
-		3: func(agent core.Agent) {
-			// Not implemented in sim
+		// (2) Set: Increases the range of your Mend Pet spell by 50% and the effect by 10%. Also reduces the cost by 30%.
+		2: func(agent core.Agent) {
+			// Mend Pet is not implemented in sim
 		},
-		// (5) Set: Increases your pet's stamina by 30 and all spell resistances by 40.
-		5: func(agent core.Agent) {
+		// (4) Set: Increases your pet's stamina by 40 and all spell resistances by 60.
+		4: func(agent core.Agent) {
 			hunter := agent.(HunterAgent).GetHunter()
 			if hunter.pet == nil {
 				return
@@ -27,20 +28,43 @@ var ItemSetGiantStalkers = core.NewItemSet(core.ItemSet{
 			core.MakePermanent(hunter.RegisterAura(core.Aura{
 				Label: "Nature's Ally",
 				OnInit: func(aura *core.Aura, sim *core.Simulation) {
-					hunter.pet.AddStatDynamic(sim, stats.Stamina, 30)
-					hunter.pet.AddResistancesDynamic(sim, 40)
+					hunter.pet.AddStatDynamic(sim, stats.Stamina, 40)
+					hunter.pet.AddResistancesDynamic(sim, 60)
 				},
 			}))
 		},
-		// (8) Set: Increases the damage of Multi-shot and Volley by 15%.
+		// (6) Set: Increases the duration of your Rapid Strikes and Rapid Fire by 5 secs.
+		6: func(agent core.Agent) {
+			hunter := agent.(HunterAgent).GetHunter()
+			// Rapid Strikes is not implemented in sim; only extend Rapid Fire's duration.
+			core.MakePermanent(hunter.RegisterAura(core.Aura{
+				Label: "Giantstalker Rapid Fire Duration",
+				OnInit: func(aura *core.Aura, sim *core.Simulation) {
+					hunter.RapidFireAura.Duration += time.Second * 5
+				},
+			}))
+		},
+		// (7) Set: Increases your damage against Giants and Elementals by 5%.
+		7: func(agent core.Agent) {
+			hunter := agent.(HunterAgent).GetHunter()
+			hunter.Env.RegisterPostFinalizeEffect(func() {
+				for _, target := range hunter.Env.Encounter.Targets {
+					if target.MobType == proto.MobType_MobTypeGiant || target.MobType == proto.MobType_MobTypeElemental {
+						for _, at := range hunter.AttackTables[target.UnitIndex] {
+							at.DamageDealtMultiplier *= 1.05
+						}
+					}
+				}
+			})
+		},
+		// (8) Set: Reduces the cost of your spells by 20%.
 		8: func(agent core.Agent) {
 			hunter := agent.(HunterAgent).GetHunter()
-			hunter.RegisterAura(core.Aura{
-				Label: "Improved Volley and Multishot",
-				OnInit: func(aura *core.Aura, sim *core.Simulation) {
-					hunter.Volley.BaseDamageMultiplierAdditive += 0.15
-					hunter.MultiShot.BaseDamageMultiplierAdditive += 0.15
-				},
+			hunter.OnSpellRegistered(func(spell *core.Spell) {
+				// Matches the same set of abilities ("spells") as the Efficiency talent: Shots, Stings, and Volley.
+				if spell.Cost != nil && (spell.Flags.Matches(SpellFlagSting|SpellFlagShot) || spell.SpellCode == SpellCode_HunterVolley) {
+					spell.Cost.Multiplier -= 20.0
+				}
 			})
 		},
 	},
@@ -57,30 +81,61 @@ var ItemSetGiantStalkers = core.NewItemSet(core.ItemSet{
 var ItemSetDragonstalkersArmor = core.NewItemSet(core.ItemSet{
 	Name: "Dragonstalker Armor",
 	Bonuses: map[int32]core.ApplyEffect{
-		// (3) Set: Increases the Ranged Attack Power bonus of your Aspect of the Hawk by 20%.
-		3: func(agent core.Agent) {
+		// (2) Set: Increases the effect of your Aspect of the Hawk and Aspect of the Monkey by 20%.
+		2: func(agent core.Agent) {
 			hunter := agent.(HunterAgent).GetHunter()
+			// Aspect of the Monkey is not implemented in sim; only Aspect of the Hawk's bonus is applied.
 			core.MakePermanent(hunter.RegisterAura(core.Aura{
 				Label: "Improved Aspect of the Hawk",
 				OnInit: func(aura *core.Aura, sim *core.Simulation) {
-					hunter.AspectOfTheHawkAPMultiplier += 0.25
+					hunter.AspectOfTheHawkAPMultiplier += 0.20
 				},
 			}))
 		},
-		// (5) Set: Increases your pet's stamina by 40 and all spell resistances by 60.
-		5: func(agent core.Agent) {
+		// (4) Set: Increases Attack Power by 50 for both you and your pet.
+		4: func(agent core.Agent) {
 			hunter := agent.(HunterAgent).GetHunter()
+			hunter.AddStats(stats.Stats{
+				stats.AttackPower:       50,
+				stats.RangedAttackPower: 50,
+			})
 			if hunter.pet == nil {
 				return
 			}
 
 			core.MakePermanent(hunter.RegisterAura(core.Aura{
-				Label: "Nature's Ally",
+				Label: "Dragonstalker's Ally",
 				OnInit: func(aura *core.Aura, sim *core.Simulation) {
-					hunter.pet.AddStatDynamic(sim, stats.Stamina, 40)
-					hunter.pet.AddResistancesDynamic(sim, 60)
+					hunter.pet.AddStatsDynamic(sim, stats.Stats{
+						stats.AttackPower:       50,
+						stats.RangedAttackPower: 50,
+					})
 				},
 			}))
+		},
+		// (6) Set: Increases the damage of Multi-shot and Volley by 15%.
+		6: func(agent core.Agent) {
+			hunter := agent.(HunterAgent).GetHunter()
+			hunter.RegisterAura(core.Aura{
+				Label: "Improved Volley and Multishot",
+				OnInit: func(aura *core.Aura, sim *core.Simulation) {
+					hunter.Volley.BaseDamageMultiplierAdditive += 0.15
+					hunter.MultiShot.BaseDamageMultiplierAdditive += 0.15
+				},
+			})
+		},
+		// (7) Set: Increases your damage against Dragonkins by 5%.
+		7: func(agent core.Agent) {
+			hunter := agent.(HunterAgent).GetHunter()
+			hunter.Env.RegisterPostFinalizeEffect(func() {
+				for _, target := range hunter.Env.Encounter.Targets {
+					if target.MobType == proto.MobType_MobTypeDragonkin {
+						for _, at := range hunter.AttackTables[target.UnitIndex] {
+							at.DamageDealtMultiplier *= 1.05
+						}
+					}
+				}
+			})
 		},
 		// (8) Set: You have a chance whenever you deal ranged damage to apply an Expose Weakness effect to the target. Expose Weakness increases the Ranged Attack Power of all attackers against that target by 450 for 7 sec.
 		8: func(agent core.Agent) {
@@ -115,12 +170,13 @@ var ItemSetPredatorsArmor = core.NewItemSet(core.ItemSet{
 		},
 		// (3) Set: Decreases the cooldown of Concussive Shot by 1 sec.
 		3: func(agent core.Agent) {
-			// Concussive Shot not implemented in sim
+			// Concussive Shot is not implemented in sim
 		},
-		// (5) Set: Increases the duration of Serpent Sting by 3 sec.
+		// (5) Set: Increases the duration of Viper and Serpent Stings by 3 sec.
 		5: func(agent core.Agent) {
 			hunter := agent.(HunterAgent).GetHunter()
 
+			// Viper Sting is not implemented in sim; only Serpent Sting's duration is extended.
 			core.MakePermanent(hunter.RegisterAura(core.Aura{
 				Label: "Improved Serpent Sting",
 				OnInit: func(aura *core.Aura, sim *core.Simulation) {
@@ -144,12 +200,13 @@ var ItemSetPredatorsArmor = core.NewItemSet(core.ItemSet{
 var ItemSetBeastmasterArmor = core.NewItemSet(core.ItemSet{
 	Name: "Beastmaster Armor",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +8 All Resistances.
+		// (2) Set: +10 Resistances/+200 Armor.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddResistances(8)
+			c.AddResistances(10)
+			c.AddStat(stats.Armor, 200)
 		},
-		// Your normal ranged attacks have a 4% chance of restoring 200 mana.
+		// (4) Set: Your attacks have a 5% chance of restoring 200 mana.
 		4: func(agent core.Agent) {
 			c := agent.GetCharacter()
 			actionID := core.ActionID{SpellID: 27785}
@@ -161,7 +218,7 @@ var ItemSetBeastmasterArmor = core.NewItemSet(core.ItemSet{
 				Callback:   core.CallbackOnSpellHitDealt,
 				Outcome:    core.OutcomeLanded,
 				ProcMask:   core.ProcMaskWhiteHit,
-				ProcChance: 0.04,
+				ProcChance: 0.05,
 				Handler: func(sim *core.Simulation, spell *core.Spell, _ *core.SpellResult) {
 					if c.HasManaBar() {
 						c.AddMana(sim, 200, manaMetrics)
@@ -169,7 +226,7 @@ var ItemSetBeastmasterArmor = core.NewItemSet(core.ItemSet{
 				},
 			})
 		},
-		// +40 Attack Power.
+		// (6) Set: +40 Attack Power.
 		6: func(agent core.Agent) {
 			c := agent.GetCharacter()
 			c.AddStats(stats.Stats{
@@ -177,9 +234,10 @@ var ItemSetBeastmasterArmor = core.NewItemSet(core.ItemSet{
 				stats.RangedAttackPower: 40,
 			})
 		},
-		// +200 Armor.
+		// (8) Set: +10 Resistances/+200 Armor.
 		8: func(agent core.Agent) {
 			c := agent.GetCharacter()
+			c.AddResistances(10)
 			c.AddStat(stats.Armor, 200)
 		},
 	},

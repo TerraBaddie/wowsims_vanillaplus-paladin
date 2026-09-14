@@ -339,7 +339,7 @@ func applyBuffEffects(agent Agent, playerFaction proto.Faction, raidBuffs *proto
 	}
 
 	if raidBuffs.StoneskinTotem != proto.TristateEffect_TristateEffectMissing && isHorde {
-		MakePermanent(StoneskinTotemAura(&character.Unit, GetTristateValueInt32(raidBuffs.StoneskinTotem, 0, 2)))
+		MakePermanent(StoneskinTotemAura(&character.Unit, GetTristateValueInt32(raidBuffs.StoneskinTotem, 0, 2), 0))
 	}
 
 	if raidBuffs.RetributionAura != proto.TristateEffect_TristateEffectMissing && isAlliance {
@@ -512,12 +512,14 @@ func BlessingOfKingsAura(character *Character) *Aura {
 
 // TODO: Classic
 func InspirationAura(unit *Unit, points int32) *Aura {
-	multiplier := 1 - []float64{0, .03, .07, .10}[points]
+	// DBC (spells 14893/15357/15359): 5/10/15% armor for 20s. Modeled here as a
+	// flat physical-damage-taken reduction (approximation of armor%).
+	multiplier := 1 - []float64{0, .05, .10, .15}[points]
 
 	return unit.GetOrRegisterAura(Aura{
 		Label:    "Inspiration",
 		ActionID: ActionID{SpellID: 15363},
-		Duration: time.Second * 15,
+		Duration: time.Second * 20,
 		OnGain: func(aura *Aura, sim *Simulation) {
 			aura.Unit.PseudoStats.SchoolDamageTakenMultiplier[stats.SchoolIndexPhysical] *= multiplier
 		},
@@ -555,9 +557,10 @@ func DevotionAuraAura(unit *Unit, points int32) *Aura {
 	})
 }
 
-func StoneskinTotemAura(unit *Unit, points int32) *Aura {
+func StoneskinTotemAura(unit *Unit, points int32, bonusMultiplier float64) *Aura {
 	meleeDamageReduction := -30.0
 	meleeDamageReduction *= 1 + .1*float64(points)
+	meleeDamageReduction *= 1 + bonusMultiplier
 	meleeDamageReduction = math.Floor(meleeDamageReduction)
 
 	return unit.GetOrRegisterAura(Aura{
@@ -819,7 +822,7 @@ func registerExternalConsecutiveCDApproximation(agent Agent, config externalCons
 var PowerInfusionActionID = ActionID{SpellID: 10060}
 var PowerInfusionAuraTag = "PowerInfusion"
 
-const PowerInfusionDuration = time.Second * 15
+const PowerInfusionDuration = time.Second * 30 // DBC spell 10060 DurationIndex 2
 const PowerInfusionCD = time.Minute * 3
 
 func registerPowerInfusionCD(agent Agent, numPowerInfusions int32) {
@@ -852,11 +855,13 @@ func PowerInfusionAura(character *Unit, actionTag int32) *Aura {
 		ActionID: actionID,
 		Duration: PowerInfusionDuration,
 		OnGain: func(aura *Aura, sim *Simulation) {
-			character.PseudoStats.SchoolDamageDealtMultiplier.MultiplyMagicSchools(1.2)
-
+			// DBC spell 10060: +15% spell damage and healing done (not haste).
+			character.PseudoStats.SchoolDamageDealtMultiplier.MultiplyMagicSchools(1.15)
+			character.PseudoStats.HealingDealtMultiplier *= 1.15
 		},
 		OnExpire: func(aura *Aura, sim *Simulation) {
-			character.PseudoStats.SchoolDamageDealtMultiplier.MultiplyMagicSchools(1 / 1.2)
+			character.PseudoStats.SchoolDamageDealtMultiplier.MultiplyMagicSchools(1 / 1.15)
+			character.PseudoStats.HealingDealtMultiplier /= 1.15
 		},
 	})
 	return aura

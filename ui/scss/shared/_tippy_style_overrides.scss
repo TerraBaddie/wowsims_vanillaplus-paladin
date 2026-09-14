@@ -26,3 +26,36 @@
 	color: var(--bs-tooltip-body-color);
 	padding: var(--bs-tooltip-body-padding-y) var(--bs-tooltip-body-padding-x);
 }
+
+// Local (DBC-sourced) spell tooltips - rendered from raw Wowhead-style HTML without
+// Wowhead's stylesheet, so give the common classes sane defaults.
+.tippy-box[data-theme~='wowhead-local'] {
+	.tippy-content {
+		background-color: #0b0b0e;
+		border: 1px solid #35353d;
+		white-space: normal;
+		line-height: 1.35;
+		color: #ffffff;
+	}
+
+	.whtt-name,
+	b {
+		display: block;
+		color: #ffd100;
+		font-weight: 700;
+		margin-bottom: 0.15rem;
+	}
+
+	.q,
+	.q1 {
+		color: #fff;
+	}
+	.q2 {
+		color: #1eff00;
+	}
+	.whtt-sellprice,
+	.whtt-extra,
+	.q0 {
+		color: #9d9d9d;
+	}
+}

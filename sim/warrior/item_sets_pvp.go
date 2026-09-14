@@ -12,22 +12,22 @@ import (
 var ItemSetChampionsBattlearmor = core.NewItemSet(core.ItemSet{
 	Name: "Champion's Battlearmor",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +40 Attack Power.
+		// +20 Stamina.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStats(stats.Stats{
-				stats.AttackPower:       40,
-				stats.RangedAttackPower: 40,
-			})
+			c.AddStat(stats.Stamina, 20)
 		},
 		// Reduces the cooldown of your Intercept ability by 5 sec.
 		4: func(agent core.Agent) {
 			// Nothing to do
 		},
-		// +20 Stamina.
+		// +40 Attack Power.
 		6: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStat(stats.Stamina, 20)
+			c.AddStats(stats.Stats{
+				stats.AttackPower:       40,
+				stats.RangedAttackPower: 40,
+			})
 		},
 	},
 })
@@ -35,22 +35,22 @@ var ItemSetChampionsBattlearmor = core.NewItemSet(core.ItemSet{
 var ItemSetLieutenantCommandersBattlearmor = core.NewItemSet(core.ItemSet{
 	Name: "Lieutenant Commander's Battlearmor",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +40 Attack Power.
+		// +20 Stamina.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStats(stats.Stats{
-				stats.AttackPower:       40,
-				stats.RangedAttackPower: 40,
-			})
+			c.AddStat(stats.Stamina, 20)
 		},
 		// Reduces the cooldown of your Intercept ability by 5 sec.
 		4: func(agent core.Agent) {
 			// Nothing to do
 		},
-		// +20 Stamina.
+		// +40 Attack Power.
 		6: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddStat(stats.Stamina, 20)
+			c.AddStats(stats.Stats{
+				stats.AttackPower:       40,
+				stats.RangedAttackPower: 40,
+			})
 		},
 	},
 })
@@ -58,22 +58,22 @@ var ItemSetLieutenantCommandersBattlearmor = core.NewItemSet(core.ItemSet{
 var ItemSetWarlordsBattlegear = core.NewItemSet(core.ItemSet{
 	Name: "Warlord's Battlegear",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +20 Stamina.
-		2: func(agent core.Agent) {
-			c := agent.GetCharacter()
-			c.AddStat(stats.Stamina, 20)
-		},
-		// Reduces the cooldown of your Intercept ability by 5 sec.
-		4: func(agent core.Agent) {
-			// Nothing to do
-		},
 		// +40 Attack Power.
-		6: func(agent core.Agent) {
+		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
 			c.AddStats(stats.Stats{
 				stats.AttackPower:       40,
 				stats.RangedAttackPower: 40,
 			})
+		},
+		// Reduces the cooldown of your Intercept ability by 5 sec.
+		3: func(agent core.Agent) {
+			// Nothing to do
+		},
+		// +20 Stamina.
+		6: func(agent core.Agent) {
+			c := agent.GetCharacter()
+			c.AddStat(stats.Stamina, 20)
 		},
 	},
 })
@@ -81,22 +81,22 @@ var ItemSetWarlordsBattlegear = core.NewItemSet(core.ItemSet{
 var ItemSetFieldMarshalsBattlegear = core.NewItemSet(core.ItemSet{
 	Name: "Field Marshal's Battlegear",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +20 Stamina.
-		2: func(agent core.Agent) {
-			c := agent.GetCharacter()
-			c.AddStat(stats.Stamina, 20)
-		},
-		// Reduces the cooldown of your Intercept ability by 5 sec.
-		4: func(agent core.Agent) {
-			// Nothing to do
-		},
 		// +40 Attack Power.
-		6: func(agent core.Agent) {
+		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
 			c.AddStats(stats.Stats{
 				stats.AttackPower:       40,
 				stats.RangedAttackPower: 40,
 			})
+		},
+		// Reduces the cooldown of your Intercept ability by 5 sec.
+		3: func(agent core.Agent) {
+			// Nothing to do
+		},
+		// +20 Stamina.
+		6: func(agent core.Agent) {
+			c := agent.GetCharacter()
+			c.AddStat(stats.Stamina, 20)
 		},
 	},
 })

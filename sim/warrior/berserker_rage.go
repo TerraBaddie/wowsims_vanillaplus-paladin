@@ -13,7 +13,7 @@ func (warrior *Warrior) registerBerserkerRageSpell() {
 
 	actionID := core.ActionID{SpellID: 18499}
 	rageMetrics := warrior.NewRageMetrics(actionID)
-	instantRage := 5 * float64(warrior.Talents.ImprovedBerserkerRage)
+	instantRage := 0.0 // TODO: custom tree has no Improved Berserker Rage; Inner Rage now reduces its cooldown
 
 	warrior.BerserkerRageAura = warrior.RegisterAura(core.Aura{
 		Label:    "Berserker Rage",

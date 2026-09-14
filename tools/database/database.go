@@ -162,12 +162,27 @@ func (db *WowDatabase) AddItemIcon(id int32, tooltips map[int32]WowheadItemRespo
 			return
 		}
 		db.ItemIcons[id] = &proto.IconData{
-			Id:   id,
-			Name: tooltip.GetName(),
-			Icon: tooltip.GetIcon(),
+			Id:      id,
+			Name:    tooltip.GetName(),
+			Icon:    tooltip.GetIcon(),
+			Tooltip: tooltip.Tooltip,
 		}
 	} else if id != 0 {
 		panic(fmt.Sprintf("No item tooltip with id %d", id))
+	}
+}
+
+func (db *WowDatabase) MergeItemIcons(arr []*proto.IconData) {
+	for _, item := range arr {
+		db.MergeItemIcon(item)
+	}
+}
+func (db *WowDatabase) MergeItemIcon(src *proto.IconData) {
+	if dst, ok := db.ItemIcons[src.Id]; ok {
+		// googleproto.Merge concatenates lists, but we want replacement, so do them manually.
+		googleProto.Merge(dst, src)
+	} else {
+		db.ItemIcons[src.Id] = src
 	}
 }
 
@@ -183,6 +198,7 @@ func (db *WowDatabase) AddSpellIcon(id int32, tooltips map[int32]WowheadItemResp
 			Icon:    tooltip.GetIcon(),
 			Rank:    int32(tooltip.GetSpellRank()),
 			HasBuff: tooltip.HasBuff(),
+			Tooltip: tooltip.Tooltip,
 		}
 	} else if id != 0 {
 		println(fmt.Sprintf("No spell tooltip with id %d", id))
@@ -224,10 +240,20 @@ func (db *WowDatabase) ToUIProto() *proto.UIDatabase {
 		enchants = append(enchants, v)
 	}
 	slices.SortFunc(enchants, func(v1, v2 *proto.UIEnchant) int {
+		// Fully-disambiguating key (matches EnchantDBKey + Type): slices.SortFunc
+		// is not a stable sort, so two enchants that only differ by SpellId/ItemId
+		// (e.g. same effect granted by different items/ranks) would otherwise land
+		// in a random relative order every run.
 		if v1.EffectId != v2.EffectId {
 			return int(v1.EffectId - v2.EffectId)
 		}
-		return int(v1.Type - v2.Type)
+		if v1.Type != v2.Type {
+			return int(v1.Type - v2.Type)
+		}
+		if v1.ItemId != v2.ItemId {
+			return int(v1.ItemId - v2.ItemId)
+		}
+		return int(v1.SpellId - v2.SpellId)
 	})
 
 	return &proto.UIDatabase{

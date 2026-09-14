@@ -14,24 +14,36 @@ import (
 var ItemSetNightslayerArmor = core.NewItemSet(core.ItemSet{
 	Name: "Nightslayer Armor",
 	Bonuses: map[int32]core.ApplyEffect{
-		// Reduces the cooldown of your Vanish ability by 30 sec.
-		3: func(agent core.Agent) {
-			c := agent.(RogueAgent).GetRogue()
-			c.RegisterAura(core.Aura{
-				Label: "Improved Vanish",
-				OnInit: func(aura *core.Aura, sim *core.Simulation) {
-					c.Vanish.CD.Duration -= time.Second * 30
-				},
-			})
-		},
 		// Increases your maximum Energy by 10.
-		5: func(agent core.Agent) {
+		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
 			if c.HasEnergyBar() {
 				c.EnableEnergyBar(c.MaxEnergy() + 10)
 			}
 		},
-		// Heals the rogue for 500 when Vanish is performed.
+		// Increases the effectiveness of your finishing moves by 10%.
+		4: func(agent core.Agent) {
+			c := agent.(RogueAgent).GetRogue()
+			c.RegisterAura(core.Aura{
+				Label: "Improved Finishing Moves",
+				OnInit: func(aura *core.Aura, sim *core.Simulation) {
+					c.Eviscerate.DamageMultiplier *= 1.10
+					c.Rupture.DamageMultiplier *= 1.10
+				},
+			})
+		},
+		// Reduces the cooldown of Vanish and Cloak of Shadows by 1 min.
+		6: func(agent core.Agent) {
+			c := agent.(RogueAgent).GetRogue()
+			c.RegisterAura(core.Aura{
+				Label: "Improved Vanish",
+				OnInit: func(aura *core.Aura, sim *core.Simulation) {
+					c.Vanish.CD.Duration -= time.Minute
+					// Cloak of Shadows is not implemented in the sim.
+				},
+			})
+		},
+		// Heals the rogue for 50% of his health when Vanish is performed.
 		8: func(agent core.Agent) {
 			c := agent.GetCharacter()
 			healthMetrics := c.NewHealthMetrics(core.ActionID{SpellID: 23582})
@@ -40,7 +52,7 @@ var ItemSetNightslayerArmor = core.NewItemSet(core.ItemSet{
 				Label: "Clean Escape",
 				OnCastComplete: func(aura *core.Aura, sim *core.Simulation, spell *core.Spell) {
 					if spell.SpellCode == SpellCode_RogueVanish {
-						c.GainHealth(sim, 500, healthMetrics)
+						c.GainHealth(sim, c.MaxHealth()*0.5, healthMetrics)
 					}
 				},
 			}))
@@ -60,7 +72,7 @@ var ItemSetBloodfangArmor = core.NewItemSet(core.ItemSet{
 	Name: "Bloodfang Armor",
 	Bonuses: map[int32]core.ApplyEffect{
 		// Increases the chance to apply poisons to your target by 5%.
-		3: func(agent core.Agent) {
+		2: func(agent core.Agent) {
 			c := agent.(RogueAgent).GetRogue()
 			c.RegisterAura(core.Aura{
 				Label: "Improved Poisons",
@@ -69,11 +81,24 @@ var ItemSetBloodfangArmor = core.NewItemSet(core.ItemSet{
 				},
 			})
 		},
-		// Improves the threat reduction of Feint by 25%.
-		5: func(agent core.Agent) {
+		// Improves the threat reduction of Feint by 50%.
+		4: func(agent core.Agent) {
 			// Feint threat reduction not currently implemented in feint.go
 		},
-		// Gives the Rogue a chance to inflict 283 to 317 damage on the target and heal the Rogue for 50 health every 1 sec. for 6 sec. on a melee hit.
+		// Decreases the cost of your finishing moves by 10 Energy.
+		6: func(agent core.Agent) {
+			c := agent.(RogueAgent).GetRogue()
+
+			core.MakePermanent(c.RegisterAura(core.Aura{
+				Label: "Improved Finishing Moves Energy",
+				OnInit: func(aura *core.Aura, sim *core.Simulation) {
+					for _, finisher := range c.Finishers {
+						finisher.Cost.FlatModifier -= 10
+					}
+				},
+			}))
+		},
+		// Gives the Rogue a chance to inflict 283 to 317 damage on the target and heal the Rogue for 50 health every 1 sec. for 12 sec. on a melee hit.
 		8: func(agent core.Agent) {
 			c := agent.GetCharacter()
 
@@ -87,7 +112,7 @@ var ItemSetBloodfangArmor = core.NewItemSet(core.ItemSet{
 					Aura: core.Aura{
 						Label: "Bloodfang",
 					},
-					NumberOfTicks: 6,
+					NumberOfTicks: 12,
 					TickLength:    time.Second,
 					OnSnapshot: func(sim *core.Simulation, target *core.Unit, dot *core.Dot, _ bool) {
 						dot.SnapshotBaseDamage = 50
@@ -143,12 +168,8 @@ var ItemSetMadcapsOutfit = core.NewItemSet(core.ItemSet{
 				stats.RangedAttackPower: 20,
 			})
 		},
-		// Decreases the cooldown of Blind by 20 sec.
-		3: func(agent core.Agent) {
-			// Blind not implemented in sim
-		},
 		// Decrease the energy cost of Eviscerate and Rupture by 5.
-		5: func(agent core.Agent) {
+		3: func(agent core.Agent) {
 			c := agent.(RogueAgent).GetRogue()
 
 			core.MakePermanent(c.RegisterAura(core.Aura{
@@ -158,6 +179,10 @@ var ItemSetMadcapsOutfit = core.NewItemSet(core.ItemSet{
 					c.Rupture.Cost.FlatModifier -= 5
 				},
 			}))
+		},
+		// Decreases the cooldown of Blind and Cloak of Shadows abilities by 60 sec.
+		5: func(agent core.Agent) {
+			// Blind and Cloak of Shadows are not implemented in the sim.
 		},
 	},
 })
@@ -170,10 +195,11 @@ var ItemSetMadcapsOutfit = core.NewItemSet(core.ItemSet{
 var ItemSetDarkmantleArmor = core.NewItemSet(core.ItemSet{
 	Name: "Darkmantle Armor",
 	Bonuses: map[int32]core.ApplyEffect{
-		// +8 All Resistances.
+		// +10 Resistances/+200 Armor.
 		2: func(agent core.Agent) {
 			c := agent.GetCharacter()
-			c.AddResistances(8)
+			c.AddResistances(10)
+			c.AddStat(stats.Armor, 200)
 		},
 		// Chance on melee attack to restore 35 energy.
 		4: func(agent core.Agent) {
@@ -203,9 +229,10 @@ var ItemSetDarkmantleArmor = core.NewItemSet(core.ItemSet{
 				stats.RangedAttackPower: 40,
 			})
 		},
-		// +200 Armor.
+		// +10 Resistances/+200 Armor.
 		8: func(agent core.Agent) {
 			c := agent.GetCharacter()
+			c.AddResistances(10)
 			c.AddStat(stats.Armor, 200)
 		},
 	},

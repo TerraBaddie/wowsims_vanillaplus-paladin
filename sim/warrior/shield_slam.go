@@ -7,9 +7,7 @@ import (
 )
 
 func (warrior *Warrior) registerShieldSlamSpell() {
-	if !warrior.Talents.ShieldSlam {
-		return
-	}
+	// Shield Slam is no longer talent-gated in the custom tree; register it for all warriors.
 
 	spellID := int32(23925)
 	damageLow := 342.0

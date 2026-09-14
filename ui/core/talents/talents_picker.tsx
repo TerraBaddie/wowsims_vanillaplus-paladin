@@ -1,4 +1,4 @@
-import tippy from 'tippy.js';
+import tippy, { Instance as TippyInstance } from 'tippy.js';
 import { ref } from 'tsx-vanilla';
 
 import { Component } from '../components/component.js';
@@ -337,6 +337,7 @@ class TalentPicker<TalentsProto> extends Component {
 	private readonly pointsDisplay: HTMLElement;
 
 	private longTouchTimer?: number;
+	private localTooltip?: TippyInstance;
 	private childReqs: TalentReqArrow[];
 	private zIdx: number;
 	parentReq: TalentReqArrow | null;
@@ -522,9 +523,37 @@ class TalentPicker<TalentsProto> extends Component {
 		ActionId.fromSpellId(spellId)
 			.fill()
 			.then(actionId => {
-				actionId.setWowheadHref(this.rootElem as HTMLAnchorElement);
 				this.rootElem.style.backgroundImage = `url('${actionId.iconUrl}')`;
+				if (this.config.descriptions?.length) {
+					// Custom talent - Wowhead has no data for this spell id, so render a local tooltip.
+					this.rootElem.removeAttribute('href');
+					this.rootElem.dataset.disableWowheadTouchTooltip = 'true';
+					this.updateLocalTooltip(actionId.name || String(this.config.fieldName), Math.max(1, newPoints));
+				} else {
+					actionId.setWowheadHref(this.rootElem as HTMLAnchorElement);
+				}
 			});
+	}
+
+	private updateLocalTooltip(name: string, rank: number) {
+		name = name.replace(/\s*\(Rank \d+\)\s*$/, '');
+		const descriptions = this.config.descriptions ?? [];
+		const rankLine = this.config.maxPoints > 1 ? `<div class="talent-local-tooltip-rank">Rank ${rank}/${this.config.maxPoints}</div>` : '';
+		const body = descriptions[rank - 1] ?? descriptions[descriptions.length - 1] ?? '';
+		const content =
+			`<div class="talent-local-tooltip-name">${name}</div>${rankLine}` +
+			`<div class="talent-local-tooltip-body">${body}</div>`;
+		if (this.localTooltip) {
+			this.localTooltip.setContent(content);
+		} else {
+			this.localTooltip = tippy(this.rootElem, {
+				allowHTML: true,
+				content,
+				placement: 'right',
+				theme: 'talent-local',
+				zIndex: 100000,
+			});
+		}
 	}
 
 	getSpellIdForPoints(numPoints: number): number {
@@ -583,6 +612,11 @@ export type TalentConfig<TalentsProto> = {
 	spellIds: Array<number>;
 
 	maxPoints: number;
+
+	// Optional local tooltip text, one entry per rank. Set for custom talents
+	// whose spell ids don't exist on Wowhead; when present the picker renders a
+	// local tooltip instead of the Wowhead-powered one.
+	descriptions?: string[];
 };
 
 export function newTalentsConfig<TalentsProto>(talents: TalentsConfig<TalentsProto>): TalentsConfig<TalentsProto> {

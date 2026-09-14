@@ -46,10 +46,11 @@ func (warrior *Warrior) newShoutSpellConfig(actionID core.ActionID, rank int32, 
 func (warrior *Warrior) registerBattleShout() {
 	rank := core.TernaryInt32(core.IncludeAQ, 7, 6)
 	actionId := core.BattleShoutSpellId[rank]
-	has3pcWrath := warrior.HasSetBonus(ItemSetBattleGearOfWrath, 3)
+	// Battlegear of Wrath's real tooltip does not grant a Battle Shout AP bonus (that was a stale
+	// retail-generic assumption); the set's actual bonuses are wired in item_sets_pve.go.
 
 	warrior.BattleShout = warrior.newShoutSpellConfig(core.ActionID{SpellID: actionId}, rank, warrior.NewPartyAuraArray(func(unit *core.Unit) *core.Aura {
-		return core.BattleShoutAura(unit, warrior.Talents.ImprovedBattleShout, warrior.Talents.BoomingVoice, has3pcWrath)
+		return core.BattleShoutAura(unit, warrior.Talents.ImprovedCombatShouts, warrior.Talents.BoomingVoice, false) // TODO: verify Improved Combat Shouts +5% Battle Shout
 	}))
 }
 

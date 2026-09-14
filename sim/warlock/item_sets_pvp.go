@@ -8,10 +8,10 @@ import (
 )
 
 var bluePvPBonuses = map[int32]core.ApplyEffect{
-	// Increases damage and healing done by magical spells and effects by up to 23.
+	// +20 Stamina.
 	2: func(agent core.Agent) {
 		c := agent.GetCharacter()
-		c.AddStat(stats.SpellPower, 23)
+		c.AddStat(stats.Stamina, 20)
 	},
 	// Reduces the casting time of your Immolate spell by 0.2 sec.
 	4: func(agent core.Agent) {
@@ -26,10 +26,10 @@ var bluePvPBonuses = map[int32]core.ApplyEffect{
 			},
 		})
 	},
-	// +20 Stamina.
+	// Increases damage and healing done by magical spells and effects by up to 23.
 	6: func(agent core.Agent) {
 		c := agent.GetCharacter()
-		c.AddStat(stats.Stamina, 20)
+		c.AddStat(stats.SpellPower, 23)
 	},
 }
 
@@ -44,10 +44,10 @@ var ItemSetLieutenantCommandersThreads = core.NewItemSet(core.ItemSet{
 })
 
 var epicPvpBonuses = map[int32]core.ApplyEffect{
-	// +20 Stamina.
+	// Increases damage and healing done by magical spells and effects by up to 23.
 	2: func(agent core.Agent) {
 		c := agent.GetCharacter()
-		c.AddStat(stats.Stamina, 20)
+		c.AddStat(stats.SpellPower, 23)
 	},
 	// Reduces the casting time of your Immolate spell by 0.2 sec.
 	3: func(agent core.Agent) {
@@ -62,10 +62,10 @@ var epicPvpBonuses = map[int32]core.ApplyEffect{
 			},
 		})
 	},
-	// Increases damage and healing done by magical spells and effects by up to 23.
+	// +20 Stamina.
 	6: func(agent core.Agent) {
 		c := agent.GetCharacter()
-		c.AddStat(stats.SpellPower, 23)
+		c.AddStat(stats.Stamina, 20)
 	},
 }
 

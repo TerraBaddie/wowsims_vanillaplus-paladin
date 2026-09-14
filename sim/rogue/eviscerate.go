@@ -63,7 +63,7 @@ func (rogue *Rogue) registerEviscerate() {
 
 		DamageMultiplier: 1 +
 			[]float64{0, 0.05, 0.10, 0.15}[rogue.Talents.ImprovedEviscerate] +
-			[]float64{0, 0.02, 0.04, 0.06}[rogue.Talents.Aggression],
+			[]float64{0, 0.05, 0.10, 0.15, 0.20, 0.25}[rogue.Talents.Aggression], // DBC: 5%/rank
 		ThreatMultiplier: 1,
 		BonusCoefficient: 1,
 

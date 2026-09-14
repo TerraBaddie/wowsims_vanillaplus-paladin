@@ -1,0 +1,7 @@
+# Non-talent spell ids with no Classic Wowhead data - DBC-only rows.
+# Maintained by tools/gen_spell_value_overrides.py
+2825
+22961
+33807
+33859
+34917

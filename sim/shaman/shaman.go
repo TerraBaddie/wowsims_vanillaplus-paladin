@@ -9,7 +9,7 @@ import (
 	"github.com/wowsims/classic/sim/core/stats"
 )
 
-var TalentTreeSizes = [3]int{15, 16, 15}
+var TalentTreeSizes = [3]int{20, 20, 20}
 
 const (
 	SpellFlagShaman    = core.SpellFlagAgentReserved1
@@ -31,6 +31,7 @@ func NewShaman(character *core.Character, talents string) *Shaman {
 	shaman.AddStatDependency(stats.Agility, stats.MeleeCrit, core.CritPerAgiAtLevel[character.Class]*core.CritRatingPerCritChance)
 	shaman.AddStatDependency(stats.Agility, stats.Dodge, core.DodgePerAgiAtLevel[character.Class]*core.DodgeRatingPerDodgeChance)
 	shaman.AddStatDependency(stats.Intellect, stats.SpellCrit, core.CritPerIntAtLevel[character.Class]*core.SpellCritRatingPerCritChance)
+	shaman.AddStatDependency(stats.Intellect, stats.SpellPower, core.SpellPowerPerIntellect)
 	shaman.AddStatDependency(stats.BonusArmor, stats.Armor, 1)
 	shaman.PseudoStats.BlockValuePerStrength = .05 // 20 str = 1 block
 
@@ -135,6 +136,11 @@ type Shaman struct {
 	ActiveShieldAura *core.Aura
 
 	ChainLightningBounceCoefficient float64
+
+	// Item set bonus hooks (must be set before Initialize() registers spells/totems,
+	// since item set bonuses are applied before Initialize() during character setup).
+	TotemEffectivenessBonusMultiplier      float64 // Increases the effect of Strength of Earth / Stoneskin totems (e.g. 0.20 for +20%).
+	ElementalWeaponEnchantEffectivenessBonus float64 // Increases the effectiveness of elemental weapon enchants (e.g. 0.10 for +10%).
 }
 
 // Implemented by each Shaman spec.

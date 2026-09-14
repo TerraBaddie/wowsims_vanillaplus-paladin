@@ -324,3 +324,32 @@
 		background-image: url('/classic/assets/talent_calc/right2.png');
 	}
 }
+
+.tippy-box[data-theme~='talent-local'] {
+	background-color: #14171c;
+	font-size: 0.9rem;
+	max-width: 320px;
+
+	.tippy-content {
+		background-color: #14171c;
+		border: 1px solid #3a3f4b;
+		border-radius: 4px;
+		color: #e8e8e8;
+	}
+
+	.talent-local-tooltip-name {
+		font-weight: 700;
+		color: #ffd100;
+		margin-bottom: 0.15rem;
+	}
+
+	.talent-local-tooltip-rank {
+		color: #b0b0b0;
+		margin-bottom: 0.35rem;
+	}
+
+	.talent-local-tooltip-body {
+		color: #d4b483;
+		white-space: pre-wrap;
+	}
+}

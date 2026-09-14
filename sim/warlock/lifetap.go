@@ -53,7 +53,11 @@ func (warlock *Warlock) getLifeTapBaseConfig(rank int) core.SpellConfig {
 				spell.DealDamage(sim, result)
 			}
 
-			warlock.AddMana(sim, restore, manaMetrics)
+			manaMultiplier := warlock.LifeTapManaMultiplier
+			if manaMultiplier == 0 {
+				manaMultiplier = 1
+			}
+			warlock.AddMana(sim, restore*manaMultiplier, manaMetrics)
 		},
 	}
 }

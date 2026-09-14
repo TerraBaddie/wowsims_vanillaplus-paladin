@@ -15,13 +15,13 @@ export const DefaultGear = PresetUtils.makePresetGear('Blank', BlankGear);
 export const CelestialFocusTalents = {
 	name: 'Celestial Focus',
 	data: SavedTalents.create({
-		talentsString: '05320031103--230023312131502331050313051',
+		talentsString: '',
 	}),
 };
 export const ThiccRestoTalents = {
 	name: 'Thicc Resto',
 	data: SavedTalents.create({
-		talentsString: '05320001--230023312331502531053313051',
+		talentsString: '',
 	}),
 };
 

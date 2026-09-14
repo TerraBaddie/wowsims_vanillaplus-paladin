@@ -264,7 +264,11 @@ export class APLActionIDPicker extends DropdownPicker<Player<any>, ActionID, Act
 				);
 
 				actionId.setBackgroundAndHref(iconRef.value!);
-				actionId.setWowheadDataset(iconRef.value!, { useBuffAura: isAuraType });
+				actionId.trySetLocalTooltip(iconRef.value!).then(hasLocalTooltip => {
+					if (!hasLocalTooltip) {
+						actionId.setWowheadDataset(iconRef.value!, { useBuffAura: isAuraType });
+					}
+				});
 			},
 			createMissingValue: value => {
 				if (value.anyId() == 0) {

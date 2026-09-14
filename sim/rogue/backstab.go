@@ -48,7 +48,7 @@ func (rogue *Rogue) registerBackstabSpell() {
 			return !rogue.PseudoStats.InFrontOfTarget
 		},
 
-		BonusCritRating: 10 * core.CritRatingPerCritChance * float64(rogue.Talents.ImprovedBackstab),
+		BonusCritRating: 15 * core.CritRatingPerCritChance * float64(rogue.Talents.ImprovedBackstab), // DBC: 15%/rank
 
 		CritDamageBonus: rogue.lethality(),
 

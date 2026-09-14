@@ -390,6 +390,9 @@ func (druid *Druid) registerMoonkinFormSpell() {
 
 	actionID := core.ActionID{SpellID: 24858}
 
+	// DBC: Moonkin Form grants spell damage up to 20% of total Intellect.
+	druid.AddStatDependency(stats.Intellect, stats.SpellPower, 0.20)
+
 	druid.MoonkinFormAura = druid.RegisterAura(core.Aura{
 		Label:    "Moonkin Form",
 		ActionID: actionID,

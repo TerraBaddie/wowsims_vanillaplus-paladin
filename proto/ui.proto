@@ -89,6 +89,10 @@ message UIItem {
 	}
 
 	FactionRestriction faction_restriction = 26;
+
+	// Local tooltip HTML (private-server values, from docs/parse_vplus.py).
+	// When present the UI renders this instead of fetching a Wowhead tooltip.
+	string tooltip = 31;
 }
 
 enum Expansion {
@@ -183,6 +187,7 @@ message IconData {
 	string icon = 3;
 	int32 rank = 4;
 	bool has_buff = 5;
+	string tooltip = 6; // Rendered tooltip HTML (from the DBC/scrape inputs), used for local spell tooltips.
 }
 
 enum SourceFilterOption {

@@ -1,6 +1,7 @@
 package paladin
 
 import (
+	"math"
 	"time"
 
 	"github.com/wowsims/classic/sim/core"
@@ -9,26 +10,28 @@ import (
 )
 
 func (paladin *Paladin) ApplyTalents() {
+	// Precision: +1% melee & spell hit per rank.
 	paladin.AddStat(stats.MeleeHit, float64(paladin.Talents.Precision)*core.MeleeHitRatingPerHitChance)
-	// TODO: paladin.AddStat(stats.RangedHit, float64(paladin.Talents.Precision)*core.MeleeHitRatingPerHitChance)
+	paladin.AddStat(stats.SpellHit, float64(paladin.Talents.Precision)*core.SpellHitRatingPerHitChance)
 
+	// Conviction: +1% crit with attacks & offensive spells per rank.
 	paladin.AddStat(stats.MeleeCrit, float64(paladin.Talents.Conviction)*core.CritRatingPerCritChance)
-	// TODO: paladin.AddStat(stats.RangedCrit, float64(paladin.Talents.Conviction)*core.CritRatingPerCritChance)
+	paladin.AddStat(stats.SpellCrit, float64(paladin.Talents.Conviction)*core.SpellCritRatingPerCritChance)
 
 	if paladin.Talents.Toughness > 0 {
 		paladin.ApplyEquipScaling(stats.Armor, 1.0+0.02*float64(paladin.Talents.Toughness))
 	}
 
 	// These are no-op if untalented.
-	paladin.MultiplyStat(stats.Strength, 1.0+0.02*float64(paladin.Talents.DivineStrength))
-	paladin.MultiplyStat(stats.Intellect, 1.0+0.02*float64(paladin.Talents.DivineIntellect))
-	paladin.AddStat(stats.Defense, 2*float64(paladin.Talents.Anticipation))
+	paladin.MultiplyStat(stats.Strength, 1.0+0.03*float64(paladin.Talents.DivineStrength))
+	paladin.MultiplyStat(stats.Intellect, 1.0+0.03*float64(paladin.Talents.DivineIntellect))
+	paladin.AddStat(stats.Defense, 2*float64(int32(0))) // TODO: custom tree has no Anticipation
 
 	// Shield Specialization bonus is additive. NOTE: Total SBV will be inflated until
 	// https://github.com/wowsims/sod/issues/1025 gets resolved.
-	paladin.PseudoStats.BlockValueMultiplier += 0.1 * float64(paladin.Talents.ShieldSpecialization)
+	paladin.PseudoStats.BlockValueMultiplier += 0.15 * float64(paladin.Talents.ShieldSpecialization)
 
-	paladin.AddStat(stats.Parry, 1*float64(paladin.Talents.Deflection))
+	paladin.AddStat(stats.Parry, 2*float64(paladin.Talents.Deflection))
 
 	paladin.applyWeaponSpecialization()
 	if paladin.Talents.Vengeance > 0 {
@@ -37,7 +40,33 @@ func (paladin *Paladin) ApplyTalents() {
 	if paladin.Talents.Vindication > 0 {
 		paladin.applyVindication()
 	}
-	paladin.PseudoStats.SchoolBonusCritChance[stats.SchoolIndexHoly] += core.SpellCritRatingPerCritChance * float64(paladin.Talents.HolyPower)
+	// Holy Power: +2% Holy spell crit per rank.
+	paladin.PseudoStats.SchoolBonusCritChance[stats.SchoolIndexHoly] += 2 * core.SpellCritRatingPerCritChance * float64(paladin.Talents.HolyPower)
+
+	// Searing Light: +4% Holy damage per rank (-4% healing, not modeled).
+	if paladin.Talents.SearingLight > 0 {
+		paladin.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexHoly] *= 1 + 0.04*float64(paladin.Talents.SearingLight)
+	}
+
+	// Crusade: spell damage & healing increased by up to 6% of total Strength per rank.
+	if paladin.Talents.Crusade > 0 {
+		paladin.AddStatDependency(stats.Strength, stats.SpellPower, 0.06*float64(paladin.Talents.Crusade))
+	}
+
+	// Blessed Strikes: attacks ignore up to 180 armor per rank.
+	if paladin.Talents.BlessedStrikes > 0 {
+		paladin.AddStat(stats.ArmorPenetration, 180*float64(paladin.Talents.BlessedStrikes))
+	}
+
+	// Inevitable Justice: +50% crit chance to all Judgements.
+	if paladin.Talents.InevitableJustice {
+		paladin.OnSpellRegistered(func(spell *core.Spell) {
+			switch spell.SpellCode {
+			case SpellCode_PaladinJudgementOfCommand, SpellCode_PaladinJudgementOfRighteousness:
+				spell.BonusCritRating += 50 * core.SpellCritRatingPerCritChance
+			}
+		})
+	}
 
 	paladin.applyRedoubt()
 	paladin.applyReckoning()
@@ -45,11 +74,11 @@ func (paladin *Paladin) ApplyTalents() {
 }
 
 func (paladin *Paladin) improvedSoR() float64 {
-	return []float64{1, 1.03, 1.06, 1.09, 1.12, 1.15}[paladin.Talents.ImprovedSealOfRighteousness]
+	return []float64{1, 1.05, 1.10, 1.15}[paladin.Talents.ImprovedSealOfRighteousness]
 }
 
 func (paladin *Paladin) benediction() int32 {
-	return []int32{100, 97, 94, 91, 88, 85}[paladin.Talents.Benediction]
+	return []int32{100, 90, 80, 70}[paladin.Talents.Benediction]
 }
 
 func (paladin *Paladin) applyRedoubt() {
@@ -119,6 +148,7 @@ func (paladin *Paladin) getWeaponSpecializationModifier() float64 {
 	if handType == proto.HandType_HandTypeMainHand || handType == proto.HandType_HandTypeOneHand {
 		return 1. + 0.02*float64(paladin.Talents.OneHandedWeaponSpecialization)
 	} else if handType == proto.HandType_HandTypeTwoHand {
+		// Current VanillaPlus value after the nerf: +2% damage per rank.
 		return 1. + 0.02*float64(paladin.Talents.TwoHandedWeaponSpecialization)
 	} else {
 		return 1.
@@ -135,19 +165,20 @@ func (paladin *Paladin) applyVengeance() {
 		return
 	}
 
-	vengeanceMultiplier := []float64{1, 1.03, 1.06, 1.09, 1.12, 1.15}[paladin.Talents.Vengeance]
+	// Vengeance: crit gives 20% chance per rank to gain a stack of +2% damage dealt,
+	// stacking up to 10 times, lasting 15 sec.
+	procChance := 0.2 * float64(paladin.Talents.Vengeance)
+	const perStack = 1.02
 
 	procAura := paladin.RegisterAura(core.Aura{
-		Label:    "Vengeance Proc",
-		ActionID: core.ActionID{SpellID: 20059},
-		Duration: time.Second * 8,
-		OnGain: func(aura *core.Aura, sim *core.Simulation) {
-			aura.Unit.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexHoly] *= vengeanceMultiplier
-			aura.Unit.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexPhysical] *= vengeanceMultiplier
-		},
-		OnExpire: func(aura *core.Aura, sim *core.Simulation) {
-			aura.Unit.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexHoly] /= vengeanceMultiplier
-			aura.Unit.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexPhysical] /= vengeanceMultiplier
+		Label:     "Vengeance Proc",
+		ActionID:  core.ActionID{SpellID: 20059},
+		Duration:  time.Second * 15,
+		MaxStacks: 10,
+		OnStacksChange: func(aura *core.Aura, sim *core.Simulation, oldStacks int32, newStacks int32) {
+			mult := math.Pow(perStack, float64(newStacks-oldStacks))
+			aura.Unit.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexHoly] *= mult
+			aura.Unit.PseudoStats.SchoolDamageDealtMultiplier[stats.SchoolIndexPhysical] *= mult
 		},
 	})
 
@@ -158,8 +189,9 @@ func (paladin *Paladin) applyVengeance() {
 			aura.Activate(sim)
 		},
 		OnSpellHitDealt: func(aura *core.Aura, sim *core.Simulation, spell *core.Spell, result *core.SpellResult) {
-			if result.DidCrit() {
+			if result.DidCrit() && (procChance >= 1 || sim.RandomFloat("Vengeance") < procChance) {
 				procAura.Activate(sim)
+				procAura.AddStack(sim)
 			}
 		},
 	})
@@ -191,9 +223,9 @@ func (paladin *Paladin) applyVindication() {
 			paladin.DisableDynamicStatDep(sim, vindicationMultiplier[paladin.Talents.Vindication])
 		},
 	})
-	// 	vindicationAuras := paladin.NewEnemyAuraArray(func(target *core.Unit) *core.Aura {
-	// 		return core.VindicationAura(target, paladin.Talents.Vindication)
-	// 	})
+	// \tvindicationAuras := paladin.NewEnemyAuraArray(func(target *core.Unit) *core.Aura {
+	// \t\treturn core.VindicationAura(target, paladin.Talents.Vindication)
+	// \t})
 	paladin.RegisterAura(core.Aura{
 		Label:    "Vindication Talent",
 		Duration: core.NeverExpires,

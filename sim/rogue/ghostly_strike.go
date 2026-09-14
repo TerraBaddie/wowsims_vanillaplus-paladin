@@ -9,7 +9,7 @@ import (
 )
 
 func (rogue *Rogue) registerGhostlyStrikeSpell() {
-	if !rogue.Talents.GhostlyStrike {
+	if true { // TODO: Ghostly Strike removed from custom tree
 		return
 	}
 

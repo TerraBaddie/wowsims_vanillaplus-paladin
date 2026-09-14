@@ -71,10 +71,28 @@ export class Database {
 	private readonly presetTargets = new Map<string, PresetTarget>();
 	private readonly itemIcons: Record<number, Promise<IconData>> = {};
 	private readonly spellIcons: Record<number, Promise<IconData>> = {};
+	// Synchronous mirror of itemIcons, for cheap local-tooltip lookups below. Covers
+	// items that aren't in `items` at all (e.g. enchant reagent items excluded from
+	// the equippable-gear allowlist) but still carry a local ItemIconoverrides tooltip.
+	private readonly itemIconsSync = new Map<number, IconData>();
 	private loadedLeftovers = false;
+
+	// Synchronous handle to the loaded DB, for cheap lookups (e.g. local tooltips).
+	private static instance: Database | null = null;
+
+	static hasLocalItemTooltip(itemId: number): boolean {
+		if (Database.instance?.items.get(itemId)?.tooltip) return true;
+		return !!Database.instance?.itemIconsSync.get(itemId)?.tooltip;
+	}
+	static localItemTooltip(itemId: number): string {
+		const itemTooltip = Database.instance?.items.get(itemId)?.tooltip;
+		if (itemTooltip) return itemTooltip;
+		return Database.instance?.itemIconsSync.get(itemId)?.tooltip ?? '';
+	}
 
 	private constructor(db: UIDatabase) {
 		this.loadProto(db);
+		Database.instance = this;
 	}
 
 	// Add all data from the db proto into this database.
@@ -111,7 +129,10 @@ export class Database {
 				)),
 		);
 
-		db.itemIcons.forEach(data => (this.itemIcons[data.id] = Promise.resolve(data)));
+		db.itemIcons.forEach(data => {
+			this.itemIcons[data.id] = Promise.resolve(data);
+			this.itemIconsSync.set(data.id, data);
+		});
 		db.spellIcons.forEach(data => (this.spellIcons[data.id] = Promise.resolve(data)));
 	}
 
@@ -268,6 +289,7 @@ export class Database {
 				icon: json['icon'],
 				hasBuff: json['buff'] !== '',
 				rank: rank,
+				tooltip: json['tooltip'] ?? '',
 			});
 		} catch (e) {
 			console.error('Error while fetching url: ' + url + '\n\n' + e);

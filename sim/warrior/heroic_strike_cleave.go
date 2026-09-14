@@ -51,7 +51,7 @@ func (warrior *Warrior) registerCleaveSpell(realismICD *core.Cooldown) {
 	spellID := int32(20569)
 	threat := 100.0
 
-	flatDamageBonus *= []float64{1, 1.4, 1.8, 2.2}[warrior.Talents.ImprovedCleave]
+	flatDamageBonus *= []float64{1, 1.4, 1.8, 2.2}[warrior.Talents.Cleaving] // TODO: Cleaving is a different effect in the custom tree
 
 	results := make([]*core.SpellResult, min(int32(2), warrior.Env.GetNumTargets()))
 

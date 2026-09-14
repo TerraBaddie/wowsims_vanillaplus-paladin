@@ -3,19 +3,19 @@ character_stats_results: {
  value: {
   final_stats: 174.8
   final_stats: 181.7
-  final_stats: 486.68
-  final_stats: 342.7
-  final_stats: 272.55
-  final_stats: 496
+  final_stats: 392.7825
+  final_stats: 316.25
+  final_stats: 253
+  final_stats: 484.41667
   final_stats: 0
   final_stats: 40
   final_stats: 0
   final_stats: 0
   final_stats: 0
-  final_stats: 161
-  final_stats: 41.25
-  final_stats: 0
-  final_stats: 32.35455
+  final_stats: 199
+  final_stats: 48.25
+  final_stats: 1
+  final_stats: 29.91813
   final_stats: 0
   final_stats: 0
   final_stats: 845.8
@@ -24,10 +24,10 @@ character_stats_results: {
   final_stats: 0
   final_stats: 0
   final_stats: 0
-  final_stats: 6233.5
+  final_stats: 5836.75
   final_stats: 0
   final_stats: 0
-  final_stats: 1949.4
+  final_stats: 1852.4
   final_stats: 440
   final_stats: 0
   final_stats: 5
@@ -35,15 +35,15 @@ character_stats_results: {
   final_stats: 11.085
   final_stats: 5
   final_stats: 0
-  final_stats: 6400.8
-  final_stats: 43
-  final_stats: 75
-  final_stats: 76
+  final_stats: 5461.825
+  final_stats: 27
+  final_stats: 65
   final_stats: 60
-  final_stats: 85
+  final_stats: 60
+  final_stats: 75
   final_stats: 384
   final_stats: 0
-  final_stats: 65
+  final_stats: 35
   final_stats: 0
  }
 }
@@ -53,18 +53,18 @@ stat_weights_results: {
   weights: 0
   weights: 0
   weights: 0
-  weights: 0.66509
+  weights: 0.24827
   weights: 0
-  weights: 0.79972
-  weights: 0
-  weights: 0
+  weights: 0.48541
   weights: 0
   weights: 0
   weights: 0
   weights: 0
   weights: 0
-  weights: 10.06486
-  weights: 5.44529
+  weights: 0
+  weights: 0
+  weights: 5.96626
+  weights: 1.96245
   weights: 0
   weights: 0
   weights: 0
@@ -99,147 +99,133 @@ stat_weights_results: {
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-Champion'sDreadgear"
  value: {
-  dps: 929.53259
-  tps: 839.15184
+  dps: 668.14625
+  tps: 569.84785
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-DeathmistRaiment"
  value: {
-  dps: 908.97468
-  tps: 818.38282
+  dps: 677.11566
+  tps: 577.94009
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-Demoniac'sThreads"
  value: {
-  dps: 923.50833
-  tps: 834.52028
- }
-}
-dps_results: {
- key: "TestWarlockSMRuin-Phase1-AllItems-Doomcaller'sAttire"
- value: {
-  dps: 999.05261
-  tps: 900.97494
+  dps: 680.0034
+  tps: 582.38041
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-FelheartRaiment"
  value: {
-  dps: 914.74989
-  tps: 816.86771
+  dps: 737.97533
+  tps: 632.94559
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-FieldMarshal'sThreads"
  value: {
-  dps: 957.9835
-  tps: 868.51832
+  dps: 698.56143
+  tps: 600.03632
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-Hazza'rah'sCharmofDestruction-19957"
  value: {
-  dps: 933.97184
-  tps: 844.28489
+  dps: 670.10904
+  tps: 572.76399
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-IronweaveBattlesuit"
  value: {
-  dps: 797.97757
-  tps: 708.42792
+  dps: 586.82754
+  tps: 486.05045
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-LieutenantCommander'sDreadgear"
  value: {
-  dps: 929.53259
-  tps: 839.15184
+  dps: 668.14625
+  tps: 569.84785
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-NemesisRaiment"
  value: {
-  dps: 954.09715
-  tps: 726.62434
- }
-}
-dps_results: {
- key: "TestWarlockSMRuin-Phase1-AllItems-PlagueheartRaiment"
- value: {
-  dps: 1037.21628
-  tps: 917.54408
+  dps: 726.68223
+  tps: 583.72039
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-TheBlackBook-19337"
  value: {
-  dps: 942.62362
-  tps: 838.55416
+  dps: 682.03543
+  tps: 570.01088
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-AllItems-Warlord'sThreads"
  value: {
-  dps: 957.9835
-  tps: 868.51832
+  dps: 698.56143
+  tps: 600.03632
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-Average-Default"
  value: {
-  dps: 959.78471
-  tps: 870.32574
+  dps: 675.22796
+  tps: 575.05553
  }
 }
 dps_results: {
- key: "TestWarlockSMRuin-Phase1-Settings-Orc-mc-SM/Ruin Warlock-rotation-FullBuffs-Consumes-LongMultiTarget"
+ key: "TestWarlockSMRuin-Phase1-Settings-Orc-prebis-SM/Ruin Warlock-rotation-FullBuffs-Consumes-LongMultiTarget"
  value: {
-  dps: 951.67462
-  tps: 1857.52614
+  dps: 671.24299
+  tps: 1374.54016
  }
 }
 dps_results: {
- key: "TestWarlockSMRuin-Phase1-Settings-Orc-mc-SM/Ruin Warlock-rotation-FullBuffs-Consumes-LongSingleTarget"
+ key: "TestWarlockSMRuin-Phase1-Settings-Orc-prebis-SM/Ruin Warlock-rotation-FullBuffs-Consumes-LongSingleTarget"
  value: {
-  dps: 951.67462
-  tps: 862.78581
+  dps: 671.24299
+  tps: 573.89794
  }
 }
 dps_results: {
- key: "TestWarlockSMRuin-Phase1-Settings-Orc-mc-SM/Ruin Warlock-rotation-FullBuffs-Consumes-ShortSingleTarget"
+ key: "TestWarlockSMRuin-Phase1-Settings-Orc-prebis-SM/Ruin Warlock-rotation-FullBuffs-Consumes-ShortSingleTarget"
  value: {
-  dps: 1016.72286
-  tps: 895.07367
+  dps: 694.43804
+  tps: 586.08067
  }
 }
 dps_results: {
- key: "TestWarlockSMRuin-Phase1-Settings-Orc-mc-SM/Ruin Warlock-rotation-NoBuffs-Consumes-LongMultiTarget"
+ key: "TestWarlockSMRuin-Phase1-Settings-Orc-prebis-SM/Ruin Warlock-rotation-NoBuffs-Consumes-LongMultiTarget"
  value: {
-  dps: 501.24429
-  tps: 1578.03126
+  dps: 344.21077
+  tps: 1221.05315
  }
 }
 dps_results: {
- key: "TestWarlockSMRuin-Phase1-Settings-Orc-mc-SM/Ruin Warlock-rotation-NoBuffs-Consumes-LongSingleTarget"
+ key: "TestWarlockSMRuin-Phase1-Settings-Orc-prebis-SM/Ruin Warlock-rotation-NoBuffs-Consumes-LongSingleTarget"
  value: {
-  dps: 501.24429
-  tps: 503.46438
+  dps: 344.21077
+  tps: 337.59207
  }
 }
 dps_results: {
- key: "TestWarlockSMRuin-Phase1-Settings-Orc-mc-SM/Ruin Warlock-rotation-NoBuffs-Consumes-ShortSingleTarget"
+ key: "TestWarlockSMRuin-Phase1-Settings-Orc-prebis-SM/Ruin Warlock-rotation-NoBuffs-Consumes-ShortSingleTarget"
  value: {
-  dps: 529.78668
-  tps: 523.49664
+  dps: 357.7762
+  tps: 336.32053
  }
 }
 dps_results: {
  key: "TestWarlockSMRuin-Phase1-SwitchInFrontOfTarget-Default"
  value: {
-  dps: 951.67462
-  tps: 862.78581
+  dps: 671.24299
+  tps: 573.89794
  }
 }

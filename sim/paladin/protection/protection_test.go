@@ -33,7 +33,7 @@ func TestProtection(t *testing.T) {
 	}))
 }
 
-var Phase4ProtTalents = "-053020335001551-0500535"
+var Phase4ProtTalents = ""
 
 var Phase4Consumes = core.ConsumesCombo{
 	Label: "P4-Consumes",

@@ -29,7 +29,7 @@ func (druid *Druid) registerShredSpell() {
 		Flags:       core.SpellFlagMeleeMetrics | core.SpellFlagAPL | SpellFlagOmen | SpellFlagBuilder,
 
 		EnergyCost: core.EnergyCostOptions{
-			Cost:   60 - 6*float64(druid.Talents.ImprovedShred),
+			Cost:   60 - 6*float64(int32(0) /*removed*/),
 			Refund: 0.8,
 		},
 		Cast: core.CastConfig{

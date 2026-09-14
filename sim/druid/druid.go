@@ -12,7 +12,7 @@ const (
 	SpellFlagBuilder = core.SpellFlagAgentReserved2
 )
 
-var TalentTreeSizes = [3]int{16, 16, 15}
+var TalentTreeSizes = [3]int{19, 20, 20}
 
 const (
 	SpellCode_DruidNone int32 = iota
@@ -223,6 +223,7 @@ func New(character *core.Character, form DruidForm, selfBuffs SelfBuffs, talents
 	druid.AddStatDependency(stats.Agility, stats.MeleeCrit, core.CritPerAgiAtLevel[character.Class]*core.CritRatingPerCritChance)
 	druid.AddStatDependency(stats.Agility, stats.Dodge, core.DodgePerAgiAtLevel[character.Class]*core.DodgeRatingPerDodgeChance)
 	druid.AddStatDependency(stats.Intellect, stats.SpellCrit, core.CritPerIntAtLevel[character.Class]*core.SpellCritRatingPerCritChance)
+	druid.AddStatDependency(stats.Intellect, stats.SpellPower, core.SpellPowerPerIntellect)
 	druid.AddStatDependency(stats.BonusArmor, stats.Armor, 1)
 
 	// Druids get extra melee haste

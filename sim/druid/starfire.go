@@ -32,6 +32,7 @@ func (druid *Druid) newStarfireSpellConfig(rank int) core.SpellConfig {
 	baseDamageHigh := StarfireBaseDamage[rank][1]
 	manaCost := StarfireManaCost[rank]
 	level := StarfireLevel[rank]
+	hasTalonclaw8pc := druid.HasSetBonus(ItemSetTalonclawRegalia, 8)
 
 	castTime := 3500
 
@@ -52,7 +53,7 @@ func (druid *Druid) newStarfireSpellConfig(rank int) core.SpellConfig {
 		Cast: core.CastConfig{
 			DefaultCast: core.Cast{
 				GCD:      core.GCDDefault,
-				CastTime: time.Millisecond*time.Duration(castTime) - time.Millisecond*100*time.Duration(druid.Talents.ImprovedStarfire),
+				CastTime: time.Millisecond*time.Duration(castTime) - time.Millisecond*100*time.Duration(druid.Talents.StarlightWrath),
 			},
 		},
 
@@ -62,6 +63,9 @@ func (druid *Druid) newStarfireSpellConfig(rank int) core.SpellConfig {
 
 		ApplyEffects: func(sim *core.Simulation, target *core.Unit, spell *core.Spell) {
 			baseDamage := sim.Roll(baseDamageLow, baseDamageHigh)
+			if hasTalonclaw8pc && druid.TargetHasMoonfire(target) {
+				baseDamage *= 1.05
+			}
 			spell.CalcAndDealDamage(sim, target, baseDamage, spell.OutcomeMagicHitAndCrit)
 		},
 	}

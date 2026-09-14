@@ -31,7 +31,7 @@ func (mage *Mage) applyArcaneTalents() {
 
 	// Arcane Focus
 	if mage.Talents.ArcaneFocus > 0 {
-		bonusHit := 2 * float64(mage.Talents.ArcaneFocus) * core.SpellHitRatingPerHitChance
+		bonusHit := 1 * float64(mage.Talents.ArcaneFocus) * core.SpellHitRatingPerHitChance // DBC: 1%/rank
 		mage.OnSpellRegistered(func(spell *core.Spell) {
 			if spell.SpellSchool.Matches(core.SpellSchoolArcane) && spell.Flags.Matches(SpellFlagMage) {
 				spell.BonusHitRating += bonusHit
@@ -46,10 +46,11 @@ func (mage *Mage) applyArcaneTalents() {
 	}
 
 	// Arcane Meditation
-	mage.PseudoStats.SpiritRegenRateCasting += 0.05 * float64(mage.Talents.ArcaneMeditation)
+	mage.PseudoStats.SpiritRegenRateCasting += 0.10 * float64(mage.Talents.ArcaneMeditation) // DBC: 10%/rank
 
 	if mage.Talents.ArcaneMind > 0 {
-		mage.MultiplyStat(stats.Mana, 1.0+0.02*float64(mage.Talents.ArcaneMind))
+		// DBC: +3%/rank total Intellect (not Mana).
+		mage.MultiplyStat(stats.Intellect, 1.0+0.03*float64(mage.Talents.ArcaneMind))
 	}
 
 	// Arcane Instability
@@ -64,6 +65,36 @@ func (mage *Mage) applyArcaneTalents() {
 			}
 		})
 	}
+
+	// Time Pressure (DBC): +4%/rank casting speed.
+	if mage.Talents.TimePressure > 0 {
+		mage.MultiplyCastSpeed(1.0 + 0.04*float64(mage.Talents.TimePressure))
+	}
+
+	// Overheat (DBC): +2%/rank spell crit (all schools).
+	if mage.Talents.Overheat > 0 {
+		bonusCrit := 2 * float64(mage.Talents.Overheat) * core.SpellCritRatingPerCritChance
+		mage.OnSpellRegistered(func(spell *core.Spell) {
+			if spell.Flags.Matches(SpellFlagMage) {
+				spell.BonusCritRating += bonusCrit
+			}
+		})
+	}
+
+	// Arcane Wrath (DBC): +50%/rank Arcane crit strike damage bonus.
+	if mage.Talents.ArcaneWrath > 0 {
+		critBonus := 0.5 * float64(mage.Talents.ArcaneWrath)
+		mage.OnSpellRegistered(func(spell *core.Spell) {
+			if spell.SpellSchool.Matches(core.SpellSchoolArcane) && spell.Flags.Matches(SpellFlagMage) {
+				spell.CritDamageBonus += critBonus
+			}
+		})
+	}
+
+	// Mind Mastery (DBC): spell damage up to 5%/rank of total Intellect.
+	if mage.Talents.MindMastery > 0 {
+		mage.AddStatDependency(stats.Intellect, stats.SpellPower, 0.05*float64(mage.Talents.MindMastery))
+	}
 }
 
 func (mage *Mage) applyFireTalents() {
@@ -72,6 +103,17 @@ func (mage *Mage) applyFireTalents() {
 	mage.applyMasterOfElements()
 
 	mage.registerCombustionCD()
+
+	// Incinerate (DBC): +3%/rank crit for Fire Blast, Scorch, Flamestrike and Blast Wave.
+	if mage.Talents.Incinerate > 0 {
+		bonusCrit := 3 * float64(mage.Talents.Incinerate) * core.SpellCritRatingPerCritChance
+		mage.OnSpellRegistered(func(spell *core.Spell) {
+			switch spell.SpellCode {
+			case SpellCode_MageFireBlast, SpellCode_MageScorch, SpellCode_MageFlamestrike, SpellCode_MageBlastWave:
+				spell.BonusCritRating += bonusCrit
+			}
+		})
+	}
 
 	// Burning Soul
 	if mage.Talents.BurningSoul > 0 {
@@ -85,7 +127,7 @@ func (mage *Mage) applyFireTalents() {
 
 	// Critical Mass
 	if mage.Talents.CriticalMass > 0 {
-		bonusCrit := 2 * float64(mage.Talents.CriticalMass) * core.SpellCritRatingPerCritChance
+		bonusCrit := 1 * float64(mage.Talents.CriticalMass) * core.SpellCritRatingPerCritChance // DBC: 1%/rank
 		mage.OnSpellRegistered(func(spell *core.Spell) {
 			if spell.SpellSchool.Matches(core.SpellSchoolFire) && spell.Flags.Matches(SpellFlagMage) {
 				spell.BonusCritRating += bonusCrit
@@ -112,7 +154,7 @@ func (mage *Mage) applyFrostTalents() {
 
 	// Elemental Precision
 	if mage.Talents.ElementalPrecision > 0 {
-		bonusHit := 2 * float64(mage.Talents.ElementalPrecision) * core.SpellHitRatingPerHitChance
+		bonusHit := 1 * float64(mage.Talents.ElementalPrecision) * core.SpellHitRatingPerHitChance // DBC: 1%/rank
 
 		mage.OnSpellRegistered(func(spell *core.Spell) {
 			if spell.Flags.Matches(SpellFlagMage) && (spell.SpellSchool.Matches(core.SpellSchoolFire) || spell.SpellSchool.Matches(core.SpellSchoolFrost)) {
@@ -121,10 +163,9 @@ func (mage *Mage) applyFrostTalents() {
 		})
 	}
 
-	// Ice Shards
-	if mage.Talents.IceShards > 0 {
-		critBonus := .20 * float64(mage.Talents.IceShards)
-
+	// Frost Shards (DBC): +20%/rank Frost crit strike damage bonus.
+	if mage.Talents.FrostShards > 0 {
+		critBonus := .20 * float64(mage.Talents.FrostShards)
 		mage.OnSpellRegistered(func(spell *core.Spell) {
 			if spell.SpellSchool.Matches(core.SpellSchoolFrost) && spell.Flags.Matches(SpellFlagMage) {
 				spell.CritDamageBonus += critBonus
@@ -132,20 +173,29 @@ func (mage *Mage) applyFrostTalents() {
 		})
 	}
 
-	// Piercing Ice
-	if mage.Talents.PiercingIce > 0 {
-		bonusDamageMultiplierAdditive := 0.02 * float64(mage.Talents.PiercingIce)
-
+	// Rimebound (DBC): +1%/rank Frost damage.
+	if mage.Talents.Rimebound > 0 {
+		bonus := 0.01 * float64(mage.Talents.Rimebound)
 		mage.OnSpellRegistered(func(spell *core.Spell) {
 			if spell.SpellSchool.Matches(core.SpellSchoolFrost) && spell.Flags.Matches(SpellFlagMage) {
-				spell.DamageMultiplierAdditive += bonusDamageMultiplierAdditive
+				spell.DamageMultiplierAdditive += bonus
+			}
+		})
+	}
+
+	// Arctic Gale (DBC): +2%/rank Frost crit chance.
+	if mage.Talents.ArcticGale > 0 {
+		bonusCrit := 2 * float64(mage.Talents.ArcticGale) * core.SpellCritRatingPerCritChance
+		mage.OnSpellRegistered(func(spell *core.Spell) {
+			if spell.SpellSchool.Matches(core.SpellSchoolFrost) && spell.Flags.Matches(SpellFlagMage) {
+				spell.BonusCritRating += bonusCrit
 			}
 		})
 	}
 
 	// Frost Channeling
 	if mage.Talents.FrostChanneling > 0 {
-		manaCostMultiplier := 5 * mage.Talents.FrostChanneling
+		manaCostMultiplier := 3 * mage.Talents.FrostChanneling // DBC: 3%/rank
 		threatMultiplier := 1 - .10*float64(mage.Talents.FrostChanneling)
 		mage.OnSpellRegistered(func(spell *core.Spell) {
 			if spell.SpellSchool.Matches(core.SpellSchoolFrost) && spell.Flags.Matches(SpellFlagMage) {
@@ -213,7 +263,7 @@ func (mage *Mage) applyArcaneConcentration() {
 }
 
 func (mage *Mage) registerPresenceOfMindCD() {
-	if !mage.Talents.PresenceOfMind {
+	if true { // TODO: Presence of Mind removed from custom tree
 		return
 	}
 
@@ -455,7 +505,7 @@ func (mage *Mage) registerCombustionCD() {
 }
 
 func (mage *Mage) registerColdSnapCD() {
-	if !mage.Talents.ColdSnap {
+	if true { // TODO: Cold Snap removed from custom tree
 		return
 	}
 

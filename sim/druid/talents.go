@@ -315,7 +315,7 @@ func (druid *Druid) applyMoonfury() {
 		return
 	}
 
-	multiplier := 0.02 * float64(druid.Talents.Moonfury)
+	multiplier := 0.03 * float64(druid.Talents.Moonfury) // DBC: 3%/rank
 
 	druid.RegisterAura(core.Aura{
 		Label: "Moonfury",
@@ -344,7 +344,7 @@ func (druid *Druid) applyImprovedMoonfire() {
 	}
 
 	damageMultiplier := 0.02 * float64(druid.Talents.ImprovedMoonfire)
-	bonusCrit := 2 * float64(druid.Talents.ImprovedMoonfire) * core.SpellCritRatingPerCritChance
+	bonusCrit := 10 * float64(druid.Talents.ImprovedMoonfire) * core.SpellCritRatingPerCritChance // DBC: 10%/rank
 
 	druid.RegisterAura(core.Aura{
 		Label: "Improved moonfire",

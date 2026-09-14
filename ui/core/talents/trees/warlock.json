@@ -4,105 +4,10 @@
     "backgroundUrl": "https://wow.zamimg.com/images/wow/talents/backgrounds/classic/302.jpg",
     "talents": [
       {
-        "fieldName": "suppression",
-        "location": {
-          "rowIdx": 0,
-          "colIdx": 1
-        },
-        "spellIds": [
-          18174,
-          18175,
-          18176,
-          18177,
-          18178
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "improvedCorruption",
-        "location": {
-          "rowIdx": 0,
-          "colIdx": 2
-        },
-        "spellIds": [
-          17810,
-          17811,
-          17812,
-          17813,
-          17814
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "improvedCurseOfWeakness",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 0
-        },
-        "spellIds": [
-          18179,
-          18180,
-          18181
-        ],
-        "maxPoints": 3
-      },
-      {
-        "fieldName": "improvedDrainSoul",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 1
-        },
-        "spellIds": [
-          18213,
-          18372
-        ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "improvedLifeTap",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 2
-        },
-        "spellIds": [
-          18182,
-          18183
-        ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "improvedDrainLife",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 3
-        },
-        "spellIds": [
-          17804,
-          17805,
-          17806,
-          17807,
-          17808
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "improvedCurseOfAgony",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 0
-        },
-        "spellIds": [
-          18827,
-          18829,
-          18830
-        ],
-        "maxPoints": 3
-      },
-      {
         "fieldName": "felConcentration",
         "location": {
-          "rowIdx": 2,
-          "colIdx": 1
+          "rowIdx": 0,
+          "colIdx": 0
         },
         "spellIds": [
           17783,
@@ -111,7 +16,138 @@
           17786,
           17787
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Gives you a 14% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.",
+          "Gives you a 28% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.",
+          "Gives you a 42% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.",
+          "Gives you a 56% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell.",
+          "Gives you a 70% chance to avoid interruption caused by damage while channeling the Drain Life, Drain Mana, or Drain Soul spell."
+        ]
+      },
+      {
+        "fieldName": "improvedLifeTap",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 1
+        },
+        "spellIds": [
+          18182,
+          18183
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the amount of Mana awarded by your Life Tap spell by 10%.",
+          "Increases the amount of Mana awarded by your Life Tap spell by 20%."
+        ]
+      },
+      {
+        "fieldName": "jinx",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 2
+        },
+        "spellIds": [
+          18310,
+          18311,
+          18312
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases the effect of your Curse of Exhaustion and Curse of Weakness by 10% and the duration of your Curse of Weakness, Curse of Recklessness, Curse of Shadow and Curse of the Elements by 30 sec.",
+          "Increases the effect of your Curse of Exhaustion and Curse of Weakness by 20% and the duration of your Curse of Weakness, Curse of Recklessness, Curse of Shadow and Curse of the Elements by 60 sec.",
+          "Increases the effect of your Curse of Exhaustion and Curse of Weakness by 30% and the duration of your Curse of Weakness, Curse of Recklessness, Curse of Shadow and Curse of the Elements by 90 sec."
+        ]
+      },
+      {
+        "fieldName": "improvedDrain",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 0
+        },
+        "spellIds": [
+          17864,
+          18393
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the Health drained by your Drain Life spell by 10% and causes 25% of the Mana drained by your Drain Mana spell to damage the opponent.",
+          "Increases the Health drained by your Drain Life spell by 20% and causes 50% of the Mana drained by your Drain Mana spell to damage the opponent."
+        ]
+      },
+      {
+        "fieldName": "suppression",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 1
+        },
+        "spellIds": [
+          18174,
+          18175
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the range of your Affliction spells by 5 yds and reduces the chance for enemies to resist your Affliction spells by 2%.",
+          "Increases the range of your Affliction spells by 10 yds and reduces the chance for enemies to resist your Affliction spells by 4%."
+        ]
+      },
+      {
+        "fieldName": "improvedCurseOfAgony",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 2
+        },
+        "spellIds": [
+          18827,
+          18829,
+          18830
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases the damage done by your Curse of Agony by 2%.",
+          "Increases the damage done by your Curse of Agony by 3%.",
+          "Increases the damage done by your Curse of Agony by 6%."
+        ]
+      },
+      {
+        "fieldName": "dread",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 3
+        },
+        "spellIds": [
+          35732,
+          35733,
+          35734,
+          35735,
+          35736
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Reduces the casting time of Fear and Howl of Terror spells by 0.1 sec, gives them a 15% chance to avoid cast interruption caused by damage and increases the duration of Death Coil by 0.2 sec.",
+          "Reduces the casting time of Fear and Howl of Terror spells by 0.2 sec, gives them a 30% chance to avoid cast interruption caused by damage and increases the duration of Death Coil by 0.4 sec.",
+          "Reduces the casting time of Fear and Howl of Terror spells by 0.3 sec, gives them a 45% chance to avoid cast interruption caused by damage and increases the duration of Death Coil by 0.6 sec.",
+          "Reduces the casting time of Fear and Howl of Terror spells by 0.4 sec, gives them a 60% chance to avoid cast interruption caused by damage and increases the duration of Death Coil by 0.8 sec.",
+          "Reduces the casting time of Fear and Howl of Terror spells by 0.5 sec, gives them a 75% chance to avoid cast interruption caused by damage and increases the duration of Death Coil by 1 sec."
+        ]
+      },
+      {
+        "fieldName": "blackSpeech",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33928,
+          33929,
+          33930
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases your chance to resist Silence and Interrupt effects by an additional 10%.",
+          "Increases your chance to resist Silence and Interrupt effects by an additional 20%.",
+          "Increases your chance to resist Silence and Interrupt effects by an additional 30%."
+        ]
       },
       {
         "fieldName": "amplifyCurse",
@@ -122,19 +158,52 @@
         "spellIds": [
           18288
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "prereqLocation": {
+          "rowIdx": 1,
+          "colIdx": 2
+        },
+        "descriptions": [
+          "Increases the effect of your next Curse by 50%. Lasts 10 sec."
+        ]
       },
       {
-        "fieldName": "grimReach",
+        "fieldName": "improvedCorruption",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 3
+        },
+        "spellIds": [
+          17810,
+          17811,
+          17812,
+          17813,
+          17814
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Reduces the mana cost and threat caused by your Corruption spell by 6%.",
+          "Reduces the mana cost and threat caused by your Corruption spell by 12%.",
+          "Reduces the mana cost and threat caused by your Corruption spell by 18%.",
+          "Reduces the mana cost and threat caused by your Corruption spell by 24%.",
+          "Reduces the mana cost and threat caused by your Corruption spell by 30%."
+        ]
+      },
+      {
+        "fieldName": "improvedDrainSoul",
         "location": {
           "rowIdx": 3,
           "colIdx": 0
         },
         "spellIds": [
-          18218,
-          18219
+          18213,
+          18372
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Reduces the cooldown of the Drain Soul spell by 5 sec. Also gives you a 50% chance to regenerate 10% of your Health and Mana over 20 sec if the target is killed by you while you drain its soul. This effect stacks up to 5 times.",
+          "Reduces the cooldown of the Drain Soul spell by 10 sec. Also gives you a 100% chance to regenerate 10% of your Health and Mana over 20 sec if the target is killed by you while you drain its soul. This effect stacks up to 5 times."
+        ]
       },
       {
         "fieldName": "nightfall",
@@ -144,71 +213,91 @@
         },
         "spellIds": [
           18094,
-          18095
+          18095,
+          34313
         ],
-        "maxPoints": 2
+        "maxPoints": 3,
+        "descriptions": [
+          "Your periodic Shadow damage have a 1% chance to cause you to enter a Shadow Trance state. The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by 100%. Can occur only once per 10 sec.",
+          "Your periodic Shadow damage have a 2% chance to cause you to enter a Shadow Trance state. The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by 100%. Can occur only once per 10 sec.",
+          "Your periodic Shadow damage have a 3% chance to cause you to enter a Shadow Trance state. The Shadow Trance state reduces the casting time of your next Shadow Bolt spell by 100%. Can occur only once per 10 sec."
+        ]
       },
       {
-        "fieldName": "improvedDrainMana",
+        "fieldName": "heraldOfWoe",
         "location": {
           "rowIdx": 3,
-          "colIdx": 3
+          "colIdx": 2
         },
         "spellIds": [
-          17864,
-          18393
+          33931,
+          33932,
+          34006
         ],
-        "maxPoints": 2
+        "maxPoints": 3,
+        "prereqLocation": {
+          "rowIdx": 2,
+          "colIdx": 2
+        },
+        "descriptions": [
+          "Decreases the cooldown of your Amplify Curse, Death and Decay and Death Coil spells by 20%.",
+          "Decreases the cooldown of your Amplify Curse, Death and Decay and Death Coil spells by 40%.",
+          "Decreases the cooldown of your Amplify Curse, Death and Decay and Death Coil spells by 60%."
+        ]
       },
       {
         "fieldName": "siphonLife",
         "location": {
           "rowIdx": 4,
-          "colIdx": 1
+          "colIdx": 0
         },
         "spellIds": [
           18265
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "descriptions": [
+          "Transfers 20 health from the target to the caster every 3 sec. Lasts for 30 sec."
+        ]
       },
       {
-        "fieldName": "curseOfExhaustion",
+        "fieldName": "witheringShroud",
         "location": {
           "rowIdx": 4,
           "colIdx": 2
         },
         "spellIds": [
-          18223
+          34410,
+          34412
         ],
-        "maxPoints": 1,
-        "prereqLocation": {
-          "rowIdx": 2,
-          "colIdx": 2
-        }
+        "maxPoints": 2,
+        "descriptions": [
+          "Afflicts nearby enemies with a disease that deals Shadow damage equal to your level every 4 sec. and slows their movement and attack speed by 5%. Lasts 12 sec.",
+          "Afflicts nearby enemies with a disease that deals Shadow damage equal to twice your level every 4 sec. and slows their movement and attack speed by 10%. Lasts 12 sec."
+        ]
       },
       {
-        "fieldName": "improvedCurseOfExhaustion",
+        "fieldName": "deathAndDecay",
         "location": {
           "rowIdx": 4,
           "colIdx": 3
         },
         "spellIds": [
-          18310,
-          18311,
-          18312,
-          18313
+          33926
         ],
-        "maxPoints": 4,
+        "maxPoints": 1,
         "prereqLocation": {
-          "rowIdx": 4,
-          "colIdx": 2
-        }
+          "rowIdx": 2,
+          "colIdx": 3
+        },
+        "descriptions": [
+          "Invokes the malignant power of death and decay, reducing the effectiveness of any healing by 20% and inflicting Shadow damage equal to your level to nearby enemies every 2 seconds for 30 sec."
+        ]
       },
       {
         "fieldName": "shadowMastery",
         "location": {
           "rowIdx": 5,
-          "colIdx": 1
+          "colIdx": 0
         },
         "spellIds": [
           18271,
@@ -220,19 +309,73 @@
         "maxPoints": 5,
         "prereqLocation": {
           "rowIdx": 4,
-          "colIdx": 1
-        }
+          "colIdx": 0
+        },
+        "descriptions": [
+          "Increases the damage dealt or life drained by your Shadow spells by 2%.",
+          "Increases the damage dealt or life drained by your Shadow spells by 4%.",
+          "Increases the damage dealt or life drained by your Shadow spells by 6%.",
+          "Increases the damage dealt or life drained by your Shadow spells by 8%.",
+          "Increases the damage dealt or life drained by your Shadow spells by 10%."
+        ]
       },
       {
-        "fieldName": "darkPact",
+        "fieldName": "inevitableDoom",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33933,
+          33934,
+          33935,
+          33936,
+          33937
+        ],
+        "maxPoints": 5,
+        "prereqLocation": {
+          "rowIdx": 3,
+          "colIdx": 1
+        },
+        "descriptions": [
+          "Gives your Affliction spells an additional 5% chance to resist dispel effects. Also, it reduces the cooldown and duration of your Curse of Doom by 10%, increases its damage and reduces threat caused by 20%.",
+          "Gives your Affliction spells an additional 10% chance to resist dispel effects. Also, it reduces the cooldown and duration of your Curse of Doom by 20%, increases its damage and reduces threat caused by 40%.",
+          "Gives your Affliction spells an additional 15% chance to resist dispel effects. Also, it reduces the cooldown and duration of your Curse of Doom by 30%, increases its damage and reduces threat caused by 60%.",
+          "Gives your Affliction spells an additional 20% chance to resist dispel effects. Also, it reduces the cooldown and duration of your Curse of Doom by 40%, increases its damage and reduces threat caused by 80%.",
+          "Gives your Affliction spells an additional 25% chance to resist dispel effects. Also, it reduces the cooldown and duration of your Curse of Doom by 50%, increases its damage and reduces threat caused by 100%."
+        ]
+      },
+      {
+        "fieldName": "prolongedMisery",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 2
+        },
+        "spellIds": [
+          33938,
+          33939,
+          34409
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases the duration of your Corruption, Curse of Agony, Curse of Exhaustion and Immolate spells by 2 sec.",
+          "Increases the duration of your Corruption, Curse of Agony, Curse of Exhaustion and Immolate spells by 4 sec.",
+          "Increases the duration of your Corruption, Curse of Agony, Curse of Exhaustion and Immolate spells by 6 sec."
+        ]
+      },
+      {
+        "fieldName": "defiler",
         "location": {
           "rowIdx": 6,
           "colIdx": 1
         },
         "spellIds": [
-          18220
+          34305
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "descriptions": [
+          "Reduces the time between periodic ticks, duration, and global cooldown of your spells by 20%. Also, your Drain spells now affect one extra target."
+        ]
       }
     ]
   },
@@ -241,34 +384,111 @@
     "backgroundUrl": "https://wow.zamimg.com/images/wow/talents/backgrounds/classic/303.jpg",
     "talents": [
       {
-        "fieldName": "improvedHealthstone",
+        "fieldName": "improvedImp",
         "location": {
           "rowIdx": 0,
           "colIdx": 0
         },
         "spellIds": [
-          18692,
-          18693
+          18694,
+          18695
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effect of your Imp's Firebolt, Fire Shield, and Blood Pact spells by 15%.",
+          "Increases the effect of your Imp's Firebolt, Fire Shield, and Blood Pact spells by 30%."
+        ]
       },
       {
-        "fieldName": "improvedImp",
+        "fieldName": "improvedHealthstone",
         "location": {
           "rowIdx": 0,
           "colIdx": 1
         },
         "spellIds": [
-          18694,
-          18695,
-          18696
+          18692,
+          18693
         ],
-        "maxPoints": 3
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the amount of Health restored by your Healthstone by 10%.",
+          "Increases the amount of Health restored by your Healthstone by 20%."
+        ]
+      },
+      {
+        "fieldName": "unholyPower",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 2
+        },
+        "spellIds": [
+          18769,
+          18770,
+          18771,
+          18772,
+          18773
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the damage done by your Imp, Voidwalker, Succubus, and Felhunter by 3%.",
+          "Increases the damage done by your Imp, Voidwalker, Succubus, and Felhunter by 6%.",
+          "Increases the damage done by your Imp, Voidwalker, Succubus, and Felhunter by 9%.",
+          "Increases the damage done by your Imp, Voidwalker, Succubus, and Felhunter by 12%.",
+          "Increases the damage done by your Imp, Voidwalker, Succubus, and Felhunter by 15%."
+        ]
+      },
+      {
+        "fieldName": "improvedHealthFunnel",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 3
+        },
+        "spellIds": [
+          18703,
+          18704
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effectiveness of your Health Funnel spell by 25%.",
+          "Increases the effectiveness of your Health Funnel spell by 50%."
+        ]
+      },
+      {
+        "fieldName": "improvedVoidwalker",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 0
+        },
+        "spellIds": [
+          18705,
+          18706
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice and Suffering spells by 15%.",
+          "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice and Suffering spells by 30%."
+        ]
+      },
+      {
+        "fieldName": "masterConjuror",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 1
+        },
+        "spellIds": [
+          18767,
+          18768
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Reduces the Mana cost and casting time of your Stone creation spells by 25% and increases the effectiveness of your Spellstones and Firestones by 25%.",
+          "Reduces the Mana cost and casting time of your Stone creation spells by 50% and increases the effectiveness of your Spellstones and Firestones by 50%."
+        ]
       },
       {
         "fieldName": "demonicEmbrace",
         "location": {
-          "rowIdx": 0,
+          "rowIdx": 1,
           "colIdx": 2
         },
         "spellIds": [
@@ -278,60 +498,46 @@
           18700,
           18701
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Regenerates 0% of your Health every 2 sec, and increases the effectiveness of your Demon Skin and Demon Armor spells by 10%. Additionally, while active, your Shadow Ward has a 6% chance to reflect Shadow spells and effects.",
+          "Regenerates 0% of your Health every 2 sec, and increases the effectiveness of your Demon Skin and Demon Armor spells by 20%. Additionally, while active, your Shadow Ward has a 12% chance to reflect Shadow spells and effects.",
+          "Regenerates 0% of your Health every 2 sec, and increases the effectiveness of your Demon Skin and Demon Armor spells by 30%. Additionally, while active, your Shadow Ward has a 18% chance to reflect Shadow spells and effects.",
+          "Regenerates 0% of your Health every 2 sec, and increases the effectiveness of your Demon Skin and Demon Armor spells by 40%. Additionally, while active, your Shadow Ward has a 24% chance to reflect Shadow spells and effects.",
+          "Regenerates 1% of your Health every 2 sec, and increases the effectiveness of your Demon Skin and Demon Armor spells by 50%. Additionally, while active, your Shadow Ward has a 30% chance to reflect Shadow spells and effects."
+        ]
       },
       {
-        "fieldName": "improvedHealthFunnel",
+        "fieldName": "damnedVanguard",
         "location": {
           "rowIdx": 1,
-          "colIdx": 0
+          "colIdx": 3
         },
         "spellIds": [
-          18703,
-          18704
+          33947,
+          33948
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Decreases damage taken by your demons by 15% and increases threat generated by them by 15%.",
+          "Decreases damage taken by your demons by 30% and increases threat generated by them by 30%."
+        ]
       },
       {
-        "fieldName": "improvedVoidwalker",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 1
-        },
-        "spellIds": [
-          18705,
-          18706,
-          18707
-        ],
-        "maxPoints": 3
-      },
-      {
-        "fieldName": "felIntellect",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 2
-        },
-        "spellIds": [
-          18731,
-          18743,
-          18744,
-          18745,
-          18746
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "improvedSayaad",
+        "fieldName": "improvedSuccubus",
         "location": {
           "rowIdx": 2,
           "colIdx": 0
         },
         "spellIds": [
           18754,
-          18755,
-          18756
+          18755
         ],
-        "maxPoints": 3
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effect of your Succubus' Lash of Pain and Soothing Kiss spells by 15%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by 15%.",
+          "Increases the effect of your Succubus' Lash of Pain and Soothing Kiss spells by 30%, and increases the duration of your Succubus' Seduction and Lesser Invisibility spells by 30%."
+        ]
       },
       {
         "fieldName": "felDomination",
@@ -342,18 +548,54 @@
         "spellIds": [
           18708
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "descriptions": [
+          "Your next Imp, Voidwalker, Succubus, or Felhunter Summon spell has its casting time reduced by 4 sec and its Mana cost reduced by 40%. In addition, reduces the casting time of your next Enslave Demon spell by up to 3 sec."
+        ]
       },
       {
-        "fieldName": "felStamina",
+        "fieldName": "demonicOnslaught",
         "location": {
           "rowIdx": 2,
           "colIdx": 2
         },
         "spellIds": [
-          18748
+          33942,
+          33943,
+          33944,
+          33945,
+          33946
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the melee and spell critical strike chance of your Imp, Voidwalker, Succubus, and Felhunter by 4%.",
+          "Increases the melee and spell critical strike chance of your Imp, Voidwalker, Succubus, and Felhunter by 8%.",
+          "Increases the melee and spell critical strike chance of your Imp, Voidwalker, Succubus, and Felhunter by 12%.",
+          "Increases the melee and spell critical strike chance of your Imp, Voidwalker, Succubus, and Felhunter by 16%.",
+          "Increases the melee and spell critical strike chance of your Imp, Voidwalker, Succubus, and Felhunter by 20%."
+        ]
+      },
+      {
+        "fieldName": "felIntellect",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 0
+        },
+        "spellIds": [
+          18731,
+          18743,
+          18744,
+          18745,
+          18746
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the maximum Mana of your demons by 5% and your total Intellect by 5%.",
+          "Increases the maximum Mana of your demons by 10% and your total Intellect by 10%.",
+          "Increases the maximum Mana of your demons by 15% and your total Intellect by 15%.",
+          "Increases the maximum Mana of your demons by 20% and your total Intellect by 20%.",
+          "Increases the maximum Mana of your demons by 25% and your total Intellect by 25%."
+        ]
       },
       {
         "fieldName": "masterSummoner",
@@ -369,65 +611,85 @@
         "prereqLocation": {
           "rowIdx": 2,
           "colIdx": 1
-        }
+        },
+        "descriptions": [
+          "Reduces the casting time of your Imp, Voidwalker, Succubus, and Felhunter Summoning spells by 3 sec and the Mana cost by 30%.",
+          "Reduces the casting time of your Imp, Voidwalker, Succubus, and Felhunter Summoning spells by 6 sec and the Mana cost by 60%."
+        ]
       },
       {
-        "fieldName": "unholyPower",
+        "fieldName": "felStamina",
         "location": {
           "rowIdx": 3,
-          "colIdx": 2
+          "colIdx": 3
         },
         "spellIds": [
-          18769,
-          18770,
-          18771,
-          18772,
-          18773
+          18748,
+          18749,
+          18750,
+          18751,
+          18752
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the maximum Health of your demons by 5% and your total Stamina by 5%.",
+          "Increases the maximum Health of your demons by 10% and your total Stamina by 10%.",
+          "Increases the maximum Health of your demons by 15% and your total Stamina by 15%.",
+          "Increases the maximum Health of your demons by 20% and your total Stamina by 20%.",
+          "Increases the maximum Health of your demons by 25% and your total Stamina by 25%."
+        ]
       },
       {
-        "fieldName": "improvedSubjugateDemon",
+        "fieldName": "improvedFelhunter",
         "location": {
           "rowIdx": 4,
           "colIdx": 0
         },
         "spellIds": [
-          18821,
-          18823,
-          18824,
-          18825
+          34290,
+          34291
         ],
-        "maxPoints": 5
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effectiveness of your Felhunter's Mana Burn and Paranoia spells by 15% and reduces the cooldown of your Felhunter's Devour Magic and Spell Lock spells by 15%.",
+          "Increases the effectiveness of your Felhunter's Mana Burn and Paranoia spells by 30% and reduces the cooldown of your Felhunter's Devour Magic and Spell Lock spells by 30%."
+        ]
       },
       {
-        "fieldName": "demonicSacrifice",
+        "fieldName": "soulLink",
         "location": {
           "rowIdx": 4,
           "colIdx": 1
         },
         "spellIds": [
-          18788
+          19028
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "descriptions": [
+          "When active, 20% of all damage taken by the caster is taken by your summoned demon instead. In addition, the demon shares the master's stats, and both the demon and master will inflict 5% more damage. Lasts as long as the demon is active."
+        ]
       },
       {
-        "fieldName": "improvedFirestone",
+        "fieldName": "improvedEnslaveDemon",
         "location": {
           "rowIdx": 4,
           "colIdx": 3
         },
         "spellIds": [
-          18767,
-          18768
+          18821,
+          18822
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Reduces the Attack Speed penalty of your Enslave Demon spell by 20% and reduces the chance it will be resisted by 5%.",
+          "Reduces the Attack Speed penalty of your Enslave Demon spell by 40% and reduces the chance it will be resisted by 10%."
+        ]
       },
       {
         "fieldName": "masterDemonologist",
         "location": {
           "rowIdx": 5,
-          "colIdx": 2
+          "colIdx": 0
         },
         "spellIds": [
           23785,
@@ -437,37 +699,57 @@
           23825
         ],
         "maxPoints": 5,
-        "prereqLocation": {
-          "rowIdx": 3,
-          "colIdx": 2
-        }
+        "descriptions": [
+          "Grants both the Warlock and the summoned demon an effect as long as that demon is active. Imp - Increases your critical strike chance by 3%. Voidwalker - Reduces physical damage taken by 3%. Succubus - Increases all damage caused by 3%. Felhunter - Increases all resistances by .2 per level.",
+          "Grants both the Warlock and the summoned demon an effect as long as that demon is active. Imp - Increases your critical strike chance by 6%. Voidwalker - Reduces physical damage taken by 6%. Succubus - Increases all damage caused by 6%. Felhunter - Increases all resistances by .4 per level.",
+          "Grants both the Warlock and the summoned demon an effect as long as that demon is active. Imp - Increases your critical strike chance by 9%. Voidwalker - Reduces physical damage taken by 9%. Succubus - Increases all damage caused by 9%. Felhunter - Increases all resistances by .6 per level.",
+          "Grants both the Warlock and the summoned demon an effect as long as that demon is active. Imp - Increases your critical strike chance by 12%. Voidwalker - Reduces physical damage taken by 12%. Succubus - Increases all damage caused by 12%. Felhunter - Increases all resistances by .8 per level.",
+          "Grants both the Warlock and the summoned demon an effect as long as that demon is active. Imp - Increases your critical strike chance by 15%. Voidwalker - Reduces physical damage taken by 15%. Succubus - Increases all damage caused by 15%. Felhunter - Increases all resistances by 1 per level."
+        ]
       },
       {
-        "fieldName": "soulLink",
+        "fieldName": "felPact",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 2
+        },
+        "spellIds": [
+          33952,
+          33953,
+          33954,
+          33955,
+          33956
+        ],
+        "maxPoints": 5,
+        "prereqLocation": {
+          "rowIdx": 2,
+          "colIdx": 2
+        },
+        "descriptions": [
+          "Demon's critical hits from a spells or abilities have a 8% chance to generate 15% of your total total Mana over 15 sec. In addition, your spell casts have a 2% chance to regenerate 30% of demon's total Health over 15 sec.",
+          "Demon's critical hits from a spells or abilities have a 16% chance to generate 15% of your total total Mana over 15 sec. In addition, your spell casts have a 4% chance to regenerate 30% of demon's total Health over 15 sec.",
+          "Demon's critical hits from a spells or abilities have a 24% chance to generate 15% of your total total Mana over 15 sec. In addition, your spell casts have a 6% chance to regenerate 30% of demon's total Health over 15 sec.",
+          "Demon's critical hits from a spells or abilities have a 32% chance to generate 15% of your total total Mana over 15 sec. In addition, your spell casts have a 8% chance to regenerate 30% of demon's total Health over 15 sec.",
+          "Demon's critical hits from a spells or abilities have a 40% chance to generate 15% of your total total Mana over 15 sec. In addition, your spell casts have a 10% chance to regenerate 30% of demon's total Health over 15 sec."
+        ]
+      },
+      {
+        "fieldName": "demonicSacrifice",
         "location": {
           "rowIdx": 6,
           "colIdx": 1
         },
         "spellIds": [
-          19028
+          18788
         ],
         "maxPoints": 1,
         "prereqLocation": {
           "rowIdx": 4,
           "colIdx": 1
-        }
-      },
-      {
-        "fieldName": "improvedSpellstone",
-        "location": {
-          "rowIdx": 6,
-          "colIdx": 2
         },
-        "spellIds": [
-          18774,
-          18775
-        ],
-        "maxPoints": 2
+        "descriptions": [
+          "When activated, sacrifices your summoned demon to grant you an effect based on demon's type. Imp: Shifts you out of phase with the world for 10 sec and reduces your threat caused by 30% for 5 min. Voidwalker: Shielding nearby group members, absorbing 1151 damage for 30 sec and restores 3% of your total Health every 3 sec for 5 min. Succubus: Increases attack and casting speed of nearby group members by 5% for 30 sec and increases your damage by 5% for 5 min. Felhunter: Protects nearby group memebers from all spells for 3 sec and restores 3% of your total Mana every 3 sec for 5 min."
+        ]
       }
     ]
   },
@@ -476,39 +758,25 @@
     "backgroundUrl": "https://wow.zamimg.com/images/wow/talents/backgrounds/classic/301.jpg",
     "talents": [
       {
-        "fieldName": "improvedShadowBolt",
+        "fieldName": "destructiveReach",
         "location": {
           "rowIdx": 0,
-          "colIdx": 1
+          "colIdx": 0
         },
         "spellIds": [
-          17793,
-          17796,
-          17801,
-          17802,
-          17803
+          17917,
+          17918
         ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "cataclysm",
-        "location": {
-          "rowIdx": 0,
-          "colIdx": 2
-        },
-        "spellIds": [
-          17778,
-          17779,
-          17780,
-          17781,
-          17782
-        ],
-        "maxPoints": 5
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the range of your Destruction spells by 10% and reduces the threat generated by your Destruction spells by 10%.",
+          "Increases the range of your Destruction spells by 20% and reduces the threat generated by your Destruction spells by 20%."
+        ]
       },
       {
         "fieldName": "bane",
         "location": {
-          "rowIdx": 1,
+          "rowIdx": 0,
           "colIdx": 1
         },
         "spellIds": [
@@ -518,51 +786,54 @@
           17791,
           17792
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Reduces the casting time of your Shadow Bolt by 0.1 sec and your Soul Fire by 0.5 sec.",
+          "Reduces the casting time of your Shadow Bolt by 0.2 sec and your Soul Fire by 1 sec.",
+          "Reduces the casting time of your Shadow Bolt by 0.3 sec and your Soul Fire by 1.5 sec.",
+          "Reduces the casting time of your Shadow Bolt by 0.4 sec and your Soul Fire by 2 sec.",
+          "Reduces the casting time of your Shadow Bolt by 0.5 sec and your Soul Fire by 2.5 sec."
+        ]
       },
       {
         "fieldName": "aftermath",
         "location": {
-          "rowIdx": 1,
+          "rowIdx": 0,
           "colIdx": 2
         },
         "spellIds": [
           18119,
           18120,
-          18121,
-          18122,
-          18123
+          18121
         ],
-        "maxPoints": 5
+        "maxPoints": 3,
+        "descriptions": [
+          "Gives your Destruction spells a 10% chance to daze the target for 5 sec.",
+          "Gives your Destruction spells a 20% chance to daze the target for 5 sec.",
+          "Gives your Destruction spells a 30% chance to daze the target for 5 sec."
+        ]
       },
       {
-        "fieldName": "improvedFirebolt",
+        "fieldName": "intensity",
         "location": {
-          "rowIdx": 2,
+          "rowIdx": 1,
           "colIdx": 0
         },
         "spellIds": [
-          18126,
-          18127
+          18135,
+          18136
         ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "improvedLashOfPain",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 1
-        },
-        "spellIds": [
-          18128
-        ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Reduces the chance for enemies to resist your Destruction spells by 2% and gives you a 25% chance to resist interruption caused by damage while casting or channeling any Destruction spell.",
+          "Reduces the chance for enemies to resist your Destruction spells by 4% and gives you a 50% chance to resist interruption caused by damage while casting or channeling any Destruction spell."
+        ]
       },
       {
         "fieldName": "devastation",
         "location": {
-          "rowIdx": 2,
-          "colIdx": 2
+          "rowIdx": 1,
+          "colIdx": 1
         },
         "spellIds": [
           18130,
@@ -571,7 +842,94 @@
           18133,
           18134
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the critical strike chance of your Destruction spells by 1%.",
+          "Increases the critical strike chance of your Destruction spells by 2%.",
+          "Increases the critical strike chance of your Destruction spells by 3%.",
+          "Increases the critical strike chance of your Destruction spells by 4%.",
+          "Increases the critical strike chance of your Destruction spells by 5%."
+        ]
+      },
+      {
+        "fieldName": "demonicPower",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 2
+        },
+        "spellIds": [
+          18126,
+          18127
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Reduces the casting time of your Imp's Firebolt spell by 0.5 sec and increases the critical strike chance of your Succubus' Lash of Pain ability by 30%.",
+          "Reduces the casting time of your Imp's Firebolt spell by 1 sec and increases the critical strike chance of your Succubus' Lash of Pain ability by 60%."
+        ]
+      },
+      {
+        "fieldName": "cataclysm",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 3
+        },
+        "spellIds": [
+          17778,
+          17779,
+          17780
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Reduces the Mana cost of your Destruction spells by 5%.",
+          "Reduces the Mana cost of your Destruction spells by 10%.",
+          "Reduces the Mana cost of your Destruction spells by 15%."
+        ]
+      },
+      {
+        "fieldName": "ruin",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33964,
+          33965,
+          33966,
+          33967,
+          33968
+        ],
+        "maxPoints": 5,
+        "prereqLocation": {
+          "rowIdx": 1,
+          "colIdx": 1
+        },
+        "descriptions": [
+          "Increases the critical strike damage bonus of your Destruction spells by 20%.",
+          "Increases the critical strike damage bonus of your Destruction spells by 40%.",
+          "Increases the critical strike damage bonus of your Destruction spells by 60%.",
+          "Increases the critical strike damage bonus of your Destruction spells by 80%.",
+          "Increases the critical strike damage bonus of your Destruction spells by 100%."
+        ]
+      },
+      {
+        "fieldName": "feedingDemons",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 2
+        },
+        "spellIds": [
+          33969,
+          33970
+        ],
+        "maxPoints": 2,
+        "prereqLocation": {
+          "rowIdx": 1,
+          "colIdx": 2
+        },
+        "descriptions": [
+          "Your spell critical strikes have a 50% chance to restore 6 per level Mana to your demon.",
+          "Your spell critical strikes have a 100% chance to restore 6 per level Mana to your demon."
+        ]
       },
       {
         "fieldName": "shadowburn",
@@ -582,46 +940,54 @@
         "spellIds": [
           17877
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "descriptions": [
+          "Instantly blasts the target for 87 Shadow damage. If the target dies within $d of Shadowburn, and yields experience or honor, the caster gains a Soul Shard."
+        ]
       },
       {
-        "fieldName": "intensity",
-        "location": {
-          "rowIdx": 3,
-          "colIdx": 0
-        },
-        "spellIds": [
-          18135,
-          18136
-        ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "destructiveReach",
+        "fieldName": "improvedShadowBolt",
         "location": {
           "rowIdx": 3,
           "colIdx": 1
         },
         "spellIds": [
-          17917,
-          17918
+          17793,
+          17796,
+          17801,
+          17802,
+          17803
         ],
-        "maxPoints": 2
+        "maxPoints": 5,
+        "descriptions": [
+          "Your Shadow Bolt critical strikes has a 20% chance to increase Shadow damage dealt to the target by 10% for 10 sec.",
+          "Your Shadow Bolt critical strikes has a 40% chance to increase Shadow damage dealt to the target by 10% for 10 sec.",
+          "Your Shadow Bolt critical strikes has a 60% chance to increase Shadow damage dealt to the target by 10% for 10 sec.",
+          "Your Shadow Bolt critical strikes has a 80% chance to increase Shadow damage dealt to the target by 10% for 10 sec.",
+          "Your Shadow Bolt critical strikes has a 100% chance to increase Shadow damage dealt to the target by 10% for 10 sec."
+        ]
       },
       {
-        "fieldName": "improvedSearingPain",
+        "fieldName": "sadism",
         "location": {
           "rowIdx": 3,
-          "colIdx": 3
+          "colIdx": 2
         },
         "spellIds": [
-          17927,
-          17929,
-          17930,
-          17931,
-          17932
+          33972,
+          33973,
+          33974,
+          33975,
+          33976
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Your spell critical strikes have a 8% chance to restore 666 Mana.",
+          "Your spell critical strikes have a 16% chance to restore 666 Mana.",
+          "Your spell critical strikes have a 24% chance to restore 666 Mana.",
+          "Your spell critical strikes have a 32% chance to restore 666 Mana.",
+          "Your spell critical strikes have a 40% chance to restore 666 Mana."
+        ]
       },
       {
         "fieldName": "pyroclasm",
@@ -635,39 +1001,85 @@
         ],
         "maxPoints": 2,
         "prereqLocation": {
-          "rowIdx": 3,
+          "rowIdx": 1,
           "colIdx": 0
-        }
+        },
+        "descriptions": [
+          "Gives your Rain of Fire, Hellfire, and Soul Fire spells a 25% chance to stun the target for 4 sec.",
+          "Gives your Rain of Fire, Hellfire, and Soul Fire spells a 50% chance to stun the target for 4 sec."
+        ]
       },
       {
-        "fieldName": "improvedImmolate",
+        "fieldName": "conflagrate",
         "location": {
           "rowIdx": 4,
           "colIdx": 1
         },
         "spellIds": [
-          17815,
-          17833,
-          17834,
-          17835,
-          17836
+          35737
         ],
-        "maxPoints": 5
+        "maxPoints": 1,
+        "descriptions": [
+          "Ignites the target, consuming your Immolate for instant damage equal to its periodic damage done."
+        ]
       },
       {
-        "fieldName": "ruin",
+        "fieldName": "bringThePain",
         "location": {
           "rowIdx": 4,
           "colIdx": 2
         },
         "spellIds": [
-          17959
+          17927,
+          17929,
+          17930
+        ],
+        "maxPoints": 3,
+        "prereqLocation": {
+          "rowIdx": 3,
+          "colIdx": 2
+        },
+        "descriptions": [
+          "Increases the critical strike chance of your Searing Pain, Conflagrate, Shadowburn and Soul Fire spells by 5%.",
+          "Increases the critical strike chance of your Searing Pain, Conflagrate, Shadowburn and Soul Fire spells by 10%.",
+          "Increases the critical strike chance of your Searing Pain, Conflagrate, Shadowburn and Soul Fire spells by 15%."
+        ]
+      },
+      {
+        "fieldName": "mayhem",
+        "location": {
+          "rowIdx": 4,
+          "colIdx": 3
+        },
+        "spellIds": [
+          34020
         ],
         "maxPoints": 1,
-        "prereqLocation": {
-          "rowIdx": 2,
-          "colIdx": 2
-        }
+        "descriptions": [
+          "When activated, increases the critical strike chance of your next Destruction spell by 100%."
+        ]
+      },
+      {
+        "fieldName": "shadowstorm",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 0
+        },
+        "spellIds": [
+          33978,
+          33979,
+          33980,
+          33981,
+          33982
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the damage done by your Shadow spells by 3%.",
+          "Increases the damage done by your Shadow spells by 6%.",
+          "Increases the damage done by your Shadow spells by 9%.",
+          "Increases the damage done by your Shadow spells by 12%.",
+          "Increases the damage done by your Shadow spells by 15%."
+        ]
       },
       {
         "fieldName": "emberstorm",
@@ -682,22 +1094,46 @@
           17957,
           17958
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the damage done by your Fire spells by 3%.",
+          "Increases the damage done by your Fire spells by 6%.",
+          "Increases the damage done by your Fire spells by 9%.",
+          "Increases the damage done by your Fire spells by 12%.",
+          "Increases the damage done by your Fire spells by 15%."
+        ]
       },
       {
-        "fieldName": "conflagrate",
+        "fieldName": "improvedImmolate",
         "location": {
           "rowIdx": 6,
           "colIdx": 1
         },
         "spellIds": [
-          17962
+          17815
         ],
         "maxPoints": 1,
         "prereqLocation": {
           "rowIdx": 4,
           "colIdx": 1
-        }
+        },
+        "descriptions": [
+          "Allows Immolate to stack up to 2 times."
+        ]
+      },
+      {
+        "fieldName": "shockAndAwe",
+        "location": {
+          "rowIdx": 6,
+          "colIdx": 2
+        },
+        "spellIds": [
+          33983
+        ],
+        "maxPoints": 1,
+        "descriptions": [
+          "Stuns the target for 4 sec. While stunned, the target receives an additional 20% damage from all sources and cannot be healed."
+        ]
       }
     ]
   }

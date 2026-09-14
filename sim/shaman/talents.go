@@ -12,6 +12,9 @@ import (
 func (shaman *Shaman) ApplyTalents() {
 	// Elemental Talents
 	shaman.applyConcussion()
+	shaman.applyCallOfThunder()
+	shaman.applyLightningMastery()
+	shaman.applyElementalPrecision()
 	shaman.applyElementalFocus()
 	shaman.applyElementalDevastation()
 	shaman.applyElementalFury()
@@ -24,7 +27,7 @@ func (shaman *Shaman) ApplyTalents() {
 		shaman.MultiplyStat(stats.Mana, 1.0+0.01*float64(shaman.Talents.AncestralKnowledge))
 	}
 
-	shaman.AddStat(stats.Block, 1*float64(shaman.Talents.ShieldSpecialization))
+	shaman.AddStat(stats.Block, 1*float64(int32(0) /*removed*/))
 
 	shaman.AddStat(stats.MeleeCrit, core.CritRatingPerCritChance*1*float64(shaman.Talents.ThunderingStrikes))
 
@@ -32,9 +35,7 @@ func (shaman *Shaman) ApplyTalents() {
 
 	shaman.ApplyEquipScaling(stats.Armor, 1+.02*float64(shaman.Talents.Toughness))
 
-	if shaman.Talents.Parry {
-		shaman.PseudoStats.CanParry = true
-	}
+	// Parry talent removed from custom shaman tree
 
 	// TODO: Check whether this does what it should.
 	// From all I've seen this appears to not actually be a school modifier at all, but instead simply applies
@@ -59,8 +60,8 @@ func (shaman *Shaman) ApplyTalents() {
 	shaman.AddStat(stats.MeleeHit, float64(shaman.Talents.NaturesGuidance))
 	shaman.AddStat(stats.SpellHit, float64(shaman.Talents.NaturesGuidance))
 
-	if shaman.Talents.HealingGrace > 0 {
-		threatMultiplier := 1 - .05*float64(shaman.Talents.HealingGrace)
+	if int32(0) /*removed*/ > 0 {
+		threatMultiplier := 1 - .05*float64(int32(0) /*removed*/)
 		shaman.OnSpellRegistered(func(spell *core.Spell) {
 			if spell.Flags.Matches(SpellFlagShaman) && spell.ProcMask.Matches(core.ProcMaskSpellHealing) {
 				spell.ThreatMultiplier *= threatMultiplier
@@ -93,12 +94,53 @@ func (shaman *Shaman) applyConcussion() {
 		}
 	})
 }
+
+// Call of Thunder (DBC): +2%/rank crit for Lightning Bolt and Chain Lightning.
+func (shaman *Shaman) applyCallOfThunder() {
+	if shaman.Talents.CallOfThunder == 0 {
+		return
+	}
+	bonusCrit := 2 * float64(shaman.Talents.CallOfThunder) * core.SpellCritRatingPerCritChance
+	shaman.OnSpellRegistered(func(spell *core.Spell) {
+		if spell.SpellCode == SpellCode_ShamanLightningBolt || spell.SpellCode == SpellCode_ShamanChainLightning {
+			spell.BonusCritRating += bonusCrit
+		}
+	})
+}
+
+// Lightning Mastery (DBC): -0.2s/rank cast time for Lightning Bolt and Chain Lightning.
+func (shaman *Shaman) applyLightningMastery() {
+	if shaman.Talents.LightningMastery == 0 {
+		return
+	}
+	reduction := time.Millisecond * 200 * time.Duration(shaman.Talents.LightningMastery)
+	shaman.OnSpellRegistered(func(spell *core.Spell) {
+		if spell.SpellCode == SpellCode_ShamanLightningBolt || spell.SpellCode == SpellCode_ShamanChainLightning {
+			spell.DefaultCast.CastTime -= reduction
+		}
+	})
+}
+
+// Elemental Precision (DBC): +5%/rank spell hit for Fire/Frost/Nature.
+func (shaman *Shaman) applyElementalPrecision() {
+	if shaman.Talents.ElementalPrecision == 0 {
+		return
+	}
+	bonusHit := 5 * float64(shaman.Talents.ElementalPrecision) * core.SpellHitRatingPerHitChance
+	shaman.OnSpellRegistered(func(spell *core.Spell) {
+		if spell.Flags.Matches(SpellFlagShaman) && (spell.SpellSchool.Matches(core.SpellSchoolFire) ||
+			spell.SpellSchool.Matches(core.SpellSchoolFrost) || spell.SpellSchool.Matches(core.SpellSchoolNature)) {
+			spell.BonusHitRating += bonusHit
+		}
+	})
+}
+
 func (shaman *Shaman) callOfFlameMultiplier() float64 {
 	return 1 + .05*float64(shaman.Talents.CallOfFlame)
 }
 
 func (shaman *Shaman) applyElementalFocus() {
-	if !shaman.Talents.ElementalFocus {
+	if shaman.Talents.ElementalFocus == 0 {
 		return
 	}
 
@@ -146,7 +188,7 @@ func (shaman *Shaman) applyElementalFocus() {
 	core.MakePermanent(shaman.RegisterAura(core.Aura{
 		Label: "Elemental Focus Trigger",
 		OnCastComplete: func(aura *core.Aura, sim *core.Simulation, spell *core.Spell) {
-			if shaman.isShamanDamagingSpell(spell) && sim.Proc(0.10, "Elemental Focus") {
+			if shaman.isShamanDamagingSpell(spell) && sim.Proc(0.03*float64(shaman.Talents.ElementalFocus), "Elemental Focus") {
 				shaman.ClearcastingAura.Activate(sim)
 				shaman.ClearcastingAura.SetStacks(sim, shaman.ClearcastingAura.MaxStacks)
 			}
@@ -191,7 +233,7 @@ func (shaman *Shaman) applyElementalDevastation() {
 }
 
 func (shaman *Shaman) applyElementalFury() {
-	if !shaman.Talents.ElementalFury {
+	if shaman.Talents.ElementalFury == 0 {
 		return
 	}
 

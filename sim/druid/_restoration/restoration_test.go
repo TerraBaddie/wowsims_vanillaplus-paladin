@@ -39,7 +39,7 @@ func TestRestoration(t *testing.T) {
 	}))
 }
 
-var StandardTalents = "05320031103--230023312131502331050313051"
+var StandardTalents = ""
 
 var FullConsumes = &proto.Consumes{
 	Flask:           proto.Flask_FlaskOfBlindingLight,

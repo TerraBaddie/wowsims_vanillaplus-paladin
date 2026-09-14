@@ -106,10 +106,11 @@ func init() {
 			},
 
 			ApplyEffects: func(sim *core.Simulation, target *core.Unit, spell *core.Spell) {
-				hunter.AimedShot.CD.Reset()
-				hunter.MultiShot.CD.Reset()
-				hunter.Volley.CD.Reset()
-				hunter.ArcaneShot.CD.Reset()
+				for _, s := range []*core.Spell{hunter.AimedShot, hunter.MultiShot, hunter.Volley, hunter.ArcaneShot} {
+					if s != nil {
+						s.CD.Reset()
+					}
+				}
 			},
 		})
 

@@ -21,7 +21,7 @@ func (warrior *Warrior) registerSunderArmorSpell() {
 		Flags:       core.SpellFlagMeleeMetrics | core.SpellFlagAPL | SpellFlagOffensive,
 
 		RageCost: core.RageCostOptions{
-			Cost:   15 - float64(warrior.Talents.ImprovedSunderArmor),
+			Cost:   15, // TODO: custom tree has no Improved Sunder Armor
 			Refund: 0.8,
 		},
 		Cast: core.CastConfig{

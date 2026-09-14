@@ -4,60 +4,71 @@ package proto;
 option go_package = "./proto";
 
 message MageTalents {
-	// Arcane
-	int32 arcane_subtlety = 1;
-	int32 arcane_focus = 2;
-	int32 improved_arcane_missiles = 3;
-	int32 wand_specialization = 4;
-	int32 magic_absorption = 5;
-	int32 arcane_concentration = 6;
-	int32 magic_attunement = 7;
-	int32 improved_arcane_explosion = 8;
-	bool arcane_resilience = 9;
-	int32 improved_mana_shield = 10;
-	int32 improved_counterspell = 11;
-	int32 arcane_meditation = 12;
-	bool presence_of_mind = 13;
-	int32 arcane_mind = 14;
-	int32 arcane_instability = 15;
-	bool arcane_power = 16;
-
 	// Fire
-	int32 improved_fireball = 17;
-	int32 impact = 18;
-	int32 ignite = 19;
-	int32 flame_throwing = 20;
-	int32 improved_fire_blast = 21;
-	int32 incinerate = 22;
-	int32 improved_flamestrike = 23;
-	bool pyroblast = 24;
-	int32 burning_soul = 25;
-	int32 improved_scorch = 26;
-	int32 improved_fire_ward = 27;
-	int32 master_of_elements = 28;
-	int32 critical_mass = 29;
-	bool blast_wave = 30;
-	int32 fire_power = 31;
-	bool combustion = 32;
+	int32 fire_warding = 1;
+	int32 improved_fireball = 2;
+	int32 improved_fire_blast = 3;
+	bool pyroblast = 4;
+	int32 flame_throwing = 5;
+	int32 burning_soul = 6;
+	int32 impact = 7;
+	int32 critical_mass = 8;
+	bool blast_wave = 9;
+	int32 incinerate = 10;
+	int32 blazing_speed = 11;
+	int32 hot_streak = 12;
+	bool chain_reaction = 13;
+	int32 overheat = 14;
+	bool thermal_expansion = 15;
+	int32 improved_scorch = 16;
+	int32 ignite = 17;
+	int32 fire_power = 18;
+	int32 pyromania = 19;
+	bool combustion = 20;
+
+	// Arcane
+	int32 wand_specialization = 21;
+	int32 arcane_focus = 22;
+	int32 elemental_precision = 23;
+	int32 arcane_subtlety = 24;
+	int32 practical_defensive_magic = 25;
+	int32 magic_absorption = 26;
+	int32 master_of_elements = 27;
+	int32 arcane_resilience = 28;
+	int32 arcane_concentration = 29;
+	bool spell_twisting = 30;
+	int32 practical_offensive_magic = 31;
+	int32 arcane_instability = 32;
+	int32 arcane_meditation = 33;
+	bool arcane_power = 34;
+	int32 arcane_wrath = 35;
+	int32 arcane_mind = 36;
+	int32 time_pressure = 37;
+	int32 improved_arcane_power = 38;
+	int32 mind_mastery = 39;
+	bool brilliance_aura = 40;
 
 	// Frost
-	int32 frost_warding = 33;
-	int32 improved_frostbolt = 34;
-	int32 elemental_precision = 35;
-	int32 ice_shards = 36;
-	int32 frostbite = 37;
-	int32 improved_frost_nova = 38;
-	int32 permafrost = 39;
-	int32 piercing_ice = 40;
-	bool cold_snap = 41;
-	int32 improved_blizzard = 42;
-	int32 arctic_reach = 43;
-	int32 frost_channeling = 44;
-	int32 shatter = 45;
-	bool ice_block = 46;
-	int32 improved_cone_of_cold = 47;
-	int32 winters_chill = 48;
-	bool ice_barrier = 49;
+	int32 frost_warding = 41;
+	int32 improved_frostbolt = 42;
+	int32 permafrost = 43;
+	int32 cryo_core = 44;
+	int32 frostbite = 45;
+	int32 improved_frost_nova = 46;
+	int32 cold_blood = 47;
+	bool ice_block = 48;
+	int32 arctic_reach = 49;
+	int32 frost_channeling = 50;
+	int32 frost_shards = 51;
+	int32 shatter = 52;
+	int32 cold_grip = 53;
+	bool ice_mirror = 54;
+	bool ice_shards = 55;
+	int32 rimebound = 56;
+	int32 arctic_gale = 57;
+	int32 winters_chill = 58;
+	bool ice_barrier = 59;
+	int32 advanced_ice_shielding = 60;
 }
 
 message Mage {

@@ -13,7 +13,7 @@ func (hunter *Hunter) createImprovedHawkAura(auraLabel string, actionID core.Act
 	return hunter.GetOrRegisterAura(core.Aura{
 		Label:    auraLabel,
 		ActionID: actionID,
-		Duration: time.Second * 12,
+		Duration: time.Second * 5,
 		OnGain: func(aura *core.Aura, sim *core.Simulation) {
 			aura.Unit.MultiplyRangedSpeed(sim, bonusMultiplier)
 		},
@@ -48,7 +48,7 @@ func (hunter *Hunter) getMaxHawkRank() int {
 
 func (hunter *Hunter) getAspectOfTheHawkSpellConfig(rank int) core.SpellConfig {
 	var impHawkAura *core.Aura
-	improvedHawkProcChance := 0.01 * float64(hunter.Talents.ImprovedAspectOfTheHawk)
+	improvedHawkProcChance := 0.10 * float64(hunter.Talents.ImprovedAspectOfTheHawk)
 
 	spellIds := [8]int32{0, 13165, 14318, 14319, 14320, 14321, 14322, 25296}
 	levels := [8]int{0, 10, 18, 28, 38, 48, 58, 60}

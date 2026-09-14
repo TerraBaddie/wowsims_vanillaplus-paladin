@@ -6,7 +6,7 @@ import (
 	"github.com/wowsims/classic/sim/core/stats"
 )
 
-var TalentTreeSizes = [3]int{15, 16, 16}
+var TalentTreeSizes = [3]int{20, 20, 20}
 
 const (
 	SpellFlagPriest = core.SpellFlagAgentReserved1
@@ -116,6 +116,7 @@ func New(character *core.Character, talents string) *Priest {
 
 	priest.AddStatDependency(stats.Strength, stats.AttackPower, core.APPerStrength[character.Class])
 	priest.AddStatDependency(stats.Intellect, stats.SpellCrit, core.CritPerIntAtLevel[priest.Class]*core.SpellCritRatingPerCritChance)
+	priest.AddStatDependency(stats.Intellect, stats.SpellPower, core.SpellPowerPerIntellect)
 
 	// Set mana regen to 12.5 + Spirit/4 each 2s tick
 	priest.SpiritManaRegenPerSecond = func() float64 {

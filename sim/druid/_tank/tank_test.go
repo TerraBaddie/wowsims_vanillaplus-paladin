@@ -41,7 +41,7 @@ func TestFeralTank(t *testing.T) {
 	}))
 }
 
-var StandardTalents = "-503232132322010353120300313511-20350001"
+var StandardTalents = ""
 
 var PlayerOptionsDefault = &proto.Player_FeralTankDruid{
 	FeralTankDruid: &proto.FeralTankDruid{

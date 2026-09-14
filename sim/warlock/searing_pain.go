@@ -35,7 +35,7 @@ func (warlock *Warlock) getSearingPainBaseConfig(rank int) core.SpellConfig {
 				CastTime: castTime,
 			},
 		},
-		BonusCritRating: 2.0 * float64(warlock.Talents.ImprovedSearingPain) * core.CritRatingPerCritChance,
+		BonusCritRating: 2.0 * float64(int32(0) /*removed*/) * core.CritRatingPerCritChance,
 
 		DamageMultiplier: 1,
 		ThreatMultiplier: 2,

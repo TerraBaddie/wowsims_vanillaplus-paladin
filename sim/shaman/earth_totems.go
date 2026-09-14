@@ -35,7 +35,7 @@ func (shaman *Shaman) newStrengthOfEarthTotemSpellConfig(rank int) core.SpellCon
 	level := StrengthOfEarthTotemLevel[rank]
 
 	duration := time.Second * 120
-	multiplier := []float64{1, 1.08, 1.15}[shaman.Talents.EnhancingTotems]
+	multiplier := []float64{1, 1.08, 1.15}[shaman.Talents.EnhancingTotems] * (1 + shaman.TotemEffectivenessBonusMultiplier)
 
 	buffAura := core.StrengthOfEarthTotemAura(&shaman.Unit, multiplier)
 
@@ -88,7 +88,7 @@ func (shaman *Shaman) newStoneskinTotemSpellConfig(rank int) core.SpellConfig {
 		shaman.TotemExpirations[EarthTotem] = sim.CurrentTime + duration
 		shaman.ActiveTotems[EarthTotem] = spell
 
-		core.StoneskinTotemAura(&shaman.Unit, shaman.Talents.GuardianTotems).Activate(sim)
+		core.StoneskinTotemAura(&shaman.Unit, shaman.Talents.GuardianTotems, shaman.TotemEffectivenessBonusMultiplier).Activate(sim)
 	}
 	return spell
 }

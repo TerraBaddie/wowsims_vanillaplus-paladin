@@ -1,0 +1,443 @@
+Items still in the sim DB with NO private-server (VPlus) data — they show retail stats + Wowhead tooltips.
+Total: 377
+
+[Arcanist Regalia]  (4)
+     16795  Arcanist Crown
+     16797  Arcanist Mantle
+     16798  Arcanist Robes
+     16801  Arcanist Gloves
+
+[Battlegear of Might]  (7)
+     16861  Bracers of Might
+     16862  Sabatons of Might
+     16864  Belt of Might
+     16865  Breastplate of Might
+     16866  Helm of Might
+     16867  Legplates of Might
+     16868  Pauldrons of Might
+
+[Battlegear of Undead Slaying]  (2)
+     23087  Breastplate of Undead Slaying
+     23090  Bracers of Undead Slaying
+
+[Cenarion Raiment]  (5)
+     16831  Cenarion Gloves
+     16833  Cenarion Vestments
+     16834  Cenarion Helm
+     16835  Cenarion Leggings
+     16836  Cenarion Spaulders
+
+[Chain of the Scarlet Crusade]  (6)
+     10328  Scarlet Chestpiece
+     10329  Scarlet Belt
+     10330  Scarlet Leggings
+     10331  Scarlet Gauntlets
+     10332  Scarlet Boots
+     10333  Scarlet Wristguards
+
+[Champion's Battlegear]  (6)
+     16509  Blood Guard's Plate Boots
+     16510  Blood Guard's Plate Gloves
+     16513  Legionnaire's Plate Armor
+     16514  Champion's Plate Headguard
+     16515  Legionnaire's Plate Legguards
+     16516  Champion's Plate Pauldrons
+
+[Champion's Earthshaker]  (6)
+     16518  Blood Guard's Mail Walkers
+     16519  Blood Guard's Mail Grips
+     16521  Champion's Mail Helm
+     16522  Legionnaire's Mail Chestpiece
+     16523  Legionnaire's Mail Leggings
+     16524  Champion's Mail Shoulders
+
+[Champion's Pursuit]  (6)
+     16525  Legionnaire's Chain Breastplate
+     16526  Champion's Chain Headguard
+     16527  Legionnaire's Chain Leggings
+     16528  Champion's Chain Pauldrons
+     16530  Blood Guard's Chain Gauntlets
+     16531  Blood Guard's Chain Boots
+
+[Champion's Raiment]  (6)
+     17610  Champion's Satin Cowl
+     17611  Legionnaire's Satin Trousers
+     17612  Legionnaire's Satin Vestments
+     17613  Champion's Satin Shoulderpads
+     17616  Blood Guard's Satin Boots
+     17617  Blood Guard's Satin Gloves
+
+[Champion's Regalia]  (6)
+     16485  Blood Guard's Silk Footwraps
+     16487  Blood Guard's Silk Gloves
+     16489  Champion's Silk Hood
+     16490  Legionnaire's Silk Pants
+     16491  Legionnaire's Silk Robes
+     16492  Champion's Silk Shoulderpads
+
+[Champion's Sanctuary]  (6)
+     16494  Blood Guard's Dragonhide Boots
+     16496  Blood Guard's Dragonhide Gauntlets
+     16501  Champion's Dragonhide Spaulders
+     16502  Legionnaire's Dragonhide Trousers
+     16503  Champion's Dragonhide Helm
+     16504  Legionnaire's Dragonhide Breastplate
+
+[Champion's Threads]  (6)
+     17570  Champion's Dreadweave Hood
+     17571  Legionnaire's Dreadweave Leggings
+     17572  Legionnaire's Dreadweave Robe
+     17573  Champion's Dreadweave Shoulders
+     17576  Blood Guard's Dreadweave Boots
+     17577  Blood Guard's Dreadweave Gloves
+
+[Champion's Vestments]  (6)
+     16498  Blood Guard's Leather Treads
+     16499  Blood Guard's Leather Vices
+     16505  Legionnaire's Leather Hauberk
+     16506  Champion's Leather Headguard
+     16507  Champion's Leather Mantle
+     16508  Legionnaire's Leather Leggings
+
+[Felheart Raiment]  (6)
+     16803  Felheart Slippers
+     16804  Felheart Bracers
+     16807  Felheart Shoulder Pads
+     16808  Felheart Horns
+     16809  Felheart Robes
+     16810  Felheart Pants
+
+[Garb of the Undead Slayer]  (2)
+     23088  Chestguard of Undead Slaying
+     23092  Wristguards of Undead Slaying
+
+[Giantstalker Armor]  (6)
+     16845  Giantstalker's Breastplate
+     16846  Giantstalker's Helmet
+     16848  Giantstalker's Epaulets
+     16849  Giantstalker's Boots
+     16851  Giantstalker's Belt
+     16852  Giantstalker's Gloves
+
+[Lawbringer Armor]  (7)
+     16853  Lawbringer Chestguard
+     16854  Lawbringer Helm
+     16855  Lawbringer Legplates
+     16856  Lawbringer Spaulders
+     16857  Lawbringer Bracers
+     16858  Lawbringer Belt
+     16860  Lawbringer Gauntlets
+
+[Lieutenant Commander's Aegis]  (6)
+     16409  Knight-Lieutenant's Lamellar Sabatons
+     16410  Knight-Lieutenant's Lamellar Gauntlets
+     16433  Knight-Captain's Lamellar Breastplate
+     16434  Lieutenant Commander's Lamellar Headguard
+     16435  Knight-Captain's Lamellar Leggings
+     16436  Lieutenant Commander's Lamellar Shoulders
+
+[Lieutenant Commander's Battlegear]  (6)
+     16405  Knight-Lieutenant's Plate Boots
+     16406  Knight-Lieutenant's Plate Gauntlets
+     16429  Lieutenant Commander's Plate Helm
+     16430  Knight-Captain's Plate Chestguard
+     16431  Knight-Captain's Plate Leggings
+     16432  Lieutenant Commander's Plate Pauldrons
+
+[Lieutenant Commander's Pursuit]  (6)
+     16401  Knight-Lieutenant's Chain Boots
+     16403  Knight-Lieutenant's Chain Gauntlets
+     16425  Knight-Captain's Chain Hauberk
+     16426  Knight-Captain's Chain Leggings
+     16427  Lieutenant Commander's Chain Pauldrons
+     16428  Lieutenant Commander's Chain Helmet
+
+[Lieutenant Commander's Raiment]  (6)
+     17594  Knight-Lieutenant's Satin Boots
+     17596  Knight-Lieutenant's Satin Gloves
+     17598  Lieutenant Commander's Diadem
+     17599  Knight-Captain's Satin Leggings
+     17600  Knight-Captain's Satin Robes
+     17601  Lieutenant Commander's Satin Amice
+
+[Lieutenant Commander's Regalia]  (6)
+     16369  Knight-Lieutenant's Silk Boots
+     16391  Knight-Lieutenant's Silk Gloves
+     16413  Knight-Captain's Silk Raiment
+     16414  Knight-Captain's Silk Leggings
+     16415  Lieutenant Commander's Silk Spaulders
+     16416  Lieutenant Commander's Crown
+
+[Lieutenant Commander's Sanctuary]  (6)
+     16393  Knight-Lieutenant's Dragonhide Footwraps
+     16397  Knight-Lieutenant's Dragonhide Gloves
+     16421  Knight-Captain's Dragonhide Tunic
+     16422  Knight-Captain's Dragonhide Leggings
+     16423  Lieutenant Commander's Dragonhide Epaulets
+     16424  Lieutenant Commander's Dragonhide Shroud
+
+[Lieutenant Commander's Threads]  (6)
+     17562  Knight-Lieutenant's Dreadweave Boots
+     17564  Knight-Lieutenant's Dreadweave Gloves
+     17566  Lieutenant Commander's Headguard
+     17567  Knight-Captain's Dreadweave Leggings
+     17568  Knight-Captain's Dreadweave Robe
+     17569  Lieutenant Commander's Dreadweave Mantle
+
+[Lieutenant Commander's Vestments]  (6)
+     16392  Knight-Lieutenant's Leather Boots
+     16396  Knight-Lieutenant's Leather Gauntlets
+     16417  Knight-Captain's Leather Armor
+     16418  Lieutenant Commander's Leather Veil
+     16419  Knight-Captain's Leather Legguards
+     16420  Lieutenant Commander's Leather Spaulders
+
+[Nightslayer Armor]  (6)
+     16820  Nightslayer Chestpiece
+     16821  Nightslayer Cover
+     16822  Nightslayer Pants
+     16823  Nightslayer Shoulder Pads
+     16824  Nightslayer Boots
+     16826  Nightslayer Gloves
+
+[Regalia of Undead Cleansing]  (2)
+     23085  Robe of Undead Cleansing
+     23091  Bracers of Undead Cleansing
+
+[The Earthfury]  (8)
+     16837  Earthfury Boots
+     16838  Earthfury Belt
+     16839  Earthfury Gauntlets
+     16840  Earthfury Bracers
+     16841  Earthfury Vestments
+     16842  Earthfury Helmet
+     16843  Earthfury Legguards
+     16844  Earthfury Epaulets
+
+[The Highlander's Fortitude]  (3)
+     20044  Highlander's Mail Girdle
+     20051  Highlander's Mail Greaves
+     20056  Highlander's Mail Pauldrons
+
+[Undead Slayer's Armor]  (2)
+     23089  Tunic of Undead Slaying
+     23093  Wristwraps of Undead Slaying
+
+[Vestments of Prophecy]  (8)
+     16811  Boots of Prophecy
+     16812  Gloves of Prophecy
+     16813  Circlet of Prophecy
+     16814  Pants of Prophecy
+     16815  Robes of Prophecy
+     16816  Mantle of Prophecy
+     16817  Girdle of Prophecy
+     16819  Vambraces of Prophecy
+
+--- non-set items (207) ---
+       913  Huge Ogre Sword
+      1190  Overseer's Cloak
+      1216  Frost Bracers
+      1677  Drake-scale Vest
+      1992  Swampchill Fetish
+      2016  Dusty Chain Armor
+      2166  Foreman's Leggings
+      2262  Mark of Kern
+      2267  Stonesplinter Mace
+      2273  Guerrilla Armor
+      2566  Sacrificial Robes
+      2664  Spinner Fang
+      2801  Blade of Hanna
+      3222  Wicked Dagger
+      3738  Brewing Rod
+      4116  Olmann Sewar
+      4767  Coppercloth Gloves
+      4988  Burning Obsidian Band
+      4989  Mage Dragon Robe
+      4990  Scorched Bands
+      5004  Mark of the Kirin Tor
+      5005  Emberspark Pendant
+      5010  Inscribed Gold Ring
+      5255  Quilboar Tomahawk
+      5425  Runescale Girdle
+      5426  Serpent's Kiss
+      5742  Gemstone Dagger
+      5743  Prismstone Ring
+      5748  Centaur Longbow
+      5821  Darkstalker Boots
+      5822  Hedgeseed Gauntlets
+      5968  Rugged Boots
+      6478  Rat Stompers
+      6802  Sword of Omen
+      6803  Prophetic Cane
+      6829  Sword of Serenity
+      6830  Bonebiter
+      6831  Black Menace
+      7188  Stormwind Guard Shield
+      7550  Warrior's Honor
+      7682  Torturing Poker
+      7684  Bloodmage Mantle
+      7685  Orb of the Forgotten Seer
+      7686  Ironspine's Eye
+      7687  Ironspine's Fist
+      7688  Ironspine's Ribcage
+      7689  Morbid Dawn
+      7690  Ebon Vise
+      7691  Embalmed Shroud
+      7708  Necrotic Wand
+      7709  Blighted Leggings
+      7710  Loksey's Training Stick
+      7711  Robe of Doan
+      7712  Mantle of Doan
+      7713  Illusionary Rod
+      7714  Hypnotic Blade
+      7717  Ravager
+      7718  Herod's Shoulder
+      7719  Raging Berserker's Helm
+      7721  Hand of Righteousness
+      7722  Triune Amulet
+      7723  Mograine's Might
+      7724  Gauntlets of Divinity
+      7727  Watchman Pauldrons
+      7729  Chesterfall Musket
+      7730  Cobalt Crusher
+      7731  Ghostshard Talisman
+      7736  Fight Club
+      7746  Explorers' League Commendation
+      7747  Vile Protector
+      7749  Omega Orb
+      7752  Dreamslayer
+      7753  Bloodspiller
+      7755  Flintrock Shoulders
+      7756  Dog Training Gloves
+      7757  Windweaver Staff
+      7758  Ruthless Shiv
+      7759  Archon Chestpiece
+      7760  Warchief Kilt
+      7761  Steelclaw Reaver
+      7786  Headsplitter
+      7787  Resplendent Guardian
+      8225  Tainted Pierce
+      8226  The Butcher
+      9484  Spellshock Leggings
+     10711  Dragon's Blood Necklace
+     11262  Orb of Lorica
+     11768  Incendic Bracers
+     12105  Pridemail Leggings
+     12106  Boulderskin Breastplate
+     12107  Whispersilk Leggings
+     12258  Serpent Clasp Belt
+     12469  Mutilator
+     12471  Desertwalker Cane
+     12615  Savage Mail Tunic
+     12616  Savage Mail Boots
+     12617  Savage Mail Shoulders
+     12904  Shawn's Super Special Swami Hat
+     13080  Widow's Clutch
+     13090  Breastplate of the Chosen
+     13175  Voone's Twitchbow
+     13811  Necklace of the Dawn
+     13812  Ring of the Dawn
+     14456  Elunarian Vest
+     14811  Warstrike Chestguard
+     16315  Sergeant Major's Cape
+     16336  Sergeant Major's Cape
+     16337  Sergeant Major's Cape
+     16367  Knight-Captain's Silk Sash
+     16370  Knight-Captain's Silk Cuffs
+     16394  Knight-Captain's Leather Bracers
+     16395  Knight-Captain's Dragonhide Armsplints
+     16398  Knight-Captain's Leather Belt
+     16399  Knight-Captain's Dragonhide Girdle
+     16400  Knight-Captain's Chain Girdle
+     16402  Knight-Captain's Chain Armguards
+     16411  Knight-Captain's Lamellar Cinch
+     16412  Knight-Captain's Lamellar Armsplints
+     16488  Legionnaire's Silk Belt
+     16493  Legionnaire's Dragonhide Armguards
+     16495  Legionnaire's Dragonhide Waistband
+     16500  Legionnaire's Leather Girdle
+     16517  Legionnaire's Chain Bracers
+     16529  Legionnaire's Chain Girdle
+     17000  Band of the Wraith
+     17508  Forcestone Buckler
+     17563  Knight-Captain's Dreadweave Bracers
+     17565  Knight-Captain's Dreadweave Belt
+     17574  Legionnaire's Dreadweave Belt
+     17575  Legionnaire's Dreadweave Bracers
+     17595  Knight-Captain's Satin Cuffs
+     17597  Knight-Captain's Satin Cord
+     17614  Legionnaire's Satin Sash
+     17615  Legionnaire's Satin Cuffs
+     18438  Sergeant's Mark
+     18538  Treant's Bane
+     18754  Fel Hardened Bracers
+     19105  Frost Runed Headdress
+     19109  Deep Rooted Ring
+     19110  Cold Forged Blade
+     19111  Winteraxe Epaulets
+     19112  Frozen Steel Vambraces
+     19113  Yeti Hide Bracers
+     19343  Scrolls of Blinding Light
+     19344  Natural Alignment Crystal
+     19347  Claw of Chromaggus
+     19348  Red Dragonscale Protector
+     19368  Dragonbreath Hand Cannon
+     19371  Pendant of the Fallen Dragon
+     19385  Empowered Leggings
+     19432  Circle of Applied Force
+     19433  Emberweave Leggings
+     19507  Inquisitor's Shawl
+     19508  Branded Leather Bracers
+     19509  Dusty Mail Boots
+     20084  Hunting Net
+     20118  Highlander's Mail Girdle
+     20119  Highlander's Mail Girdle
+     20120  Highlander's Mail Girdle
+     20121  Highlander's Mail Greaves
+     20122  Highlander's Mail Greaves
+     20123  Highlander's Mail Greaves
+     20177  Defiler's Lamellar Girdle
+     20178  Defiler's Lamellar Girdle
+     20179  Defiler's Lamellar Girdle
+     20180  Defiler's Lamellar Girdle
+     20181  Defiler's Lamellar Greaves
+     20182  Defiler's Lamellar Greaves
+     20183  Defiler's Lamellar Greaves
+     20184  Defiler's Lamellar Spaulders
+     20185  Defiler's Lamellar Greaves
+     20525  Earthen Sigil
+     20583  Sturdy Female Dwarf Mask
+     20584  Sturdy Female Gnome Mask
+     20585  Sturdy Female Human Mask
+     20586  Sturdy Female Nightelf Mask
+     20587  Sturdy Female Orc Mask
+     20588  Sturdy Female Tauren Mask
+     20589  Sturdy Female Troll Mask
+     20590  Sturdy Female Undead Mask
+     20591  Sturdy Male Dwarf Mask
+     20592  Sturdy Male Gnome Mask
+     20593  Sturdy Male Human Mask
+     20594  Sturdy Male Nightelf Mask
+     20595  Sturdy Male Orc Mask
+     20596  Sturdy Male Tauren Mask
+     20597  Sturdy Male Troll Mask
+     20598  Sturdy Male Undead Mask
+     20624  Ring of the Unliving
+     20628  Deviate Growth Cap
+     20629  Malignant Footguards
+     20630  Gauntlets of the Shining Light
+     20635  Jade Inlaid Vestments
+     20706  Cenarion Reservist's Pants
+     21135  Assassin's Throwing Axe
+     23126  Waistband of Balzaphon
+     23127  Cloak of Revanchion
+     23128  The Shadow's Grasp
+     23129  Bracers of Mending
+     23156  Blackwood's Thigh
+     23168  Scorn's Focal Dagger
+     23169  Scorn's Icy Choker
+     23170  The Frozen Clutch
+     23173  Abomination Skin Leggings
+     23177  Lady Falther'ess' Finger
+     23178  Mantle of Lady Falther'ess
+     23202  Libram of Divinity

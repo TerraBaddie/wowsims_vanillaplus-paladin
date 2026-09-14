@@ -8,7 +8,7 @@ import (
 
 func (rogue *Rogue) registerExposeArmorSpell() {
 	rogue.ExposeArmorAuras = rogue.NewEnemyAuraArray(func(target *core.Unit) *core.Aura {
-		return core.ExposeArmorAura(target, rogue.Talents.ImprovedExposeArmor)
+		return core.ExposeArmorAura(target, int32(0) /*removed*/)
 	})
 
 	spellID := map[int32]int32{
@@ -25,7 +25,7 @@ func (rogue *Rogue) registerExposeArmorSpell() {
 		60: 340,
 	}[rogue.Level]
 
-	arpenPerCombo *= []float64{1, 1.25, 1.5}[rogue.Talents.ImprovedExposeArmor]
+	arpenPerCombo *= []float64{1, 1.25, 1.5}[int32(0) /*removed*/]
 
 	// share ExtraCastCondition() state with ApplyEffects()
 	var arpen float64

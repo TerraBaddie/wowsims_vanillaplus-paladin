@@ -55,8 +55,8 @@ func TestCombatDaggers(t *testing.T) {
 	}))
 }
 
-var CombatSwordsTalents = "005323105-0240052020050150231"
-var CombatDaggersTalents = "005023104-0233050020550100221-05"
+var CombatSwordsTalents = ""
+var CombatDaggersTalents = ""
 
 var DefaultRogue = &proto.Player_Rogue{
 	Rogue: &proto.Rogue{

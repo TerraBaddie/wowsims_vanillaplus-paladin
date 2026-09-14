@@ -17,7 +17,8 @@ func (priest *Priest) registerVampiricEmbraceSpell() {
 
 	partyPlayers := priest.Env.Raid.GetPlayerParty(&priest.Unit).Players
 	healthMetrics := priest.NewHealthMetrics(actionID)
-	healthReturnedMultuplier := 0.05 + 0.05*float64(priest.Talents.ImprovedVampiricEmbrace)
+	// DBC: Vampiric Embrace heals for 10% of Shadow damage; Improved Vampiric Embrace adds 10% per rank.
+	healthReturnedMultuplier := 0.10 + 0.10*float64(priest.Talents.ImprovedVampiricEmbrace)
 
 	priest.VampiricEmbraceAuras = priest.NewEnemyAuraArray(func(target *core.Unit) *core.Aura {
 		return target.GetOrRegisterAura(core.Aura{

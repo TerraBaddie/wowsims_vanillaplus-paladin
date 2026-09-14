@@ -7,9 +7,15 @@ import (
 	"github.com/wowsims/classic/sim/core"
 )
 
-// Seal of Command is a spell consisting of:
+// VanillaPlus Seal of Command is a spell consisting of:
 // - A judgement that has a flat damage roll, and scales with spellpower.
-// - A 7ppm on-hit proc with a 1s ICD that deals 70% weapon damage and scales with spellpower.
+// - A 12 PPM on-hit proc that deals 50% weapon damage and scales with spellpower.
+//
+// VanillaPlus 12 PPM is combat-log verified from testing across three very
+// different weapon speeds:
+// - 3.8 speed: 375 procs / 500 landed swings (75.0%; 76.0% expected at 12 PPM)
+// - 1.6 speed: 156 procs / 500 landed swings (31.2%; 32.0% expected at 12 PPM)
+// - 4.0 speed: 12 procs / 15 landed swings (80.0%; 80.0% expected at 12 PPM)
 
 // Judgement of Command has some unusual behaviour in classic:
 // - The judgement operates via a dummy spell, that likely figures out whether to apply
@@ -49,7 +55,8 @@ func (paladin *Paladin) registerSealOfCommand() {
 		{level: 60, spellID: 20920, manaCost: 210, scaleLevel: 60, proc: proc{spellID: 20947}, judge: judge{spellID: 20966, minDamage: 339, maxDamage: 373, scale: 6.1}},
 	}
 
-	ppmm := paladin.AutoAttacks.NewPPMManager(7, core.ProcMaskMelee)
+	// VanillaPlus: current Seal of Command proc rate is 12 PPM.
+	ppmm := paladin.AutoAttacks.NewPPMManager(12, core.ProcMaskMelee)
 
 	icd := core.Cooldown{
 		Timer:    paladin.NewTimer(),
@@ -99,7 +106,8 @@ func (paladin *Paladin) registerSealOfCommand() {
 			ProcMask:    core.ProcMaskMeleeMHSpecial | core.ProcMaskMeleeProc | core.ProcMaskMeleeDamageProc,
 			Flags:       core.SpellFlagMeleeMetrics | core.SpellFlagNotAProc,
 
-			DamageMultiplier: 0.7 * paladin.getWeaponSpecializationModifier(),
+			// VanillaPlus: Seal of Command proc is 50% normal weapon damage.
+			DamageMultiplier: 0.5 * paladin.getWeaponSpecializationModifier(),
 			ThreatMultiplier: 1,
 
 			BonusCoefficient: 0.29,

@@ -4,19 +4,38 @@
     "backgroundUrl": "https://wow.zamimg.com/images/wow/talents/backgrounds/classic/261.jpg",
     "talents": [
       {
-        "fieldName": "convection",
+        "fieldName": "stormReach",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 0
+        },
+        "spellIds": [
+          28999,
+          29000
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the range of your Lightning Bolt, Chain Lightning and Chain Heal spells by 2 yards.",
+          "Increases the range of your Lightning Bolt, Chain Lightning and Chain Heal spells by 4 yards."
+        ]
+      },
+      {
+        "fieldName": "elementalWarding",
         "location": {
           "rowIdx": 0,
           "colIdx": 1
         },
         "spellIds": [
-          16039,
-          16109,
-          16110,
-          16111,
-          16112
+          28996,
+          28997,
+          28998
         ],
-        "maxPoints": 5
+        "maxPoints": 3,
+        "descriptions": [
+          "Reduces damage taken from Fire, Frost and Nature effects by 5%.",
+          "Reduces damage taken from Fire, Frost and Nature effects by 10%.",
+          "Reduces damage taken from Fire, Frost and Nature effects by 15%."
+        ]
       },
       {
         "fieldName": "concussion",
@@ -31,7 +50,14 @@
           16107,
           16108
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the damage done by your Lightning Bolt, Chain Lightning and Shock spells by 1%. Also increases the effectiveness of your Chain Heal spell by 1%.",
+          "Increases the damage done by your Lightning Bolt, Chain Lightning and Shock spells by 2%. Also increases the effectiveness of your Chain Heal spell by 2%.",
+          "Increases the damage done by your Lightning Bolt, Chain Lightning and Shock spells by 3%. Also increases the effectiveness of your Chain Heal spell by 3%.",
+          "Increases the damage done by your Lightning Bolt, Chain Lightning and Shock spells by 4%. Also increases the effectiveness of your Chain Heal spell by 4%.",
+          "Increases the damage done by your Lightning Bolt, Chain Lightning and Shock spells by 5%. Also increases the effectiveness of your Chain Heal spell by 5%."
+        ]
       },
       {
         "fieldName": "earthsGrasp",
@@ -43,20 +69,29 @@
           16043,
           16130
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the health of your Stoneclaw Totem by 50%, the duration of your Earth Shock, Earthbind and Stoneclaw Totems by 25% and reduces the Mana cost of your Earthbind and Stoneclaw Totems by 25%.",
+          "Increases the health of your Stoneclaw Totem by 100%, the duration of your Earth Shock, Earthbind and Stoneclaw Totems by 50% and reduces the Mana cost of your Earthbind and Stoneclaw Totems by 50%."
+        ]
       },
       {
-        "fieldName": "elementalWarding",
+        "fieldName": "convection",
         "location": {
           "rowIdx": 1,
           "colIdx": 1
         },
         "spellIds": [
-          28996,
-          28997,
-          28998
+          16039,
+          16109,
+          16110
         ],
-        "maxPoints": 3
+        "maxPoints": 3,
+        "descriptions": [
+          "Reduces the mana cost of your Shock, Lightning Bolt, Chain Lightning and Chain Heal spells by 5%.",
+          "Reduces the mana cost of your Shock, Lightning Bolt, Chain Lightning and Chain Heal spells by 10%.",
+          "Reduces the mana cost of your Shock, Lightning Bolt, Chain Lightning and Chain Heal spells by 15%."
+        ]
       },
       {
         "fieldName": "callOfFlame",
@@ -69,24 +104,18 @@
           16160,
           16161
         ],
-        "maxPoints": 3
-      },
-      {
-        "fieldName": "elementalFocus",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 0
-        },
-        "spellIds": [
-          16164
-        ],
-        "maxPoints": 1
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases the damage done by your Fire Totems by 10% and increases critical strike chance of your Flame Shock by 10%.",
+          "Increases the damage done by your Fire Totems by 20% and increases critical strike chance of your Flame Shock by 20%.",
+          "Increases the damage done by your Fire Totems by 30% and increases critical strike chance of your Flame Shock by 30%."
+        ]
       },
       {
         "fieldName": "reverberation",
         "location": {
-          "rowIdx": 2,
-          "colIdx": 1
+          "rowIdx": 1,
+          "colIdx": 3
         },
         "spellIds": [
           16040,
@@ -95,7 +124,54 @@
           16115,
           16116
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Reduces the cooldown of your Shock spells by 1 sec.",
+          "Reduces the cooldown of your Shock spells by 2 sec.",
+          "Reduces the cooldown of your Shock spells by 3 sec.",
+          "Reduces the cooldown of your Shock spells by 4 sec.",
+          "Reduces the cooldown of your Shock spells by 5 sec."
+        ]
+      },
+      {
+        "fieldName": "sandBlast",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 0
+        },
+        "spellIds": [
+          33596
+        ],
+        "maxPoints": 1,
+        "prereqLocation": {
+          "rowIdx": 1,
+          "colIdx": 0
+        },
+        "descriptions": [
+          "Sends a wave of sand, blinding nearby enemies for 5 sec. Targets must be facing you. Any damage caused will remove the effect."
+        ]
+      },
+      {
+        "fieldName": "elementalFocus",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33591,
+          33592,
+          33593,
+          33594,
+          33595
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Gives you a 3% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+          "Gives you a 6% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+          "Gives you a 9% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+          "Gives you a 12% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+          "Gives you a 15% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell. The Clearcasting state reduces the mana cost of your next damage spell by 100%."
+        ]
       },
       {
         "fieldName": "callOfThunder",
@@ -105,37 +181,53 @@
         },
         "spellIds": [
           16041,
-          16117,
-          16118,
-          16119,
-          16120
+          16117
         ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "improvedFireTotems",
-        "location": {
-          "rowIdx": 3,
-          "colIdx": 0
-        },
-        "spellIds": [
-          16086,
-          16544
-        ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the critical strike chance of your Lightning Bolt, Chain Lightning and Chain Heal spells by an additional 2%.",
+          "Increases the critical strike chance of your Lightning Bolt, Chain Lightning and Chain Heal spells by an additional 4%."
+        ]
       },
       {
         "fieldName": "eyeOfTheStorm",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 3
+        },
+        "spellIds": [
+          33597,
+          33598,
+          33599
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Gives you a 25% chance to avoid interruption caused by damage while casting Lightning Bolt or Chain Lightning.",
+          "Gives you a 50% chance to avoid interruption caused by damage while casting Lightning Bolt or Chain Lightning.",
+          "Gives you a 75% chance to avoid interruption caused by damage while casting Lightning Bolt or Chain Lightning."
+        ]
+      },
+      {
+        "fieldName": "elementalFury",
         "location": {
           "rowIdx": 3,
           "colIdx": 1
         },
         "spellIds": [
-          29062,
-          29064,
-          29065
+          33600,
+          33601,
+          33602,
+          33603,
+          33604
         ],
-        "maxPoints": 3
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the critical strike damage bonus of your Searing, Magma, and Fire Nova Totems and your Fire, Frost, and Nature spells by 20%.",
+          "Increases the critical strike damage bonus of your Searing, Magma, and Fire Nova Totems and your Fire, Frost, and Nature spells by 40%.",
+          "Increases the critical strike damage bonus of your Searing, Magma, and Fire Nova Totems and your Fire, Frost, and Nature spells by 60%.",
+          "Increases the critical strike damage bonus of your Searing, Magma, and Fire Nova Totems and your Fire, Frost, and Nature spells by 80%.",
+          "Increases the critical strike damage bonus of your Searing, Magma, and Fire Nova Totems and your Fire, Frost, and Nature spells by 100%."
+        ]
       },
       {
         "fieldName": "elementalDevastation",
@@ -148,35 +240,51 @@
           29179,
           29180
         ],
-        "maxPoints": 3
+        "maxPoints": 3,
+        "descriptions": [
+          "Your offensive spell crits will increase your chance to get a critical strike with all attacks and spells by 10% for 5 sec.",
+          "Your offensive spell crits will increase your chance to get a critical strike with all attacks and spells by 10% for 10 sec.",
+          "Your offensive spell crits will increase your chance to get a critical strike with all attacks and spells by 10% for 15 sec."
+        ]
       },
       {
-        "fieldName": "stormReach",
+        "fieldName": "improvedFireTotems",
         "location": {
           "rowIdx": 4,
           "colIdx": 0
         },
         "spellIds": [
-          28999,
-          29000
+          16086,
+          16544
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Reduces the delay before your Fire Nova Totem activates by 1 sec. and decreases the threat generated by your Magma Totem by 50%.",
+          "Reduces the delay before your Fire Nova Totem activates by 2 sec. and decreases the threat generated by your Magma Totem by 100%."
+        ]
       },
       {
-        "fieldName": "elementalFury",
+        "fieldName": "elementalMastery",
         "location": {
           "rowIdx": 4,
           "colIdx": 1
         },
         "spellIds": [
-          16089
+          16166
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "prereqLocation": {
+          "rowIdx": 3,
+          "colIdx": 1
+        },
+        "descriptions": [
+          "When activated, this spell gives your next Fire, Frost, or Nature damage spell a 100% critical strike chance."
+        ]
       },
       {
         "fieldName": "lightningMastery",
         "location": {
-          "rowIdx": 5,
+          "rowIdx": 4,
           "colIdx": 2
         },
         "spellIds": [
@@ -190,22 +298,96 @@
         "prereqLocation": {
           "rowIdx": 2,
           "colIdx": 2
-        }
+        },
+        "descriptions": [
+          "Reduces the cast time of your Lightning Bolt, Chain Lightning and Chain Heal spells by 0.2 sec.",
+          "Reduces the cast time of your Lightning Bolt, Chain Lightning and Chain Heal spells by 0.4 sec.",
+          "Reduces the cast time of your Lightning Bolt, Chain Lightning and Chain Heal spells by 0.6 sec.",
+          "Reduces the cast time of your Lightning Bolt, Chain Lightning and Chain Heal spells by 0.8 sec.",
+          "Reduces the cast time of your Lightning Bolt, Chain Lightning and Chain Heal spells by 1 sec."
+        ]
       },
       {
-        "fieldName": "elementalMastery",
+        "fieldName": "elementalPrecision",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 0
+        },
+        "spellIds": [
+          33611,
+          33612
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases your chance to hit with Fire, Frost and Nature spells by 5%.",
+          "Increases your chance to hit with Fire, Frost and Nature spells by 10%."
+        ]
+      },
+      {
+        "fieldName": "lightningOverlord",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 2
+        },
+        "spellIds": [
+          34281,
+          34282,
+          34283,
+          34284,
+          34285
+        ],
+        "maxPoints": 5,
+        "prereqLocation": {
+          "rowIdx": 4,
+          "colIdx": 2
+        },
+        "descriptions": [
+          "Your Lightning Bolt, Chain Lightning and Chain Heal spells criticals will refund 10% of their base mana cost.",
+          "Your Lightning Bolt, Chain Lightning and Chain Heal spells criticals will refund 20% of their base mana cost.",
+          "Your Lightning Bolt, Chain Lightning and Chain Heal spells criticals will refund 30% of their base mana cost.",
+          "Your Lightning Bolt, Chain Lightning and Chain Heal spells criticals will refund 40% of their base mana cost.",
+          "Your Lightning Bolt, Chain Lightning and Chain Heal spells criticals will refund 50% of their base mana cost."
+        ]
+      },
+      {
+        "fieldName": "staticField",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 3
+        },
+        "spellIds": [
+          33605,
+          33606,
+          33607,
+          33608,
+          33609
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Gives your damage spells a 20% chance to energize you, increasing damage and reducing Mana cost of your Lightning Bolt and Chain Lightning by 1% for 20 sec. Stacks up to 10 times.",
+          "Gives your damage spells a 40% chance to energize you, increasing damage and reducing Mana cost of your Lightning Bolt and Chain Lightning by 1% for 20 sec. Stacks up to 10 times.",
+          "Gives your damage spells a 60% chance to energize you, increasing damage and reducing Mana cost of your Lightning Bolt and Chain Lightning by 1% for 20 sec. Stacks up to 10 times.",
+          "Gives your damage spells a 80% chance to energize you, increasing damage and reducing Mana cost of your Lightning Bolt and Chain Lightning by 1% for 20 sec. Stacks up to 10 times.",
+          "Gives your damage spells a 100% chance to energize you, increasing damage and reducing Mana cost of your Lightning Bolt and Chain Lightning by 1% for 20 sec. Stacks up to 10 times."
+        ]
+      },
+      {
+        "fieldName": "earthquake",
         "location": {
           "rowIdx": 6,
           "colIdx": 1
         },
         "spellIds": [
-          16166
+          33616
         ],
         "maxPoints": 1,
         "prereqLocation": {
           "rowIdx": 4,
           "colIdx": 1
-        }
+        },
+        "descriptions": [
+          "Shakes the ground, shocking enemies for trivial amount of Nature damage. Each hit causes an echoes that inflicts damage to nearby enemies. The effect lessens with distance to the epicenter. Also dazes the targets for 5 sec and causes a high amount of threat."
+        ]
       }
     ]
   },
@@ -214,31 +396,78 @@
     "backgroundUrl": "https://wow.zamimg.com/images/wow/talents/backgrounds/classic/263.jpg",
     "talents": [
       {
-        "fieldName": "ancestralKnowledge",
+        "fieldName": "elementalWeapons",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 0
+        },
+        "spellIds": [
+          16266,
+          29079,
+          29080
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases the effectiveness of your elemental weapon enchants by 10%.",
+          "Increases the effectiveness of your elemental weapon enchants by 20%.",
+          "Increases the effectiveness of your elemental weapon enchants by 30%."
+        ]
+      },
+      {
+        "fieldName": "earthShield",
         "location": {
           "rowIdx": 0,
           "colIdx": 1
         },
         "spellIds": [
-          17485,
-          17486,
-          17487,
-          17488,
-          17489
+          34599
         ],
-        "maxPoints": 5
+        "maxPoints": 1,
+        "prereqLocation": {
+          "rowIdx": 0,
+          "colIdx": 2
+        },
+        "descriptions": [
+          "Regenerates 1% of your Health every 5 sec, increases your chance to block by 30% and allows you to block without a shield. Blocking also restores $/10;35757S1% of your Health. Lasts 10 min or X block."
+        ]
       },
       {
-        "fieldName": "shieldSpecialization",
+        "fieldName": "ancestralKnowledge",
         "location": {
           "rowIdx": 0,
           "colIdx": 2
         },
         "spellIds": [
-          16253,
-          16298
+          17485,
+          17486,
+          17487,
+          17488
         ],
-        "maxPoints": 5
+        "maxPoints": 4,
+        "descriptions": [
+          "Increases your maximum Mana by 2%.",
+          "Increases your maximum Mana by 3%.",
+          "Increases your maximum Mana by 4%.",
+          "Increases your maximum Mana by 5%."
+        ]
+      },
+      {
+        "fieldName": "toughness",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 3
+        },
+        "spellIds": [
+          16252,
+          16306,
+          16307
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases your resistance and armor value from items by 5%.",
+          "Increases your resistance and armor value from items by 10%.",
+          "Increases your resistance and armor value from items by 15%."
+        ]
       },
       {
         "fieldName": "guardianTotems",
@@ -250,7 +479,11 @@
           16258,
           16293
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effect of your Resistance Totems, Stoneskin Totem and Windwall Totem by 25% and reduces the cooldown of your Grounding Totem by 10 sec.",
+          "Increases the effect of your Resistance Totems, Stoneskin Totem and Windwall Totem by 50% and reduces the cooldown of your Grounding Totem by 20 sec."
+        ]
       },
       {
         "fieldName": "thunderingStrikes",
@@ -265,22 +498,17 @@
           16304,
           16305
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Improves your chance to get a critical strike with your weapon attacks and Shock spells by 1%.",
+          "Improves your chance to get a critical strike with your weapon attacks and Shock spells by 2%.",
+          "Improves your chance to get a critical strike with your weapon attacks and Shock spells by 3%.",
+          "Improves your chance to get a critical strike with your weapon attacks and Shock spells by 4%.",
+          "Improves your chance to get a critical strike with your weapon attacks and Shock spells by 5%."
+        ]
       },
       {
-        "fieldName": "improvedGhostWolf",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 2
-        },
-        "spellIds": [
-          16262,
-          16287
-        ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "improvedLightningShield",
+        "fieldName": "improvedElementalShields",
         "location": {
           "rowIdx": 1,
           "colIdx": 3
@@ -289,50 +517,38 @@
           16261,
           16290
         ],
-        "maxPoints": 3
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effects and reduces Mana cost of your Earth and Lightning Shield by 10% and increases number of orbs by 20%.",
+          "Increases the effects and reduces Mana cost of your Earth and Lightning Shield by 20% and increases number of orbs by 40%."
+        ]
       },
       {
-        "fieldName": "enhancingTotems",
+        "fieldName": "rockhide",
         "location": {
           "rowIdx": 2,
           "colIdx": 0
         },
         "spellIds": [
-          16259,
-          16295
+          33624,
+          33625,
+          33626
         ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "twoHandedAxesAndMaces",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 2
+        "maxPoints": 3,
+        "prereqLocation": {
+          "rowIdx": 1,
+          "colIdx": 0
         },
-        "spellIds": [
-          16269
-        ],
-        "maxPoints": 1
-      },
-      {
-        "fieldName": "anticipation",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 3
-        },
-        "spellIds": [
-          16254,
-          16271,
-          16272,
-          16273,
-          16274
-        ],
-        "maxPoints": 5
+        "descriptions": [
+          "When struck in combat has a 2% chance to inflict up to 120 physical damage (scales with your level) to nearby enemies and to stun them for 1 sec. In addition, reduces all damage taken by 2%.",
+          "When struck in combat has a 4% chance to inflict up to 120 physical damage (scales with your level) to nearby enemies and to stun them for 1 sec. In addition, reduces all damage taken by 4%.",
+          "When struck in combat has a 6% chance to inflict up to 120 physical damage (scales with your level) to nearby enemies and to stun them for 1 sec. In addition, reduces all damage taken by 6%."
+        ]
       },
       {
         "fieldName": "flurry",
         "location": {
-          "rowIdx": 3,
+          "rowIdx": 2,
           "colIdx": 1
         },
         "spellIds": [
@@ -346,22 +562,108 @@
         "prereqLocation": {
           "rowIdx": 1,
           "colIdx": 1
-        }
+        },
+        "descriptions": [
+          "Increases your attack speed by 5% for your next X swings after dealing a critical strike.",
+          "Increases your attack speed by 10% for your next X swings after dealing a critical strike.",
+          "Increases your attack speed by 15% for your next X swings after dealing a critical strike.",
+          "Increases your attack speed by 20% for your next X swings after dealing a critical strike.",
+          "Increases your attack speed by 25% for your next X swings after dealing a critical strike."
+        ]
       },
       {
-        "fieldName": "toughness",
+        "fieldName": "aftershock",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 2
+        },
+        "spellIds": [
+          33648
+        ],
+        "maxPoints": 1,
+        "prereqLocation": {
+          "rowIdx": 0,
+          "colIdx": 2
+        },
+        "descriptions": [
+          "Blasts a target with aftershock, consuming your shock spells and applies an effects based on consumed shock spells. Flame Shock: instantly deals damage equal to 15 sec of Flame Shock. Frost Shock: stuns the target for 3 sec. Earth Shock: breaks movement impairing effects for you and forces the target to focus attacks on you for 3 sec."
+        ]
+      },
+      {
+        "fieldName": "improvedGhostWolf",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 3
+        },
+        "spellIds": [
+          16262,
+          16287
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Reduces Mana cost and cast time of your Ghost Wolf spell by 50%.",
+          "Reduces Mana cost and cast time of your Ghost Wolf spell by 100%."
+        ]
+      },
+      {
+        "fieldName": "enhancingTotems",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 0
+        },
+        "spellIds": [
+          16259,
+          16295
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effect and reduces the Mana cost of your Strength of Earth and Grace of Air Totems by 25%.",
+          "Increases the effect and reduces the Mana cost of your Strength of Earth and Grace of Air Totems by 50%."
+        ]
+      },
+      {
+        "fieldName": "primalEndurance",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33631,
+          33632,
+          33633,
+          33634,
+          33635
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases your total Health by 2% and reduces otherwise fatal damage by 10%.",
+          "Increases your total Health by 4% and reduces otherwise fatal damage by 20%.",
+          "Increases your total Health by 6% and reduces otherwise fatal damage by 30%.",
+          "Increases your total Health by 8% and reduces otherwise fatal damage by 40%.",
+          "Increases your total Health by 10% and reduces otherwise fatal damage by 50%."
+        ]
+      },
+      {
+        "fieldName": "weaponMastery",
         "location": {
           "rowIdx": 3,
           "colIdx": 2
         },
         "spellIds": [
-          16252,
-          16306,
-          16307,
-          16308,
-          16309
+          29082,
+          29084,
+          29086,
+          29087,
+          29088
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the damage you deal with all weapons by 2%.",
+          "Increases the damage you deal with all weapons by 4%.",
+          "Increases the damage you deal with all weapons by 6%.",
+          "Increases the damage you deal with all weapons by 8%.",
+          "Increases the damage you deal with all weapons by 10%."
+        ]
       },
       {
         "fieldName": "improvedWeaponTotems",
@@ -373,61 +675,105 @@
           29192,
           29193
         ],
-        "maxPoints": 2
+        "maxPoints": 2,
+        "prereqLocation": {
+          "rowIdx": 3,
+          "colIdx": 0
+        },
+        "descriptions": [
+          "Increases the effect and reduces the Mana cost of your Windfury and Flametongue totems by 25%.",
+          "Increases the effect and reduces the Mana cost of your Windfury and Flametongue totems by 50%."
+        ]
       },
       {
-        "fieldName": "elementalWeapons",
+        "fieldName": "bloodlust",
         "location": {
           "rowIdx": 4,
           "colIdx": 1
         },
         "spellIds": [
-          16266,
-          29079,
-          29080
+          33630
         ],
-        "maxPoints": 3
+        "maxPoints": 1,
+        "descriptions": [
+          "Increases an ally's attack and casting speed by 10% for 3 min."
+        ]
       },
       {
-        "fieldName": "parry",
+        "fieldName": "anticipation",
         "location": {
           "rowIdx": 4,
           "colIdx": 2
         },
         "spellIds": [
-          16268
+          16254,
+          16271,
+          16272
         ],
-        "maxPoints": 1
+        "maxPoints": 3,
+        "descriptions": [
+          "Reduces the chance your Shock spells are resisted and the chance you are hit by spells and ranged attacks by 3%.",
+          "Reduces the chance your Shock spells are resisted and the chance you are hit by spells and ranged attacks by 6%.",
+          "Reduces the chance your Shock spells are resisted and the chance you are hit by spells and ranged attacks by 9%."
+        ]
       },
       {
-        "fieldName": "weaponMastery",
+        "fieldName": "armamentsOfStorm",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33636,
+          33637,
+          33638,
+          33639,
+          33640
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Imbue weapons with storm, gives you a 5% chance to deal additional up to 300 Nature damage.(Scales with your level)",
+          "Imbue weapons with storm, gives you a 10% chance to deal additional up to 300 Nature damage.(Scales with your level)",
+          "Imbue weapons with storm, gives you a 15% chance to deal additional up to 300 Nature damage.(Scales with your level)",
+          "Imbue weapons with storm, gives you a 20% chance to deal additional up to 300 Nature damage.(Scales with your level)",
+          "Imbue weapons with storm, gives you a 25% chance to deal additional up to 300 Nature damage.(Scales with your level)"
+        ]
+      },
+      {
+        "fieldName": "shamanism",
         "location": {
           "rowIdx": 5,
           "colIdx": 2
         },
         "spellIds": [
-          29082,
-          29084,
-          29086,
-          29087,
-          29088
+          33642,
+          33643,
+          33644,
+          33645,
+          33646
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Gives your Main Hand attacks a chance to enter a Shamanic Trance. The Shamanic Trance reduces the cast time and Mana cost of your next damage spell by 100% and greatly reduces target's chance to resist that spell.",
+          "Gives your Main Hand attacks a chance to enter a Shamanic Trance. The Shamanic Trance reduces the cast time and Mana cost of your next damage spell by 100% and greatly reduces target's chance to resist that spell. Effect occurs more often than Shamanism (Rank 1).",
+          "Gives your Main Hand attacks a chance to enter a Shamanic Trance. The Shamanic Trance reduces the cast time and Mana cost of your next damage spell by 100% and greatly reduces target's chance to resist that spell. Effect occurs more often than Shamanism (Rank 2).",
+          "Gives your Main Hand attacks a chance to enter a Shamanic Trance. The Shamanic Trance reduces the cast time and Mana cost of your next damage spell by 100% and greatly reduces target's chance to resist that spell. Effect occurs more often than Shamanism (Rank 3).",
+          "Gives your Main Hand attacks a chance to enter a Shamanic Trance. The Shamanic Trance reduces the cast time and Mana cost of your next damage spell by 100% and greatly reduces target's chance to resist that spell. Effect occurs more often than Shamanism (Rank 4)."
+        ]
       },
       {
-        "fieldName": "stormstrike",
+        "fieldName": "stormforged",
         "location": {
           "rowIdx": 6,
           "colIdx": 1
         },
         "spellIds": [
-          17364
+          35752
         ],
         "maxPoints": 1,
-        "prereqLocation": {
-          "rowIdx": 4,
-          "colIdx": 1
-        }
+        "descriptions": [
+          "Increases your spell damage and healing by 20% of your Attack Power. In addition, Stormstrike restores 5% of your mana and grants three extra Elemental Shield charge."
+        ]
       }
     ]
   },
@@ -436,79 +782,9 @@
     "backgroundUrl": "https://wow.zamimg.com/images/wow/talents/backgrounds/classic/262.jpg",
     "talents": [
       {
-        "fieldName": "improvedHealingWave",
-        "location": {
-          "rowIdx": 0,
-          "colIdx": 1
-        },
-        "spellIds": [
-          16182,
-          16226,
-          16227,
-          16228,
-          16229
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "tidalFocus",
-        "location": {
-          "rowIdx": 0,
-          "colIdx": 2
-        },
-        "spellIds": [
-          16179,
-          16214,
-          16215,
-          16216,
-          16217
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "improvedReincarnation",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 0
-        },
-        "spellIds": [
-          16184,
-          16209
-        ],
-        "maxPoints": 2
-      },
-      {
-        "fieldName": "ancestralHealing",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 1
-        },
-        "spellIds": [
-          16176,
-          16235,
-          16240
-        ],
-        "maxPoints": 3
-      },
-      {
-        "fieldName": "totemicFocus",
-        "location": {
-          "rowIdx": 1,
-          "colIdx": 2
-        },
-        "spellIds": [
-          16173,
-          16222,
-          16223,
-          16224,
-          16225
-        ],
-        "maxPoints": 5
-      },
-      {
         "fieldName": "naturesGuidance",
         "location": {
-          "rowIdx": 2,
+          "rowIdx": 0,
           "colIdx": 0
         },
         "spellIds": [
@@ -516,67 +792,18 @@
           16196,
           16198
         ],
-        "maxPoints": 3
-      },
-      {
-        "fieldName": "healingFocus",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 1
-        },
-        "spellIds": [
-          16181,
-          16230,
-          16232,
-          16233,
-          16234
-        ],
-        "maxPoints": 5
-      },
-      {
-        "fieldName": "totemicMastery",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 2
-        },
-        "spellIds": [
-          16189
-        ],
-        "maxPoints": 1
-      },
-      {
-        "fieldName": "healingGrace",
-        "location": {
-          "rowIdx": 2,
-          "colIdx": 3
-        },
-        "spellIds": [
-          29187,
-          29189,
-          29191
-        ],
-        "maxPoints": 3
-      },
-      {
-        "fieldName": "restorativeTotems",
-        "location": {
-          "rowIdx": 3,
-          "colIdx": 1
-        },
-        "spellIds": [
-          16187,
-          16205,
-          16206,
-          16207,
-          16208
-        ],
-        "maxPoints": 5
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases your chance to hit with melee attacks and spells by 1%.",
+          "Increases your chance to hit with melee attacks and spells by 2%.",
+          "Increases your chance to hit with melee attacks and spells by 3%."
+        ]
       },
       {
         "fieldName": "tidalMastery",
         "location": {
-          "rowIdx": 3,
-          "colIdx": 2
+          "rowIdx": 0,
+          "colIdx": 1
         },
         "spellIds": [
           16194,
@@ -585,20 +812,260 @@
           16220,
           16221
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the critical effect chance of your healing and lightning spells by 1% and increases the speed reduction of your Frost Shock by an additional 2%.",
+          "Increases the critical effect chance of your healing and lightning spells by 2% and increases the speed reduction of your Frost Shock by an additional 4%.",
+          "Increases the critical effect chance of your healing and lightning spells by 3% and increases the speed reduction of your Frost Shock by an additional 6%.",
+          "Increases the critical effect chance of your healing and lightning spells by 4% and increases the speed reduction of your Frost Shock by an additional 8%.",
+          "Increases the critical effect chance of your healing and lightning spells by 5% and increases the speed reduction of your Frost Shock by an additional 10%."
+        ]
       },
       {
-        "fieldName": "healingWay",
+        "fieldName": "spiritwalking",
+        "location": {
+          "rowIdx": 0,
+          "colIdx": 2
+        },
+        "spellIds": [
+          16184,
+          16209
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Reduces the cooldown of your Astral Recall and Reincarnation spells by 15 minutes, and increases the amount of health and mana you return with upon reincarnation by 15%. Additionally, positive effects are preserved through reincarnation.",
+          "Reduces the cooldown of your Astral Recall and Reincarnation spells by 30 minutes, and increases the amount of health and mana you return with upon reincarnation by 30%. Additionally, positive effects are preserved through reincarnation."
+        ]
+      },
+      {
+        "fieldName": "improvedHealingWave",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 0
+        },
+        "spellIds": [
+          16182,
+          16226,
+          16227,
+          16228,
+          16229
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Reduces the cast time of your Healing Wave by 0.1 sec.",
+          "Reduces the cast time of your Healing Wave by 0.2 sec.",
+          "Reduces the cast time of your Healing Wave by 0.3 sec.",
+          "Reduces the cast time of your Healing Wave by 0.4 sec.",
+          "Reduces the cast time of your Healing Wave by 0.5 sec."
+        ]
+      },
+      {
+        "fieldName": "totemicMastery",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 2
+        },
+        "spellIds": [
+          33655,
+          33656
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "The radius of your totems is increased by 10%.",
+          "The radius of your totems is increased by 20%."
+        ]
+      },
+      {
+        "fieldName": "natureGrace",
+        "location": {
+          "rowIdx": 1,
+          "colIdx": 3
+        },
+        "spellIds": [
+          29187,
+          29189,
+          29191
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Reduces the threat you generate by 10%.",
+          "Reduces the threat you generate by 20%.",
+          "Reduces the threat you generate by 30%."
+        ]
+      },
+      {
+        "fieldName": "naturesGuardian",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 0
+        },
+        "spellIds": [
+          33661,
+          33662,
+          33663
+        ],
+        "maxPoints": 3,
+        "descriptions": [
+          "Reduces the chance you are critically hit by 2%.",
+          "Reduces the chance you are critically hit by 4%.",
+          "Reduces the chance you are critically hit by 6%."
+        ]
+      },
+      {
+        "fieldName": "tidalBarrier",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 1
+        },
+        "spellIds": [
+          33660
+        ],
+        "maxPoints": 1,
+        "prereqLocation": {
+          "rowIdx": 0,
+          "colIdx": 1
+        },
+        "descriptions": [
+          "Reduces the damage taken from physical attacks and Fire spells by 50%, but reduces damage caused by 30%. Lasts 10 sec."
+        ]
+      },
+      {
+        "fieldName": "totemicFocus",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 2
+        },
+        "spellIds": [
+          16173,
+          16222
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Reduces the Mana cost of your totems by 25%.",
+          "Reduces the Mana cost of your totems by 50%."
+        ]
+      },
+      {
+        "fieldName": "natureFocus",
+        "location": {
+          "rowIdx": 2,
+          "colIdx": 3
+        },
+        "spellIds": [
+          16181,
+          16230,
+          16232,
+          16233,
+          16234
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Gives you a 15% chance to avoid interruption caused by damage while casting any healing spell and 6% while casting lightning damage spells.",
+          "Gives you a 30% chance to avoid interruption caused by damage while casting any healing spell and 12% while casting lightning damage spells.",
+          "Gives you a 45% chance to avoid interruption caused by damage while casting any healing spell and 18% while casting lightning damage spells.",
+          "Gives you a 60% chance to avoid interruption caused by damage while casting any healing spell and 24% while casting lightning damage spells.",
+          "Gives you a 75% chance to avoid interruption caused by damage while casting any healing spell and 30% while casting lightning damage spells."
+        ]
+      },
+      {
+        "fieldName": "natureSpirit",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 0
+        },
+        "spellIds": [
+          33675,
+          33676,
+          33677,
+          33678,
+          33679
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases spell damage and healing by up to 8% of your total Spirit.",
+          "Increases spell damage and healing by up to 16% of your total Spirit.",
+          "Increases spell damage and healing by up to 24% of your total Spirit.",
+          "Increases spell damage and healing by up to 32% of your total Spirit.",
+          "Increases spell damage and healing by up to 40% of your total Spirit."
+        ]
+      },
+      {
+        "fieldName": "tidalFocus",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 1
+        },
+        "spellIds": [
+          16179,
+          16214,
+          16215,
+          16216,
+          16217
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Reduces the Mana cost of your healing and lightning spells by 1%. Also reduces the Mana cost of your Frost Shock spell by 10%.",
+          "Reduces the Mana cost of your healing and lightning spells by 2%. Also reduces the Mana cost of your Frost Shock spell by 20%.",
+          "Reduces the Mana cost of your healing and lightning spells by 3%. Also reduces the Mana cost of your Frost Shock spell by 30%.",
+          "Reduces the Mana cost of your healing and lightning spells by 4%. Also reduces the Mana cost of your Frost Shock spell by 40%.",
+          "Reduces the Mana cost of your healing and lightning spells by 5%. Also reduces the Mana cost of your Frost Shock spell by 50%."
+        ]
+      },
+      {
+        "fieldName": "restorativeTotems",
+        "location": {
+          "rowIdx": 3,
+          "colIdx": 2
+        },
+        "spellIds": [
+          16187,
+          16205
+        ],
+        "maxPoints": 2,
+        "descriptions": [
+          "Increases the effect of your Mana Tide, Mana Spring and Healing Stream Totems by 30%.",
+          "Increases the effect of your Mana Tide, Mana Spring and Healing Stream Totems by 50%."
+        ]
+      },
+      {
+        "fieldName": "ancestralHealing",
         "location": {
           "rowIdx": 4,
           "colIdx": 0
         },
         "spellIds": [
-          29206,
-          29202,
-          29205
+          16176,
+          16235,
+          16240
         ],
-        "maxPoints": 3
+        "maxPoints": 3,
+        "descriptions": [
+          "Increases your target's armor value by 5% for 20 sec after getting a critical effect from one of your healing spells.",
+          "Increases your target's armor value by 10% for 20 sec after getting a critical effect from one of your healing spells.",
+          "Increases your target's armor value by 15% for 20 sec after getting a critical effect from one of your healing spells."
+        ]
+      },
+      {
+        "fieldName": "purification",
+        "location": {
+          "rowIdx": 4,
+          "colIdx": 1
+        },
+        "spellIds": [
+          16178,
+          16210,
+          16211,
+          16212,
+          16213
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Increases the effectiveness of your healing spells by 2% and increases damage dealt to Undead or Demons by 3%.",
+          "Increases the effectiveness of your healing spells by 4% and increases damage dealt to Undead or Demons by 6%.",
+          "Increases the effectiveness of your healing spells by 6% and increases damage dealt to Undead or Demons by 9%.",
+          "Increases the effectiveness of your healing spells by 8% and increases damage dealt to Undead or Demons by 12%.",
+          "Increases the effectiveness of your healing spells by 10% and increases damage dealt to Undead or Demons by 15%."
+        ]
       },
       {
         "fieldName": "naturesSwiftness",
@@ -609,37 +1076,94 @@
         "spellIds": [
           16188
         ],
-        "maxPoints": 1
+        "maxPoints": 1,
+        "descriptions": [
+          "When activated, your next Nature spell with a casting time less than 10 sec. becomes an instant cast spell."
+        ]
       },
       {
-        "fieldName": "purification",
+        "fieldName": "focusedMind",
+        "location": {
+          "rowIdx": 4,
+          "colIdx": 3
+        },
+        "spellIds": [
+          33670,
+          33671,
+          33672
+        ],
+        "maxPoints": 3,
+        "prereqLocation": {
+          "rowIdx": 2,
+          "colIdx": 3
+        },
+        "descriptions": [
+          "Increases your chance to resist Silence and Interrupt effects by an additional 10%.",
+          "Increases your chance to resist Silence and Interrupt effects by an additional 20%.",
+          "Increases your chance to resist Silence and Interrupt effects by an additional 30%."
+        ]
+      },
+      {
+        "fieldName": "healingWay",
+        "location": {
+          "rowIdx": 5,
+          "colIdx": 0
+        },
+        "spellIds": [
+          29206,
+          29205,
+          29202,
+          34287,
+          34288
+        ],
+        "maxPoints": 5,
+        "descriptions": [
+          "Your Healing Wave spells have a 20% chance to increase the effect of subsequent Healing Wave spells on that target by 3% for 30 sec. This effect will stack up to 10 times.",
+          "Your Healing Wave spells have a 40% chance to increase the effect of subsequent Healing Wave spells on that target by 3% for 30 sec. This effect will stack up to 10 times.",
+          "Your Healing Wave spells have a 60% chance to increase the effect of subsequent Healing Wave spells on that target by 3% for 30 sec. This effect will stack up to 10 times.",
+          "Your Healing Wave spells have a 80% chance to increase the effect of subsequent Healing Wave spells on that target by 3% for 30 sec. This effect will stack up to 10 times.",
+          "Your Healing Wave spells have a 100% chance to increase the effect of subsequent Healing Wave spells on that target by 3% for 30 sec. This effect will stack up to 10 times."
+        ]
+      },
+      {
+        "fieldName": "meditation",
         "location": {
           "rowIdx": 5,
           "colIdx": 2
         },
         "spellIds": [
-          16178,
-          16210,
-          16211,
-          16212,
-          16213
+          33680,
+          33681,
+          33682,
+          33683,
+          33684
         ],
-        "maxPoints": 5
+        "maxPoints": 5,
+        "descriptions": [
+          "Allows 10% of your Mana regeneration to continue while casting.",
+          "Allows 20% of your Mana regeneration to continue while casting.",
+          "Allows 30% of your Mana regeneration to continue while casting.",
+          "Allows 40% of your Mana regeneration to continue while casting.",
+          "Allows 50% of your Mana regeneration to continue while casting."
+        ]
       },
       {
-        "fieldName": "manaTideTotem",
+        "fieldName": "cleansingWave",
         "location": {
           "rowIdx": 6,
           "colIdx": 1
         },
         "spellIds": [
-          16190
+          33686
         ],
         "maxPoints": 1,
         "prereqLocation": {
-          "rowIdx": 3,
+          "rowIdx": 4,
           "colIdx": 1
-        }
+        },
+        "descriptions": [
+          "Attempts to cure 1 curse, disease, magic and poison effects, and additional 1 curse, disease, magic and poison effects every 2 seconds for 6 sec."
+        ]
       }
     ]
   }

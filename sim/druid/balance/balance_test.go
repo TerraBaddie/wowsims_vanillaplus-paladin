@@ -34,7 +34,7 @@ func TestP1Balance(t *testing.T) {
 	}))
 }
 
-var P1Talents = "5000550012551251--5005031"
+var P1Talents = ""
 
 var P1Consumes = core.ConsumesCombo{
 	Label: "P1-Consumes",

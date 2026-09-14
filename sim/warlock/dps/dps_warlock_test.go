@@ -20,7 +20,7 @@ func TestWarlockSMRuin(t *testing.T) {
 			Race:  proto.Race_RaceOrc,
 
 			Talents:     TalentsSMRuin,
-			GearSet:     core.GetGearSet("../../../ui/warlock/gear_sets", "mc"),
+			GearSet:     core.GetGearSet("../../../ui/warlock/gear_sets", "prebis"),
 			Rotation:    core.GetAplRotation("../../../ui/warlock/apls/", "rotation"),
 			Buffs:       core.FullBuffs,
 			Consumes:    Consumes,
@@ -41,7 +41,7 @@ func TestWarlockDSRuin(t *testing.T) {
 			Race:  proto.Race_RaceOrc,
 
 			Talents:     TalentsDSRuin,
-			GearSet:     core.GetGearSet("../../../ui/warlock/gear_sets", "mc"),
+			GearSet:     core.GetGearSet("../../../ui/warlock/gear_sets", "prebis"),
 			Rotation:    core.GetAplRotation("../../../ui/warlock/apls/", "rotation"),
 			Buffs:       core.FullBuffs,
 			Consumes:    Consumes,
@@ -54,8 +54,8 @@ func TestWarlockDSRuin(t *testing.T) {
 	}))
 }
 
-var TalentsSMRuin = "5502203112201105--52500051020001"
-var TalentsDSRuin = "25002-2050300152201-52500051020001"
+var TalentsSMRuin = ""
+var TalentsDSRuin = ""
 
 var DefaultDestroWarlock = &proto.Player_Warlock{
 	Warlock: &proto.Warlock{

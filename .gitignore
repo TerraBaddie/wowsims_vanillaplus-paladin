@@ -21,6 +21,13 @@ google-chrome*
 
 # temporary files
 *.results.tmp
+__pycache__/
+*.pyc
+
+# raw addon/data dumps -- source data, not code; regenerate/re-source instead of tracking
+CSV's/
+*.csv
+*.xlsx
 
 #.dockerignore
 /classic/

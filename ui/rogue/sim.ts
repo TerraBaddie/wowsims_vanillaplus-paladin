@@ -31,7 +31,7 @@ const SPEC_CONFIG = registerSpecConfig(Spec.SpecRogue, {
 			return {
 				updateOn: simUI.player.changeEmitter,
 				getContent: () => {
-					if (simUI.player.getTalents().maceSpecialization) {
+					if (false /* Mace Specialization removed from custom rogue tree */) {
 						if (
 							simUI.player.getGear().getEquippedItem(ItemSlot.ItemSlotMainHand)?.item.weaponType == WeaponType.WeaponTypeMace ||
 							simUI.player.getGear().getEquippedItem(ItemSlot.ItemSlotOffHand)?.item.weaponType == WeaponType.WeaponTypeMace

@@ -26,7 +26,7 @@ const (
 	SpellCode_MageScorch
 )
 
-var TalentTreeSizes = [3]int{16, 16, 17}
+var TalentTreeSizes = [3]int{20, 20, 20}
 
 func RegisterMage() {
 	core.RegisterAgentFactory(
@@ -135,6 +135,7 @@ func NewMage(character *core.Character, options *proto.Player) *Mage {
 
 	mage.AddStatDependency(stats.Strength, stats.AttackPower, core.APPerStrength[character.Class])
 	mage.AddStatDependency(stats.Intellect, stats.SpellCrit, core.CritPerIntAtLevel[mage.Class]*core.SpellCritRatingPerCritChance)
+	mage.AddStatDependency(stats.Intellect, stats.SpellPower, core.SpellPowerPerIntellect)
 
 	switch mage.Options.Armor {
 	case proto.Mage_Options_IceArmor:

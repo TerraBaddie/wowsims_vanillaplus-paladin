@@ -58,7 +58,9 @@ func NewItemSet(set ItemSet) *ItemSet {
 			panic(fmt.Sprintf("No items found for set id %d", set.ID))
 		}
 		if !foundName {
-			panic("No items found for set " + set.Name)
+			// The set's items were removed from the DB (e.g. private-server content
+			// that doesn't exist). Skip registering its bonuses rather than crashing.
+			return &set
 		}
 		if len(set.AlternativeName) > 0 && !foundAlternativeName {
 			panic("No items found for set alternative " + set.AlternativeName)

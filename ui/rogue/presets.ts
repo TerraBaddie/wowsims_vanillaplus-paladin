@@ -29,10 +29,6 @@ import SinisterStrikeIEAAPL from './apls/combat_sinister_strike_iea.apl.json';
 import BlankGear from './gear_sets/blank.gear.json';
 import BackstabGearPreBiS from './gear_sets/combat_backstab_prebis.gear.json';
 import SinisterStrikeGearPreBiS from './gear_sets/combat_sinister_strike_prebis.gear.json';
-import BackstabGearP1BiS from './gear_sets/combat_backstab_p1_bis.gear.json';
-import BackstabGearP2BiS from './gear_sets/combat_backstab_p2_bis.gear.json';
-import SinisterStrikeGearP1BiS from './gear_sets/combat_sinister_strike_p1_bis.gear.json';
-import SinisterStrikeGearP2BiS from './gear_sets/combat_sinister_strike_p2_bis.gear.json';
 
 // Preset options for this spec.
 // Eventually we will import these values for the raid sim too, so its good to
@@ -45,14 +41,9 @@ import SinisterStrikeGearP2BiS from './gear_sets/combat_sinister_strike_p2_bis.g
 export const GearBlank = PresetUtils.makePresetGear('Blank', BlankGear);
 export const GearBackstabPreBiS = PresetUtils.makePresetGear('Backstab Pre-BiS', BackstabGearPreBiS);
 export const GearSinisterStrikePreBiS = PresetUtils.makePresetGear('Sinister Strike Pre-BiS', SinisterStrikeGearPreBiS);
-export const GearBackstabP1BiS = PresetUtils.makePresetGear('Backstab P1 BiS', BackstabGearP1BiS);
-export const GearBackstabP2BiS = PresetUtils.makePresetGear('Backstab P2 BiS', BackstabGearP2BiS);
-export const GearSinisterStrikeP1BiS = PresetUtils.makePresetGear('Sinister Strike P1 BiS', SinisterStrikeGearP1BiS);
-export const GearSinisterStrikeP2BiS = PresetUtils.makePresetGear('Sinister Strike P2 BiS', SinisterStrikeGearP2BiS);
-
 export const GearPresets = {
-	[Phase.Phase1]: [GearBackstabPreBiS, GearSinisterStrikePreBiS, GearBackstabP1BiS, GearSinisterStrikeP1BiS],
-	[Phase.Phase2]: [GearBackstabPreBiS, GearSinisterStrikePreBiS, GearBackstabP2BiS, GearSinisterStrikeP2BiS],
+	[Phase.Phase1]: [GearBackstabPreBiS, GearSinisterStrikePreBiS],
+	[Phase.Phase2]: [GearBackstabPreBiS, GearSinisterStrikePreBiS],
 };
 
 export const DefaultGear = GearSinisterStrikePreBiS;
@@ -93,10 +84,10 @@ export const DefaultAPLIEA = APLPresets[Phase.Phase2][4];
 
 export const CombatBackstabTalents = PresetUtils.makePresetTalents(
 	'Backstab',
-	SavedTalents.create({ talentsString: '005023104-0233050020550100221-05' }),
+	SavedTalents.create({ talentsString: '' }),
 );
-export const CombatSinisterStrikeTalents = PresetUtils.makePresetTalents('Sinister Strike', SavedTalents.create({ talentsString: '005323105-0240052020050150231' }));
-export const CombatSinisterStrikeIEATalents = PresetUtils.makePresetTalents('Improved Expose Armor (SS)', SavedTalents.create({ talentsString: '005323123-0240052020050150231' }));
+export const CombatSinisterStrikeTalents = PresetUtils.makePresetTalents('Sinister Strike', SavedTalents.create({ talentsString: '' }));
+export const CombatSinisterStrikeIEATalents = PresetUtils.makePresetTalents('Improved Expose Armor (SS)', SavedTalents.create({ talentsString: '' }));
 
 export const TalentPresets = {
 	[Phase.Phase1]: [CombatBackstabTalents, CombatSinisterStrikeTalents, CombatSinisterStrikeIEATalents],
@@ -117,17 +108,17 @@ export const DefaultTalents = DefaultTalentsSinisterStrike;
 //                                Build Presets
 ///////////////////////////////////////////////////////////////////////////
 export const PresetBuildBackstab = PresetUtils.makePresetBuild('Backstab', {
-	gear: GearBackstabP2BiS,
+	gear: GearBackstabPreBiS,
 	talents: DefaultTalentsBackstab,
 	rotation: DefaultAPLBackstab,
 });
 export const PresetBuildSinisterStrike = PresetUtils.makePresetBuild('Sinister Strike', {
-	gear: GearSinisterStrikeP2BiS,
+	gear: GearSinisterStrikePreBiS,
 	talents: DefaultTalentsSinisterStrike,
 	rotation: DefaultAPLSinisterStrike,
 });
 export const PresetBuildIEA = PresetUtils.makePresetBuild('IEA', {
-	gear: GearSinisterStrikeP2BiS,
+	gear: GearSinisterStrikePreBiS,
 	talents: DefaultTalentsIEA,
 	rotation: DefaultAPLIEA,
 });
